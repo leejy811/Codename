@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 219522262}
   - component: {fileID: 219522261}
+  - component: {fileID: 219522263}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -152,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84fc3bf398827ef408e11ea17288563c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
+  moveSpeed: 3
 --- !u!4 &219522262
 Transform:
   m_ObjectHideFlags: 0
@@ -169,6 +170,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &219522263
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219522260}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.06, y: 0}
+  m_Size: {x: 0.8, y: 1.48}
+  m_Direction: 0
 --- !u!1 &1567380473
 GameObject:
   m_ObjectHideFlags: 0
