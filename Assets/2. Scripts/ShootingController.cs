@@ -1,5 +1,7 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class ShootingController : MonoBehaviour
 {
@@ -17,6 +19,7 @@ public class ShootingController : MonoBehaviour
     private float moveX;
     private float moveY;
     private bool isDead = false;
+    private bool isRolling = false;
 
 
     void Start()
@@ -49,6 +52,8 @@ public class ShootingController : MonoBehaviour
     {
         if (Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0)
             return;
+        if (isRolling)
+            return;
 
         PlayerState = PlayerStates.Move;
         moveX = Input.GetAxisRaw("Horizontal");
@@ -63,6 +68,18 @@ public class ShootingController : MonoBehaviour
 
     private void TryRoll()
     {
+        if (!Input.GetKeyDown(KeyCode.Space))
+            return;
+        PlayerState = PlayerStates.Roll;
+        isRolling = true;
+        StartCoroutine(Roll());
+    }
 
+    IEnumerator Roll()
+    {
+        var roll = transform.DOMove(new Vector3(1, 1, 0), 1f).SetRelative();
+        yield return roll.WaitForCompletion();
+
+        isRolling = false;
     }
 }
