@@ -22,19 +22,41 @@ public class Node
         this.nodeRect = rect;
     }
 }
-public class BSPTest : MonoBehaviour
+public class MapGenerateManager : MonoBehaviour
 {
-    [SerializeField] Vector2Int mapSize;
+    [SerializeField] public Vector2Int mapSize;
     [SerializeField] float minimumDevideRate; //공간이 나눠지는 최소 비율
     [SerializeField] float maximumDivideRate; //공간이 나눠지는 최대 비율
     [SerializeField] private GameObject line; //lineRenderer를 사용해서 공간이 나눠진걸 시작적으로 보여주기 위함
     [SerializeField] private GameObject map; //lineRenderer를 사용해서 첫 맵의 사이즈를 보여주기 위함
     [SerializeField] private GameObject roomLine; //lineRenderer를 사용해서 방의 사이즈를 보여주기 위함
-    [SerializeField] private int maximumDepth; //트리의 높이, 높을 수록 방을 더 자세히 나누게 됨
-    [SerializeField] Tilemap tileMap;
-    [SerializeField] Tile roomTile; //방을 구성하는 타일
+    [SerializeField] public int maximumDepth; //트리의 높이, 높을 수록 방을 더 자세히 나누게 됨
+    [SerializeField] public Tilemap tileMap;
+    [SerializeField] public Tile roomTile; //방을 구성하는 타일
     [SerializeField] Tile wallTile; //방과 외부를 구분지어줄 벽 타일
     [SerializeField] Tile outTile; //방 외부의 타일
+
+    [Header("=== Room Manager / Road Manager ===")]
+    [SerializeField] private GameObject roomManager; 
+    [SerializeField] private GameObject roadManager;
+
+    private static MapGenerateManager instance = null; // 싱글톤 객체
+
+    public static MapGenerateManager Instance // 싱글톤 받아오기
+    {
+        get
+        {
+            if (null == instance)
+            {
+                return null;
+            }
+            return instance;
+        }
+    }
+    private void Awake()
+    {
+        instance = this;
+    }
     void Start()
     {
         FillBackground();//신 로드 시 전부다 바깥타일로 덮음
@@ -92,6 +114,13 @@ public class BSPTest : MonoBehaviour
             //y좌표도 위와 같다.
             rect = new RectInt(x, y, width, height);
             FillRoom(rect);
+
+            // 방 클래스 생성 및 방 리스트에 추가
+            Room room = new Room();
+            room.rect = rect;
+            room.roomCenter = new Vector2Int(x + width / 2, y + height / 2);
+            RoomManager.Instance.roomLIst.Add(room);
+            RoomManager.Instance.roomCnt++;
         }
         else
         {
@@ -105,21 +134,24 @@ public class BSPTest : MonoBehaviour
     {
         if (n == maximumDepth) //리프 노드라면 이을 자식이 없다.
             return;
-        Vector2Int leftNodeCenter = tree.leftNode.center;
-        Vector2Int rightNodeCenter = tree.rightNode.center;
 
-        for (int i = Mathf.Min(leftNodeCenter.x, rightNodeCenter.x); i <= Mathf.Max(leftNodeCenter.x, rightNodeCenter.x); i++)
-        {
-            tileMap.SetTile(new Vector3Int(i - mapSize.x / 2, leftNodeCenter.y - mapSize.y / 2, 0), roomTile);
-        }
+        RoadManager.Instance.GenerateRoad();
 
-        for (int j = Mathf.Min(leftNodeCenter.y, rightNodeCenter.y); j <= Mathf.Max(leftNodeCenter.y, rightNodeCenter.y); j++)
-        {
-            tileMap.SetTile(new Vector3Int(rightNodeCenter.x - mapSize.x / 2, j - mapSize.y / 2, 0), roomTile);
-        }
-        //이전 포스팅에서 선으로 만들었던 부분을 room tile로 채우는 과정
-        GenerateLoad(tree.leftNode, n + 1); //자식 노드들도 탐색
-        GenerateLoad(tree.rightNode, n + 1);
+        //Vector2Int leftNodeCenter = tree.leftNode.center;
+        //Vector2Int rightNodeCenter = tree.rightNode.center;
+
+        //for (int i = Mathf.Min(leftNodeCenter.x, rightNodeCenter.x); i <= Mathf.Max(leftNodeCenter.x, rightNodeCenter.x); i++)
+        //{
+        //    tileMap.SetTile(new Vector3Int(i - mapSize.x / 2, leftNodeCenter.y - mapSize.y / 2, 0), roomTile);
+        //}
+
+        //for (int j = Mathf.Min(leftNodeCenter.y, rightNodeCenter.y); j <= Mathf.Max(leftNodeCenter.y, rightNodeCenter.y); j++)
+        //{
+        //    tileMap.SetTile(new Vector3Int(rightNodeCenter.x - mapSize.x / 2, j - mapSize.y / 2, 0), roomTile);
+        //}
+        ////이전 포스팅에서 선으로 만들었던 부분을 room tile로 채우는 과정
+        //GenerateLoad(tree.leftNode, n + 1); //자식 노드들도 탐색
+        //GenerateLoad(tree.rightNode, n + 1);
     }
 
     void FillBackground() //배경을 채우는 함수, 씬 load시 가장 먼저 해준다.
