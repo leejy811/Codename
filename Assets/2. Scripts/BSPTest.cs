@@ -108,14 +108,27 @@ public class BSPTest : MonoBehaviour
         Vector2Int leftNodeCenter = tree.leftNode.center;
         Vector2Int rightNodeCenter = tree.rightNode.center;
 
+        // 가로방향 길
         for (int i = Mathf.Min(leftNodeCenter.x, rightNodeCenter.x); i <= Mathf.Max(leftNodeCenter.x, rightNodeCenter.x); i++)
         {
-            tileMap.SetTile(new Vector3Int(i - mapSize.x / 2, leftNodeCenter.y - mapSize.y / 2, 0), roomTile);
+            // 가로방향 길 이미 만들어졌는지 검사
+            int roomTileCnt = 0;
+            for (int num = 0; num < tree.leftNode.roomRect.height; num++) {
+                if (tileMap.GetTile(new Vector3Int(i - mapSize.x / 2, tree.leftNode.roomRect.y + num - mapSize.y / 2)) == roomTile) roomTileCnt++;
+            }
+            if (roomTileCnt == 0) tileMap.SetTile(new Vector3Int(i - mapSize.x / 2, leftNodeCenter.y - mapSize.y / 2, 0), roomTile);
         }
 
+        // 세로방향 길
         for (int j = Mathf.Min(leftNodeCenter.y, rightNodeCenter.y); j <= Mathf.Max(leftNodeCenter.y, rightNodeCenter.y); j++)
         {
-            tileMap.SetTile(new Vector3Int(rightNodeCenter.x - mapSize.x / 2, j - mapSize.y / 2, 0), roomTile);
+            // 세로방향 길 이미 만들어졌는지 검사
+            int roomTileCnt = 0;
+            for (int num = 0; num < tree.rightNode.roomRect.width; num++) {
+                if (tileMap.GetTile(new Vector3Int(tree.rightNode.roomRect.x+num - mapSize.x/2, j - mapSize.y / 2)) == roomTile) roomTileCnt++;
+            }
+            if (roomTileCnt == 0) tileMap.SetTile(new Vector3Int(rightNodeCenter.x - mapSize.x / 2, j - mapSize.y / 2, 0), roomTile);
+
         }
         //이전 포스팅에서 선으로 만들었던 부분을 room tile로 채우는 과정
         GenerateLoad(tree.leftNode, n + 1); //자식 노드들도 탐색
