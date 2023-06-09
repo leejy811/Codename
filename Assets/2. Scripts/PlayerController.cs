@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
         Roll,
         Dead,
     }
-    public PlayerStates PlayerState { get; private set; } = PlayerStates.Idle;
+    public  static PlayerStates PlayerState { get; private set; } = PlayerStates.Idle;
 
     [SerializeField] private float playerHp;
     [SerializeField] private float moveSpeed;
