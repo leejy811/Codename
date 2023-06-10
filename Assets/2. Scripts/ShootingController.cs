@@ -8,6 +8,8 @@ public class ShootingController : MonoBehaviour
     [SerializeField] private float rotateSpeed;
     [SerializeField] private float shootingSpeed;
 
+    [SerializeField] private GameObject bullet;
+
     private bool isCoolTime = false;
 
     private void Update()
@@ -33,6 +35,7 @@ public class ShootingController : MonoBehaviour
 
     IEnumerator Shoot()
     {
+        isCoolTime = true;
 
         yield return null;
         isCoolTime = false;
