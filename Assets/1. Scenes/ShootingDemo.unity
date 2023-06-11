@@ -220,6 +220,7 @@ MonoBehaviour:
   playerHp: 10
   moveSpeed: 3
   rollDistance: 2.5
+  playerMoveCount: 0
 --- !u!1001 &432664890
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -336,8 +337,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 0
-  shootingSpeed: 0
+  shootingSpeed: 1
   bullet: {fileID: 2743669656104095628, guid: 85fcf071f266cf643afd6796918ef18e, type: 3}
+  bulletPos: {fileID: 97140653}
 --- !u!212 &700856221
 SpriteRenderer:
   m_ObjectHideFlags: 0

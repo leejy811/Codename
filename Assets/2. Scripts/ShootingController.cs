@@ -9,6 +9,7 @@ public class ShootingController : MonoBehaviour
     [SerializeField] private float shootingSpeed;
 
     [SerializeField] private GameObject bullet;
+    [SerializeField] private Transform bulletPos;
 
     private bool isCoolTime = false;
 
@@ -30,14 +31,15 @@ public class ShootingController : MonoBehaviour
     {
         if (isCoolTime)
             return;
-        StartCoroutine(Shoot());
+        if(Input.GetMouseButtonDown(0))
+            StartCoroutine(Shoot());
     }
 
     IEnumerator Shoot()
     {
         isCoolTime = true;
-
-        yield return null;
+        Instantiate(bullet, new Vector3(bulletPos.position.x, bulletPos.position.y, bulletPos.position.z), transform.rotation);
+        yield return new WaitForSeconds(1/shootingSpeed);
         isCoolTime = false;
     }
 }

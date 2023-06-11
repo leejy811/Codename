@@ -5,7 +5,7 @@ using DG.Tweening;
 public class BulletController : MonoBehaviour
 {
     [SerializeField] private float speed;
-    [SerializeField] private float lifeTime;
+    [SerializeField] private float distance;
 
     private void OnEnable()
     {
@@ -14,7 +14,7 @@ public class BulletController : MonoBehaviour
     
     IEnumerator Shoot()
     {
-        var tween = transform.DOMoveY(lifeTime, 1 / speed).SetRelative();
+        var tween = transform.DOMove(transform.right*distance, 1 / speed).SetRelative();
         yield return tween.WaitForCompletion();
 
         gameObject.SetActive(false);
