@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float playerHp;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rollDistance;
+    [SerializeField] private int playerMoveCount;
 
     private float moveX;
     private float moveY;
@@ -51,6 +52,18 @@ public class PlayerController : MonoBehaviour
                 break;
             default:
                 break;
+        }
+        if(Input.GetMouseButtonDown(0))
+        {
+            Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);
+
+            if (hit.collider != null)
+            {
+                Debug.Log(hit.transform.gameObject);
+                Debug.Log(hit.transform.gameObject.tag);
+                
+            }
         }
     }
 

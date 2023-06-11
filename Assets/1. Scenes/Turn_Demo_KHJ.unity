@@ -308,7 +308,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -365,7 +365,7 @@ GameObject:
   - component: {fileID: 651198314}
   m_Layer: 0
   m_Name: Grid
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -514,7 +514,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1083953384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -532,7 +532,7 @@ MonoBehaviour:
   maximumDivideRate: 0.5
   line: {fileID: 240466513}
   map: {fileID: 1101364228}
-  roomRine: {fileID: 0}
+  roomLine: {fileID: 0}
   maximumDepth: 6
   tileMap: {fileID: 1399585885}
   roomTile: {fileID: 11400000, guid: 463040bb33823754e9e159a83e20321a, type: 2}
@@ -822,7 +822,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!156049354 &1699128619
 Grid:
   m_ObjectHideFlags: 0
@@ -1027,6 +1027,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateSpeed: 0
   shootingSpeed: 0
+  bullet: {fileID: 0}
 --- !u!212 &2926203407286391381
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1066,7 +1067,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2055679239
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 311301afe0f364241bbf74291517c7e4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1089,9 +1090,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2926203407742288158}
   - component: {fileID: 2926203407742288159}
+  - component: {fileID: 2926203407742288160}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1129,6 +1131,22 @@ CapsuleCollider2D:
   m_Offset: {x: -0.06, y: 0}
   m_Size: {x: 0.8, y: 1.48}
   m_Direction: 0
+--- !u!114 &2926203407742288160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2926203407742288156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36df56105ec24ac409f773f60942fdba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHp: 10
+  moveSpeed: 3
+  rollDistance: 5
+  playerMoveCount: 0
 --- !u!1001 &5389742811055506496
 PrefabInstance:
   m_ObjectHideFlags: 0
