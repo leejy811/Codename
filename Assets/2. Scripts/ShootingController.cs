@@ -24,7 +24,10 @@ public class ShootingController : MonoBehaviour
 
     private void Rotate()
     {
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 dirVec = mousePos - (Vector2)transform.position;
 
+        transform.right = dirVec.normalized;
     }
 
     private void TryShoot()
