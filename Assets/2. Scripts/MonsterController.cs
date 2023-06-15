@@ -24,6 +24,11 @@ public abstract class MonsterController : MonoBehaviour
 
     }
 
+    public void MoveToPlayer()
+    {
+
+    }
+
     public virtual void Attack()
     {
 
