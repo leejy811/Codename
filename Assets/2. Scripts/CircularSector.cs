@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,7 +31,10 @@ public class CircularSector : MonoBehaviour
 
             // 시야각 판별
             if (degree <= angleRange / 2f)
+            {
                 isCollision = true;
+                this.transform.parent.GetComponent<EnemyTurn>().tweener.Pause(); 
+            }
             else
                 isCollision = false;
 

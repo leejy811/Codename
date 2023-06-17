@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +13,7 @@ public enum EnemyType
     enemyC,
 }
 
-public class EnemyTurn : MonoBehaviour
+partial class EnemyTurn : MonoBehaviour
 {
     // 현재 타일맵 정보
     [SerializeField]
@@ -21,6 +22,15 @@ public class EnemyTurn : MonoBehaviour
     // 적 타입
     [SerializeField]
     public EnemyType enemyType;
+
+    // 부채꼴 탐색범위
+    [SerializeField]
+    public GameObject circularSector;
+
+    // 이동범위
+    [SerializeField]
+    public List<Vector2> enemyMovePos;
+
 
     private void Start()
     {
@@ -40,15 +50,56 @@ public class EnemyTurn : MonoBehaviour
                 if (tile != null)
                 {
                     // 타일이 있는 경우에 대한 처리
-                    Debug.Log("Tile at position (" + x + ", " + y + "): " + tilemap.GetTile(new Vector3Int(x, y)).name);
+                    //Debug.Log("Tile at position (" + x + ", " + y + "): " + tilemap.GetTile(new Vector3Int(x, y)).name);
                     
                 }
                 else
                 {
                     // 타일이 없는 경우에 대한 처리
-                    Debug.Log("No tile at position (" + x + ", " + y + ")");
+                    //Debug.Log("No tile at position (" + x + ", " + y + ")");
                 }
             }
+        }
+
+        // Enemy A
+        if(enemyType == EnemyType.enemyA) 
+        {
+            StartCoroutine(enemyA_move());
+        }
+    }
+
+
+}
+
+partial class EnemyTurn
+{
+    int curPosIdx = 0;
+    float velocity = 2f;
+    public Tweener tweener;
+
+    IEnumerator enemyA_move()
+    {
+        // 만약 들켰으면 실행안함
+        if (circularSector.GetComponent<CircularSector>().isCollision == true) yield return null;
+        else
+        {
+            Vector3 nextMovePos = enemyMovePos[(curPosIdx++) % enemyMovePos.Count];
+            float duration = Vector2.Distance(transform.position, nextMovePos) / velocity;
+
+            // 부채꼴 크기의 탐색 범위 회전
+            Vector3 _dir = nextMovePos - transform.position;
+            circularSector.transform.DORotate(new Vector3(0, 0, (Mathf.Atan2(_dir.y, _dir.x) * Mathf.Rad2Deg)), .3f); // circularSector.transform.rotation = Quaternion.Euler(new Vector3(0, 0, (Mathf.Atan2(_dir.y, _dir.x) * Mathf.Rad2Deg)));// = Quaternion.Euler(_dir);
+                                                                                                                      //Debug.Log(Mathf.Atan2(_dir.y, _dir.x)*Mathf.Rad2Deg+180);
+
+            // 이동 경로를 설정합니다.
+            tweener = transform.DOMove(nextMovePos, duration).SetEase(Ease.Linear);
+
+
+
+            // 반복
+            yield return new WaitForSeconds(duration);
+
+            StartCoroutine(enemyA_move());
         }
     }
 }
