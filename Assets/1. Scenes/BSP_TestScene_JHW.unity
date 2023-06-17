@@ -524,6 +524,7 @@ MonoBehaviour:
   roomTile: {fileID: 11400000, guid: 463040bb33823754e9e159a83e20321a, type: 2}
   wallTile: {fileID: 11400000, guid: 5cb2704116eff4443b949135e9fe07f9, type: 2}
   outTile: {fileID: 11400000, guid: ed50a80c6ba59cf428ffc19f53876b01, type: 2}
+  ckTile: {fileID: 11400000, guid: 5fe40d7b004adde4293bdf59101e1f97, type: 2}
 --- !u!4 &1083953385
 Transform:
   m_ObjectHideFlags: 0

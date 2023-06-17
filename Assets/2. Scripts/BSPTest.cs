@@ -35,6 +35,8 @@ public class BSPTest : MonoBehaviour
     [SerializeField] Tile roomTile; //방을 구성하는 타일
     [SerializeField] Tile wallTile; //방과 외부를 구분지어줄 벽 타일
     [SerializeField] Tile outTile; //방 외부의 타일
+    [SerializeField] Tile ckTile; //방 외부의 타일
+
     void Start()
     {
         FillBackground();//신 로드 시 전부다 바깥타일로 덮음
@@ -108,26 +110,104 @@ public class BSPTest : MonoBehaviour
         Vector2Int leftNodeCenter = tree.leftNode.center;
         Vector2Int rightNodeCenter = tree.rightNode.center;
 
+        //tileMap.SetTile(new Vector3Int(tree.leftNode.roomRect.x - mapSize.x / 2, tree.leftNode.roomRect.y - mapSize.y / 2, 0), ckTile);
+        //tileMap.SetTile(new Vector3Int(tree.leftNode.roomRect.x - mapSize.x / 2 + tree.leftNode.roomRect.width, tree.leftNode.roomRect.y - mapSize.y / 2, 0), ckTile);
+        //tileMap.SetTile(new Vector3Int(tree.leftNode.roomRect.x - mapSize.x / 2, tree.leftNode.roomRect.y - mapSize.y / 2 + tree.leftNode.roomRect.height, 0), ckTile);
+        //tileMap.SetTile(new Vector3Int(tree.leftNode.roomRect.x - mapSize.x / 2 + tree.leftNode.roomRect.width, tree.leftNode.roomRect.y - mapSize.y / 2 + tree.leftNode.roomRect.height, 0), ckTile);
+
+        //tileMap.SetTile(new Vector3Int(tree.rightNode.roomRect.x - mapSize.x / 2, tree.rightNode.roomRect.y - mapSize.y / 2, 0), ckTile);
+        //tileMap.SetTile(new Vector3Int(tree.rightNode.roomRect.x - mapSize.x / 2 + tree.rightNode.roomRect.width, tree.rightNode.roomRect.y - mapSize.y / 2, 0), ckTile);
+        //tileMap.SetTile(new Vector3Int(tree.rightNode.roomRect.x - mapSize.x / 2, tree.rightNode.roomRect.y - mapSize.y / 2 + tree.rightNode.roomRect.height, 0), ckTile);
+        //tileMap.SetTile(new Vector3Int(tree.rightNode.roomRect.x - mapSize.x / 2 + tree.rightNode.roomRect.width, tree.rightNode.roomRect.y - mapSize.y / 2 + tree.rightNode.roomRect.height, 0), ckTile);
+
+
+        //for(int i=0; i<tree.rightNode.roomRect.width; i++)
+        //{
+        //    tileMap.SetTile(new Vector3Int(tree.rightNode.roomRect.x - mapSize.x / 2 + i, tree.rightNode.roomRect.y - mapSize.y / 2, 0), ckTile);
+        //}
+        //for (int i = 0; i < tree.rightNode.roomRect.height; i++)
+        //{
+        //    tileMap.SetTile(new Vector3Int(tree.leftNode.roomRect.x - mapSize.x / 2, tree.leftNode.roomRect.y - mapSize.y / 2 + i, 0), ckTile);
+        //}
+        bool flag = false;
+
+        if (Mathf.Min(leftNodeCenter.x, rightNodeCenter.x) == leftNodeCenter.x)
+        {
+            for (int num = 0; num < tree.leftNode.roomRect.height; num++)
+            {
+                if (tileMap.GetTile(new Vector3Int(tree.leftNode.roomRect.x + tree.leftNode.roomRect.width - mapSize.x / 2, tree.leftNode.roomRect.y + num - mapSize.y/2  , 0)) == roomTile)
+                {
+                    flag = true;
+                    break;
+                }
+            }
+        }
+        else
+        {
+            for (int num = 0; num < tree.rightNode.roomRect.height; num++)
+            {
+                if (tileMap.GetTile(new Vector3Int(tree.rightNode.roomRect.x - tree.rightNode.roomRect.width - mapSize.x / 2, tree.rightNode.roomRect.y + num - mapSize.y / 2, 0)) == roomTile)
+                {
+                    flag = true;
+                    break;
+                }
+            }
+        }
         // 가로방향 길
         for (int i = Mathf.Min(leftNodeCenter.x, rightNodeCenter.x); i <= Mathf.Max(leftNodeCenter.x, rightNodeCenter.x); i++)
         {
             // 가로방향 길 이미 만들어졌는지 검사
             int roomTileCnt = 0;
-            for (int num = 0; num < tree.leftNode.roomRect.height; num++) {
-                if (tileMap.GetTile(new Vector3Int(i - mapSize.x / 2, tree.leftNode.roomRect.y + num - mapSize.y / 2)) == roomTile) roomTileCnt++;
-            }
-            if (roomTileCnt == 0) tileMap.SetTile(new Vector3Int(i - mapSize.x / 2, leftNodeCenter.y - mapSize.y / 2, 0), roomTile);
+            //for (int num = 0; num < tree.leftNode.roomRect.height; num++) {
+            //    if (tileMap.GetTile(new Vector3Int(i - mapSize.x / 2, tree.leftNode.roomRect.y + num - mapSize.y / 2)) == roomTile) roomTileCnt++;
+            //}
+            if (!flag)
+                tileMap.SetTile(new Vector3Int(i - mapSize.x / 2, leftNodeCenter.y - mapSize.y / 2, 0), roomTile);
+            //if (roomTileCnt == 0) tileMap.SetTile(new Vector3Int(i - mapSize.x / 2, leftNodeCenter.y - mapSize.y / 2, 0), roomTile);
         }
+        
+        flag = false;
+        if (Mathf.Min(leftNodeCenter.y, rightNodeCenter.y) == leftNodeCenter.y)
+        {
+            for (int num = 0; num < tree.leftNode.roomRect.width; num++)
+            {
+                if (tileMap.GetTile(new Vector3Int(tree.leftNode.roomRect.x + num - mapSize.x/2, tree.leftNode.roomRect.y + tree.leftNode.roomRect.height - mapSize.y/2 , 0)) == roomTile)
+                {
+                    flag = true;
+                    break;
+                }
+            }
+        }
+        else
+        {
+            for (int num = 0; num < tree.rightNode.roomRect.width; num++)
+            {
 
+                if (tileMap.GetTile(new Vector3Int(tree.rightNode.roomRect.x + num - mapSize.x/2, tree.rightNode.roomRect.y - tree.rightNode.roomRect.height - mapSize.y/2 , 0)) == roomTile)
+                {
+                    flag = true;
+                    break;
+                }
+            }
+        }
         // 세로방향 길
         for (int j = Mathf.Min(leftNodeCenter.y, rightNodeCenter.y); j <= Mathf.Max(leftNodeCenter.y, rightNodeCenter.y); j++)
         {
+            //tileMap.SetTile(new Vector3Int(tree.rightNode.roomRect.x - mapSize.x /2, j - mapSize.y / 2, 0), ckTile);
+            //tileMap.SetTile(new Vector3Int(tree.rightNode.roomRect.x - mapSize.x / 2 + tree.rightNode.roomRect.width, j - mapSize.y / 2, 0), ckTile);
+
+
             // 세로방향 길 이미 만들어졌는지 검사
             int roomTileCnt = 0;
-            for (int num = 0; num < tree.rightNode.roomRect.width; num++) {
-                if (tileMap.GetTile(new Vector3Int(tree.rightNode.roomRect.x+num - mapSize.x/2, j - mapSize.y / 2)) == roomTile) roomTileCnt++;
-            }
-            if (roomTileCnt == 0) tileMap.SetTile(new Vector3Int(rightNodeCenter.x - mapSize.x / 2, j - mapSize.y / 2, 0), roomTile);
+
+            //for (int num = 0; num < tree.rightNode.roomRect.width; num++) {
+            //    if (tileMap.GetTile(new Vector3Int(tree.rightNode.roomRect.x+num - mapSize.x/2, j - mapSize.y / 2)) == roomTile) roomTileCnt++;
+            //}
+
+
+            if (!flag)
+                tileMap.SetTile(new Vector3Int(rightNodeCenter.x - mapSize.x / 2, j - mapSize.y / 2, 0), roomTile);
+            //if (roomTileCnt == 0) tileMap.SetTile(new Vector3Int(rightNodeCenter.x - mapSize.x / 2, j - mapSize.y / 2, 0), roomTile);
 
         }
         //이전 포스팅에서 선으로 만들었던 부분을 room tile로 채우는 과정
