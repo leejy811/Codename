@@ -159,7 +159,13 @@ MonoBehaviour:
   - {x: 3, y: -3}
   - {x: 4, y: 1}
   - {x: 1, y: 3}
-  roadPrefab: {fileID: 0}
+  roadPrefab: {fileID: 4956054815497323443, guid: 84756ecabe8359140b56b8b4754ff28e, type: 3}
+  bottomLeft: {x: -10, y: -10}
+  topRight: {x: 10, y: 10}
+  startPos: {x: 0, y: 0}
+  targetPos: {x: 0, y: 0}
+  allowDiagonal: 1
+  dontCrossCorner: 0
 --- !u!4 &66919616
 Transform:
   m_ObjectHideFlags: 0
@@ -647,7 +653,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 589865239}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -16.11}
+  m_LocalPosition: {x: 0, y: 0, z: -21.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1159,6 +1165,12 @@ MonoBehaviour:
   circularSector: {fileID: 97615933}
   enemyMovePos: []
   roadPrefab: {fileID: 4956054815497323443, guid: 84756ecabe8359140b56b8b4754ff28e, type: 3}
+  bottomLeft: {x: -10, y: -10}
+  topRight: {x: 10, y: 10}
+  startPos: {x: 3, y: 3}
+  targetPos: {x: 6, y: 5}
+  allowDiagonal: 1
+  dontCrossCorner: 0
 --- !u!4 &890455213
 Transform:
   m_ObjectHideFlags: 0
@@ -1422,7 +1434,13 @@ MonoBehaviour:
   enemyType: 1
   circularSector: {fileID: 1690922729}
   enemyMovePos: []
-  roadPrefab: {fileID: 0}
+  roadPrefab: {fileID: 4956054815497323443, guid: 84756ecabe8359140b56b8b4754ff28e, type: 3}
+  bottomLeft: {x: 0, y: 0}
+  topRight: {x: 0, y: 0}
+  startPos: {x: 0, y: 0}
+  targetPos: {x: 0, y: 0}
+  allowDiagonal: 0
+  dontCrossCorner: 0
 --- !u!4 &1185987100
 Transform:
   m_ObjectHideFlags: 0
