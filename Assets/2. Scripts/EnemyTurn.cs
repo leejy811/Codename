@@ -33,6 +33,7 @@ partial class EnemyTurn : MonoBehaviour
 
     // 이동할 방향
     Vector3 nextMovePos;
+    Sequence s;
 
     private void Start()
     {
@@ -82,7 +83,7 @@ partial class EnemyTurn : MonoBehaviour
 partial class EnemyTurn
 {
     int curPosIdx = 0;
-    float velocity = 2f;
+    float velocity = 20f;
     public Tweener tweener;
 
     private void enemyA_move(bool isUserTurn=true)
@@ -101,20 +102,28 @@ partial class EnemyTurn
         // 상대 턴인 경우 이동
         else
         {
-            Debug.Log(nextMovePos);
             float duration = Vector2.Distance(transform.position, nextMovePos) / velocity;
 
-            // 부채꼴 크기의 탐색 범위 회전
-            Vector3 _dir = nextMovePos - transform.position;
-            circularSector.transform.DORotate(new Vector3(0, 0, (Mathf.Atan2(_dir.y, _dir.x) * Mathf.Rad2Deg)), .3f); // circularSector.transform.rotation = Quaternion.Euler(new Vector3(0, 0, (Mathf.Atan2(_dir.y, _dir.x) * Mathf.Rad2Deg)));// = Quaternion.Euler(_dir);
-                                                                                                                      //Debug.Log(Mathf.Atan2(_dir.y, _dir.x)*Mathf.Rad2Deg+180);
-
             newEnemyRoad.SetActive(false);
-            tweener = transform.DOMove(nextMovePos, duration).SetEase(Ease.Linear)
-                .OnComplete(() => {
-                    this.transform.GetComponent<EnemyTurn>().enemyA_move();
-                    newEnemyRoad.SetActive(true);
-                }); // 이동 끝나면 유저턴으로 패스
+
+            s = DOTween.Sequence();
+            for (int i = 0; i < FinalNodeList.Count; i++)
+            {
+                nextMovePos = new Vector3(FinalNodeList[i].x, FinalNodeList[i].y);
+
+                // 부채꼴 크기의 탐색 범위 회전
+                Vector3 _dir = nextMovePos - transform.position;
+                s.Append(transform.DOMove(nextMovePos, duration).SetEase(Ease.Linear)).OnPlay(() =>
+                {
+                    circularSector.transform.DORotate(new Vector3(0, 0, (Mathf.Atan2(_dir.y, _dir.x) * Mathf.Rad2Deg)), .3f);
+                });
+
+            }
+            s.Play().OnComplete(() => {
+                this.transform.GetComponent<EnemyTurn>().enemyA_move();
+                newEnemyRoad.SetActive(true);
+            }); // 이동 끝나면 유저턴으로 패스;
+
         }
     }
 
@@ -136,18 +145,26 @@ partial class EnemyTurn
         else
         {
             float duration = Vector2.Distance(transform.position, nextMovePos) / velocity;
-
-            // 부채꼴 크기의 탐색 범위 회전
-            Vector3 _dir = nextMovePos - transform.position;
-            circularSector.transform.DORotate(new Vector3(0, 0, (Mathf.Atan2(_dir.y, _dir.x) * Mathf.Rad2Deg)), .3f); // circularSector.transform.rotation = Quaternion.Euler(new Vector3(0, 0, (Mathf.Atan2(_dir.y, _dir.x) * Mathf.Rad2Deg)));// = Quaternion.Euler(_dir);
-                                                                                                                      //Debug.Log(Mathf.Atan2(_dir.y, _dir.x)*Mathf.Rad2Deg+180);
-
             newEnemyRoad.SetActive(false);
-            tweener = transform.DOMove(nextMovePos, duration).SetEase(Ease.Linear)
-                .OnComplete(() => {
-                    this.transform.GetComponent<EnemyTurn>().enemyC_move();
-                    newEnemyRoad.SetActive(true);
-                }); // 이동 끝나면 유저턴으로 패스
+
+            s = DOTween.Sequence();
+            for (int i = 0; i < FinalNodeList.Count; i++)
+            {
+                nextMovePos = new Vector3(FinalNodeList[i].x, FinalNodeList[i].y);
+
+                // 부채꼴 크기의 탐색 범위 회전
+                Vector3 _dir = nextMovePos - transform.position;
+                s.Append(transform.DOMove(nextMovePos, duration).SetEase(Ease.Linear)).OnPlay(() =>
+                {
+                    circularSector.transform.DORotate(new Vector3(0, 0, (Mathf.Atan2(_dir.y, _dir.x) * Mathf.Rad2Deg)), .3f);
+                });
+
+            }
+            s.Play().OnComplete(() => {
+                this.transform.GetComponent<EnemyTurn>().enemyC_move();
+                newEnemyRoad.SetActive(true);
+            }); // 이동 끝나면 유저턴으로 패스;
+
         }
     }
 
@@ -276,7 +293,10 @@ partial class EnemyTurn
                 FinalNodeList.Add(StartNode);
                 FinalNodeList.Reverse();
 
-                for (int i = 0; i < FinalNodeList.Count; i++) print(i + "번째는 " + FinalNodeList[i].x + ", " + FinalNodeList[i].y);
+                for (int i = 0; i < FinalNodeList.Count; i++)
+                {
+                    //print(i + "번째는 " + FinalNodeList[i].x + ", " + FinalNodeList[i].y);
+                }
                 return;
             }
 
