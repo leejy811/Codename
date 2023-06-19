@@ -33,6 +33,7 @@ partial class EnemyTurn : MonoBehaviour
 
     // 이동할 방향
     Vector3 nextMovePos;
+    Vector3 prevMovePos;
     Sequence s;
 
     private void Start()
@@ -83,7 +84,7 @@ partial class EnemyTurn : MonoBehaviour
 partial class EnemyTurn
 {
     int curPosIdx = 0;
-    float velocity = 20f;
+    float velocity = .5f;
     public Tweener tweener;
 
     private void enemyA_move(bool isUserTurn=true)
@@ -102,7 +103,7 @@ partial class EnemyTurn
         // 상대 턴인 경우 이동
         else
         {
-            float duration = Vector2.Distance(transform.position, nextMovePos) / velocity;
+            //float duration = Vector2.Distance(transform.position, nextMovePos) / velocity;
 
             newEnemyRoad.SetActive(false);
 
@@ -110,13 +111,12 @@ partial class EnemyTurn
             for (int i = 0; i < FinalNodeList.Count; i++)
             {
                 nextMovePos = new Vector3(FinalNodeList[i].x, FinalNodeList[i].y);
+                if (i != 0) prevMovePos = new Vector3(FinalNodeList[i - 1].x, FinalNodeList[i - 1].y);
 
                 // 부채꼴 크기의 탐색 범위 회전
-                Vector3 _dir = nextMovePos - transform.position;
-                s.Append(transform.DOMove(nextMovePos, duration).SetEase(Ease.Linear)).OnPlay(() =>
-                {
-                    circularSector.transform.DORotate(new Vector3(0, 0, (Mathf.Atan2(_dir.y, _dir.x) * Mathf.Rad2Deg)), .3f);
-                });
+                Vector3 _dir = nextMovePos - prevMovePos;
+                s.Append(transform.DOMove(nextMovePos, velocity).SetEase(Ease.Linear)).Join(circularSector.transform.DORotate(new Vector3(0, 0, (Mathf.Atan2(_dir.y, _dir.x) * Mathf.Rad2Deg)), .3f));
+
 
             }
             s.Play().OnComplete(() => {
@@ -151,13 +151,12 @@ partial class EnemyTurn
             for (int i = 0; i < FinalNodeList.Count; i++)
             {
                 nextMovePos = new Vector3(FinalNodeList[i].x, FinalNodeList[i].y);
+                if(i!=0) prevMovePos = new Vector3(FinalNodeList[i-1].x, FinalNodeList[i-1].y);
 
                 // 부채꼴 크기의 탐색 범위 회전
-                Vector3 _dir = nextMovePos - transform.position;
-                s.Append(transform.DOMove(nextMovePos, duration).SetEase(Ease.Linear)).OnPlay(() =>
-                {
-                    circularSector.transform.DORotate(new Vector3(0, 0, (Mathf.Atan2(_dir.y, _dir.x) * Mathf.Rad2Deg)), .3f);
-                });
+                Vector3 _dir = nextMovePos - prevMovePos;
+                s.Append(transform.DOMove(nextMovePos, velocity).SetEase(Ease.Linear)).Join(circularSector.transform.DORotate(new Vector3(0, 0, (Mathf.Atan2(_dir.y, _dir.x) * Mathf.Rad2Deg)), .3f));
+                //circularSector.transform.DORotate(new Vector3(0, 0, (Mathf.Atan2(_dir.y, _dir.x) * Mathf.Rad2Deg)), .3f);
 
             }
             s.Play().OnComplete(() => {
