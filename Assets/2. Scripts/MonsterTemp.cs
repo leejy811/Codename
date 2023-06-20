@@ -46,7 +46,7 @@ public class MonsterTemp : MonsterController
     IEnumerator Move()
     {
         ismoving = true;
-        var d= PathFinder.GetDir(map, new int[] { 2, 2 }, new int[] { x, y }, 1, 1);
+        var d= PathFinder.GetDir(map, new int[] { 2, 2 }, new int[] { x, y }, 3, 3);
         var tween = transform.DOMove(new Vector3(d[1], -d[0], 0), 1f).SetRelative().SetEase(Ease.Linear);
         x += d[0];
         y += d[1];

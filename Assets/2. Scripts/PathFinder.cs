@@ -31,10 +31,21 @@ public class PathFinder
             {
                 int dx = temp.Item1 + dirs[i, 0];
                 int dy = temp.Item2 + dirs[i, 1];
+                bool isBlocked = false;
 
-                if (dx < 0 || dy < 0 || dx >= map.GetLength(0) || dy >= map.GetLength(1))
+                for(int x = -xGap; x < xGap + 1; x++)
+                {
+                    for(int y = -yGap; y < yGap + 1; y++)
+                    {
+                        if (dx+x < 0 || dy+y < 0 || dx+x >= map.GetLength(0) || dy+y >= map.GetLength(1))
+                            isBlocked = true;
+                        if (map[x, y] == 1)
+                            isBlocked = true;
+                    }
+                }
+                if (isBlocked)  
                     continue;   // pass if outside of the map
-                if (visited[dx, dy] == 1 || map[dx,dy]==1)
+                if (visited[dx, dy] == 1)
                     continue;   // pass if already visited
 
                 if (temp.Item3 == -1)   // set the initial direction when calculating the first tile
