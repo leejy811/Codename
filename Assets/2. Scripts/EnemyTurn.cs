@@ -76,9 +76,11 @@ partial class EnemyTurn : MonoBehaviour
         {
             enemyC_move();
         }
+
+        StartCoroutine(roadUX());
     }
 
-
+    
 }
 
 partial class EnemyTurn
@@ -91,7 +93,6 @@ partial class EnemyTurn
     {
         // 만약 들켰으면 실행안함
         //if (circularSector.GetComponent<CircularSector>().isCollision == true) { return; }
-        Debug.Log(this.name);
 
         // 유저 턴인 경우  경로 표시
         if (isUserTurn)
@@ -103,10 +104,6 @@ partial class EnemyTurn
         // 상대 턴인 경우 이동
         else
         {
-            //float duration = Vector2.Distance(transform.position, nextMovePos) / velocity;
-
-            newEnemyRoad.SetActive(false);
-
             s = DOTween.Sequence();
             for (int i = 0; i < FinalNodeList.Count; i++)
             {
@@ -119,10 +116,14 @@ partial class EnemyTurn
 
 
             }
+
+            // 이동 완료시
             s.Play().OnComplete(() => {
-                this.transform.GetComponent<EnemyTurn>().enemyA_move();
-                newEnemyRoad.SetActive(true);
-            }); // 이동 끝나면 유저턴으로 패스;
+                // 이동경로 끄고 다음 이동경로 설정
+                newEnemyRoad.SetActive(false);
+                GetComponent<LineRenderer>().positionCount = 0;
+                this.transform.GetComponent<EnemyTurn>().enemyA_move(); // 유저턴으로 패스
+            });
 
         }
     }
@@ -144,9 +145,6 @@ partial class EnemyTurn
         // 상대 턴인 경우 이동
         else
         {
-            float duration = Vector2.Distance(transform.position, nextMovePos) / velocity;
-            newEnemyRoad.SetActive(false);
-
             s = DOTween.Sequence();
             for (int i = 0; i < FinalNodeList.Count; i++)
             {
@@ -159,10 +157,14 @@ partial class EnemyTurn
                 //circularSector.transform.DORotate(new Vector3(0, 0, (Mathf.Atan2(_dir.y, _dir.x) * Mathf.Rad2Deg)), .3f);
 
             }
+
+            // 이동 완료시
             s.Play().OnComplete(() => {
-                this.transform.GetComponent<EnemyTurn>().enemyC_move();
-                newEnemyRoad.SetActive(true);
-            }); // 이동 끝나면 유저턴으로 패스;
+                // 이동경로 끄고 다음 이동경로 설정
+                newEnemyRoad.SetActive(false);
+                GetComponent<LineRenderer>().positionCount = 0;
+                this.transform.GetComponent<EnemyTurn>().enemyC_move(); // 유저턴으로 패스
+            });
 
         }
     }
@@ -187,10 +189,11 @@ partial class EnemyTurn
     {
         newEnemyRoad = Instantiate(roadPrefab,this.transform);
         newEnemyRoad.transform.localPosition = new Vector3(0,0,0);
+        newEnemyRoad.transform.SetParent(this.transform.parent);
 
         GameObject _road = roadPrefab.transform.GetChild(0).GetChild(0).gameObject;
         GameObject _point = roadPrefab.transform.GetChild(0).GetChild(1).gameObject;
-
+        
         // 시작점 및 끝점
         GameObject startPoint = Instantiate(_point, newEnemyRoad.transform);
         GameObject endPoint = Instantiate(_point, newEnemyRoad.transform);
@@ -201,20 +204,38 @@ partial class EnemyTurn
         targetPos = new Vector2Int((int)nextMovePos.x, (int)nextMovePos.y);
         PathFinding();
 
-        // 길 경로 및 위치 설정
-        float dist = Vector2.Distance(startPoint.transform.localPosition, endPoint.transform.localPosition);
-        for (int i = 1; i <= (int)dist; i++)
+
+        // LineRenderer 설정, 적 이동경로(A* 최단거리 알고리즘)대로 선으로 표시
+        LineRenderer lr = this.GetComponent<LineRenderer>();
+        lr.positionCount = FinalNodeList.Count;
+        for (int i = 0; i < FinalNodeList.Count; i++)
         {
-            GameObject road = Instantiate(_road, newEnemyRoad.transform.GetChild(0));
-            road.SetActive(true);
-            road.transform.localPosition = new Vector2(startPoint.transform.localPosition.x + i, 0);
-            //float dist = Vector2.Distance(startPoint.transform.position, endPoint.transform.position);
+            lr.SetPosition(i, new Vector3(FinalNodeList[i].x, FinalNodeList[i].y));
         }
-        float angle = Mathf.Atan2(endPoint.transform.localPosition.y, endPoint.transform.localPosition.x) * Mathf.Rad2Deg;
-        newEnemyRoad.transform.GetChild(0).DORotate(new Vector3(0, 0, angle),0f);
+
+        //// 길 경로 및 위치 설정
+        //float dist = Vector2.Distance(startPoint.transform.localPosition, endPoint.transform.localPosition);
+        //for (int i = 1; i <= (int)dist; i++)
+        //{
+        //    GameObject road = Instantiate(_road, newEnemyRoad.transform.GetChild(0));
+        //    road.SetActive(true);
+        //    road.transform.localPosition = new Vector2(startPoint.transform.localPosition.x + i, 0);
+        //    //float dist = Vector2.Distance(startPoint.transform.position, endPoint.transform.position);
+        //}
+        //float angle = Mathf.Atan2(endPoint.transform.localPosition.y, endPoint.transform.localPosition.x) * Mathf.Rad2Deg;
+        //newEnemyRoad.transform.GetChild(0).DORotate(new Vector3(0, 0, angle),0f);
 
     }
+    IEnumerator roadUX()
+    {
+        LineRenderer lr = this.GetComponent<LineRenderer>();
+        lr.material.SetTextureOffset("_MainTex", new Vector2(lr.material.GetTextureOffset("_MainTex").x - 0.1f, 0f));
+        yield return new WaitForSeconds(0.1f);
+        StartCoroutine(roadUX());
+    }
 }
+
+
 
 // 적 이동경로 - Astar
 public class EnemyNode
