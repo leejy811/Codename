@@ -7,16 +7,21 @@ public class PathFinder
     
     // returns the first step of the "Best Route" 
     // using BFS, generic queue
-    public static int[] GetDir(int[,] map,int[] playerPos,int[] currentPos,int sizeX,int sizeY)
+    public static int[] GetDir(int[] currentPos,int sizeX,int sizeY)
     {
         Queue<(int, int, int)> queue = new Queue<(int, int, int)>();
+        int[,] map = StageManager.instance.map;
         int[,] visited = new int[map.GetLength(0),map.GetLength(1)];
+        int[] playerPos = StageManager.instance.PlayerPos();
         int xGap = sizeX % 2;
         int yGap = sizeY % 2;
-
+        
         // Start from the initial monster posiiton
         queue.Enqueue((currentPos[0], currentPos[1], -1));
         visited[currentPos[0], currentPos[1]] = 1;
+        
+        if (currentPos[0] == playerPos[0] && currentPos[1] == playerPos[1])
+            return new int[] { 0,0 };
 
         while (queue.Count > 0)
         {
@@ -33,18 +38,17 @@ public class PathFinder
                 int dy = temp.Item2 + dirs[i, 1];
                 bool isBlocked = false;
 
+                // check if selected direction is blocked or out of the map
                 for(int x = -xGap; x < xGap + 1; x++)
-                {
                     for(int y = -yGap; y < yGap + 1; y++)
-                    {
-                        if (dx+x < 0 || dy+y < 0 || dx+x >= map.GetLength(0) || dy+y >= map.GetLength(1))
+                        if (dx+x < 0 || dy+y < 0 || dx+x >= map.GetLength(0) || dy+y >= map.GetLength(1) || map[dx + x, dy + y] == 1)
+                        {
                             isBlocked = true;
-                        if (map[x, y] == 1)
-                            isBlocked = true;
-                    }
-                }
+                            break;
+                        }
+                
                 if (isBlocked)  
-                    continue;   // pass if outside of the map
+                    continue;   // pass if route is blocked
                 if (visited[dx, dy] == 1)
                     continue;   // pass if already visited
 
@@ -56,6 +60,6 @@ public class PathFinder
             }
         }
 
-        return new int[]{ -1,-1};   // return error when the monster cannot reach the player
+        return new int[]{ 0, 0};   // return error when the monster cannot reach the player
     }
 }
