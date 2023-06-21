@@ -33,7 +33,7 @@ public class CircularSector : MonoBehaviour
             if (degree <= angleRange / 2f)
             {
                 isCollision = true;
-                this.transform.parent.GetComponent<EnemyTurn>().tweener.Pause(); 
+                EnemyTurnManager.Instance.AllEnemyDetectPlayer();
             }
             else
                 isCollision = false;

@@ -34,10 +34,19 @@ partial class EnemyTurn : MonoBehaviour
     // 이동할 방향
     Vector3 nextMovePos;
     Vector3 prevMovePos;
-    Sequence s;
+    public Sequence s;
+
+    // 들켰는지 여부
+    public bool isAlert = false;
+    [SerializeField] GameObject alertSprite;
+
+    // 길 담는 리스트
+    GameObject RoadList;
 
     private void Start()
     {
+        RoadList = GameObject.Find("RoadList");
+
         // Tilemap의 전체 영역을 가져옴
         BoundsInt bounds = tilemap.cellBounds;
 
@@ -189,7 +198,7 @@ partial class EnemyTurn
     {
         newEnemyRoad = Instantiate(roadPrefab,this.transform);
         newEnemyRoad.transform.localPosition = new Vector3(0,0,0);
-        newEnemyRoad.transform.SetParent(this.transform.parent);
+        newEnemyRoad.transform.SetParent(RoadList.transform);
 
         GameObject _road = roadPrefab.transform.GetChild(0).GetChild(0).gameObject;
         GameObject _point = roadPrefab.transform.GetChild(0).GetChild(1).gameObject;
@@ -374,5 +383,17 @@ partial class EnemyTurn
             if (FinalNodeList.Count != 0) for (int i = 0; i < FinalNodeList.Count - 1; i++)
                     Gizmos.DrawLine(new Vector2(FinalNodeList[i].x, FinalNodeList[i].y), new Vector2(FinalNodeList[i + 1].x, FinalNodeList[i + 1].y));
         }
+    }
+}
+
+// 들킴 여부
+partial class EnemyTurn
+{
+    // 플레이어 감지
+    public void DetectPlayer()
+    {
+        s.Pause();
+        this.isAlert = true;
+        alertSprite.SetActive(true);
     }
 }
