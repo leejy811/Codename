@@ -74,26 +74,17 @@ public class PlayerController : MonoBehaviour
         if(isAreaActive)
         {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePosition = new Vector2Int(Mathf.RoundToInt(mousePosition.x),Mathf.RoundToInt(mousePosition.y));
+            mousePosition = new Vector2(Mathf.RoundToInt(mousePosition.x) - 0.6f, Mathf.RoundToInt(mousePosition.y) + 0.7f);
 
-            transform.position = mousePosition;
+            if(Input.GetMouseButtonDown(0))
+                transform.position = mousePosition;
 
-            Debug.Log(tileMap.GetTile(new Vector3Int(Mathf.RoundToInt(mousePosition.x), Mathf.RoundToInt(mousePosition.y), 0)), areaTile);
+            
         }
     }
-    private static RaycastHit2D? GetFocusedOnTile()
-    {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
-
-        RaycastHit2D[] hits = Physics2D.RaycastAll(mousePos2D, Vector2.zero);
-
-        if (hits.Length > 0)
-        {
-            return hits.OrderByDescending(i => i.collider.transform.position.z).First();
-        }
-
-        return null;
+       
+    private void PlayerMove()
+    { 
     }
     private void ShowPlayerMoveArea()
     {
