@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rollDistance;
     [SerializeField] private int playerMoveCount;
+    // 이 부분 수정
     [SerializeField] private Tile areaTile;
     [SerializeField] private Tilemap tileMap;
 

@@ -110,32 +110,13 @@ public class BSPTest : MonoBehaviour
         Vector2Int leftNodeCenter = tree.leftNode.center;
         Vector2Int rightNodeCenter = tree.rightNode.center;
 
-        //tileMap.SetTile(new Vector3Int(tree.leftNode.roomRect.x - mapSize.x / 2, tree.leftNode.roomRect.y - mapSize.y / 2, 0), ckTile);
-        //tileMap.SetTile(new Vector3Int(tree.leftNode.roomRect.x - mapSize.x / 2 + tree.leftNode.roomRect.width, tree.leftNode.roomRect.y - mapSize.y / 2, 0), ckTile);
-        //tileMap.SetTile(new Vector3Int(tree.leftNode.roomRect.x - mapSize.x / 2, tree.leftNode.roomRect.y - mapSize.y / 2 + tree.leftNode.roomRect.height, 0), ckTile);
-        //tileMap.SetTile(new Vector3Int(tree.leftNode.roomRect.x - mapSize.x / 2 + tree.leftNode.roomRect.width, tree.leftNode.roomRect.y - mapSize.y / 2 + tree.leftNode.roomRect.height, 0), ckTile);
-
-        //tileMap.SetTile(new Vector3Int(tree.rightNode.roomRect.x - mapSize.x / 2, tree.rightNode.roomRect.y - mapSize.y / 2, 0), ckTile);
-        //tileMap.SetTile(new Vector3Int(tree.rightNode.roomRect.x - mapSize.x / 2 + tree.rightNode.roomRect.width, tree.rightNode.roomRect.y - mapSize.y / 2, 0), ckTile);
-        //tileMap.SetTile(new Vector3Int(tree.rightNode.roomRect.x - mapSize.x / 2, tree.rightNode.roomRect.y - mapSize.y / 2 + tree.rightNode.roomRect.height, 0), ckTile);
-        //tileMap.SetTile(new Vector3Int(tree.rightNode.roomRect.x - mapSize.x / 2 + tree.rightNode.roomRect.width, tree.rightNode.roomRect.y - mapSize.y / 2 + tree.rightNode.roomRect.height, 0), ckTile);
-
-
-        //for(int i=0; i<tree.rightNode.roomRect.width; i++)
-        //{
-        //    tileMap.SetTile(new Vector3Int(tree.rightNode.roomRect.x - mapSize.x / 2 + i, tree.rightNode.roomRect.y - mapSize.y / 2, 0), ckTile);
-        //}
-        //for (int i = 0; i < tree.rightNode.roomRect.height; i++)
-        //{
-        //    tileMap.SetTile(new Vector3Int(tree.leftNode.roomRect.x - mapSize.x / 2, tree.leftNode.roomRect.y - mapSize.y / 2 + i, 0), ckTile);
-        //}
         bool flag = false;
 
         if (Mathf.Min(leftNodeCenter.x, rightNodeCenter.x) == leftNodeCenter.x)
         {
             for (int num = 0; num < tree.leftNode.roomRect.height; num++)
             {
-                if (tileMap.GetTile(new Vector3Int(tree.leftNode.roomRect.x + tree.leftNode.roomRect.width - mapSize.x / 2, tree.leftNode.roomRect.y + num - mapSize.y/2  , 0)) == roomTile)
+                if (tileMap.GetTile(new Vector3Int(tree.leftNode.roomRect.x + tree.leftNode.roomRect.width - mapSize.x / 2, tree.leftNode.roomRect.y + num - mapSize.y/2 , 0)) == roomTile)
                 {
                     flag = true;
                     break;
@@ -156,14 +137,11 @@ public class BSPTest : MonoBehaviour
         // 가로방향 길
         for (int i = Mathf.Min(leftNodeCenter.x, rightNodeCenter.x); i <= Mathf.Max(leftNodeCenter.x, rightNodeCenter.x); i++)
         {
+            if (tileMap.GetTile(new Vector3Int(i - mapSize.x / 2, leftNodeCenter.y - mapSize.y / 2, 0)) == roomTile)
+                continue;
             // 가로방향 길 이미 만들어졌는지 검사
-            int roomTileCnt = 0;
-            //for (int num = 0; num < tree.leftNode.roomRect.height; num++) {
-            //    if (tileMap.GetTile(new Vector3Int(i - mapSize.x / 2, tree.leftNode.roomRect.y + num - mapSize.y / 2)) == roomTile) roomTileCnt++;
-            //}
             if (!flag)
-                tileMap.SetTile(new Vector3Int(i - mapSize.x / 2, leftNodeCenter.y - mapSize.y / 2, 0), roomTile);
-            //if (roomTileCnt == 0) tileMap.SetTile(new Vector3Int(i - mapSize.x / 2, leftNodeCenter.y - mapSize.y / 2, 0), roomTile);
+                tileMap.SetTile(new Vector3Int(i - mapSize.x / 2, leftNodeCenter.y - mapSize.y / 2, 0), ckTile);
         }
         
         flag = false;
@@ -193,22 +171,11 @@ public class BSPTest : MonoBehaviour
         // 세로방향 길
         for (int j = Mathf.Min(leftNodeCenter.y, rightNodeCenter.y); j <= Mathf.Max(leftNodeCenter.y, rightNodeCenter.y); j++)
         {
-            //tileMap.SetTile(new Vector3Int(tree.rightNode.roomRect.x - mapSize.x /2, j - mapSize.y / 2, 0), ckTile);
-            //tileMap.SetTile(new Vector3Int(tree.rightNode.roomRect.x - mapSize.x / 2 + tree.rightNode.roomRect.width, j - mapSize.y / 2, 0), ckTile);
-
-
-            // 세로방향 길 이미 만들어졌는지 검사
-            int roomTileCnt = 0;
-
-            //for (int num = 0; num < tree.rightNode.roomRect.width; num++) {
-            //    if (tileMap.GetTile(new Vector3Int(tree.rightNode.roomRect.x+num - mapSize.x/2, j - mapSize.y / 2)) == roomTile) roomTileCnt++;
-            //}
-
+            if (tileMap.GetTile(new Vector3Int(rightNodeCenter.x - mapSize.x / 2, j - mapSize.y / 2, 0)) == roomTile)
+                continue;
 
             if (!flag)
-                tileMap.SetTile(new Vector3Int(rightNodeCenter.x - mapSize.x / 2, j - mapSize.y / 2, 0), roomTile);
-            //if (roomTileCnt == 0) tileMap.SetTile(new Vector3Int(rightNodeCenter.x - mapSize.x / 2, j - mapSize.y / 2, 0), roomTile);
-
+                tileMap.SetTile(new Vector3Int(rightNodeCenter.x - mapSize.x / 2, j - mapSize.y / 2, 0), ckTile);
         }
         //이전 포스팅에서 선으로 만들었던 부분을 room tile로 채우는 과정
         GenerateLoad(tree.leftNode, n + 1); //자식 노드들도 탐색
@@ -252,7 +219,11 @@ public class BSPTest : MonoBehaviour
         }
     }
     private void FillRoom(RectInt rect)
-    { //room의 rect정보를 받아서 tile을 set해주는 함수
+    { 
+        // 방 위치 내에서 랜덤으로 오브젝트, 방의 정보(enum으로 무슨 방인지 표시, 2차원 배열로 맵 상태 표시)
+
+
+        //room의 rect정보를 받아서 tile을 set해주는 함수
         for (int i = rect.x; i < rect.x + rect.width; i++)
         {
             for (int j = rect.y; j < rect.y + rect.height; j++)

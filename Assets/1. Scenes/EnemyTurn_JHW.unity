@@ -221,7 +221,7 @@ MonoBehaviour:
   moveSpeed: 3
   rollDistance: 2.5
   playerMoveCount: 3
-  areaTile: {fileID: 0}
+  areaTile: {fileID: 11400000, guid: 6d62ee5bebfab4543a4d42e4d00e4921, type: 2}
   tileMap: {fileID: 1532704937}
 --- !u!1 &275702270
 GameObject:
@@ -366,6 +366,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 1714145833}
     m_Modifications:
     - target: {fileID: 718154549428008776, guid: 31db09c2d2ca63f4b8a674a73cf18d83, type: 3}
+      propertyPath: m_TileAnchor.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 718154549428008776, guid: 31db09c2d2ca63f4b8a674a73cf18d83, type: 3}
+      propertyPath: m_TileAnchor.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 718154549428008776, guid: 31db09c2d2ca63f4b8a674a73cf18d83, type: 3}
       propertyPath: m_TileOrientation
       value: 0
       objectReference: {fileID: 0}
@@ -421,6 +429,14 @@ PrefabInstance:
       propertyPath: m_SortOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3902655544818460863, guid: 31db09c2d2ca63f4b8a674a73cf18d83, type: 3}
+      propertyPath: m_TileAnchor.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3902655544818460863, guid: 31db09c2d2ca63f4b8a674a73cf18d83, type: 3}
+      propertyPath: m_TileAnchor.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6115235382814997786, guid: 31db09c2d2ca63f4b8a674a73cf18d83, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -472,7 +488,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 80, y: 15}
+  m_AnchoredPosition: {x: 79.1, y: 22}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &589865241
