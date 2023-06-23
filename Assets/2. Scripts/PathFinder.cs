@@ -221,6 +221,35 @@ public class AStarAlgorithm
         int[] node = current;
 
     }
+
+    private static int CalculateGCost(int[] current, int[] neighbor)
+    {
+        int dx = Mathf.Abs(current[0] - neighbor[0]);
+        int dy = Mathf.Abs(current[1] - neighbor[1]);
+
+        if (dx == 1 && dy == 1)
+        {
+            return 14; // Diagonal movement cost
+        }
+        else
+        {
+            return 10; // Vertical or horizontal movement cost
+        }
+    }
+
+    private static int CalculateHeuristic(int[] position)
+    {
+        int dx = Mathf.Abs(position[0] - destination[0]);
+        int dy = Mathf.Abs(position[1] - destination[1]);
+        return Mathf.Max(dx, dy);
+    }
+
+    private static bool IsValidPosition(int[] position)
+    {
+        int x = position[0];
+        int y = position[1];
+        return x >= 0 && x < map.GetLength(1) && y >= 0 && y < map.GetLength(0) && map[y, x] == 0;
+    }
 }
 
 
