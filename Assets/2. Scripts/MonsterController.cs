@@ -28,8 +28,8 @@ public abstract class MonsterController : MonoBehaviour
 
     protected MonsterState monsterState=MonsterState.Idle;
 
-    protected int posX;
-    protected int posY;
+    protected int posX=4;
+    protected int posY=8;
 
     protected void Init()
     {
@@ -48,10 +48,10 @@ public abstract class MonsterController : MonoBehaviour
         StartCoroutine(Move());
     }
 
-    IEnumerator Move()
+    public IEnumerator Move()
     {
         isMoving = true;
-        var d = PathFinder.GetDir(new int[] { posX, posY }, 3, 3);
+        var d = PathFinder.GetDir(new int[] { posX, posY }, 1, 1);
         var tween = transform.DOMove(new Vector3(d[1], -d[0], 0), 1f).SetRelative().SetEase(Ease.Linear);
         posX += d[0];
         posY += d[1];
