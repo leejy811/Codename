@@ -706,8 +706,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateSpeed: 0
   shootingSpeed: 1
+  reloadTime: 3
   bullet: {fileID: 2743669656104095628, guid: 85fcf071f266cf643afd6796918ef18e, type: 3}
   bulletPos: {fileID: 97140653}
+  maxBulletCount: 10
+  totalBulletCount: 20
 --- !u!212 &700856221
 SpriteRenderer:
   m_ObjectHideFlags: 0
