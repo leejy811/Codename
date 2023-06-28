@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
     private static GameManager instance = null;
 
     [SerializeField] public MapManager mapManger;
+    [SerializeField] public GameObject player;
+
     public static GameManager Instance
     {
         get

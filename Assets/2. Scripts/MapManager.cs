@@ -41,12 +41,15 @@ public class MapManager : MonoBehaviour
     [SerializeField] public GameObject roomManager;
     [SerializeField] public GameObject roadManager;
 
+    private bool isPlayerSpawned;
+
     void Start()
     {
         FillBackground();//신 로드 시 전부다 바깥타일로 덮음
         Node root = new Node(new RectInt(0, 0, mapSize.x, mapSize.y));
         Divide(root, 0);
         GenerateRoom(root, 0);
+        
         GenerateLoad(root, 0);
         FillWall(); //바깥과 방이 만나는 지점을 벽으로 칠해주는 함수
     }
@@ -98,12 +101,18 @@ public class MapManager : MonoBehaviour
             //y좌표도 위와 같다.
             rect = new RectInt(x, y, width, height);
             FillRoom(rect);
-            //Room room = new Room();
-            //room.rect = rect;
-            //room.roomCenter = new Vector2Int(x + width / 2, y + height / 2);
-            //roomManager.roomList.Add(room);
-            //roommanager.roomCnt++;
+            Room room = new Room();
+            room.rect = rect;
+            room.roomCenter = new Vector2Int(x + width / 2, y + height / 2);
+            roomManager.GetComponent<RoomManager>().roomLIst.Add(room);
+            roomManager.GetComponent<RoomManager>().roomCnt++;
 
+            int player_x = Random.Range(0, 10);
+            if(!isPlayerSpawned && player_x == 0)
+            {
+                Instantiate(GameManager.Instance.player, new Vector3(room.roomCenter.x-mapSize.x/2, room.roomCenter.y-mapSize.y / 2, 0), Quaternion.identity);
+                isPlayerSpawned = true;
+            }
         }
         else
         {
@@ -118,7 +127,7 @@ public class MapManager : MonoBehaviour
         if (n == maxDepth) //리프 노드라면 이을 자식이 없다.
             return;
 
-        //roomManager.GenerateRoad();
+        roadManager.GetComponent<RoadManager>().GenerateRoad();
         {
             //Vector2Int leftNodeCenter = tree.leftNode.center;
             //Vector2Int rightNodeCenter = tree.rightNode.center;

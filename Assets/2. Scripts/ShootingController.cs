@@ -70,8 +70,8 @@ public class ShootingController : MonoBehaviour
         {
             if (totalBulletCount > 0)
                 StartCoroutine(Reload());
-            else
-                Debug.Log("No bullet left");
+            else { }
+                //Debug.Log("No bullet left");
         }
     }
 

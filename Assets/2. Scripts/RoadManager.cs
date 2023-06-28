@@ -16,28 +16,28 @@ public class RoadManager : MonoBehaviour
         Vector2Int mapSize = GameManager.Instance.mapManger.mapSize;
 
         int maxRoomCnt_Y = (int)Mathf.Pow(2, GameManager.Instance.mapManger.maxDepth / 2);
-        int maxRoomCnt_X = GameManager.Instance.mapManger.roomManager.roomCnt / maxRoomCnt_Y;
+        int maxRoomCnt_X = GameManager.Instance.mapManger.roomManager.GetComponent<RoomManager>().roomCnt / maxRoomCnt_Y;
 
-        for (int idx = 0; idx < GameManager.Instance.mapManger.roomManager.roomCnt; idx++)
+        for (int idx = 0; idx < GameManager.Instance.mapManger.roomManager.GetComponent<RoomManager>().roomCnt; idx++)
         {
-            Room targetRoom = GameManager.Instance.mapManger.roomManager.roomLIst[idx];
+            Room targetRoom = GameManager.Instance.mapManger.roomManager.GetComponent<RoomManager>().roomLIst[idx];
             targetRoom.roomIdx = (targetRoom.roomCenter.x / (mapSize.x / maxRoomCnt_X)) + (targetRoom.roomCenter.y / (mapSize.y / maxRoomCnt_Y)) * maxRoomCnt_Y;
         }
-        GameManager.Instance.mapManger.roomManager.roomLIst = GameManager.Instance.mapManger.roomManager.roomLIst.OrderBy(x => x.roomIdx).ToList();
+        GameManager.Instance.mapManger.roomManager.GetComponent<RoomManager>().roomLIst = GameManager.Instance.mapManger.roomManager.GetComponent<RoomManager>().roomLIst.OrderBy(x => x.roomIdx).ToList();
 
 
-        for (int idx = 0; idx < GameManager.Instance.mapManger.roomManager.roomCnt; idx++)
+        for (int idx = 0; idx < GameManager.Instance.mapManger.roomManager.GetComponent<RoomManager>().roomCnt; idx++)
         {
-            Room targetRoom = GameManager.Instance.mapManger.roomManager.roomLIst[idx];
+            Room targetRoom = GameManager.Instance.mapManger.roomManager.GetComponent<RoomManager>().roomLIst[idx];
 
             Room leftRoom = null;
             Room rightRoom = null;
             Room upRoom = null;
             Room downRoom = null;
-            if ((idx % maxRoomCnt_X) > 0) leftRoom = GameManager.Instance.mapManger.roomManager.roomLIst[idx - 1];
-            if ((idx % maxRoomCnt_X) < maxRoomCnt_X - 1) rightRoom = GameManager.Instance.mapManger.roomManager.roomLIst[idx + 1];
-            if ((idx / maxRoomCnt_X) > 0) upRoom = GameManager.Instance.mapManger.roomManager.roomLIst[idx - maxRoomCnt_Y];
-            if ((idx / maxRoomCnt_X) < maxRoomCnt_Y - 1) downRoom = GameManager.Instance.mapManger.roomManager.roomLIst[idx + maxRoomCnt_Y];
+            if ((idx % maxRoomCnt_X) > 0) leftRoom = GameManager.Instance.mapManger.roomManager.GetComponent<RoomManager>().roomLIst[idx - 1];
+            if ((idx % maxRoomCnt_X) < maxRoomCnt_X - 1) rightRoom = GameManager.Instance.mapManger.roomManager.GetComponent<RoomManager>().roomLIst[idx + 1];
+            if ((idx / maxRoomCnt_X) > 0) upRoom = GameManager.Instance.mapManger.roomManager.GetComponent<RoomManager>().roomLIst[idx - maxRoomCnt_Y];
+            if ((idx / maxRoomCnt_X) < maxRoomCnt_Y - 1) downRoom = GameManager.Instance.mapManger.roomManager.GetComponent<RoomManager>().roomLIst[idx + maxRoomCnt_Y];
 
             if (leftRoom != null)
             {
