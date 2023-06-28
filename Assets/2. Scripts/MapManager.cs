@@ -108,7 +108,7 @@ public class MapManager : MonoBehaviour
             roomManager.GetComponent<RoomManager>().roomCnt++;
 
             int player_x = Random.Range(0, 10);
-            if(!isPlayerSpawned && player_x == 0)
+            if(!isPlayerSpawned && player_x == 0 || !isPlayerSpawned && roomManager.GetComponent<RoomManager>().roomCnt == 15)
             {
                 Instantiate(GameManager.Instance.player, new Vector3(room.roomCenter.x-mapSize.x/2, room.roomCenter.y-mapSize.y / 2, 0), Quaternion.identity);
                 isPlayerSpawned = true;
