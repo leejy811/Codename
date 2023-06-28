@@ -36,11 +36,6 @@ public abstract class MonsterController : MonoBehaviour
 
     }
 
-    public void GetDamage()
-    {
-
-    }
-
     protected void TryMove()
     {
         if (isMoving)
@@ -51,7 +46,7 @@ public abstract class MonsterController : MonoBehaviour
     public IEnumerator Move()
     {
         isMoving = true;
-        var d = PathFinder.GetDir(new int[] { posX, posY }, 1, 1);
+        var d = PathFinder.GetDir(new int[] { posX, posY }, 1, 3);
         var tween = transform.DOMove(new Vector3(d[1], -d[0], 0), 1f).SetRelative().SetEase(Ease.Linear);
         posX += d[0];
         posY += d[1];
@@ -61,6 +56,11 @@ public abstract class MonsterController : MonoBehaviour
     }
 
     public virtual void Attack()
+    {
+
+    }
+
+    public void GetDamage(float value)
     {
 
     }
