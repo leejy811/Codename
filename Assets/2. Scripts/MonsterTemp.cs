@@ -8,18 +8,19 @@ public class MonsterTemp : MonsterController
     void Start()
     {
         Init();
-        
-    }
-
-    public override void Attack()
-    {
-        base.Attack();
-
     }
 
     private void Update()
     {
+        ReorderSortingLayer();
         TryMove();
+        TryAttack();
+    }
+
+    protected override void DoAttack()
+    {
+        base.DoAttack();
+
     }
 
 }

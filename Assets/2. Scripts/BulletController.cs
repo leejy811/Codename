@@ -7,7 +7,7 @@ public class BulletController : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float distance;
 
-    private float damage;
+    private float damage=1;
 
     private void OnEnable()
     {
@@ -29,8 +29,9 @@ public class BulletController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Monster")
-            collision.gameObject.GetComponent<MonsterController>().GetDamage(damage);
+        
+        if (collision.gameObject.GetComponent<ActiveObject>())
+            collision.gameObject.GetComponent<ActiveObject>().GetDamage(damage);
     }
 
 }

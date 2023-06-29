@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36df56105ec24ac409f773f60942fdba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHp: 10
+  hp: 10
   moveSpeed: 3
   rollDistance: 2.5
   playerMoveCount: 0
@@ -839,10 +839,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4ad5d4e985e2434d93f3a5c0a3fa294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterName: 
-  monsterHp: 0
-  monsterSpeed: 0
-  monsterDamage: 0
+  hp: 10
+  moveSpeed: 1
+  monsterName: temp
+  attackDelay: 1
   monsterType: 0
 --- !u!4 &1293292195
 Transform:

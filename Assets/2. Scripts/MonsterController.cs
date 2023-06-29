@@ -15,35 +15,33 @@ public enum MonsterState
     Attack,
 }
 
-public abstract class MonsterController : MonoBehaviour
+public abstract class MonsterController : ActiveObject
 {
     [SerializeField] protected string monsterName;
-    [SerializeField] protected float monsterHp;
-    [SerializeField] protected float monsterSpeed;
-    [SerializeField] protected float monsterDamage;
+    [SerializeField] protected float attackDelay;
     [SerializeField] protected MonsterType monsterType;
 
-    protected bool isMoving = false;
-    protected bool isAttacking = false;
+    protected bool isAttacking;
 
     protected MonsterState monsterState=MonsterState.Idle;
 
-    protected int posX=4;
-    protected int posY=8;
 
     protected void Init()
     {
-
+        isAttacking = false;
+        isMoving = false;
+        posX = 4;
+        posY = 8;
     }
 
-    protected void TryMove()
+    protected override void TryMove()
     {
         if (isMoving)
             return;
         StartCoroutine(Move());
     }
 
-    public IEnumerator Move()
+    protected IEnumerator Move()
     {
         isMoving = true;
         var d = PathFinder.GetDir(new int[] { posX, posY }, 1, 3);
@@ -55,12 +53,22 @@ public abstract class MonsterController : MonoBehaviour
         isMoving = false;
     }
 
-    public virtual void Attack()
+    protected  void TryAttack()
     {
-
+        if (isAttacking)
+            return;
+        StartCoroutine(Attack());
     }
 
-    public void GetDamage(float value)
+    protected IEnumerator Attack()
+    {
+        isAttacking = true;
+        DoAttack();
+        yield return new WaitForSeconds(attackDelay);
+        isAttacking = false;
+    }
+
+    protected virtual void DoAttack()
     {
 
     }

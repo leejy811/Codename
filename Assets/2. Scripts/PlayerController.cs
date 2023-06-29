@@ -4,7 +4,7 @@ using System.Collections;
 using System.Linq;
 using UnityEngine.Tilemaps;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : ActiveObject
 {
     #region Member Var
     public enum PlayerStates
@@ -16,8 +16,6 @@ public class PlayerController : MonoBehaviour
     }
     public  static PlayerStates PlayerState { get; private set; } = PlayerStates.Idle;
 
-    [SerializeField] private float playerHp;
-    [SerializeField] private float moveSpeed;
     [SerializeField] private float rollDistance;
     [SerializeField] private int playerMoveCount;
     // 이 부분 수정
@@ -26,7 +24,6 @@ public class PlayerController : MonoBehaviour
 
     private float moveX;
     private float moveY;
-    private bool isDead = false;
     private bool isRolling = false;
     private bool isAreaActive = false;
     #endregion
@@ -44,6 +41,7 @@ public class PlayerController : MonoBehaviour
         moveX = Input.GetAxisRaw("Horizontal");
         moveY = Input.GetAxisRaw("Vertical");
 
+        ReorderSortingLayer();
         TryMove();
         TryRoll();
 
@@ -100,7 +98,8 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-    private void TryMove()
+
+    protected override void TryMove()
     {
         if (moveX == 0 && moveY == 0)
         {
@@ -124,12 +123,12 @@ public class PlayerController : MonoBehaviour
         if (!Input.GetKeyDown(KeyCode.Space) || isRolling)
             return;
         PlayerState = PlayerStates.Roll;
-        isRolling = true;
         StartCoroutine(Roll());
     }
 
     IEnumerator Roll()
     {
+        isRolling = true;
         var roll = transform.DOMove(new Vector3(moveX, moveY, 0).normalized * rollDistance, 0.5f).SetRelative().SetEase(Ease.OutQuad);
         yield return roll.WaitForCompletion();
 
