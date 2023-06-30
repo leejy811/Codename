@@ -98,7 +98,7 @@ public class PlayerController : ActiveObject
             }
         }
     }
-
+    
     protected override void TryMove()
     {
         if (moveX == 0 && moveY == 0)
@@ -134,5 +134,10 @@ public class PlayerController : ActiveObject
 
         PlayerState = PlayerStates.Idle;
         isRolling = false;
+    }
+
+    protected override void Die()
+    {
+        throw new System.NotImplementedException();
     }
 }

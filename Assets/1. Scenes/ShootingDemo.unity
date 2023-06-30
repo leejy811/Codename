@@ -219,6 +219,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 10
   moveSpeed: 3
+  sizeX: 0
+  sizeY: 0
+  sprite: {fileID: 1567380475}
   rollDistance: 2.5
   playerMoveCount: 0
   areaTile: {fileID: 0}
@@ -841,6 +844,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 10
   moveSpeed: 1
+  sizeX: 0
+  sizeY: 0
+  sprite: {fileID: 1544520978}
   monsterName: temp
   attackDelay: 1
   monsterType: 0

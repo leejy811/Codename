@@ -6,17 +6,18 @@ abstract public class ActiveObject : MonoBehaviour
 {
     [SerializeField] protected float hp;
     [SerializeField] protected float moveSpeed;
+    [SerializeField] protected int sizeX;
+    [SerializeField] protected int sizeY;
+    [SerializeField] protected SpriteRenderer sprite;
 
     protected bool isMoving = false;
     protected bool isDead = false;
 
     protected int posX;
-    protected int posY;
+    protected int posY; 
 
-    protected virtual void TryMove()
-    {
-        
-    }
+    protected abstract void TryMove();
+    protected abstract void Die();
 
     public void GetDamage(float value)
     {
@@ -29,20 +30,9 @@ abstract public class ActiveObject : MonoBehaviour
         }
     }
 
-    protected virtual void Die()
-    {
-
-    }
 
     protected void ReorderSortingLayer()
     {
-        if(GetComponent<SpriteRenderer>())
-            GetComponent<SpriteRenderer>().sortingOrder = -(int)transform.position.y;
-        else
-        {
-            var children = transform.GetComponentsInChildren<SpriteRenderer>();
-            foreach(var child in children)
-                child.sortingOrder= -(int)transform.position.y;
-        }
+        sprite.sortingOrder = -(int)transform.position.y;
     }
 }

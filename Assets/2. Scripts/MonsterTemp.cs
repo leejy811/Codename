@@ -16,11 +16,15 @@ public class MonsterTemp : MonsterController
         TryMove();
         TryAttack();
     }
-
+    
     protected override void DoAttack()
     {
         base.DoAttack();
 
     }
 
+    protected override void Die()
+    {
+        throw new System.NotImplementedException();
+    }
 }
