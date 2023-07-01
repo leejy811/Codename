@@ -1,8 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
-using System.Collections;
-using System.Linq;
 using UnityEngine.Tilemaps;
+using System.Collections;
 
 public class PlayerController : ActiveObject
 {
@@ -129,11 +128,13 @@ public class PlayerController : ActiveObject
     IEnumerator Roll()
     {
         isRolling = true;
+        iFrame = true;
         var roll = transform.DOMove(new Vector3(moveX, moveY, 0).normalized * rollDistance, 0.5f).SetRelative().SetEase(Ease.OutQuad);
         yield return roll.WaitForCompletion();
 
         PlayerState = PlayerStates.Idle;
         isRolling = false;
+        iFrame = false;
     }
 
     protected override void Die()
