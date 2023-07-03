@@ -48,6 +48,6 @@ abstract public class ActiveObject : MonoBehaviour
 
     protected void ReorderSortingLayer()
     {
-        sprite.sortingOrder = -(int)transform.position.y;
+        //sprite.sortingOrder = -(int)transform.position.y;
     }
 }

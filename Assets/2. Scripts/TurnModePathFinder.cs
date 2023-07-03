@@ -47,9 +47,13 @@ public class TurnModePathFinder : MonoBehaviour
     }
     public List<TurnMoveNode> GenerateRoad(Vector3 curPos, Vector3 nextMovePos)
     {
+        if (RoadList.transform.childCount > 0) newRoad=null;
+
         newRoad = Instantiate(roadPrefab, this.transform);
         newRoad.transform.localPosition = new Vector3(0, 0, 0);
         newRoad.transform.SetParent(RoadList.transform);
+
+        
 
         GameObject _road = roadPrefab.transform.GetChild(0).GetChild(0).gameObject;
         GameObject _point = roadPrefab.transform.GetChild(0).GetChild(1).gameObject;

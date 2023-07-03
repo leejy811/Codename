@@ -2,6 +2,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Tilemaps;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerController : ActiveObject
 {
@@ -25,6 +26,8 @@ public class PlayerController : ActiveObject
     private float moveY;
     private bool isRolling = false;
     private bool isAreaActive = false;
+
+    List<TurnMoveNode> turnMoves;
     #endregion
 
     void Start()
@@ -40,7 +43,7 @@ public class PlayerController : ActiveObject
         moveX = Input.GetAxisRaw("Horizontal");
         moveY = Input.GetAxisRaw("Vertical");
 
-        ReorderSortingLayer();
+        //ReorderSortingLayer();
         TryMove();
         TryRoll();
 
@@ -74,11 +77,21 @@ public class PlayerController : ActiveObject
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePosition = new Vector2(Mathf.RoundToInt(mousePosition.x), Mathf.RoundToInt(mousePosition.y));
 
-            GameManager.Instance.turnPathFinder.GenerateRoad(transform.position, new Vector3(mousePosition.x, mousePosition.y, 0));
-            //if(Input.GetMouseButtonDown(0))
-            //    transform.position = mousePosition;
+            if (Input.GetMouseButtonDown(0))
+            {
+                turnMoves = GameManager.Instance.turnPathFinder.GenerateRoad(transform.position, new Vector3(mousePosition.x, mousePosition.y, 0));
+                //// LineRenderer 설정, 적 이동경로(A* 최단거리 알고리즘)대로 선으로 표시
+                LineRenderer lr = this.GetComponent<LineRenderer>();
+                lr.positionCount = turnMoves.Count;
+                for (int i = 0; i < turnMoves.Count; i++)
+                {
+                    lr.SetPosition(i, new Vector3(turnMoves[i].x, turnMoves[i].y));
+                }
+            }
 
-            
+            //transform.position = mousePosition;
+
+
         }
     }
        

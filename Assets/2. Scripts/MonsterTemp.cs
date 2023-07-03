@@ -12,7 +12,7 @@ public class MonsterTemp : MonsterController
 
     private void Update()
     {
-        ReorderSortingLayer();
+        //ReorderSortingLayer();
         TryMove();
         TryAttack();
     }
