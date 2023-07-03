@@ -7,7 +7,12 @@ using UnityEngine.Tilemaps;
 public class RoadManager : MonoBehaviour
 {
 
+    //private MapManager mapManager;
 
+    //private void Awake()
+    //{
+    //    mapManager = GameManager.Instance.mapManger;
+    //}
 
     public void GenerateRoad()
     {

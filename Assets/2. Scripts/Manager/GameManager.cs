@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] public MapManager mapManger;
     [SerializeField] public GameObject player;
+    [SerializeField] public TurnModePathFinder turnPathFinder;
 
     public static GameManager Instance
     {

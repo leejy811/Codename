@@ -73,10 +73,11 @@ public class PlayerController : ActiveObject
         if(isAreaActive)
         {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePosition = new Vector2(Mathf.RoundToInt(mousePosition.x) - 0.6f, Mathf.RoundToInt(mousePosition.y) + 0.7f);
+            mousePosition = new Vector2(Mathf.RoundToInt(mousePosition.x), Mathf.RoundToInt(mousePosition.y));
 
-            if(Input.GetMouseButtonDown(0))
-                transform.position = mousePosition;
+            GameManager.Instance.turnPathFinder.GenerateRoad(transform.position, new Vector3(mousePosition.x, mousePosition.y, 0));
+            //if(Input.GetMouseButtonDown(0))
+            //    transform.position = mousePosition;
 
             
         }
@@ -94,7 +95,7 @@ public class PlayerController : ActiveObject
             {
                 if (Mathf.Abs(x) + Mathf.Abs(y) > playerMoveCount)
                     continue;
-                tileMap.SetTile(new Vector3Int(x, y, 0), areaTile);
+                tileMap.SetTile(new Vector3Int((int)transform.position.x + x, (int)transform.position.y + y, 0), areaTile);
             }
         }
     }

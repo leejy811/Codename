@@ -42,7 +42,12 @@ public class MapManager : MonoBehaviour
     [SerializeField] public GameObject roadManager;
 
     private bool isPlayerSpawned;
+    //private GameObject player;
 
+    //private void Awake()
+    //{
+    //    player = GameManager.Instance.player;
+    //}
     void Start()
     {
         FillBackground();//신 로드 시 전부다 바깥타일로 덮음
