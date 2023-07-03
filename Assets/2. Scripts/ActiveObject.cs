@@ -1,6 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
+using System.Collections;
 
 abstract public class ActiveObject : MonoBehaviour
 {
@@ -8,9 +9,11 @@ abstract public class ActiveObject : MonoBehaviour
     [SerializeField] protected float moveSpeed;
     [SerializeField] protected int sizeX;
     [SerializeField] protected int sizeY;
+    [SerializeField] protected float iFrameTime;
     [SerializeField] protected SpriteRenderer sprite;
 
     protected bool isMoving = false;
+    protected bool iFrame = false;
     protected bool isDead = false;
 
     protected int posX;
@@ -21,15 +24,27 @@ abstract public class ActiveObject : MonoBehaviour
 
     public void GetDamage(float value)
     {
-        Debug.Log("111");
+        if (isDead)
+            return;
+        if(iFrame) 
+            return;
+
         hp -= value;
         if (hp <= 0)
         {
             isDead = true;
             Die();
+            return;
         }
+        StartCoroutine(StartIFrame());
     }
 
+    IEnumerator StartIFrame()
+    {
+        iFrame = true;
+        yield return new WaitForSeconds(iFrameTime);
+        iFrame = false; ;
+    }
 
     protected void ReorderSortingLayer()
     {

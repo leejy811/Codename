@@ -6,6 +6,7 @@ using DG.Tweening;
 public class ShootingController : MonoBehaviour
 {
     [SerializeField] private float rotateSpeed;
+    [SerializeField] private float shootingDamage;
     [SerializeField] private float shootingSpeed;
     [SerializeField] private float reloadTime;
 
@@ -57,7 +58,8 @@ public class ShootingController : MonoBehaviour
     {
         isCoolTime = true;
         currentBulletCount -= 1;
-        Instantiate(bullet, new Vector3(bulletPos.position.x, bulletPos.position.y, bulletPos.position.z), transform.rotation);
+        var b= Instantiate(bullet, new Vector3(bulletPos.position.x, bulletPos.position.y, bulletPos.position.z), transform.rotation);
+        b.GetComponent<BulletController>().Init(shootingDamage, transform.tag);
         yield return new WaitForSeconds(1/shootingSpeed);
         isCoolTime = false;
     }
