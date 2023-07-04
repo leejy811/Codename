@@ -35,7 +35,7 @@ public class MapManager : MonoBehaviour
     [SerializeField] public Tile roomTile; //방을 구성하는 타일
     [SerializeField] Tile wallTile; //방과 외부를 구분지어줄 벽 타일
     [SerializeField] Tile outTile; //방 외부의 타일
-    [SerializeField] Tile ckTile; //방 외부의 타일
+    [SerializeField] public Tile ckTile; //방 외부의 타일
 
     [Header("=== Room Manager / Road Manager ===")]
     [SerializeField] public GameObject roomManager;

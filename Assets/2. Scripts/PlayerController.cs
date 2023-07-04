@@ -18,9 +18,6 @@ public class PlayerController : ActiveObject
 
     [SerializeField] private float rollDistance;
     [SerializeField] private int playerMoveCount;
-    // 이 부분 수정
-    [SerializeField] private Tile areaTile;
-    [SerializeField] private Tilemap tileMap;
 
     private float moveX;
     private float moveY;
@@ -107,7 +104,8 @@ public class PlayerController : ActiveObject
             {
                 if (Mathf.Abs(x) + Mathf.Abs(y) > playerMoveCount)
                     continue;
-                tileMap.SetTile(new Vector3Int((int)transform.position.x + x, (int)transform.position.y + y, 0), areaTile);
+                //tileMap.SetTile(new Vector3Int((int)transform.position.x + x, (int)transform.position.y + y, 0), areaTile);
+                GameManager.Instance.mapManger.GetComponent<MapManager>().tileMap.SetTile(new Vector3Int((int)transform.position.x + x, (int)transform.position.y + y, 0), GameManager.Instance.mapManger.GetComponent<MapManager>().ckTile);
             }
         }
     }
