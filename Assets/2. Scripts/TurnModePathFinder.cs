@@ -32,21 +32,21 @@ public class TurnModePathFinder : MonoBehaviour
 
     private GameObject newRoad;
     // 길 담는 리스트
-    [SerializeField]
-    GameObject RoadList;
+    //[SerializeField]
+    //GameObject RoadList;
 
     void Update()
     {
         
     }
 
-    public List<TurnMoveNode> GenerateRoad(Vector3 curPos, Vector3 nextMovePos)
+    public List<TurnMoveNode> GenerateRoad(Vector3 curPos, Vector3 nextMovePos, Transform roadList)
     {
-        if (RoadList.transform.childCount > 0) newRoad=null;
+        if (roadList.transform.childCount > 0) newRoad=null;
 
         newRoad = Instantiate(roadPrefab, this.transform);
         newRoad.transform.localPosition = new Vector3(0, 0, 0);
-        newRoad.transform.SetParent(RoadList.transform);
+        newRoad.transform.SetParent(roadList.transform);
 
         
 

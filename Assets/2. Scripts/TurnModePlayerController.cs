@@ -30,7 +30,7 @@ public class TurnModePlayerController : MonoBehaviour
             mousePosition = new Vector2(Mathf.RoundToInt(mousePosition.x), Mathf.RoundToInt(mousePosition.y));
 
 
-            turnMoves = GameManager.Instance.turnPathFinder.GenerateRoad(transform.position, new Vector3(mousePosition.x, mousePosition.y, 0));
+            turnMoves = GameManager.Instance.turnPathFinder.GenerateRoad(transform.position, new Vector3(mousePosition.x, mousePosition.y, 0), this.transform);
             //// LineRenderer 설정, 적 이동경로(A* 최단거리 알고리즘)대로 선으로 표시
             LineRenderer lr = this.GetComponent<LineRenderer>();
             lr.positionCount = turnMoves.Count;

@@ -39,13 +39,25 @@ public class RoadManager : MonoBehaviour
             Room rightRoom = null;
             Room upRoom = null;
             Room downRoom = null;
+
             if ((idx % maxRoomCnt_X) > 0) leftRoom = GameManager.Instance.mapManger.roomManager.GetComponent<RoomManager>().roomLIst[idx - 1];
             if ((idx % maxRoomCnt_X) < maxRoomCnt_X - 1) rightRoom = GameManager.Instance.mapManger.roomManager.GetComponent<RoomManager>().roomLIst[idx + 1];
             if ((idx / maxRoomCnt_X) > 0) upRoom = GameManager.Instance.mapManger.roomManager.GetComponent<RoomManager>().roomLIst[idx - maxRoomCnt_Y];
             if ((idx / maxRoomCnt_X) < maxRoomCnt_Y - 1) downRoom = GameManager.Instance.mapManger.roomManager.GetComponent<RoomManager>().roomLIst[idx + maxRoomCnt_Y];
 
+            // 상, 하, 좌, 우 모든 위치에 방이 존재한다면 4개 중 한개의 길은 사라지게 만들 것이다.
+            // 0 - 왼쪽 길, 1 - 오른쪽 길, 2 - 위쪽 길, 3 - 아래쪽 길, 4 - 모든 길 연결
+            int delRoadDir;
+
+            if (leftRoom != null && rightRoom != null && upRoom != null && downRoom != null)
+                delRoadDir = Random.Range(0, 4);
+            else
+                delRoadDir = 4;
+
             if (leftRoom != null)
             {
+                if (delRoadDir == 0)
+                    continue;
                 if (!leftRoom.isRightRoad)
                 {
                     leftRoom.isRightRoad = true;
@@ -57,6 +69,9 @@ public class RoadManager : MonoBehaviour
 
             if (rightRoom != null)
             {
+                if (delRoadDir == 1)
+                    continue;
+
                 if (!rightRoom.isLeftRoad)
                 {
                     rightRoom.isLeftRoad = true;
@@ -68,6 +83,9 @@ public class RoadManager : MonoBehaviour
 
             if (upRoom != null)
             {
+                if (delRoadDir == 2)
+                    continue;
+
                 if (!upRoom.isDownRoad)
                 {
                     upRoom.isDownRoad = true;
@@ -78,6 +96,8 @@ public class RoadManager : MonoBehaviour
             }
             if (downRoom != null)
             {
+                if (delRoadDir == 3)
+                    continue;
                 if (!downRoom.isUpRoad)
                 {
                     downRoom.isUpRoad = true;
