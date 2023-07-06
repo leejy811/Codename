@@ -576,7 +576,7 @@ MonoBehaviour:
   roomTile: {fileID: 11400000, guid: 463040bb33823754e9e159a83e20321a, type: 2}
   wallTile: {fileID: 11400000, guid: 5cb2704116eff4443b949135e9fe07f9, type: 2}
   outTile: {fileID: 11400000, guid: ed50a80c6ba59cf428ffc19f53876b01, type: 2}
-  ckTile: {fileID: 11400000, guid: 5fe40d7b004adde4293bdf59101e1f97, type: 2}
+  ckTile: {fileID: 11400000, guid: 2af854022baea474ba380cc6be59d552, type: 2}
   roomManager: {fileID: 605026019}
   roadManager: {fileID: 128770669}
 --- !u!4 &1083953385
@@ -624,7 +624,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapManger: {fileID: 1083953384}
-  player: {fileID: 6978123850016153453, guid: df544c8bc200a8648a9b7c7d87dcad1e, type: 3}
+  player: {fileID: 6978123850016153453, guid: c01ed1d0d58516b41bb98656d407321a, type: 3}
   turnPathFinder: {fileID: 933378630}
 --- !u!4 &1256034530
 Transform:

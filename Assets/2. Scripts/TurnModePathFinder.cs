@@ -34,17 +34,12 @@ public class TurnModePathFinder : MonoBehaviour
     // 길 담는 리스트
     [SerializeField]
     GameObject RoadList;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
         
     }
+
     public List<TurnMoveNode> GenerateRoad(Vector3 curPos, Vector3 nextMovePos)
     {
         if (RoadList.transform.childCount > 0) newRoad=null;
@@ -189,6 +184,7 @@ public class TurnModePathFinder : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         StartCoroutine(roadUX());
     }
+
     void OnDrawGizmos()
     {
         if (FinalNodeList != null)

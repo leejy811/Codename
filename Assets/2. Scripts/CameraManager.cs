@@ -15,7 +15,7 @@ public class CameraManager : MonoBehaviour
     {
         if(player == null)
         {
-            player = GameObject.Find("Player(Clone)").transform;
+            player = GameObject.Find("Turn Mode Player(Clone)").transform;
             transform.position = player.position;
         }
 

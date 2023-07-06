@@ -17,14 +17,11 @@ public class PlayerController : ActiveObject
     public  static PlayerStates PlayerState { get; private set; } = PlayerStates.Idle;
 
     [SerializeField] private float rollDistance;
-    [SerializeField] private int playerMoveCount;
 
     private float moveX;
     private float moveY;
     private bool isRolling = false;
-    private bool isAreaActive = false;
 
-    List<TurnMoveNode> turnMoves;
     #endregion
 
     void Start()
@@ -56,59 +53,9 @@ public class PlayerController : ActiveObject
             default:
                 break;
         }
-        if(Input.GetMouseButtonDown(0))
-        {
-            Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);
-
-
-            if (hit.collider != null)
-            {
-                Debug.Log(hit.transform.gameObject);
-                if(!isAreaActive)
-                    ShowPlayerMoveArea();
-            }
-        }
-        if(isAreaActive)
-        {
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePosition = new Vector2(Mathf.RoundToInt(mousePosition.x), Mathf.RoundToInt(mousePosition.y));
-
-            if (Input.GetMouseButtonDown(0))
-            {
-                turnMoves = GameManager.Instance.turnPathFinder.GenerateRoad(transform.position, new Vector3(mousePosition.x, mousePosition.y, 0));
-                //// LineRenderer 설정, 적 이동경로(A* 최단거리 알고리즘)대로 선으로 표시
-                LineRenderer lr = this.GetComponent<LineRenderer>();
-                lr.positionCount = turnMoves.Count;
-                for (int i = 0; i < turnMoves.Count; i++)
-                {
-                    lr.SetPosition(i, new Vector3(turnMoves[i].x, turnMoves[i].y));
-                }
-            }
-
-            //transform.position = mousePosition;
-
-
-        }
     }
        
-    private void PlayerMove()
-    { 
-    }
-    private void ShowPlayerMoveArea()
-    {
-        isAreaActive = true;
-        for(int x = -playerMoveCount; x<=playerMoveCount; x++)
-        {
-            for(int y = -playerMoveCount; y<=playerMoveCount; y++)
-            {
-                if (Mathf.Abs(x) + Mathf.Abs(y) > playerMoveCount)
-                    continue;
-                //tileMap.SetTile(new Vector3Int((int)transform.position.x + x, (int)transform.position.y + y, 0), areaTile);
-                GameManager.Instance.mapManger.GetComponent<MapManager>().tileMap.SetTile(new Vector3Int((int)transform.position.x + x, (int)transform.position.y + y, 0), GameManager.Instance.mapManger.GetComponent<MapManager>().ckTile);
-            }
-        }
-    }
+
     
     protected override void TryMove()
     {
