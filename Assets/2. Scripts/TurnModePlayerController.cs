@@ -26,6 +26,7 @@ public class TurnModePlayerController : MonoBehaviour
                     ShowPlayerMoveArea();
             }
         }
+
         if (isAreaActive)
         {
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -33,8 +34,30 @@ public class TurnModePlayerController : MonoBehaviour
 
             targetPosition = new Vector3(mousePosition.x, mousePosition.y, 0);
 
-            turnMoves = GameManager.Instance.turnPathFinder.GenerateRoad(transform.position, targetPosition, this.transform);
+            if (turnMoves == null)
+                turnMoves = GameManager.Instance.turnPathFinder.GenerateRoad(transform.position, targetPosition, this.transform);
+            else
+            {
+                Vector3 prevPos = new Vector3(turnMoves[turnMoves.Count - 1].x, turnMoves[turnMoves.Count - 1].y, 0);
 
+                List<TurnMoveNode> tempNodeList = turnMoves;
+                if(targetPosition != prevPos)
+                {
+                    tempNodeList.RemoveAt(tempNodeList.Count - 1);
+                    tempNodeList.AddRange(GameManager.Instance.turnPathFinder.GenerateRoad(prevPos, targetPosition, this.transform));
+
+                }
+
+                turnMoves = GameManager.Instance.turnPathFinder.GenerateRoad(transform.position, targetPosition, this.transform);
+
+                Debug.Log("TempNode Count : " + tempNodeList.Count);
+                Debug.Log("trunMove Count : " + turnMoves.Count);
+                if (tempNodeList.Count == turnMoves.Count)
+                {
+                    turnMoves = tempNodeList;
+                }
+            }
+            //turnMoves = GameManager.Instance.turnPathFinder.GenerateRoad(transform.position, targetPosition, this.transform);
             //// LineRenderer 설정, 적 이동경로(A* 최단거리 알고리즘)대로 선으로 표시
             LineRenderer lr = this.GetComponent<LineRenderer>();
             lr.positionCount = turnMoves.Count;
@@ -46,7 +69,7 @@ public class TurnModePlayerController : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
-                PlayerMove();
+                PlayerMoveAlongPath();
             }
         }
         else
@@ -55,7 +78,7 @@ public class TurnModePlayerController : MonoBehaviour
         }
     }
 
-    private void PlayerMove()
+    private void PlayerMoveAlongPath()
     {
 
     }
