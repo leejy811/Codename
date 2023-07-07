@@ -7,7 +7,7 @@ public class TurnModePlayerController : MonoBehaviour
     [SerializeField] private int playerMoveCount;
 
     private bool isAreaActive = false;
-
+    private bool isPlayerCanMove = false;
     List<TurnMoveNode> turnMoves;
     Vector2 mousePosition;
     Vector3 targetPosition, prevPosition;
@@ -27,6 +27,7 @@ public class TurnModePlayerController : MonoBehaviour
             }
         }
 
+        // Player의 이동 가능한 타일이 나타났을 때
         if (isAreaActive)
         {
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -45,11 +46,8 @@ public class TurnModePlayerController : MonoBehaviour
                 {
                     tempNodeList.RemoveAt(tempNodeList.Count - 1);
                     tempNodeList.AddRange(GameManager.Instance.turnPathFinder.GenerateRoad(prevPos, targetPosition, this.transform));
-
                 }
-
                 turnMoves = GameManager.Instance.turnPathFinder.GenerateRoad(transform.position, targetPosition, this.transform);
-
                 if (tempNodeList.Count == turnMoves.Count)
                 {
                     turnMoves = tempNodeList;
@@ -59,6 +57,10 @@ public class TurnModePlayerController : MonoBehaviour
             //// LineRenderer 설정, 적 이동경로(A* 최단거리 알고리즘)대로 선으로 표시
             LineRenderer lr = this.GetComponent<LineRenderer>();
             lr.positionCount = turnMoves.Count;
+            if (turnMoves.Count > playerMoveCount)
+                lr.SetColors(new Color(1, 0, 0), new Color(1, 0, 0));
+            else
+                lr.SetColors(new Color(1, 1, 1), new Color(1, 1, 1));
             for (int i = 0; i < turnMoves.Count; i++)
             {
                 lr.SetPosition(i, new Vector3(turnMoves[i].x, turnMoves[i].y));
@@ -69,10 +71,6 @@ public class TurnModePlayerController : MonoBehaviour
             {
                 PlayerMoveAlongPath();
             }
-        }
-        else
-        {
-
         }
     }
 
@@ -89,7 +87,6 @@ public class TurnModePlayerController : MonoBehaviour
             {
                 if (Mathf.Abs(x) + Mathf.Abs(y) > playerMoveCount)
                     continue;
-                //tileMap.SetTile(new Vector3Int((int)transform.position.x + x, (int)transform.position.y + y, 0), areaTile);
                 GameManager.Instance.mapManger.GetComponent<MapManager>().tileMap.SetTile(new Vector3Int((int)transform.position.x + x, (int)transform.position.y + y, 0), GameManager.Instance.mapManger.GetComponent<MapManager>().ckTile);
             }
         }
