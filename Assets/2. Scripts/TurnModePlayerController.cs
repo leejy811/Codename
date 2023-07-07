@@ -50,14 +50,12 @@ public class TurnModePlayerController : MonoBehaviour
 
                 turnMoves = GameManager.Instance.turnPathFinder.GenerateRoad(transform.position, targetPosition, this.transform);
 
-                Debug.Log("TempNode Count : " + tempNodeList.Count);
-                Debug.Log("trunMove Count : " + turnMoves.Count);
                 if (tempNodeList.Count == turnMoves.Count)
                 {
                     turnMoves = tempNodeList;
                 }
             }
-            //turnMoves = GameManager.Instance.turnPathFinder.GenerateRoad(transform.position, targetPosition, this.transform);
+
             //// LineRenderer 설정, 적 이동경로(A* 최단거리 알고리즘)대로 선으로 표시
             LineRenderer lr = this.GetComponent<LineRenderer>();
             lr.positionCount = turnMoves.Count;
