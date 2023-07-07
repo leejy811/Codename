@@ -9,6 +9,8 @@ public class TurnModePlayerController : MonoBehaviour
     private bool isAreaActive = false;
 
     List<TurnMoveNode> turnMoves;
+    Vector2 mousePosition;
+    Vector3 targetPosition, prevPosition;
 
     void Update()
     {
@@ -26,12 +28,13 @@ public class TurnModePlayerController : MonoBehaviour
         }
         if (isAreaActive)
         {
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePosition = new Vector2(Mathf.RoundToInt(mousePosition.x), Mathf.RoundToInt(mousePosition.y));
 
-            Vector3 targetPos = new Vector3(mousePosition.x, mousePosition.y, 0);
+            targetPosition = new Vector3(mousePosition.x, mousePosition.y, 0);
 
-            turnMoves = GameManager.Instance.turnPathFinder.GenerateRoad(transform.position, targetPos, this.transform);
+            turnMoves = GameManager.Instance.turnPathFinder.GenerateRoad(transform.position, targetPosition, this.transform);
+
             //// LineRenderer 설정, 적 이동경로(A* 최단거리 알고리즘)대로 선으로 표시
             LineRenderer lr = this.GetComponent<LineRenderer>();
             lr.positionCount = turnMoves.Count;
