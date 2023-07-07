@@ -27,13 +27,8 @@ public class TurnModePathFinder : MonoBehaviour
     TurnMoveNode StartNode, TargetNode, CurNode;
     List<TurnMoveNode> OpenList, ClosedList;
     
-    // 이동할 방향
-    //Vector3 nextMovePos;
-
     private GameObject newRoad;
-    // 길 담는 리스트
-    //[SerializeField]
-    //GameObject RoadList;
+
 
     void Update()
     {
@@ -42,16 +37,20 @@ public class TurnModePathFinder : MonoBehaviour
 
     public List<TurnMoveNode> GenerateRoad(Vector3 curPos, Vector3 nextMovePos, Transform roadList)
     {
-        if (roadList.transform.childCount > 0) newRoad=null;
 
-        newRoad = Instantiate(roadPrefab, this.transform);
-        newRoad.transform.localPosition = new Vector3(0, 0, 0);
-        newRoad.transform.SetParent(roadList.transform);
+        if (roadList.Find("road(Clone)") != null)
+            newRoad = roadList.Find("road(Clone)").gameObject;
+        else
+        {
+            newRoad = Instantiate(roadPrefab, this.transform);
+            newRoad.transform.position = roadList.transform.position;
+            newRoad.transform.SetParent(roadList.transform);
+        }
 
-        
 
         GameObject _road = roadPrefab.transform.GetChild(0).GetChild(0).gameObject;
         GameObject _point = roadPrefab.transform.GetChild(0).GetChild(1).gameObject;
+
 
         // 시작점 및 끝점
         GameObject startPoint = Instantiate(_point, newRoad.transform);
@@ -59,19 +58,13 @@ public class TurnModePathFinder : MonoBehaviour
         startPoint.SetActive(true);
         endPoint.SetActive(true);
         endPoint.transform.position = new Vector3(nextMovePos.x, nextMovePos.y, 0);
+
         startPos = new Vector2(curPos.x, curPos.y);
         targetPos = nextMovePos;
         PathFinding();
 
         return FinalNodeList;
 
-        // LineRenderer 설정, 적 이동경로(A* 최단거리 알고리즘)대로 선으로 표시
-        //LineRenderer lr = this.GetComponent<LineRenderer>();
-        //lr.positionCount = FinalNodeList.Count;
-        //for (int i = 0; i < FinalNodeList.Count; i++)
-        //{
-        //    lr.SetPosition(i, new Vector3(FinalNodeList[i].x, FinalNodeList[i].y));
-        //}
     }
     private void PathFinding()
     {
