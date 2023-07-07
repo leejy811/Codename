@@ -49,12 +49,26 @@ public class TurnModePathFinder : MonoBehaviour
 
 
         GameObject _road = roadPrefab.transform.GetChild(0).GetChild(0).gameObject;
-        GameObject _point = roadPrefab.transform.GetChild(0).GetChild(1).gameObject;
+        GameObject s_point = roadPrefab.transform.GetChild(0).GetChild(1).gameObject;
+        GameObject e_point = roadPrefab.transform.GetChild(0).GetChild(2).gameObject;
 
 
         // 시작점 및 끝점
-        GameObject startPoint = Instantiate(_point, newRoad.transform);
-        GameObject endPoint = Instantiate(_point, newRoad.transform);
+        //GameObject startPoint = Instantiate(s_point, newRoad.transform);
+        //GameObject endPoint = Instantiate(e_point, newRoad.transform);
+        GameObject startPoint;
+        GameObject endPoint;
+
+        if (newRoad.transform.Find("Startpoint(Clone)") == null)
+            startPoint = Instantiate(s_point, newRoad.transform);
+        else
+            startPoint = newRoad.transform.Find("Startpoint(Clone)").gameObject;
+
+        if (newRoad.transform.Find("Endpoint(Clone)") == null)
+            endPoint = Instantiate(e_point, newRoad.transform);
+        else
+            endPoint = newRoad.transform.Find("Endpoint(Clone)").gameObject;
+
         startPoint.SetActive(true);
         endPoint.SetActive(true);
         endPoint.transform.position = new Vector3(nextMovePos.x, nextMovePos.y, 0);
