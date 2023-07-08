@@ -11,7 +11,7 @@ public class TurnModePlayerController : MonoBehaviour
     private bool isPlayerCanMove = false;
     List<TurnMoveNode> turnMoves;
     Vector2 mousePosition;
-    Vector3 targetPosition, prevPosition;
+    Vector3 targetPosition, prevPos;
 
     void Update()
     {
@@ -33,43 +33,48 @@ public class TurnModePlayerController : MonoBehaviour
         {
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePosition = new Vector2(Mathf.RoundToInt(mousePosition.x), Mathf.RoundToInt(mousePosition.y));
-
             targetPosition = new Vector3(mousePosition.x, mousePosition.y, 0);
-
-            if (turnMoves == null)
-                turnMoves = GameManager.Instance.turnPathFinder.GenerateRoad(transform.position, targetPosition, this.transform, playerMoveRoad);
-            else
+            if (prevPos != targetPosition)
             {
-                Vector3 prevPos = new Vector3(turnMoves[turnMoves.Count - 1].x, turnMoves[turnMoves.Count - 1].y, 0);
 
-                List<TurnMoveNode> tempNodeList = turnMoves;
-                if(targetPosition != prevPos)
+                if (turnMoves == null)
                 {
-                    tempNodeList.RemoveAt(tempNodeList.Count - 1);
-                    tempNodeList.AddRange(GameManager.Instance.turnPathFinder.GenerateRoad(prevPos, targetPosition, this.transform, playerMoveRoad));
+                    turnMoves = GameManager.Instance.turnPathFinder.GenerateRoad(transform.position, targetPosition, this.transform, playerMoveRoad);
+                    prevPos = new Vector3(turnMoves[turnMoves.Count - 1].x, turnMoves[turnMoves.Count - 1].y, 0);
+
                 }
-                turnMoves = GameManager.Instance.turnPathFinder.GenerateRoad(transform.position, targetPosition, this.transform, playerMoveRoad);
-                if (tempNodeList.Count == turnMoves.Count)
+                else
                 {
-                    turnMoves = tempNodeList;
+
+                    List<TurnMoveNode> tempNodeList = turnMoves;
+                    if (targetPosition != prevPos)
+                    {
+                        tempNodeList.RemoveAt(tempNodeList.Count - 1);
+                        tempNodeList.AddRange(GameManager.Instance.turnPathFinder.GenerateRoad(prevPos, targetPosition, this.transform, playerMoveRoad));
+                    }
+                    turnMoves = GameManager.Instance.turnPathFinder.GenerateRoad(transform.position, targetPosition, this.transform, playerMoveRoad);
+                    if (tempNodeList.Count == turnMoves.Count)
+                    {
+                        turnMoves = tempNodeList;
+                    }
                 }
-            }
 
-            //// LineRenderer 설정, 적 이동경로(A* 최단거리 알고리즘)대로 선으로 표시
-            LineRenderer lr = this.GetComponent<LineRenderer>();
-            lr.positionCount = turnMoves.Count;
-            if (turnMoves.Count > playerMoveCount + 1)
-                lr.SetColors(new Color(1, 0, 0), new Color(1, 0, 0));
-            else
-                lr.SetColors(new Color(1, 1, 1), new Color(1, 1, 1));
-            for (int i = 0; i < turnMoves.Count; i++)
-            {
-                lr.SetPosition(i, new Vector3(turnMoves[i].x, turnMoves[i].y));
-            }
+                //// LineRenderer 설정, 적 이동경로(A* 최단거리 알고리즘)대로 선으로 표시
+                LineRenderer lr = this.GetComponent<LineRenderer>();
+                lr.positionCount = turnMoves.Count;
+                if (turnMoves.Count > playerMoveCount + 1)
+                    lr.SetColors(new Color(1, 0, 0), new Color(1, 0, 0));
+                else
+                    lr.SetColors(new Color(1, 1, 1), new Color(1, 1, 1));
+                for (int i = 0; i < turnMoves.Count; i++)
+                {
+                    lr.SetPosition(i, new Vector3(turnMoves[i].x, turnMoves[i].y));
+                }
 
-            if (Input.GetMouseButtonDown(0))
-            {
-                PlayerMoveAlongPath();
+                if (Input.GetMouseButtonDown(0))
+                {
+                    PlayerMoveAlongPath();
+                }
             }
         }
     }
