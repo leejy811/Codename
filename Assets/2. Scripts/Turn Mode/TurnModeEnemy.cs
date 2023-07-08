@@ -69,7 +69,7 @@ public class TurnModeEnemy : MonoBehaviour
         {
             nextMovePos = enemyMovePos[(curPosIdx++) % enemyMovePos.Count];
 
-            turnMoves = GameManager.Instance.turnPathFinder.GenerateRoad(transform.position, nextMovePos, this.transform);
+            //turnMoves = GameManager.Instance.turnPathFinder.GenerateRoad(transform.position, nextMovePos, this.transform);
             LineRenderer lr = this.GetComponent<LineRenderer>();
             lr.positionCount = turnMoves.Count;
 
@@ -120,7 +120,7 @@ public class TurnModeEnemy : MonoBehaviour
             int Rand_Y = Random.Range((int)this.transform.localPosition.y - 3, (int)this.transform.localPosition.y + 3);
             nextMovePos = new Vector2(Rand_X, Rand_Y);
 
-            turnMoves = GameManager.Instance.turnPathFinder.GenerateRoad(transform.position, nextMovePos, this.transform);
+            //turnMoves = GameManager.Instance.turnPathFinder.GenerateRoad(transform.position, nextMovePos, this.transform, );
 
             LineRenderer lr = this.GetComponent<LineRenderer>();
             lr.positionCount = turnMoves.Count;

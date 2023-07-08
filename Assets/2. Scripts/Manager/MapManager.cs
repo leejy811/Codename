@@ -116,9 +116,9 @@ public class MapManager : MonoBehaviour
             if(!isPlayerSpawned && player_x == 0 || !isPlayerSpawned && roomManager.GetComponent<RoomManager>().roomCnt == 15)
             {
                 Instantiate(GameManager.Instance.player, new Vector3(room.roomCenter.x-mapSize.x/2, room.roomCenter.y-mapSize.y / 2, 0), Quaternion.identity);
-                Instantiate(GameManager.Instance.enemyA, new Vector3(Random.RandomRange(room.rect.x, room.rect.x + room.rect.width) - mapSize.x / 2, Random.RandomRange(room.rect.y, room.rect.y + room.rect.height) - mapSize.y / 2, 0), Quaternion.identity);
-                Instantiate(GameManager.Instance.enemyB, new Vector3(Random.RandomRange(room.rect.x, room.rect.x + room.rect.width) - mapSize.x / 2, Random.RandomRange(room.rect.y, room.rect.y + room.rect.height) - mapSize.y / 2, 0), Quaternion.identity);
-                Instantiate(GameManager.Instance.enemyC, new Vector3(Random.RandomRange(room.rect.x, room.rect.x + room.rect.width) - mapSize.x / 2, Random.RandomRange(room.rect.y, room.rect.y + room.rect.height) - mapSize.y / 2, 0), Quaternion.identity);
+                //Instantiate(GameManager.Instance.enemyA, new Vector3(Random.RandomRange(room.rect.x, room.rect.x + room.rect.width) - mapSize.x / 2, Random.RandomRange(room.rect.y, room.rect.y + room.rect.height) - mapSize.y / 2, 0), Quaternion.identity);
+                //Instantiate(GameManager.Instance.enemyB, new Vector3(Random.RandomRange(room.rect.x, room.rect.x + room.rect.width) - mapSize.x / 2, Random.RandomRange(room.rect.y, room.rect.y + room.rect.height) - mapSize.y / 2, 0), Quaternion.identity);
+                //Instantiate(GameManager.Instance.enemyC, new Vector3(Random.RandomRange(room.rect.x, room.rect.x + room.rect.width) - mapSize.x / 2, Random.RandomRange(room.rect.y, room.rect.y + room.rect.height) - mapSize.y / 2, 0), Quaternion.identity);
 
 
                 isPlayerSpawned = true;

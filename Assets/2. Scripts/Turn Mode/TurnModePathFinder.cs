@@ -35,17 +35,17 @@ public class TurnModePathFinder : MonoBehaviour
         
     }
 
-    public List<TurnMoveNode> GenerateRoad(Vector3 curPos, Vector3 nextMovePos, Transform roadList)
+    public List<TurnMoveNode> GenerateRoad(Vector3 curPos, Vector3 nextMovePos, Transform roadList, GameObject MoveRoad)
     {
 
-        if (roadList.Find("road(Clone)") != null)
-            newRoad = roadList.Find("road(Clone)").gameObject;
-        else
-        {
-            newRoad = Instantiate(roadPrefab, this.transform);
-            newRoad.transform.position = roadList.transform.position;
-            newRoad.transform.SetParent(roadList.transform);
-        }
+        //if (roadList.Find("road(Clone)") != null)
+        //    newRoad = roadList.Find("road(Clone)").gameObject;
+        //else
+        //{
+        //    newRoad = Instantiate(roadPrefab, this.transform);
+        //    newRoad.transform.position = roadList.transform.position;
+        //    newRoad.transform.SetParent(roadList.transform);
+        //}
 
 
         GameObject _road = roadPrefab.transform.GetChild(0).GetChild(0).gameObject;
@@ -59,15 +59,18 @@ public class TurnModePathFinder : MonoBehaviour
         GameObject startPoint;
         GameObject endPoint;
 
-        if (newRoad.transform.Find("Startpoint(Clone)") == null)
-            startPoint = Instantiate(s_point, newRoad.transform);
-        else
-            startPoint = newRoad.transform.Find("Startpoint(Clone)").gameObject;
+        startPoint = MoveRoad.transform.GetChild(0).GetChild(1).gameObject;
+        endPoint = MoveRoad.transform.GetChild(0).GetChild(2).gameObject;
 
-        if (newRoad.transform.Find("Endpoint(Clone)") == null)
-            endPoint = Instantiate(e_point, newRoad.transform);
-        else
-            endPoint = newRoad.transform.Find("Endpoint(Clone)").gameObject;
+        //if (newRoad.transform.Find("Startpoint(Clone)") == null)
+        //    startPoint = Instantiate(s_point, newRoad.transform);
+        //else
+        //    startPoint = newRoad.transform.Find("Startpoint(Clone)").gameObject;
+
+        //if (newRoad.transform.Find("Endpoint(Clone)") == null)
+        //    endPoint = Instantiate(e_point, newRoad.transform);
+        //else
+        //    endPoint = newRoad.transform.Find("Endpoint(Clone)").gameObject;
 
         startPoint.SetActive(true);
         endPoint.SetActive(true);

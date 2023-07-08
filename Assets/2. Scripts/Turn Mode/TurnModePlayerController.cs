@@ -5,6 +5,7 @@ using UnityEngine;
 public class TurnModePlayerController : MonoBehaviour
 {
     [SerializeField] private int playerMoveCount;
+    [SerializeField] private GameObject playerMoveRoad;
 
     private bool isAreaActive = false;
     private bool isPlayerCanMove = false;
@@ -36,7 +37,7 @@ public class TurnModePlayerController : MonoBehaviour
             targetPosition = new Vector3(mousePosition.x, mousePosition.y, 0);
 
             if (turnMoves == null)
-                turnMoves = GameManager.Instance.turnPathFinder.GenerateRoad(transform.position, targetPosition, this.transform);
+                turnMoves = GameManager.Instance.turnPathFinder.GenerateRoad(transform.position, targetPosition, this.transform, playerMoveRoad);
             else
             {
                 Vector3 prevPos = new Vector3(turnMoves[turnMoves.Count - 1].x, turnMoves[turnMoves.Count - 1].y, 0);
@@ -45,9 +46,9 @@ public class TurnModePlayerController : MonoBehaviour
                 if(targetPosition != prevPos)
                 {
                     tempNodeList.RemoveAt(tempNodeList.Count - 1);
-                    tempNodeList.AddRange(GameManager.Instance.turnPathFinder.GenerateRoad(prevPos, targetPosition, this.transform));
+                    tempNodeList.AddRange(GameManager.Instance.turnPathFinder.GenerateRoad(prevPos, targetPosition, this.transform, playerMoveRoad));
                 }
-                turnMoves = GameManager.Instance.turnPathFinder.GenerateRoad(transform.position, targetPosition, this.transform);
+                turnMoves = GameManager.Instance.turnPathFinder.GenerateRoad(transform.position, targetPosition, this.transform, playerMoveRoad);
                 if (tempNodeList.Count == turnMoves.Count)
                 {
                     turnMoves = tempNodeList;
@@ -57,7 +58,7 @@ public class TurnModePlayerController : MonoBehaviour
             //// LineRenderer 설정, 적 이동경로(A* 최단거리 알고리즘)대로 선으로 표시
             LineRenderer lr = this.GetComponent<LineRenderer>();
             lr.positionCount = turnMoves.Count;
-            if (turnMoves.Count > playerMoveCount)
+            if (turnMoves.Count > playerMoveCount + 1)
                 lr.SetColors(new Color(1, 0, 0), new Color(1, 0, 0));
             else
                 lr.SetColors(new Color(1, 1, 1), new Color(1, 1, 1));
@@ -65,7 +66,6 @@ public class TurnModePlayerController : MonoBehaviour
             {
                 lr.SetPosition(i, new Vector3(turnMoves[i].x, turnMoves[i].y));
             }
-            StartCoroutine("roadUX");
 
             if (Input.GetMouseButtonDown(0))
             {
