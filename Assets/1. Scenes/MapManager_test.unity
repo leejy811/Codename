@@ -593,6 +593,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapManger: {fileID: 1083953384}
   player: {fileID: 6978123850016153453, guid: c01ed1d0d58516b41bb98656d407321a, type: 3}
+  enemyA: {fileID: 3893650015313035525, guid: 107cff0a4f5837a4e8f3f9cc950b2326, type: 3}
+  enemyB: {fileID: 2067539097801907106, guid: a1d972a5cceae374cb4dd875af6fa26c, type: 3}
+  enemyC: {fileID: 8733224905787540353, guid: 748554e526032e548a83c0caddc099ce, type: 3}
   turnPathFinder: {fileID: 933378630}
 --- !u!4 &1256034530
 Transform:

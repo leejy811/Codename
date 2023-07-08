@@ -6,12 +6,12 @@ using UnityEngine.Tilemaps;
 
 // 의견 : 적 타입에 따라서 나중에 클래스나 인터페이스를 통해서 구현하는게 좋을 것 같아요
 //        지금은 하드코딩으로 enemyA,B,C인지 체크하는 방식이라.. 
-public enum EnemyType
-{
-    enemyA,
-    enemyB,
-    enemyC,
-}
+//public enum EnemyType
+//{
+//    enemyA,
+//    enemyB,
+//    enemyC,
+//}
 
 partial class EnemyTurn : MonoBehaviour
 {

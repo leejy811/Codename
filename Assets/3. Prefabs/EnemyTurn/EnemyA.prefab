@@ -261,7 +261,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3893650015313035643}
-  - component: {fileID: 3893650015313035524}
+  - component: {fileID: 2442795607359648844}
   - component: {fileID: 3893650015313035642}
   m_Layer: 0
   m_Name: EnemyA
@@ -288,7 +288,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3893650015313035524
+--- !u!114 &2442795607359648844
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -297,25 +297,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 3893650015313035525}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 395befb948bcde64ba4e0799890f5554, type: 3}
+  m_Script: {fileID: 11500000, guid: 69c0655da4df4f54193ef9d44d9711ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tilemap: {fileID: 0}
   enemyType: 0
   circularSector: {fileID: 3893650015829885194}
   enemyMovePos:
-  - {x: 3, y: -3}
-  - {x: 4, y: 1}
-  - {x: 1, y: 3}
+  - {x: -10, y: -10}
+  - {x: 10, y: 10}
   isAlert: 0
   alertSprite: {fileID: 994282611289793978}
-  roadPrefab: {fileID: 4956054815497323443, guid: 84756ecabe8359140b56b8b4754ff28e, type: 3}
-  bottomLeft: {x: -10, y: -10}
-  topRight: {x: 10, y: 10}
-  startPos: {x: 0, y: 0}
-  targetPos: {x: 0, y: 0}
-  allowDiagonal: 1
-  dontCrossCorner: 0
 --- !u!120 &3893650015313035642
 LineRenderer:
   m_ObjectHideFlags: 0

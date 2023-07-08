@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] public MapManager mapManger;
     [SerializeField] public GameObject player;
+    [SerializeField] public GameObject enemyA;
+    [SerializeField] public GameObject enemyB;
+    [SerializeField] public GameObject enemyC;
     [SerializeField] public TurnModePathFinder turnPathFinder;
 
     public static GameManager Instance

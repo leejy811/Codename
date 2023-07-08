@@ -17,6 +17,14 @@ public class CircularSector : MonoBehaviour
 
     void Update()
     {
+        if (target != null)
+            return;
+        else
+        {
+            target = GameManager.Instance.player.transform;
+        }
+
+        
         Vector3 interV = target.position - transform.position;
 
         // target과 나 사이의 거리가 radius 보다 작다면

@@ -226,7 +226,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8733224905787540359}
-  - component: {fileID: 8733224905787540358}
+  - component: {fileID: 8842030810239596941}
   - component: {fileID: 8733224905787540356}
   m_Layer: 0
   m_Name: EnemyC
@@ -253,7 +253,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8733224905787540358
+--- !u!114 &8842030810239596941
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -262,22 +262,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8733224905787540353}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 395befb948bcde64ba4e0799890f5554, type: 3}
+  m_Script: {fileID: 11500000, guid: 69c0655da4df4f54193ef9d44d9711ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tilemap: {fileID: 0}
   enemyType: 2
   circularSector: {fileID: 8733224904994670359}
   enemyMovePos: []
   isAlert: 0
   alertSprite: {fileID: 7141332770693286528}
-  roadPrefab: {fileID: 4956054815497323443, guid: 84756ecabe8359140b56b8b4754ff28e, type: 3}
-  bottomLeft: {x: -10, y: -10}
-  topRight: {x: 10, y: 10}
-  startPos: {x: 3, y: 3}
-  targetPos: {x: 6, y: 5}
-  allowDiagonal: 1
-  dontCrossCorner: 0
 --- !u!120 &8733224905787540356
 LineRenderer:
   m_ObjectHideFlags: 0
