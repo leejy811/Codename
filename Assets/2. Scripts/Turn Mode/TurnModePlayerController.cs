@@ -1,18 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class TurnModePlayerController : MonoBehaviour
 {
     [SerializeField] private int playerMoveCount;
     [SerializeField] private GameObject playerMoveRoad;
+    private GameObject startPoint;
+    private GameObject endPoint;
 
     private bool isAreaActive = false;
     private bool isPlayerCanMove = false;
     List<TurnMoveNode> turnMoves;
+
     Vector2 mousePosition;
     Vector3 targetPosition, prevPos;
 
+    private void Start()
+    {
+        startPoint = playerMoveRoad.transform.GetChild(1).gameObject;
+        endPoint = playerMoveRoad.transform.GetChild(2).gameObject;
+
+        startPoint.SetActive(true);
+        endPoint.SetActive(true);
+    }
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -34,29 +46,33 @@ public class TurnModePlayerController : MonoBehaviour
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePosition = new Vector2(Mathf.RoundToInt(mousePosition.x), Mathf.RoundToInt(mousePosition.y));
             targetPosition = new Vector3(mousePosition.x, mousePosition.y, 0);
+            endPoint.transform.position = targetPosition;
             if (prevPos != targetPosition)
             {
+                Debug.Log("In Turn Mode Player Controller");
+                Debug.Log("Target Pos : " + targetPosition + " prev Pos : " + prevPos);
 
                 if (turnMoves == null)
                 {
-                    turnMoves = GameManager.Instance.turnPathFinder.GenerateRoad(transform.position, targetPosition, this.transform, playerMoveRoad);
-                    prevPos = new Vector3(turnMoves[turnMoves.Count - 1].x, turnMoves[turnMoves.Count - 1].y, 0);
+                    turnMoves = GameManager.Instance.turnPathFinder.GenerateRoad(transform.position, targetPosition, this.transform);
+                    prevPos = targetPosition;
 
                 }
                 else
                 {
-
                     List<TurnMoveNode> tempNodeList = turnMoves;
+
                     if (targetPosition != prevPos)
                     {
                         tempNodeList.RemoveAt(tempNodeList.Count - 1);
-                        tempNodeList.AddRange(GameManager.Instance.turnPathFinder.GenerateRoad(prevPos, targetPosition, this.transform, playerMoveRoad));
+                        tempNodeList.AddRange(GameManager.Instance.turnPathFinder.GenerateRoad(prevPos, targetPosition, this.transform));
                     }
-                    turnMoves = GameManager.Instance.turnPathFinder.GenerateRoad(transform.position, targetPosition, this.transform, playerMoveRoad);
+                    turnMoves = GameManager.Instance.turnPathFinder.GenerateRoad(transform.position, targetPosition, this.transform);
                     if (tempNodeList.Count == turnMoves.Count)
                     {
                         turnMoves = tempNodeList;
                     }
+                    prevPos = targetPosition;
                 }
 
                 //// LineRenderer 설정, 적 이동경로(A* 최단거리 알고리즘)대로 선으로 표시
@@ -71,9 +87,12 @@ public class TurnModePlayerController : MonoBehaviour
                     lr.SetPosition(i, new Vector3(turnMoves[i].x, turnMoves[i].y));
                 }
 
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButtonDown(0) && isAreaActive)
                 {
+                    Debug.Log("!23123123!!!");
+
                     PlayerMoveAlongPath();
+                    isAreaActive = false;
                 }
             }
         }
@@ -81,7 +100,10 @@ public class TurnModePlayerController : MonoBehaviour
 
     private void PlayerMoveAlongPath()
     {
-
+        for(int i=0; i<turnMoves.Count; i++)
+        {
+            transform.DOMove(new Vector3(turnMoves[i].x, turnMoves[i].y, 0), 0.2f);
+        }
     }
     private void ShowPlayerMoveArea()
     {

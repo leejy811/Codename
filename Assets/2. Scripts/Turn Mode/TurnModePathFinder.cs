@@ -35,51 +35,21 @@ public class TurnModePathFinder : MonoBehaviour
         
     }
 
-    public List<TurnMoveNode> GenerateRoad(Vector3 curPos, Vector3 nextMovePos, Transform roadList, GameObject MoveRoad)
+    public List<TurnMoveNode> GenerateRoad(Vector3 curPos, Vector3 nextMovePos, Transform roadList)
     {
-
-        //if (roadList.Find("road(Clone)") != null)
-        //    newRoad = roadList.Find("road(Clone)").gameObject;
-        //else
-        //{
-        //    newRoad = Instantiate(roadPrefab, this.transform);
-        //    newRoad.transform.position = roadList.transform.position;
-        //    newRoad.transform.SetParent(roadList.transform);
-        //}
-
-
-        GameObject _road = roadPrefab.transform.GetChild(0).GetChild(0).gameObject;
-        GameObject s_point = roadPrefab.transform.GetChild(0).GetChild(1).gameObject;
-        GameObject e_point = roadPrefab.transform.GetChild(0).GetChild(2).gameObject;
+        //GameObject s_point = roadPrefab.transform.GetChild(0).GetChild(1).gameObject;
+        //GameObject e_point = roadPrefab.transform.GetChild(0).GetChild(2).gameObject;
 
 
         // 시작점 및 끝점
         //GameObject startPoint = Instantiate(s_point, newRoad.transform);
         //GameObject endPoint = Instantiate(e_point, newRoad.transform);
-        GameObject startPoint;
-        GameObject endPoint;
 
-        startPoint = MoveRoad.transform.GetChild(0).GetChild(1).gameObject;
-        endPoint = MoveRoad.transform.GetChild(0).GetChild(2).gameObject;
 
-        //if (newRoad.transform.Find("Startpoint(Clone)") == null)
-        //    startPoint = Instantiate(s_point, newRoad.transform);
-        //else
-        //    startPoint = newRoad.transform.Find("Startpoint(Clone)").gameObject;
-
-        //if (newRoad.transform.Find("Endpoint(Clone)") == null)
-        //    endPoint = Instantiate(e_point, newRoad.transform);
-        //else
-        //    endPoint = newRoad.transform.Find("Endpoint(Clone)").gameObject;
-
-        startPoint.SetActive(true);
-        endPoint.SetActive(true);
-        endPoint.transform.position = new Vector3(nextMovePos.x, nextMovePos.y, 0);
 
         startPos = new Vector2(curPos.x, curPos.y);
         targetPos = nextMovePos;
         PathFinding();
-
         return FinalNodeList;
 
     }

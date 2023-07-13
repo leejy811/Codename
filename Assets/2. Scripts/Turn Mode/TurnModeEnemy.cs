@@ -25,7 +25,10 @@ public class TurnModeEnemy : MonoBehaviour
     // 이동범위
     [SerializeField]
     public List<Vector2> enemyMovePos;
-
+    [SerializeField]
+    private GameObject roadPrefab;
+    private GameObject startPoint;
+    private GameObject endPoint;
     // 이동할 방향
     Vector3 nextMovePos;
     Vector3 prevMovePos;
@@ -38,14 +41,16 @@ public class TurnModeEnemy : MonoBehaviour
 
     [SerializeField] GameObject alertSprite;
     // Start is called before the first frame update
+
     void Start()
     {
-        // Enemy A
-        if (enemyType == EnemyType.enemyA)
+        startPoint = roadPrefab.transform.GetChild(1).gameObject;
+        endPoint = roadPrefab.transform.GetChild(2).gameObject;
+        Debug.Log(startPoint.name + " " +  startPoint.transform.transform.name);
+        if(enemyType == EnemyType.enemyA)
         {
-            enemyA_move();
+            enemyA_move(true);
         }
-
         // Enemy C
         if (enemyType == EnemyType.enemyC)
         {
@@ -57,7 +62,9 @@ public class TurnModeEnemy : MonoBehaviour
 
     // Update is called once per frame
 
-
+    private void Update()
+    {
+    }
 
     private void enemyA_move(bool isUserTurn = true)
     {
@@ -67,9 +74,16 @@ public class TurnModeEnemy : MonoBehaviour
         // 유저 턴인 경우  경로 표시
         if (isUserTurn)
         {
-            nextMovePos = enemyMovePos[(curPosIdx++) % enemyMovePos.Count];
+            //nextMovePos = enemyMovePos[(curPosIdx++) % enemyMovePos.Count];
 
-            //turnMoves = GameManager.Instance.turnPathFinder.GenerateRoad(transform.position, nextMovePos, this.transform);
+            nextMovePos = transform.position + new Vector3(enemyMovePos[(curPosIdx) % enemyMovePos.Count].x, enemyMovePos[(curPosIdx) % enemyMovePos.Count].y, 0);
+
+            startPoint.transform.position = new Vector3(0, 0, 0);
+            endPoint.transform.position = nextMovePos - transform.position;
+            Debug.Log("End Point   :" + endPoint.transform.position);
+            Debug.Log("enemy Move Pos : " + new Vector3(enemyMovePos[(curPosIdx) % enemyMovePos.Count].x, enemyMovePos[(curPosIdx++) % enemyMovePos.Count].y, 0));
+            turnMoves = GameManager.Instance.turnPathFinder.GenerateRoad(transform.position, nextMovePos, this.transform);
+            curPosIdx++;
             LineRenderer lr = this.GetComponent<LineRenderer>();
             lr.positionCount = turnMoves.Count;
 
@@ -118,9 +132,12 @@ public class TurnModeEnemy : MonoBehaviour
         {
             int Rand_X = Random.Range((int)this.transform.localPosition.x - 3, (int)this.transform.localPosition.x + 3);
             int Rand_Y = Random.Range((int)this.transform.localPosition.y - 3, (int)this.transform.localPosition.y + 3);
+            
             nextMovePos = new Vector2(Rand_X, Rand_Y);
 
-            //turnMoves = GameManager.Instance.turnPathFinder.GenerateRoad(transform.position, nextMovePos, this.transform, );
+            turnMoves = GameManager.Instance.turnPathFinder.GenerateRoad(transform.position, nextMovePos, this.transform);
+            startPoint.transform.position = Vector3.zero;
+            endPoint.transform.position = new Vector3(nextMovePos.x, nextMovePos.y, 0);
 
             LineRenderer lr = this.GetComponent<LineRenderer>();
             lr.positionCount = turnMoves.Count;
