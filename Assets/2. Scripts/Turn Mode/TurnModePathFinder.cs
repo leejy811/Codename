@@ -114,13 +114,13 @@ public class TurnModePathFinder : MonoBehaviour
 
 
             // ¢Ö¢Ø¢×¢Ù
-            if (allowDiagonal)
-            {
-                OpenListAdd(CurNode.x + 1, CurNode.y + 1);
-                OpenListAdd(CurNode.x - 1, CurNode.y + 1);
-                OpenListAdd(CurNode.x - 1, CurNode.y - 1);
-                OpenListAdd(CurNode.x + 1, CurNode.y - 1);
-            }
+            //if (allowDiagonal)
+            //{
+            //    OpenListAdd(CurNode.x + 1, CurNode.y + 1);
+            //    OpenListAdd(CurNode.x - 1, CurNode.y + 1);
+            //    OpenListAdd(CurNode.x - 1, CurNode.y - 1);
+            //    OpenListAdd(CurNode.x + 1, CurNode.y - 1);
+            //}
 
             // ¡è ¡æ ¡é ¡ç
             OpenListAdd(CurNode.x, CurNode.y + 1);

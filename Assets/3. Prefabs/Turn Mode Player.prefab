@@ -371,12 +371,11 @@ LineRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -1621933727
+  m_SortingLayer: 1
+  m_SortingOrder: -1
   m_Positions:
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -439,6 +438,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6978123850016153455}
     m_Modifications:
+    - target: {fileID: 2222747953870694763, guid: 1cd0079eeedd58847aab4bf54ea23fb4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -33
+      objectReference: {fileID: 0}
+    - target: {fileID: 2222747953870694763, guid: 1cd0079eeedd58847aab4bf54ea23fb4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -33
+      objectReference: {fileID: 0}
     - target: {fileID: 4956054815497323443, guid: 1cd0079eeedd58847aab4bf54ea23fb4, type: 3}
       propertyPath: m_Name
       value: road 1

@@ -22,6 +22,7 @@ public class CameraManager : MonoBehaviour
         Vector3 targetPos = new Vector3(player.position.x, player.position.y, -10);
 
         //Debug.Log(targetPos);
+
         transform.position = Vector3.Lerp(transform.position, targetPos, 10f);
     }
 }
