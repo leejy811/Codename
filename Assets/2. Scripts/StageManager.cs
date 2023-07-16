@@ -44,4 +44,9 @@ public class StageManager : MonoBehaviour
     {
         return new int[]{ (int)((mapY / 2) - player.transform.position.y), (int)(player.transform.position.x + (mapX / 2)) };
     }
+
+    public Vector3 PlayerWorldPos()
+    {
+        return player.transform.position;
+    }
 }
