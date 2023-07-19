@@ -78,10 +78,9 @@ public class TurnModeEnemy : MonoBehaviour
 
             nextMovePos = transform.position + new Vector3(enemyMovePos[(curPosIdx) % enemyMovePos.Count].x, enemyMovePos[(curPosIdx) % enemyMovePos.Count].y, 0);
 
-            startPoint.transform.position = new Vector3(0, 0, 0);
-            endPoint.transform.position = nextMovePos - transform.position;
-            Debug.Log("End Point   :" + endPoint.transform.position);
-            Debug.Log("enemy Move Pos : " + new Vector3(enemyMovePos[(curPosIdx) % enemyMovePos.Count].x, enemyMovePos[(curPosIdx++) % enemyMovePos.Count].y, 0));
+            startPoint.transform.position = transform.position;
+            endPoint.transform.position = nextMovePos;
+;
             turnMoves = GameManager.Instance.turnPathFinder.GenerateRoad(transform.position, nextMovePos, this.transform);
             curPosIdx++;
             LineRenderer lr = this.GetComponent<LineRenderer>();

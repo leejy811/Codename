@@ -33,4 +33,9 @@ public class GameManager : MonoBehaviour
             
         }
     }
+
+    public void TurnPassButton()
+    {
+
+    }
 }
