@@ -123,6 +123,50 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &37571820
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 37571822}
+  - component: {fileID: 37571821}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &37571821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37571820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a529422f8112df14880deba5df936d50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &37571822
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37571820}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.0955241, y: 2.228974, z: -0.037773713}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &97140652
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,11 +265,9 @@ MonoBehaviour:
   moveSpeed: 3
   sizeX: 0
   sizeY: 0
+  iFrameTime: 0
   sprite: {fileID: 1567380475}
   rollDistance: 2.5
-  playerMoveCount: 0
-  areaTile: {fileID: 0}
-  tileMap: {fileID: 0}
 --- !u!1 &306225791
 GameObject:
   m_ObjectHideFlags: 0
@@ -674,7 +716,7 @@ GameObject:
   - component: {fileID: 700856221}
   m_Layer: 0
   m_Name: Weapon1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -708,6 +750,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 0
+  shootingDamage: 1
   shootingSpeed: 1
   reloadTime: 3
   bullet: {fileID: 2743669656104095628, guid: 85fcf071f266cf643afd6796918ef18e, type: 3}
@@ -846,10 +889,13 @@ MonoBehaviour:
   moveSpeed: 1
   sizeX: 0
   sizeY: 0
+  iFrameTime: 0
   sprite: {fileID: 1544520978}
   monsterName: temp
-  attackDelay: 1
+  attackDelay: 10
+  attackRange: 10
   monsterType: 0
+  bullet: {fileID: 2743669656104095628, guid: d2d79f5034b2c8b4eb6a727da2253f3a, type: 3}
 --- !u!4 &1293292195
 Transform:
   m_ObjectHideFlags: 0

@@ -12,7 +12,9 @@ public class MonsterTemp : MonsterController
 
     private void Update()
     {
-        //ReorderSortingLayer();
+        if (isDead)
+            return;
+        ReorderSortingLayer();
         TryMove();
         TryAttack();
     }
@@ -20,7 +22,7 @@ public class MonsterTemp : MonsterController
     protected override void DoAttack()
     {
         base.DoAttack();
-
+        StartCoroutine(AttackPattern.PatternA(bullet, 6, 10, 10, transform.position));
     }
 
     protected override void Die()

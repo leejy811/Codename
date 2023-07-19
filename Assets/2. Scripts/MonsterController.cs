@@ -19,12 +19,13 @@ public abstract class MonsterController : ActiveObject
 {
     [SerializeField] protected string monsterName;
     [SerializeField] protected float attackDelay;
+    [SerializeField] protected float attackRange;
     [SerializeField] protected MonsterType monsterType;
+    [SerializeField] protected GameObject bullet;
 
     protected bool isAttacking;
 
     protected MonsterState monsterState=MonsterState.Idle;
-
 
     protected void Init()
     {
@@ -36,7 +37,7 @@ public abstract class MonsterController : ActiveObject
 
     protected override void TryMove()
     {
-        if (isMoving)
+        if (isMoving || isAttacking)
             return;
         StartCoroutine(Move());
     }
@@ -57,7 +58,8 @@ public abstract class MonsterController : ActiveObject
     {
         if (isAttacking)
             return;
-        StartCoroutine(Attack());
+        if(Vector3.Distance(transform.position,StageManager.instance.PlayerWorldPos())<=attackRange)
+            StartCoroutine(Attack());
     }
 
     protected IEnumerator Attack()

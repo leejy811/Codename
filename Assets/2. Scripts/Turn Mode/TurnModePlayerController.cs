@@ -109,6 +109,7 @@ public class TurnModePlayerController : MonoBehaviour
     }
     IEnumerator PlayerMovePath()
     {
+        endPoint.SetActive(false);
         for (int x = -playerMoveCount; x <= playerMoveCount; x++)
         {
             for (int y = -playerMoveCount; y <= playerMoveCount; y++)
@@ -124,17 +125,9 @@ public class TurnModePlayerController : MonoBehaviour
             transform.DOMove(new Vector3(turnMoves[i].x, turnMoves[i].y, 0), 1f);
             yield return new WaitForSeconds(1f);
         }
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         isPlayerCanMove = false;
-        endPoint.SetActive(false);
         lr.enabled = false;
-    }
-    private void PlayerMoveAlongPath()
-    {
-        for(int i=0; i<turnMoves.Count; i++)
-        {
-            transform.DOMove(new Vector3(turnMoves[i].x, turnMoves[i].y, 0), 0.1f);
-        }
     }
     private void ShowPlayerMoveArea()
     {
