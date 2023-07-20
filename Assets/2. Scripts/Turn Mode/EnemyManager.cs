@@ -19,5 +19,6 @@ public class EnemyManager : MonoBehaviour
             GameObject enemy = this.transform.GetChild(ind).gameObject;
             enemy.GetComponent<TurnModeEnemy>().EnemyMove(turnType);
         }
+        
     }
 }
