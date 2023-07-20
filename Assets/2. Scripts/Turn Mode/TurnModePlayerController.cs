@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TurnModePlayerController : MonoBehaviour
 {
-    [SerializeField] private int playerMoveCount;
+    public int playerMoveCount;
     [SerializeField] private GameObject playerMoveRoad;
     private GameObject startPoint;
     private GameObject endPoint;
@@ -30,6 +30,9 @@ public class TurnModePlayerController : MonoBehaviour
     }
     void Update()
     {
+        if (GameManager.Instance.turnManager.turnType == TurnType.enemy)
+            return;
+
         if (Input.GetMouseButtonDown(0))
         {
             Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -44,7 +47,6 @@ public class TurnModePlayerController : MonoBehaviour
 
             if (isAreaActive && isPlayerCanMove)
             {
-                //PlayerMoveAlongPath();
                 StartCoroutine("PlayerMovePath");
                 isAreaActive = false;
             }

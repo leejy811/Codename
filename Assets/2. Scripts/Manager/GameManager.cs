@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
     private static GameManager instance = null;
 
     [SerializeField] public MapManager mapManger;
+    [SerializeField] public TurnManager turnManager;
+    [SerializeField] public EnemyManager enemyManager;
     [SerializeField] public GameObject player;
     [SerializeField] public GameObject enemyA;
     [SerializeField] public GameObject enemyB;
@@ -34,8 +36,4 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void TurnPassButton()
-    {
-
-    }
 }

@@ -40,42 +40,54 @@ public class TurnModeEnemy : MonoBehaviour
     public bool isAlert = false;
 
     [SerializeField] GameObject alertSprite;
-    // Start is called before the first frame update
+
+    TurnType turnType, prevTurnType;
 
     void Start()
     {
         startPoint = roadPrefab.transform.GetChild(1).gameObject;
         endPoint = roadPrefab.transform.GetChild(2).gameObject;
-        Debug.Log(startPoint.name + " " +  startPoint.transform.transform.name);
-        if(enemyType == EnemyType.enemyA)
-        {
-            enemyA_move(true);
-        }
-        // Enemy C
-        if (enemyType == EnemyType.enemyC)
-        {
-            enemyC_move();
-        }
+        if (GameManager.Instance.turnManager == null)
+            return;
+        turnType = GameManager.Instance.turnManager.turnType;
+        prevTurnType = turnType;
+        EnemyMove(turnType);
 
-        StartCoroutine(roadUX());
     }
 
     // Update is called once per frame
 
     private void Update()
     {
+        if(GameManager.Instance.turnManager == null)
+        {
+            turnType = GameManager.Instance.turnManager.turnType;
+            prevTurnType = turnType;
+            EnemyMove(turnType);
+        }
     }
 
-    private void enemyA_move(bool isUserTurn = true)
+    public void EnemyMove(TurnType turnType)
+    {
+        if (enemyType == EnemyType.enemyA)
+        {
+            enemyA_move(turnType);
+        }
+        // Enemy C
+        if (enemyType == EnemyType.enemyC)
+        {
+            enemyC_move(turnType);
+        }
+        StartCoroutine(roadUX());
+    }
+    private void enemyA_move(TurnType turnType)
     {
         // 만약 들켰으면 실행안함
         //if (circularSector.GetComponent<CircularSector>().isCollision == true) { return; }
 
         // 유저 턴인 경우  경로 표시
-        if (isUserTurn)
+        if (turnType == TurnType.player)
         {
-            //nextMovePos = enemyMovePos[(curPosIdx++) % enemyMovePos.Count];
-
             nextMovePos = transform.position + new Vector3(enemyMovePos[(curPosIdx) % enemyMovePos.Count].x, enemyMovePos[(curPosIdx) % enemyMovePos.Count].y, 0);
 
             startPoint.transform.position = transform.position;
@@ -117,20 +129,20 @@ public class TurnModeEnemy : MonoBehaviour
                 newEnemyRoad.SetActive(false);
 
                 GetComponent<LineRenderer>().positionCount = 0;
-                this.transform.GetComponent<TurnModeEnemy>().enemyA_move(); // 유저턴으로 패스
+                this.transform.GetComponent<TurnModeEnemy>().enemyA_move(TurnType.player); // 유저턴으로 패스
             });
 
         }
     }
-    private void enemyC_move(bool isUserTurn = true)
+    private void enemyC_move(TurnType turnType)
     {
         if (this.enemyType != EnemyType.enemyC) return;
 
         // 유저 턴인 경우 이동할 경로 표시
-        if (isUserTurn)
+        if (turnType == TurnType.player)
         {
-            int Rand_X = Random.Range((int)this.transform.localPosition.x - 3, (int)this.transform.localPosition.x + 3);
-            int Rand_Y = Random.Range((int)this.transform.localPosition.y - 3, (int)this.transform.localPosition.y + 3);
+            int Rand_X = Random.Range((int)this.transform.position.x - 3, (int)this.transform.position.x + 3);
+            int Rand_Y = Random.Range((int)this.transform.position.y - 3, (int)this.transform.position.y + 3);
             
             nextMovePos = new Vector2(Rand_X, Rand_Y);
 
@@ -169,7 +181,7 @@ public class TurnModeEnemy : MonoBehaviour
                 GameObject newEnemyRoad = transform.Find("road(Clone)").gameObject;
                 newEnemyRoad.SetActive(false);
                 GetComponent<LineRenderer>().positionCount = 0;
-                this.transform.GetComponent<TurnModeEnemy>().enemyC_move(); // 유저턴으로 패스
+                this.transform.GetComponent<TurnModeEnemy>().enemyC_move(TurnType.player); // 유저턴으로 패스
             });
 
         }
