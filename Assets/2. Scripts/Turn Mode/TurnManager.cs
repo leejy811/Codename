@@ -10,10 +10,14 @@ public enum TurnType
 
 public class TurnManager : MonoBehaviour
 {
-    public TurnType turnType;
+    public TurnType turnType = TurnType.player;
     [SerializeField]
     public int playerTurnCount;
 
+    private void Start()
+    {
+        GameManager.Instance.player.GetComponent<TurnModePlayerController>().playerMoveCount = playerTurnCount;
+    }
     public void PressTurnPassButton()
     {
         if(turnType == TurnType.enemy)
@@ -22,7 +26,10 @@ public class TurnManager : MonoBehaviour
             turnType = TurnType.player;
         }
         else
+        {
             turnType = TurnType.enemy;
+            GameManager.Instance.enemyManager.Enemy1111(turnType);
+        }
 
     }
 }

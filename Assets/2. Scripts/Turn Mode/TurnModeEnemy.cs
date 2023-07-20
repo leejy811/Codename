@@ -47,7 +47,8 @@ public class TurnModeEnemy : MonoBehaviour
     {
         startPoint = roadPrefab.transform.GetChild(1).gameObject;
         endPoint = roadPrefab.transform.GetChild(2).gameObject;
-
+        if (GameManager.Instance.turnManager == null)
+            return;
         turnType = GameManager.Instance.turnManager.turnType;
         prevTurnType = turnType;
         EnemyMove(turnType);
@@ -58,13 +59,15 @@ public class TurnModeEnemy : MonoBehaviour
 
     private void Update()
     {
-        if(turnType != prevTurnType)
+        if(GameManager.Instance.turnManager == null)
         {
+            turnType = GameManager.Instance.turnManager.turnType;
+            prevTurnType = turnType;
             EnemyMove(turnType);
         }
     }
 
-    private void EnemyMove(TurnType turnType)
+    public void EnemyMove(TurnType turnType)
     {
         if (enemyType == EnemyType.enemyA)
         {
@@ -126,7 +129,7 @@ public class TurnModeEnemy : MonoBehaviour
                 newEnemyRoad.SetActive(false);
 
                 GetComponent<LineRenderer>().positionCount = 0;
-                //this.transform.GetComponent<TurnModeEnemy>().enemyA_move(TurnType.player); // 유저턴으로 패스
+                this.transform.GetComponent<TurnModeEnemy>().enemyA_move(TurnType.player); // 유저턴으로 패스
             });
 
         }
@@ -138,8 +141,8 @@ public class TurnModeEnemy : MonoBehaviour
         // 유저 턴인 경우 이동할 경로 표시
         if (turnType == TurnType.player)
         {
-            int Rand_X = Random.Range((int)this.transform.localPosition.x - 3, (int)this.transform.localPosition.x + 3);
-            int Rand_Y = Random.Range((int)this.transform.localPosition.y - 3, (int)this.transform.localPosition.y + 3);
+            int Rand_X = Random.Range((int)this.transform.position.x - 3, (int)this.transform.position.x + 3);
+            int Rand_Y = Random.Range((int)this.transform.position.y - 3, (int)this.transform.position.y + 3);
             
             nextMovePos = new Vector2(Rand_X, Rand_Y);
 
@@ -178,7 +181,7 @@ public class TurnModeEnemy : MonoBehaviour
                 GameObject newEnemyRoad = transform.Find("road(Clone)").gameObject;
                 newEnemyRoad.SetActive(false);
                 GetComponent<LineRenderer>().positionCount = 0;
-                //this.transform.GetComponent<TurnModeEnemy>().enemyC_move(TurnType.player); // 유저턴으로 패스
+                this.transform.GetComponent<TurnModeEnemy>().enemyC_move(TurnType.player); // 유저턴으로 패스
             });
 
         }

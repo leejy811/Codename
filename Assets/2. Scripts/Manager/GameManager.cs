@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] public MapManager mapManger;
     [SerializeField] public TurnManager turnManager;
+    [SerializeField] public EnemyManager enemyManager;
     [SerializeField] public GameObject player;
     [SerializeField] public GameObject enemyA;
     [SerializeField] public GameObject enemyB;
