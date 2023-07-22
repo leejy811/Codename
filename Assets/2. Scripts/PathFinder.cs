@@ -13,8 +13,8 @@ public class PathFinder
         int[,] map = StageManager.instance.map;
         int[,] visited = new int[map.GetLength(0),map.GetLength(1)];
         int[] playerPos = StageManager.instance.PlayerPos();
-        int xGap = sizeX % 2;
-        int yGap = sizeY % 2;
+        int xGap = sizeX / 2;
+        int yGap = sizeY / 2;
         
         // Start from the initial monster posiiton
         queue.Enqueue((currentPos[0], currentPos[1], -1));
