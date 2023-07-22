@@ -18,10 +18,9 @@ public enum MonsterState
 public abstract class MonsterController : ActiveObject
 {
     [SerializeField] protected string monsterName;
-    [SerializeField] protected float attackDelay;
     [SerializeField] protected float attackRange;
     [SerializeField] protected MonsterType monsterType;
-    [SerializeField] protected GameObject bullet;
+    [SerializeField] protected MonsterBulletController bullet;
 
     protected bool isAttacking;
 
@@ -33,6 +32,16 @@ public abstract class MonsterController : ActiveObject
         isMoving = false;
         posX = 4;
         posY = 8;
+    }
+
+    //TODO : make this function virtual. every each monsters will redefine its own state pattern
+    protected void StateMachine() {
+        if (isMoving || isAttacking)
+            return;
+        if (Vector3.Distance(transform.position, StageManager.instance.PlayerWorldPos()) <= attackRange)
+            monsterState = MonsterState.Attack;
+        else
+            monsterState = MonsterState.Move;
     }
 
     protected override void TryMove()
@@ -54,24 +63,28 @@ public abstract class MonsterController : ActiveObject
         isMoving = false;
     }
 
+    //TODO : make the body of the function. it will choose atk pattern randomly
+    protected abstract void PatternRoll();
+
     protected  void TryAttack()
     {
-        if (isAttacking)
+        if (isMoving||isAttacking)
             return;
-        if(Vector3.Distance(transform.position,StageManager.instance.PlayerWorldPos())<=attackRange)
-            StartCoroutine(Attack());
+        Attack();
     }
 
-    protected IEnumerator Attack()
+    //TODO : make all parameter as variable. 
+    protected void Attack()
     {
         isAttacking = true;
-        DoAttack();
-        yield return new WaitForSeconds(attackDelay);
-        isAttacking = false;
-    }
+        StartCoroutine(AttackPattern.PatternA(bullet, 6, 10, 10, transform.position,this));
+    } 
 
-    protected virtual void DoAttack()
+    /// <summary>
+    /// this function will be called from 'AttackPattern'. it allows to know that the attack is done
+    /// </summary>
+    public void FinishAttack()
     {
-
+        isAttacking = false;
     }
 }

@@ -15,18 +15,30 @@ public class MonsterTemp : MonsterController
         if (isDead)
             return;
         ReorderSortingLayer();
-        TryMove();
-        TryAttack();
-    }
-    
-    protected override void DoAttack()
-    {
-        base.DoAttack();
-        StartCoroutine(AttackPattern.PatternA(bullet, 6, 10, 10, transform.position));
+        StateMachine();
+
+        switch (monsterState)
+        {
+            case MonsterState.Move:
+                TryMove();
+                break;
+            case MonsterState.Attack:
+                PatternRoll();
+                TryAttack();
+                break;
+            default:
+                Debug.LogError("error : undefined enemy state");
+                break;
+        }
     }
 
     protected override void Die()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Monster died");
+    }
+
+    protected override void PatternRoll()
+    {
+        // random roll to pick which attack pattern enenmy will use
     }
 }
