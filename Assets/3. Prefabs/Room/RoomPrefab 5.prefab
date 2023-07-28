@@ -55,7 +55,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 493241996794761973}
-  - component: {fileID: 8454822820187745092}
+  - component: {fileID: -4982825856442476447}
   m_Layer: 0
   m_Name: RoomPrefab 5
   m_TagString: Untagged
@@ -80,7 +80,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8454822820187745092
+--- !u!114 &-4982825856442476447
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -89,24 +89,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 4212405352443991698}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 969f7cfde1a4e32428395fd6e6370030, type: 3}
+  m_Script: {fileID: 11500000, guid: d909504efcf8d1447b329ec1dd89bef2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Width: 10
-  Height: 10
+  Width: 0
+  Height: 0
   roomName: 
   roomType: 
-  roomId: 
+  doors: []
+  leftDoor: {fileID: 0}
+  rightDoor: {fileID: 0}
+  topDoor: {fileID: 0}
+  bottomDoor: {fileID: 0}
+  walls: []
+  leftWall: {fileID: 0}
+  rightWall: {fileID: 0}
+  topWall: {fileID: 0}
+  bottomWall: {fileID: 0}
   center_Position: {x: 0, y: 0, z: 0}
   parent_Position: {x: 0, y: 0, z: 0}
   mergeCenter_Position: {x: 0, y: 0, z: 0}
-  distance: 0
-  isUpdatedWalls: 0
-  isVisitedRoom: 0
-  prefabsDoor: {fileID: 2743669656104095628, guid: d2d79f5034b2c8b4eb6a727da2253f3a, type: 3}
-  prefabsWall: {fileID: 2055102311959635369, guid: 3fcd8726c7cd53345947949baefbab35, type: 3}
-  childRooms: {fileID: 0}
-  updateRoomStatus: 0
+  wallType: 
+  parentRoom: {fileID: 0}
+  isUpdatedRooms: 0
+  isRoomPathBool: 0
+  minimapRoom: {fileID: 0}
 --- !u!1 &4329264596292193362
 GameObject:
   m_ObjectHideFlags: 0

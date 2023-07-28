@@ -568,8 +568,8 @@ MonoBehaviour:
   - Single
   - Boss
   roomPrefabsList:
-  - {fileID: 4212405352443991698, guid: f31f79d0838ff434697253088afd8d78, type: 3}
-  - {fileID: 4212405352443991698, guid: ec02e4b47ce4d614cbd47a573b9a8542, type: 3}
+  - {fileID: 4606555536083810773, guid: 6c8aaa5c83496eb44a82f639880e8aff, type: 3}
+  - {fileID: 9020498437263151044, guid: 3b3d821f4b102ed4eb390814616ecfeb, type: 3}
 --- !u!4 &1095849270
 Transform:
   m_ObjectHideFlags: 0

@@ -201,12 +201,12 @@ public class SubRoom : MonoBehaviour
                     }
                     else
                     {
-                        if (!leftWall.isUpdate)
-                        {
-                            GameObject newWall = transform.parent.GetComponent<DungeonRoom>().prefabsWall.gameObject;
-                            GameObject roomWall = Instantiate(newWall, leftWall.transform);
-                            leftWall.isUpdate = true;
-                        }
+                        //if (!leftWall.isUpdate)
+                        //{
+                        //    GameObject newWall = transform.parent.GetComponent<DungeonRoom>().prefabsWall.gameObject;
+                        //    GameObject roomWall = Instantiate(newWall, leftWall.transform);
+                        //    leftWall.isUpdate = true;
+                        //}
 
                         leftDoor.gameObject.SetActive(false);
                     }
@@ -242,12 +242,12 @@ public class SubRoom : MonoBehaviour
                     }
                     else
                     {
-                        if (!topWall.isUpdate)
-                        {
-                            GameObject newWall = transform.parent.GetComponent<DungeonRoom>().prefabsWall.gameObject;
-                            GameObject roomWall = Instantiate(newWall, topWall.transform);
-                            topWall.isUpdate = true;
-                        }
+                        //if (!topWall.isUpdate)
+                        //{
+                        //    GameObject newWall = transform.parent.GetComponent<DungeonRoom>().prefabsWall.gameObject;
+                        //    GameObject roomWall = Instantiate(newWall, topWall.transform);
+                        //    topWall.isUpdate = true;
+                        //}
 
                         topDoor.gameObject.SetActive(false);
                     }
@@ -283,12 +283,12 @@ public class SubRoom : MonoBehaviour
                     }
                     else
                     {
-                        if (!rightWall.isUpdate)
-                        {
-                            GameObject newWall = transform.parent.GetComponent<DungeonRoom>().prefabsWall.gameObject;
-                            GameObject roomWall = Instantiate(newWall, rightWall.transform);
-                            rightWall.isUpdate = true;
-                        }
+                        //if (!rightWall.isUpdate)
+                        //{
+                        //    GameObject newWall = transform.parent.GetComponent<DungeonRoom>().prefabsWall.gameObject;
+                        //    GameObject roomWall = Instantiate(newWall, rightWall.transform);
+                        //    rightWall.isUpdate = true;
+                        //}
 
                         rightDoor.gameObject.SetActive(false);
                     }
@@ -326,12 +326,12 @@ public class SubRoom : MonoBehaviour
                     }
                     else {
 
-                        if (!bottomWall.isUpdate)
-                        {
-                            GameObject newWall = transform.parent.GetComponent<DungeonRoom>().prefabsWall.gameObject;
-                            GameObject roomWall = Instantiate(newWall, bottomWall.transform);
-                            bottomWall.isUpdate = true;
-                        }
+                        //if (!bottomWall.isUpdate)
+                        //{
+                        //    GameObject newWall = transform.parent.GetComponent<DungeonRoom>().prefabsWall.gameObject;
+                        //    GameObject roomWall = Instantiate(newWall, bottomWall.transform);
+                        //    bottomWall.isUpdate = true;
+                        //}
                         bottomDoor.gameObject.SetActive(false);
                     }
                     break;
