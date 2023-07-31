@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Width: 10
-  Height: 8
+  Height: 10
   roomName: 
   roomType: 
   roomId: 

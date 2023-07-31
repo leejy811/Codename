@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 969f7cfde1a4e32428395fd6e6370030, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Width: 11
-  Height: 11
+  Width: 10
+  Height: 10
   roomName: 
   roomType: 
   roomId: 
