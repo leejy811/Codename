@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - World
   - NoMask
+  - Door
   layers:
   - Default
   - TransparentFX
