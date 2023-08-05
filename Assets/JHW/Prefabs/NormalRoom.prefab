@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Width: 10
-  Height: 8
+  Height: 10
   roomName: 
   roomType: 
   roomId: 
@@ -111,6 +111,14 @@ PrefabInstance:
     - target: {fileID: 3121580311080515010, guid: b895bf6a5acd6f944abcf000ac287d3f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6853684150704980269, guid: b895bf6a5acd6f944abcf000ac287d3f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7027987660446201697, guid: b895bf6a5acd6f944abcf000ac287d3f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7684199886044040044, guid: b895bf6a5acd6f944abcf000ac287d3f, type: 3}
       propertyPath: m_Name
