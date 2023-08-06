@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 66201051}
   - component: {fileID: 66201052}
-  m_Layer: 7
+  m_Layer: 24
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,7 +195,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b,
     type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -271,7 +271,7 @@ Camera:
   m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 16777440
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -313,6 +313,11 @@ PrefabInstance:
     - target: {fileID: 6978123850016153453, guid: df544c8bc200a8648a9b7c7d87dcad1e,
         type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6978123850016153453, guid: df544c8bc200a8648a9b7c7d87dcad1e,
+        type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6978123850016153455, guid: df544c8bc200a8648a9b7c7d87dcad1e,
@@ -602,7 +607,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 8
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2

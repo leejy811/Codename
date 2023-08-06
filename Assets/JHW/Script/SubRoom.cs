@@ -378,11 +378,13 @@ public class SubRoom : MonoBehaviour
         return null;
     }
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
+        //Debug.Log(collision.name);
         if (collision.tag == "Player")
         {
             RoomController.Instance.OnPlayerEnterRoom(this.transform.parent.GetComponent<DungeonRoom>());
         }
     }
+
 }

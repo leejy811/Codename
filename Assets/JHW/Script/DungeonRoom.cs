@@ -90,7 +90,7 @@ public class DungeonRoom : MonoBehaviour
         return new Vector3(center_Position.x, 0, center_Position.z);
     }
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
@@ -98,5 +98,4 @@ public class DungeonRoom : MonoBehaviour
         }
     }
 
-    
 }
