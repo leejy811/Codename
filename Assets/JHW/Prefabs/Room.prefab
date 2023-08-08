@@ -707,6 +707,7 @@ MonoBehaviour:
   isUpdatedRooms: 0
   isRoomPathBool: 0
   minimapRoom: {fileID: 0}
+  sideTileBase: {fileID: 11400000, guid: 7029b557c638bc848a312af8fa951c8b, type: 2}
 --- !u!61 &2664499766966901005
 BoxCollider2D:
   m_ObjectHideFlags: 0

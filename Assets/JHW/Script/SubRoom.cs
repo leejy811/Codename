@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class SubRoom : MonoBehaviour
 {
@@ -34,6 +35,7 @@ public class SubRoom : MonoBehaviour
     public bool isRoomPathBool = false;
     public RoomMinimap minimapRoom;
 
+    public TileBase sideTileBase;
 
     // Start is called before the first frame update
     void Start()
@@ -304,6 +306,10 @@ public class SubRoom : MonoBehaviour
                             // 방이 뚫려 있다.
                             bottomDoor.gameObject.SetActive(false);
                             bottomWall.gameObject.SetActive(false);
+                            rightWall.gameObject.GetComponentInChildren<TilemapRenderer>().sortingOrder = 1;
+                            leftWall.gameObject.GetComponentInChildren<TilemapRenderer>().sortingOrder = 1;
+                            rightWall.gameObject.GetComponentInChildren<Tilemap>().SetTile(new Vector3Int(-2, 1, 0), sideTileBase);
+                            leftWall.gameObject.GetComponentInChildren<Tilemap>().SetTile(new Vector3Int(-2, 1, 0), sideTileBase);
 
                             minimapRoom.bottomWall.gameObject.SetActive(false);
                             minimapRoom.bottomWall.isSetUp = false;
