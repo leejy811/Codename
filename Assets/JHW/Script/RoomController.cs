@@ -28,7 +28,7 @@ public class RoomController : Singleton<RoomController>
         
         loadedRooms.Clear();
 
-        Player.Instance.transform.position = new Vector3(0, 0.5f, 0) ;
+        Player.Instance.transform.position = new Vector3(1f, 1f, 0) ;
         DungeonCrawlerController.Instance.CreatedRoom();
         SetRoomPath();
 
@@ -69,9 +69,9 @@ public class RoomController : Singleton<RoomController>
         );
 
         room.transform.localScale = new Vector3(
-                    (room.transform.GetComponent<DungeonRoom>().Width / 10),
+                    (room.transform.GetComponent<DungeonRoom>().Width / 5),
                      1,
-                    (room.transform.GetComponent<DungeonRoom>().Height / 10)
+                    (room.transform.GetComponent<DungeonRoom>().Height / 5)
         );
         room.transform.GetComponent<DungeonRoom>().center_Position = settingRoom.center_Position;
         room.name = globalRoomTitle + "-" + settingRoom.roomName + " " + settingRoom.center_Position.x + ", " + settingRoom.center_Position.z;
