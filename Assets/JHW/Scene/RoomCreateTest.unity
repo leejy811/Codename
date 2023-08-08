@@ -766,8 +766,9 @@ MonoBehaviour:
   roomPrefabsName:
   - Single
   - Boss
-  roomPrefabsList:
+  normalRoomPrefabsList:
   - {fileID: 4606555536083810773, guid: 6c8aaa5c83496eb44a82f639880e8aff, type: 3}
+  bossRoomPrefabsList:
   - {fileID: 9020498437263151044, guid: 3b3d821f4b102ed4eb390814616ecfeb, type: 3}
 --- !u!4 &1095849270
 Transform:

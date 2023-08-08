@@ -59,7 +59,8 @@ public class RoomController : Singleton<RoomController>
 
         string roomPreName = settingRoom.roomName;
 
-        GameObject room = Instantiate(RoomPrefabsSet.Instance.roomPrefabs[roomPreName]);
+        int ranIdx = Random.Range(0, RoomPrefabsSet.Instance.roomPrefabs[roomPreName].Count);
+        GameObject room = Instantiate(RoomPrefabsSet.Instance.roomPrefabs[roomPreName][ranIdx]);
 
         room.transform.position = new Vector3(
                     (settingRoom.center_Position.x * room.transform.GetComponent<DungeonRoom>().Width*2),
