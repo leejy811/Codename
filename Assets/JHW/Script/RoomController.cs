@@ -31,8 +31,6 @@ public class RoomController : Singleton<RoomController>
         Player.Instance.transform.position = new Vector3(1f, 1f, 0) ;
         DungeonCrawlerController.Instance.CreatedRoom();
         SetRoomPath();
-
-
     }
 
     void SetRoomPath()
@@ -110,8 +108,14 @@ public class RoomController : Singleton<RoomController>
         for (int i = 0; i < loadedRooms.Count; i++)
         {
             if (room.parent_Position == loadedRooms[i].parent_Position)
+            {
                 loadedRooms[i].childRooms.minimapUpdate();
+                loadedRooms[i].childRooms.gameObject.SetActive(true);
+            }
+            else
+            {
+                loadedRooms[i].childRooms.gameObject.SetActive(false);
+            }
         }
     }
-
 }
