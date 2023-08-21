@@ -392,7 +392,7 @@ public class DungeonCrawlerController : Singleton<DungeonCrawlerController>
             return;
 
         // 사각형 방, 기억자, 니은자, -, |
-        double[] persent = { 0.01, 0.03, 0.03, 0.1, 0.1, 0.1, 0.8 };
+        double[] persent = { 0.31, 0.03, 0.03, 0.1, 0.1, 0.1, 0.5 };
 
         // 각 방향 패턴을 List화
         List<Dictionary<int, List<Vector3Int>>> collectPatten
