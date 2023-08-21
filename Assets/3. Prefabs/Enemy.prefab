@@ -427,7 +427,6 @@ GameObject:
   - component: {fileID: 7487125207877138017}
   - component: {fileID: 7487003946307217871}
   - component: {fileID: 7486674346476312971}
-  - component: {fileID: 7487177994037811829}
   - component: {fileID: 7486233895459678293}
   - component: {fileID: 7486871665188650367}
   - component: {fileID: 7487096463486110407}
@@ -438,9 +437,9 @@ GameObject:
   - component: {fileID: 7487174045293272729}
   - component: {fileID: 7487228977433354487}
   - component: {fileID: 7381691184276837968}
-  - component: {fileID: 8157431579738850874}
   - component: {fileID: 3852436659506030986}
-  - component: {fileID: 840897123}
+  - component: {fileID: 6462341746276089501}
+  - component: {fileID: 85595191}
   m_Layer: 13
   m_Name: Enemy
   m_TagString: Enemy
@@ -609,7 +608,7 @@ MonoBehaviour:
   BlockingMovementStates: 
   BlockingConditionStates: 
   BlockingWeaponStates: 
-  FacingMode: 3
+  FacingMode: 0
   FacingBase: 0
   ModelShouldFlip: 0
   ModelFlipValueLeft: {x: -1, y: 1, z: 1}
@@ -658,30 +657,6 @@ MonoBehaviour:
   - {fileID: 7256377502103977363}
   TouchTheGroundParticles: []
   TouchTheGroundSfx: []
---- !u!114 &7487177994037811829
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7382844503125370699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d103439fc2940e347937487a70ea01e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AbilityStartSfx: {fileID: 0}
-  AbilityInProgressSfx: {fileID: 0}
-  AbilityStopSfx: {fileID: 0}
-  AbilityStartFeedbacks: {fileID: 0}
-  AbilityStopFeedbacks: {fileID: 0}
-  AbilityPermitted: 1
-  BlockingMovementStates: 
-  BlockingConditionStates: 
-  BlockingWeaponStates: 
-  RunSpeed: 16
-  AutoRun: 0
-  AutoRunThreshold: 0.6
 --- !u!114 &7486233895459678293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -786,7 +761,6 @@ MonoBehaviour:
     Actions:
       array:
       - {fileID: 7487202073116800817}
-      - {fileID: 8157431579738850874}
     Transitions:
       array:
       - Decision: {fileID: 7486326799609599331}
@@ -796,12 +770,9 @@ MonoBehaviour:
     Actions:
       array:
       - {fileID: 7486388510844280329}
-      - {fileID: 8157431579738850874}
+      - {fileID: 85595191}
     Transitions:
       array:
-      - Decision: {fileID: 7486326799609599331}
-        TrueState: 
-        FalseState: Detecting
       - Decision: {fileID: 7486145892150198639}
         TrueState: 
         FalseState: Detecting
@@ -812,12 +783,11 @@ MonoBehaviour:
     Actions:
       array:
       - {fileID: 7487174045293272729}
-      - {fileID: 8157431579738850874}
     Transitions:
       array:
-      - Decision: {fileID: 840897123}
-        TrueState: Detecting
-        FalseState: 
+      - Decision: {fileID: 3852436659506030986}
+        TrueState: 
+        FalseState: Moving
   TimeInThisState: 0
   Target: {fileID: 0}
   _lastKnownTargetPosition: {x: 0, y: 0, z: 0}
@@ -842,7 +812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Label: 
-  Radius: 7
+  Radius: 15
   DetectionOriginOffset: {x: 0, y: 0, z: 0}
   TargetLayer:
     serializedVersion: 2
@@ -897,7 +867,7 @@ MonoBehaviour:
   InitializationMode: 0
   Label: 
   UseMinimumXDistance: 1
-  MinimumXDistance: 0.1
+  MinimumXDistance: 0.5
 --- !u!114 &7487174045293272729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -914,7 +884,7 @@ MonoBehaviour:
   Label: 
   TargetHandleWeaponAbility: {fileID: 7486233895459678293}
   AimOrigin: 0
-  FaceTarget: 1
+  FaceTarget: 0
   AimAtTarget: 1
   OnlyAimWhenInState: 0
 --- !u!114 &7487228977433354487
@@ -1203,20 +1173,6 @@ MonoBehaviour:
   GizmosColor: {r: 1, g: 0.9940462, b: 0.9009434, a: 1}
   GimosSize: 0.1
   SpawnLootButton: 0
---- !u!114 &8157431579738850874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7382844503125370699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5758bd960e1ca6d41828c58712425d60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InitializationMode: 0
-  Label: 
 --- !u!114 &3852436659506030986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1231,8 +1187,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Label: 
   ComparisonMode: 1
-  Distance: 5
---- !u!114 &840897123
+  Distance: 7
+--- !u!114 &6462341746276089501
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1241,12 +1197,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 7382844503125370699}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 206825d6db9c84741810b9da915cfb9c, type: 3}
+  m_Script: {fileID: 11500000, guid: a21818f4def5bf646bec3d25770336cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Label: 
-  ComparisonMode: 3
-  Distance: 99999
+  AfterTimeMin: 2
+  AfterTimeMax: 2
+--- !u!114 &85595191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7382844503125370699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5758bd960e1ca6d41828c58712425d60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitializationMode: 0
+  Label: 
 --- !u!1 &7382893221151021371
 GameObject:
   m_ObjectHideFlags: 0
