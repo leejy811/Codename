@@ -29,8 +29,7 @@ public class Player : Singleton<Player>
 
     void Update()
     {
-        if (isMoveStatus)
-            PlayerMove();
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

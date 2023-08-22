@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class minimapCam : MonoBehaviour
 {
-    public Transform player;
+    //public Transform player;
 
     private void LateUpdate()
     {
+        Transform player = Player.Instance.transform;
         Vector3 newPosition = player.position;
         newPosition.y = transform.position.y;
         transform.position = newPosition;

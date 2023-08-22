@@ -18,6 +18,16 @@ public class RoomController : Singleton<RoomController>
 
 
     public bool isLoadingRoom = false;
+    public bool isCreateRoom = false;
+
+    public void Update()
+    {
+        if (!isCreateRoom)
+        {
+            CreatedRoom();
+            isCreateRoom = true;
+        }
+    }
 
     public void CreatedRoom()
     {
@@ -101,8 +111,6 @@ public class RoomController : Singleton<RoomController>
 
     // 해당 Room에서 Player가 있는 방을 반환
     public void OnPlayerEnterRoom(DungeonRoom room) {
-        CameraFollow.Instance.currRoom = room;
-        
         currRoom = room;
 
         for (int i = 0; i < loadedRooms.Count; i++)

@@ -16,6 +16,7 @@ namespace Cainos.PixelArtTopDown_Basic
 
         private void Start()
         {
+            target = Player.Instance.transform;
             if (target == null) return;
 
             offset = transform.position - target.position;
