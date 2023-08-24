@@ -21,6 +21,7 @@ public class DungeonRoom : MonoBehaviour
 
     public bool isUpdatedWalls = false;
     public bool isVisitedRoom = false;
+    public bool isClearRoom = false;
     public GameObject prefabsDoor;
     public GameObject prefabsWall;
 
@@ -85,14 +86,6 @@ public class DungeonRoom : MonoBehaviour
         }
     }
 
-    private void LateUpdate()
-    {
-        if (roomType == "Double" || roomType == "Quad")
-        {
-            CheckRoomClear();
-        }
-    }
-
     public Vector3 GetRoomCenter()
     {
         return new Vector3(center_Position.x, 0, center_Position.z);
@@ -110,14 +103,14 @@ public class DungeonRoom : MonoBehaviour
     {
         Transform[] child = gameObject.GetComponentsInChildren<Transform>();
 
-        if(enemyList.Count == 0 && child.Length != 1)
+        if(enemyList.Count == 0 && child.Length != 1 && (roomType == "Double" || roomType == "Quad"))
         {
-            Debug.Log("RoomClear   :    " + this.gameObject.name);
-            DoorControl(true);
+            isClearRoom = true;
+            DoorControl();
         }
     }
 
-    public void DoorControl(bool open)
+    public void DoorControl()
     {
         Door[] doors = gameObject.GetComponentsInChildren<Door>();
         Debug.Log(doors.Length);
@@ -125,7 +118,13 @@ public class DungeonRoom : MonoBehaviour
         foreach(Door door in doors)
         {
             BoxCollider2D doorColider = door.gameObject.GetComponentInChildren<BoxCollider2D>();
-            doorColider.enabled = open;
+            doorColider.enabled = isClearRoom;
         }
+    }
+    
+    public void RemoveEnemy(GameObject enemy)
+    {
+        enemyList.Remove(enemy);
+        CheckRoomClear();    
     }
 }
