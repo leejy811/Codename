@@ -24,6 +24,7 @@ public class DungeonRoom : MonoBehaviour
     public GameObject prefabsDoor;
     public GameObject prefabsWall;
 
+    public List<GameObject> enemyList;
 
     public DungeonRoom(int x, int y, int z)
     {
@@ -84,6 +85,13 @@ public class DungeonRoom : MonoBehaviour
         }
     }
 
+    private void LateUpdate()
+    {
+        if (roomType == "Double" || roomType == "Quad")
+        {
+            CheckRoomClear();
+        }
+    }
 
     public Vector3 GetRoomCenter()
     {
@@ -98,4 +106,26 @@ public class DungeonRoom : MonoBehaviour
         }
     }
 
+    private void CheckRoomClear()
+    {
+        Transform[] child = gameObject.GetComponentsInChildren<Transform>();
+
+        if(enemyList.Count == 0 && child.Length != 1)
+        {
+            Debug.Log("RoomClear   :    " + this.gameObject.name);
+            DoorControl(true);
+        }
+    }
+
+    public void DoorControl(bool open)
+    {
+        Door[] doors = gameObject.GetComponentsInChildren<Door>();
+        Debug.Log(doors.Length);
+        
+        foreach(Door door in doors)
+        {
+            BoxCollider2D doorColider = door.gameObject.GetComponentInChildren<BoxCollider2D>();
+            doorColider.enabled = open;
+        }
+    }
 }

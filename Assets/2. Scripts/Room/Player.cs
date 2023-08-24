@@ -49,7 +49,7 @@ public class Player : Singleton<Player>
             else if (nextDoor.transform.name == "TopDoor") currPos = new Vector2(currPos.x, currPos.y-2);
             else if (nextDoor.transform.name == "BottomDoor") currPos = new Vector2(currPos.x, currPos.y+2);
 
-            Player.Instance.transform.position = currPos;
+            transform.position = currPos;
 
             for (int i = 0; i < RoomController.Instance.loadedRooms.Count; i++)
             {
@@ -63,6 +63,10 @@ public class Player : Singleton<Player>
                 }
             }
 
+            if (nextRoom.GetComponent<DungeonRoom>().roomType == "Double" || nextRoom.GetComponent<DungeonRoom>().roomType == "Quad")
+            {
+                nextRoom.GetComponent<DungeonRoom>().DoorControl(false);
+            }
             //FadeInOut.Instance.setFade(false, 0.15f);
         }
     }

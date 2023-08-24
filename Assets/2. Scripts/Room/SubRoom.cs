@@ -37,6 +37,9 @@ public class SubRoom : MonoBehaviour
 
     public TileBase sideTileBase;
 
+    public List<Transform> spawnPointList;
+    public List<GameObject> enemyPrefabList;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -90,6 +93,20 @@ public class SubRoom : MonoBehaviour
 
 
         updateRoomSetup();
+
+        SpawnEnemy();
+    }
+
+    private void SpawnEnemy()
+    {
+        if(roomType == "Double" || roomType == "Quad")
+        {
+            foreach (Transform point in spawnPointList)
+            {
+                GameObject enemy = Instantiate(enemyPrefabList[0], point.position, point.rotation, this.transform);
+                parentRoom.enemyList.Add(enemy);
+            }
+        }
     }
 
     private void Update()

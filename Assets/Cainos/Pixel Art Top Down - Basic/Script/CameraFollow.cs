@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using MoreMountains.TopDownEngine;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,15 +17,16 @@ namespace Cainos.PixelArtTopDown_Basic
 
         private void Start()
         {
-            target = Player.Instance.transform;
-            if (target == null) return;
 
-            offset = transform.position - target.position;
         }
 
         private void Update()
         {
-            if (target == null) return;
+            if (target == null)
+            {
+                target = LevelManager.Instance.Players[0].transform;
+                offset = transform.position - target.position;
+            }
 
             targetPos = target.position + offset;
             transform.position = Vector3.Lerp(transform.position, targetPos, lerpSpeed * Time.deltaTime);
