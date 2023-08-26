@@ -787,9 +787,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f58e535e4ad3df841b47152f83add0e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabList:
-  - {fileID: 7382844503125370699, guid: 41330ccd0a6a141438703b6562cc688a, type: 3}
-  spawnedEnemyList: []
 --- !u!1 &990693343
 GameObject:
   m_ObjectHideFlags: 0
