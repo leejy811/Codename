@@ -10795,7 +10795,7 @@ MonoBehaviour:
   AutoDestroyWhenEmptyDelay: 1
   PreventReloadIfAmmoEmpty: 0
   CurrentAmmoLoaded: 0
-  WeaponAttachmentOffset: {x: 0, y: 0, z: 0}
+  WeaponAttachmentOffset: {x: 0.3, y: 0, z: 0}
   FlipWeaponOnCharacterFlip: 1
   RightFacingFlipValue: {x: 1, y: 1, z: 1}
   LeftFacingFlipValue: {x: -1, y: 1, z: 1}
@@ -10835,7 +10835,7 @@ MonoBehaviour:
   InitializeOnStart: 0
   Interruptable: 0
   Flipped: 0
-  ProjectileSpawnOffset: {x: 1.45, y: 0.05, z: 0}
+  ProjectileSpawnOffset: {x: 1.6, y: 0.05, z: 0}
   DefaultProjectileDirection: {x: 0, y: 0, z: 1}
   ProjectilesPerShot: 1
   SpawnTransforms: []
@@ -10843,7 +10843,7 @@ MonoBehaviour:
   Spread: {x: 0, y: 0, z: 5}
   RotateWeaponOnSpread: 0
   RandomSpread: 1
-  SpawnPosition: {x: 1.45, y: 0.05, z: 0}
+  SpawnPosition: {x: 1.6, y: 0.05, z: 0}
   ObjectPooler: {fileID: 0}
   SpawnFeedbacks: []
   TestShootButton: 0
@@ -15883,7 +15883,7 @@ Transform:
   m_GameObject: {fileID: 2632127763358380681}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1, y: 0, z: 0}
-  m_LocalScale: {x: 0.49999997, y: 0.49999997, z: 0.49999997}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2632127762807301204}
@@ -15930,7 +15930,7 @@ SpriteRenderer:
   m_SortingLayerID: 47421343
   m_SortingLayer: 4
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: f058b4862971be743874859a43a1fdd6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 14b4e338ed5ccf04bb3fa5c803241970, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
