@@ -12,7 +12,7 @@ namespace MoreMountains.TopDownEngine
 	/// A weapon class aimed specifically at allowing the creation of various projectile weapons, from shotgun to machine gun, via plasma gun or rocket launcher
 	/// </summary>
 	[AddComponentMenu("TopDown Engine/Weapons/Projectile Weapon")]
-	public class ProjectileWeapon : Weapon, MMEventListener<TopDownEngineEvent>
+	public partial class ProjectileWeapon : Weapon, MMEventListener<TopDownEngineEvent>
 	{
 		[MMInspectorGroup("Projectiles", true, 22)]
 		/// the offset position at which the projectile will spawn
@@ -115,7 +115,7 @@ namespace MoreMountains.TopDownEngine
 		/// </summary>
 		public override void WeaponUse()
 		{
-			base.WeaponUse();
+            base.WeaponUse();
 
 			DetermineSpawnPosition();
 
@@ -151,7 +151,11 @@ namespace MoreMountains.TopDownEngine
 			Projectile projectile = nextGameObject.GetComponent<Projectile>();
 			if (projectile != null)
 			{
-				projectile.SetWeapon(this);
+				// 등급에 따른 대미지 재조정
+				projectile.GetComponent<DamageOnTouch>().MinDamageCaused = SetMinDamageByClass();
+                projectile.GetComponent<DamageOnTouch>().MaxDamageCaused = SetMaxDamageByClass();
+
+                projectile.SetWeapon(this);
 				if (Owner != null)
 				{
 					projectile.SetOwner(Owner.gameObject);
@@ -328,4 +332,46 @@ namespace MoreMountains.TopDownEngine
 			this.MMEventStopListening<TopDownEngineEvent>();
 		}
 	}
+
+	public partial class ProjectileWeapon
+	{
+		public enum weaponClass
+		{
+			C,B,A,S
+		}
+
+		[SerializeField] public weaponClass weapon_class;
+
+		public float SetMinDamageByClass()
+		{
+			float minDamage = this.GetComponent<MMSimpleObjectPooler>().GameObjectToPool.GetComponent<DamageOnTouch>().MinDamageCaused;
+            switch (weapon_class)
+			{
+				case weaponClass.S:
+                case weaponClass.A:
+                case weaponClass.B:
+                    minDamage*=.3f;
+					break;
+				case weaponClass.C:
+					break;
+			}
+			return minDamage;
+		}
+        public float SetMaxDamageByClass()
+        {
+			float maxDamage = this.GetComponent<MMSimpleObjectPooler>().GameObjectToPool.GetComponent<DamageOnTouch>().MinDamageCaused;
+            switch (weapon_class)
+            {
+                case weaponClass.S:
+                case weaponClass.A:
+                case weaponClass.B:
+                    maxDamage *= .3f;
+                    break;
+                case weaponClass.C:
+                    break;
+            }
+            return maxDamage;
+        }
+
+    }
 }
