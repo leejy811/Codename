@@ -57,10 +57,12 @@ MonoBehaviour:
   distance: 0
   isUpdatedWalls: 0
   isVisitedRoom: 0
+  isClearRoom: 0
   prefabsDoor: {fileID: 963625897568002723, guid: daa160be8b599254e8789402a43b43d8,
     type: 3}
   prefabsWall: {fileID: 6525300624778599426, guid: fee66af256d6a1349a77add6f2b1a089,
     type: 3}
+  enemyList: []
   childRooms: {fileID: 0}
   updateRoomStatus: 0
 --- !u!1001 &1157848824372026872
@@ -70,6 +72,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2712609159836833254}
     m_Modifications:
+    - target: {fileID: 740945316030652677, guid: b895bf6a5acd6f944abcf000ac287d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1558410327487603352, guid: b895bf6a5acd6f944abcf000ac287d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049974721332132862, guid: b895bf6a5acd6f944abcf000ac287d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 2664499766966901005, guid: b895bf6a5acd6f944abcf000ac287d3f,
         type: 3}
       propertyPath: m_Size.x
@@ -134,6 +151,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845057282701136539, guid: b895bf6a5acd6f944abcf000ac287d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6853684150704980269, guid: b895bf6a5acd6f944abcf000ac287d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7684199886044040044, guid: b895bf6a5acd6f944abcf000ac287d3f,
         type: 3}

@@ -97,6 +97,15 @@ public class SubRoom : MonoBehaviour
         SpawnEnemy();
     }
 
+    private void OnEnable()
+    {
+        DungeonRoom parent = gameObject.GetComponentInParent<DungeonRoom>();
+        if (parent.roomType == "Double" || parent.roomType == "Quad")
+        {
+            parent.DoorControl();
+        }
+    }
+
     private void SpawnEnemy()
     {
         if(roomType == "Double" || roomType == "Quad")

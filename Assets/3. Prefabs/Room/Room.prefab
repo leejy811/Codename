@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6546003798685387922}
   - component: {fileID: 3864981053241893914}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: LeftDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,7 +60,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6040034762674590390}
   - component: {fileID: 1219388144753657224}
-  m_Layer: 24
+  m_Layer: 11
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1556653842486667667}
   - component: {fileID: 5868789821049216510}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: RightDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,7 +226,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3172358419647319140}
   - component: {fileID: 3296788228348465979}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: TopDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -400,7 +400,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3320471965134918103}
   - component: {fileID: 6197195001008294001}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: TopWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -449,7 +449,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2396896858024400672}
   - component: {fileID: 8648659300434384709}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: LeftWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -497,7 +497,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2486832145982384353}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: SideWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -532,7 +532,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6889887206165296382}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -566,7 +566,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2627427879227999556}
   - component: {fileID: 3769420718813167482}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: BottomWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -615,7 +615,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8938509377010098849}
   - component: {fileID: 9148569394137636240}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: RightWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -664,7 +664,7 @@ GameObject:
   m_Component:
   - component: {fileID: 435132099049898357}
   - component: {fileID: 6821108476435856779}
-  m_Layer: 24
+  m_Layer: 11
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -785,7 +785,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7576382278410293915}
   - component: {fileID: 8241015097374993097}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: BottomDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -944,7 +944,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9179816175700536840}
   - component: {fileID: 1517018767095457983}
-  m_Layer: 24
+  m_Layer: 11
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1029,7 +1029,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7352304217839845105}
   - component: {fileID: 1699631989582814866}
-  m_Layer: 24
+  m_Layer: 11
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1111,10 +1111,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8938509377010098849}
     m_Modifications:
+    - target: {fileID: 903188364172029043, guid: 90d7e4c3ee8713e44b77516d07e1db61,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8367045990146283043, guid: 90d7e4c3ee8713e44b77516d07e1db61,
         type: 3}
       propertyPath: m_Name
       value: SideWall (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8367045990146283043, guid: 90d7e4c3ee8713e44b77516d07e1db61,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8845191393666443938, guid: 90d7e4c3ee8713e44b77516d07e1db61,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9134672121352108637, guid: 90d7e4c3ee8713e44b77516d07e1db61,
         type: 3}
@@ -1373,8 +1388,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4212405352443991698, guid: 4ab9375e22f20c441b12fb66d6b5d6ac,
         type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4212405352443991698, guid: 4ab9375e22f20c441b12fb66d6b5d6ac,
+        type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8007409910274930362, guid: 4ab9375e22f20c441b12fb66d6b5d6ac,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126957570648503591, guid: 4ab9375e22f20c441b12fb66d6b5d6ac,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8726476414457883713, guid: 4ab9375e22f20c441b12fb66d6b5d6ac,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ab9375e22f20c441b12fb66d6b5d6ac, type: 3}
@@ -1391,10 +1426,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2396896858024400672}
     m_Modifications:
+    - target: {fileID: 903188364172029043, guid: 90d7e4c3ee8713e44b77516d07e1db61,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8367045990146283043, guid: 90d7e4c3ee8713e44b77516d07e1db61,
         type: 3}
       propertyPath: m_Name
       value: SideWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 8367045990146283043, guid: 90d7e4c3ee8713e44b77516d07e1db61,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8845191393666443938, guid: 90d7e4c3ee8713e44b77516d07e1db61,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9134672121352108637, guid: 90d7e4c3ee8713e44b77516d07e1db61,
         type: 3}
@@ -1466,10 +1516,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3320471965134918103}
     m_Modifications:
+    - target: {fileID: 903188364172029043, guid: 18013dc2171f7764fa5a82842163e5cf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8367045990146283043, guid: 18013dc2171f7764fa5a82842163e5cf,
         type: 3}
       propertyPath: m_Name
       value: TopWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 8367045990146283043, guid: 18013dc2171f7764fa5a82842163e5cf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8845191393666443938, guid: 18013dc2171f7764fa5a82842163e5cf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9134672121352108637, guid: 18013dc2171f7764fa5a82842163e5cf,
         type: 3}
@@ -1541,10 +1606,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2627427879227999556}
     m_Modifications:
+    - target: {fileID: 903188364172029043, guid: 0e1aa8c55e2b5574896bd448f5eb75ff,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8367045990146283043, guid: 0e1aa8c55e2b5574896bd448f5eb75ff,
         type: 3}
       propertyPath: m_Name
       value: BottomWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 8367045990146283043, guid: 0e1aa8c55e2b5574896bd448f5eb75ff,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8845191393666443938, guid: 0e1aa8c55e2b5574896bd448f5eb75ff,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9134672121352108637, guid: 0e1aa8c55e2b5574896bd448f5eb75ff,
         type: 3}

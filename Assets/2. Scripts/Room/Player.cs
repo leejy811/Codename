@@ -63,12 +63,13 @@ public class Player : Singleton<Player>
                 }
             }
 
+            /*
             DungeonRoom nextDungeon = nextRoom.GetComponent<DungeonRoom>();
 
             if(nextDungeon.roomType == "Double" || nextDungeon.roomType == "Quad")
             {
                 nextDungeon.DoorControl();
-            }
+            }*/
             //FadeInOut.Instance.setFade(false, 0.15f);
         }
     }
