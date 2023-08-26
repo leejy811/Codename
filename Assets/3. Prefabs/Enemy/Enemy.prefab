@@ -777,6 +777,9 @@ MonoBehaviour:
       - Decision: {fileID: 7486145892150198639}
         TrueState: 
         FalseState: Detecting
+      - Decision: {fileID: 3852436659506030986}
+        TrueState: Attacking
+        FalseState: 
   - StateName: Attacking
     Actions:
       array:
