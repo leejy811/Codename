@@ -118,23 +118,6 @@ public class SubRoom : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        RoomUpdate();
-    }
-    void RoomUpdate()
-    {
-        if (!isUpdatedRooms)
-        {
-            RemoveUnconnectedWalls();
-
-            isUpdatedRooms = true;
-        }
-
-        //if (updatedRooms && !roomPathBool)
-        //    setRoomPath(wallType);
-
-    }
     public void updateRoomSetup()
     {
         if (!roomType.Equals("Single"))

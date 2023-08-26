@@ -40,22 +40,6 @@ public class RoomController : Singleton<RoomController>
 
         Player.Instance.transform.position = new Vector3(1f, 1f, 0) ;
         DungeonCrawlerController.Instance.CreatedRoom();
-        SetRoomPath();
-    }
-
-    void SetRoomPath()
-    {
-        if (isLoadingRoom)
-            return;
-
-        if (loadedRooms.Count > 0)
-        {
-            foreach (DungeonRoom room in loadedRooms)
-            {
-                room.RemoveUnconnectedWalls();
-            }
-            isLoadingRoom = true;
-        }
     }
 
     public void LoadRoom(RoomInfo settingRoom)
@@ -66,6 +50,11 @@ public class RoomController : Singleton<RoomController>
         }
 
         string roomPreName = settingRoom.roomName;
+
+        if(settingRoom.roomType == "Single")
+        {
+            roomPreName = "Box";
+        }
 
         int ranIdx = Random.Range(0, RoomPrefabsSet.Instance.roomPrefabs[roomPreName].Count);
         GameObject room = Instantiate(RoomPrefabsSet.Instance.roomPrefabs[roomPreName][ranIdx]);

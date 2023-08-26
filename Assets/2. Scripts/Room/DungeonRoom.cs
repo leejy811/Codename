@@ -73,7 +73,9 @@ public class DungeonRoom : MonoBehaviour
     public void RemoveUnconnectedWalls()
     {
         if (childRooms != null)
+        {
             childRooms.RemoveUnconnectedWalls();
+        }
     }
 
     void Update()
