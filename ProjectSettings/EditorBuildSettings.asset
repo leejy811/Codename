@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/TopDownEngine/Demos/StartScreen/StartScreen.unity
     guid: 52360e1567e3fee418407abdfd132d73
   - enabled: 1
+    path: Assets/1. Scenes/BossScene.unity
+    guid: 5585a69187dcb1c4a9c826c7ac4fdcd9
+  - enabled: 1
+    path: Assets/1. Scenes/IngameScene.unity
+    guid: 7ffdfcd5a3f65dd4f917bbdf3e3fcafa
+  - enabled: 1
     path: Assets/TopDownEngine/ThirdParty/MoreMountains/MMTools/Tools/MMSceneLoading/LoadingScreens/LoadingScreen.unity
     guid: 888394d52616e5e42b3b54c3f2bbd3eb
   - enabled: 1

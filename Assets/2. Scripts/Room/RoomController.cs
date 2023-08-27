@@ -51,7 +51,7 @@ public class RoomController : Singleton<RoomController>
 
         string roomPreName = settingRoom.roomName;
 
-        if(settingRoom.roomType == "Single")
+        if(settingRoom.roomType == "Single" && roomPreName != "Boss")
         {
             roomPreName = "Box";
         }
