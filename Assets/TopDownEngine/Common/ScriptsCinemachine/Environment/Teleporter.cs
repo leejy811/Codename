@@ -299,7 +299,7 @@ namespace MoreMountains.TopDownEngine
 
 			if (AddToDestinationIgnoreList)
 			{
-				Destination.AddToIgnoreList(collider.transform);
+				//Destination.AddToIgnoreList(collider.transform);
 			}            
             
 			if (CameraMode == CameraModes.CinemachinePriority)

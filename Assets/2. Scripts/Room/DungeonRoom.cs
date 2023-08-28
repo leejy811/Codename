@@ -93,14 +93,6 @@ public class DungeonRoom : MonoBehaviour
         return new Vector3(center_Position.x, 0, center_Position.z);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
-        {
-            RoomController.Instance.OnPlayerEnterRoom(this);
-        }
-    }
-
     private void CheckRoomClear()
     {
         Transform[] child = gameObject.GetComponentsInChildren<Transform>();

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using MoreMountains.TopDownEngine;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -38,7 +39,7 @@ public class RoomController : Singleton<RoomController>
         
         loadedRooms.Clear();
 
-        Player.Instance.transform.position = new Vector3(1f, 1f, 0) ;
+        LevelManager.Instance.Players[0].transform.position = Vector3.zero;
         DungeonCrawlerController.Instance.CreatedRoom();
     }
 

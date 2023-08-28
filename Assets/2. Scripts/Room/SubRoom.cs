@@ -204,7 +204,8 @@ public class SubRoom : MonoBehaviour
                                 GameObject roomDoor = Instantiate(leftRoom.prefabsDoor, leftDoor.transform);
                                 roomDoor.gameObject.transform.SetParent(leftDoor.gameObject.transform);
                                 leftDoor.setNextRoom(leftRoom.gameObject);
-                                leftDoor.SideDoor = leftRoom.childRooms.rightDoor;
+                                leftDoor.setSideDoor(leftRoom.childRooms.rightDoor);
+                                leftRoom.childRooms.rightDoor.setSideDoor(leftDoor);
 
                                 leftDoor.isUpdate = true;
                             }
@@ -245,7 +246,6 @@ public class SubRoom : MonoBehaviour
                                 GameObject roomDoor = Instantiate(topRoom.prefabsDoor, topDoor.transform);
                                 roomDoor.gameObject.transform.SetParent(topDoor.gameObject.transform);
                                 topDoor.setNextRoom(topRoom.gameObject);
-                                topDoor.SideDoor = topRoom.childRooms.bottomDoor;
 
                                 topDoor.isUpdate = true;
                             }
@@ -286,7 +286,6 @@ public class SubRoom : MonoBehaviour
                                 roomDoor.gameObject.transform.SetParent(rightDoor.gameObject.transform);
 
                                 rightDoor.setNextRoom(rightRoom.gameObject);
-                                rightDoor.SideDoor = rightRoom.childRooms.leftDoor;
 
                                 rightDoor.isUpdate = true;
                             }
@@ -333,7 +332,8 @@ public class SubRoom : MonoBehaviour
                                 roomDoor.gameObject.transform.SetParent(bottomDoor.gameObject.transform);
 
                                 bottomDoor.setNextRoom(bottomRoom.gameObject);
-                                bottomDoor.SideDoor = bottomRoom.childRooms.topDoor;
+                                bottomDoor.setSideDoor(bottomRoom.childRooms.topDoor);
+                                bottomRoom.childRooms.topDoor.setSideDoor(bottomDoor);
 
                                 bottomDoor.isUpdate = true;
                             }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using MoreMountains.TopDownEngine;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ public class minimapCam : MonoBehaviour
 
     private void LateUpdate()
     {
-        Transform player = Player.Instance.transform;
+        Transform player = LevelManager.Instance.Players[0].transform;
         Vector3 newPosition = player.position;
         newPosition.y = transform.position.y;
         transform.position = newPosition;
