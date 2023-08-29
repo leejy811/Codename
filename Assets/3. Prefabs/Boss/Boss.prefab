@@ -442,7 +442,7 @@ GameObject:
   - component: {fileID: 85595191}
   - component: {fileID: 2078531518225520599}
   m_Layer: 13
-  m_Name: Enemy
+  m_Name: Boss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -609,7 +609,7 @@ MonoBehaviour:
   BlockingMovementStates: 
   BlockingConditionStates: 
   BlockingWeaponStates: 
-  FacingMode: 3
+  FacingMode: 0
   FacingBase: 0
   ModelShouldFlip: 0
   ModelFlipValueLeft: {x: -1, y: 1, z: 1}
@@ -884,9 +884,9 @@ MonoBehaviour:
   Label: 
   TargetHandleWeaponAbility: {fileID: 7486233895459678293}
   AimOrigin: 0
-  FaceTarget: 1
+  FaceTarget: 0
   AimAtTarget: 1
-  OnlyAimWhenInState: 1
+  OnlyAimWhenInState: 0
 --- !u!114 &7487228977433354487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6226,7 +6226,7 @@ SpriteRenderer:
   m_SortingLayerID: 47421343
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 726310915, guid: 7ba31e836982746f8b091285aa20c7d6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 78ed46168c92a04418cc28601790c5f6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
