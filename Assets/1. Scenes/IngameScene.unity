@@ -273,7 +273,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AutoAttributePlayerIDs: 1
   PlayerPrefabs:
-  - {fileID: 114873785417298432, guid: a200a0b4274de1d4da0e68119fadcbbb, type: 3}
+  - {fileID: 114873785417298432, guid: 58dc991c7e7c4a244a8efea809bf0bb9, type: 3}
   SceneCharacters: []
   InitialSpawnPoint: {fileID: 0}
   CurrentCheckpoint: {fileID: 0}
@@ -416,7 +416,6 @@ GameObject:
   - component: {fileID: 226233305}
   - component: {fileID: 226233304}
   - component: {fileID: 226233303}
-  - component: {fileID: 226233302}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -424,23 +423,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &226233302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 226233301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ba0892400c0b3542bc3341a17a8ce73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeBackground: {fileID: 999628218}
-  fadeChange_value: 0
-  isShowInOut: 0
-  isFadeChanging: 0
-  fadeDurationUnit: 0.001
 --- !u!114 &226233303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1570,9 +1552,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1627987776410232, guid: d73aa2d3898a69541852a65f3a8e14e0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1665469758143900, guid: d73aa2d3898a69541852a65f3a8e14e0, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4229352479014310, guid: d73aa2d3898a69541852a65f3a8e14e0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 34.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 4229352479014310, guid: d73aa2d3898a69541852a65f3a8e14e0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -25.95
       objectReference: {fileID: 0}
     - target: {fileID: 4229352479014310, guid: d73aa2d3898a69541852a65f3a8e14e0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1625,6 +1619,11 @@ PrefabInstance:
     - target: {fileID: 4949070541713388, guid: d73aa2d3898a69541852a65f3a8e14e0, type: 3}
       propertyPath: m_LocalPosition.z
       value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 20030228102125408, guid: d73aa2d3898a69541852a65f3a8e14e0,
+        type: 3}
+      propertyPath: orthographic size
+      value: 6.9
       objectReference: {fileID: 0}
     - target: {fileID: 20030228102125408, guid: d73aa2d3898a69541852a65f3a8e14e0,
         type: 3}

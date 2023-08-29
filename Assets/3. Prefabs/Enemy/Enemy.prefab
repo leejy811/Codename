@@ -771,7 +771,6 @@ MonoBehaviour:
     Actions:
       array:
       - {fileID: 7486388510844280329}
-      - {fileID: 85595191}
     Transitions:
       array:
       - Decision: {fileID: 7486145892150198639}
@@ -1188,7 +1187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Label: 
   ComparisonMode: 1
-  Distance: 7
+  Distance: 5
 --- !u!114 &6462341746276089501
 MonoBehaviour:
   m_ObjectHideFlags: 0
