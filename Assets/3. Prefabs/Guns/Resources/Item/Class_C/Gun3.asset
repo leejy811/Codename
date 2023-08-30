@@ -36,8 +36,8 @@ MonoBehaviour:
   ItemName: Gun3
   ShortDescription: Gun3
   Description: Gun3
-  Icon: {fileID: 21300000, guid: 5137572737fefba40ab4b310c91449ec, type: 3}
-  Prefab: {fileID: 6909662253438054174, guid: 7a27d589b8ae2124a8b5d3d925a06660, type: 3}
+  Icon: {fileID: 21300000, guid: 8c4cbca8dda88f040a9fd42b96049e5a, type: 3}
+  Prefab: {fileID: 2632127762807301211, guid: 8d101e373f5fa6642b6f49e3613b7952, type: 3}
   ForcePrefabDropQuantity: 0
   PrefabDropQuantity: 1
   DropProperties:
@@ -89,7 +89,7 @@ MonoBehaviour:
   MovedSound: {fileID: 0}
   DroppedSound: {fileID: 0}
   UseDefaultSoundsIfNull: 1
-  EquippableWeapon: {fileID: 2632127762807301207, guid: 240c87d1292115d448f612d2d2f0069c,
+  EquippableWeapon: {fileID: 2632127762807301207, guid: 8d101e373f5fa6642b6f49e3613b7952,
     type: 3}
   AutoEquipMode: 2
   HandleWeaponID: 1

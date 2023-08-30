@@ -36,8 +36,8 @@ MonoBehaviour:
   ItemName: Gun2Ammo
   ShortDescription: Gun1Ammo
   Description: Gun1Ammo
-  Icon: {fileID: 21300000, guid: f803ec9d8f81b9742880853292874ec5, type: 3}
-  Prefab: {fileID: 8886680892219387829, guid: 25df9c92fdf32ff45b65d360d28d5414, type: 3}
+  Icon: {fileID: 21300000, guid: 2e9d904a6ceed6c45ae045607c7559e4, type: 3}
+  Prefab: {fileID: 8886680892219387829, guid: 136e1fe15bcde3a4c9ec8d5f57fef225, type: 3}
   ForcePrefabDropQuantity: 0
   PrefabDropQuantity: 1
   DropProperties:

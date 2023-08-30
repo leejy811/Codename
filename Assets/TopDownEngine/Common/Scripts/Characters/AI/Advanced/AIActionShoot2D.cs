@@ -85,11 +85,11 @@ namespace MoreMountains.TopDownEngine
 				{
 					if (_shooting)
 					{
-						_weaponAim.SetCurrentAim(_weaponAimDirection);
+                        _weaponAim.SetCurrentAim(_weaponAimDirection);
 					}
 					else
 					{
-						if (_orientation2D != null)
+                        if (_orientation2D != null)
 						{
 							if (_orientation2D.IsFacingRight)
 							{
