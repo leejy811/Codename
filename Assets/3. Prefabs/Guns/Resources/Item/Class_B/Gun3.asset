@@ -36,7 +36,7 @@ MonoBehaviour:
   ItemName: Gun3
   ShortDescription: Gun3
   Description: Gun3
-  Icon: {fileID: 21300000, guid: 8c4cbca8dda88f040a9fd42b96049e5a, type: 3}
+  Icon: {fileID: 21300000, guid: dfbde1f71b425f045b299cc58e504ab2, type: 3}
   Prefab: {fileID: 2632127762807301211, guid: e7d243b522ec11d43b9a2721fb6db72a, type: 3}
   ForcePrefabDropQuantity: 0
   PrefabDropQuantity: 1

@@ -36,7 +36,7 @@ MonoBehaviour:
   ItemName: Gun4Ammo
   ShortDescription: Gun1Ammo
   Description: Gun1Ammo
-  Icon: {fileID: 21300000, guid: 16a6f144758db204ebe16c2f5f6ce13d, type: 3}
+  Icon: {fileID: 21300000, guid: 7e6746007d5be064e9930cb23683adf8, type: 3}
   Prefab: {fileID: 8886680892219387829, guid: d0a5edc61a5539b409324442d427f7c9, type: 3}
   ForcePrefabDropQuantity: 0
   PrefabDropQuantity: 1
