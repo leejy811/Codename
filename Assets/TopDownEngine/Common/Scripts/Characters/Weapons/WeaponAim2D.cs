@@ -206,7 +206,7 @@ namespace MoreMountains.TopDownEngine
 			}
 			
 			base.SetCurrentAim(newAim, setAimAsLastNonNullMovement);
-			GetCurrentAim();
+			//GetCurrentAim();
 	        
 			_lastNonNullMovement.x = newAim.x;
 			_lastNonNullMovement.y = newAim.y;
