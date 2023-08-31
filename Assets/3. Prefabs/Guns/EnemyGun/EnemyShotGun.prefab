@@ -20214,7 +20214,7 @@ MonoBehaviour:
     - rid: 1
       type: {class: MMF_Bloom, ns: MoreMountains.FeedbacksForThirdParty, asm: MoreMountains.Feedbacks.PostProcessing}
       data:
-        Active: 1
+        Active: 0
         UniqueID: 2051249458
         Label: Bloom
         ChannelMode: 0
@@ -20357,7 +20357,7 @@ MonoBehaviour:
       type: {class: MMF_ChromaticAberration, ns: MoreMountains.FeedbacksForThirdParty,
         asm: MoreMountains.Feedbacks.PostProcessing}
       data:
-        Active: 1
+        Active: 0
         UniqueID: -895625728
         Label: Chromatic Aberration
         ChannelMode: 0
@@ -20465,7 +20465,7 @@ MonoBehaviour:
     - rid: 3
       type: {class: MMF_Flash, ns: MoreMountains.Feedbacks, asm: MoreMountains.Feedbacks}
       data:
-        Active: 1
+        Active: 0
         UniqueID: 1792739651
         Label: Flash
         ChannelMode: 0
@@ -20655,7 +20655,7 @@ MonoBehaviour:
     - rid: 5
       type: {class: MMF_CameraShake, ns: MoreMountains.Feedbacks, asm: MoreMountains.Feedbacks}
       data:
-        Active: 1
+        Active: 0
         UniqueID: -1341839184
         Label: Camera Shake
         ChannelMode: 0
