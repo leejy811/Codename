@@ -11,13 +11,14 @@ public class RoomPrefabsSet : Singleton<RoomPrefabsSet>
     public List<GameObject> normalRoomPrefabsList;
     public List<GameObject> bossRoomPrefabsList;
     public List<GameObject> boxRoomPrefabsList;
+    public List<GameObject> StartRoomPrefabsList;
 
     // Start is called before the first frame update
     void Awake()
     {
-        roomPrefabsList = new List<GameObject>[3]
+        roomPrefabsList = new List<GameObject>[4]
         {
-            normalRoomPrefabsList, bossRoomPrefabsList, boxRoomPrefabsList
+            normalRoomPrefabsList, bossRoomPrefabsList, boxRoomPrefabsList, StartRoomPrefabsList
         };
         for (int i = 0; i < roomPrefabsName.Count; i++)
         {

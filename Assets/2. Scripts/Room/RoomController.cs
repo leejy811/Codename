@@ -54,7 +54,10 @@ public class RoomController : Singleton<RoomController>
 
         if(settingRoom.roomType == "Single" && roomPreName != "Boss")
         {
-            roomPreName = "Box";
+            if (settingRoom.center_Position == Vector3Int.zero)
+                roomPreName = "Start";
+            else
+                roomPreName = "Box";
         }
 
         int ranIdx = Random.Range(0, RoomPrefabsSet.Instance.roomPrefabs[roomPreName].Count);

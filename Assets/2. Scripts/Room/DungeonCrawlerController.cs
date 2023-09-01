@@ -283,6 +283,7 @@ public class DungeonCrawlerController : Singleton<DungeonCrawlerController>
                 }
             }
         }
+
         validRoomCount = validRoomList.Count;
 
         for (int i = 0; i < roomsList.Count; i++)
@@ -392,7 +393,7 @@ public class DungeonCrawlerController : Singleton<DungeonCrawlerController>
             return;
 
         // 사각형 방, 기억자, 니은자, -, |
-        double[] persent = { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0 };
+        double[] persent = { 0.1, 0.0, 0.0, 0.0, 0.3, 0.3, 0.3 };
 
         // 각 방향 패턴을 List화
         List<Dictionary<int, List<Vector3Int>>> collectPatten

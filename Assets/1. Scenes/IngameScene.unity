@@ -848,6 +848,7 @@ MonoBehaviour:
   - Single
   - Boss
   - Box
+  - Start
   normalRoomPrefabsList:
   - {fileID: 4606555536083810773, guid: 841dea4c5af76924aac363839fbc0111, type: 3}
   - {fileID: 4606555536083810773, guid: 2456e771c0294f14ea65e0d7bf9fc928, type: 3}
@@ -872,6 +873,16 @@ MonoBehaviour:
   bossRoomPrefabsList:
   - {fileID: 9020498437263151044, guid: 3b3d821f4b102ed4eb390814616ecfeb, type: 3}
   boxRoomPrefabsList:
+  - {fileID: 4606555536083810773, guid: eb14a6e10e918b446a6652beac369475, type: 3}
+  - {fileID: 4606555536083810773, guid: 9bfc916459ca39a4ba90f27faca34a0c, type: 3}
+  - {fileID: 4606555536083810773, guid: 848a8fde02e00124d8cd5b1f1395a0b8, type: 3}
+  - {fileID: 4606555536083810773, guid: 4780c1b3a798cbf44ad881cc1dd0b3e6, type: 3}
+  - {fileID: 4606555536083810773, guid: b4c5018b1cfdb5d45a426522b730e3ca, type: 3}
+  - {fileID: 4606555536083810773, guid: 84080bcc390d0e24797ff4f6cc7ed575, type: 3}
+  - {fileID: 4606555536083810773, guid: a6f68e8228db9f849b740a34ac9266ec, type: 3}
+  - {fileID: 4606555536083810773, guid: d7ad645cc3259a145b669c068dd60ad1, type: 3}
+  - {fileID: 4606555536083810773, guid: 7ff8e74aa00d23945b9b9f334adaf28f, type: 3}
+  StartRoomPrefabsList:
   - {fileID: 4606555536083810773, guid: 97afa9f43ebda3246b908fbf5d561b56, type: 3}
 --- !u!1 &1382506284
 GameObject:
@@ -1506,8 +1517,8 @@ MonoBehaviour:
   - {x: 1, y: 0, z: -1}
   - {x: -1, y: 0, z: 1}
   - {x: 1, y: 0, z: 1}
-  minRoomCnt: 4
-  maxRoomCnt: 6
+  minRoomCnt: 16
+  maxRoomCnt: 20
   currRoomCnt: 0
   maxDistance: 5
   validRoomCount: 0

@@ -112,8 +112,12 @@ public class SubRoom : MonoBehaviour
         {
             foreach (Transform point in spawnPointList)
             {
-                GameObject enemy = Instantiate(enemyPrefabList[0], point.position, point.rotation, this.transform);
-                parentRoom.enemyList.Add(enemy);
+                int ranIdx = Random.Range(0, 8);
+                if(ranIdx < 4)
+                {
+                    GameObject enemy = Instantiate(enemyPrefabList[ranIdx], point.position, point.rotation, this.transform);
+                    parentRoom.enemyList.Add(enemy);
+                }
             }
         }
     }
