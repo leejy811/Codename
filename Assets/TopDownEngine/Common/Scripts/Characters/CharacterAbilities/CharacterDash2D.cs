@@ -136,6 +136,7 @@ namespace MoreMountains.TopDownEngine
 				_health.DamageDisabled();
 			}
 
+			gameObject.GetComponent<CircleCollider2D>().enabled = false;
 			HandleDashMode();
 		}
 
@@ -181,7 +182,8 @@ namespace MoreMountains.TopDownEngine
 			_movement.ChangeState(CharacterStates.MovementStates.Idle);
 			_dashing = false;
 			_controller.FreeMovement = true;
-		}
+            gameObject.GetComponent<CircleCollider2D>().enabled = true;
+        }
 
 		/// <summary>
 		/// On update, moves the character if needed
