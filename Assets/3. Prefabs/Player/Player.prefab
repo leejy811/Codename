@@ -9700,6 +9700,7 @@ GameObject:
   - component: {fileID: 4330552656303096}
   - component: {fileID: 212479530728563738}
   - component: {fileID: 95179347267985190}
+  - component: {fileID: 268531650360540410}
   m_Layer: 10
   m_Name: PlayerModel
   m_TagString: Untagged
@@ -9798,6 +9799,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!58 &268531650360540410
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358283918792732}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.24}
+  serializedVersion: 2
+  m_Radius: 0.4
 --- !u!1 &1498750440386690
 GameObject:
   m_ObjectHideFlags: 0
@@ -9814,7 +9831,6 @@ GameObject:
   - component: {fileID: 114873785417298432}
   - component: {fileID: 114265374337090402}
   - component: {fileID: 114184457958384624}
-  - component: {fileID: 114079283237680582}
   - component: {fileID: 114495819129293066}
   - component: {fileID: 114545434076996454}
   - component: {fileID: 114619658823058744}
@@ -9886,9 +9902,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.24}
+  m_Offset: {x: 0, y: 0.4}
   serializedVersion: 2
-  m_Radius: 0.3
+  m_Radius: 0.5
 --- !u!210 &210286107803106362
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -10033,31 +10049,6 @@ MonoBehaviour:
   - {fileID: 198815970869915398}
   TouchTheGroundParticles: []
   TouchTheGroundSfx: []
---- !u!114 &114079283237680582
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1498750440386690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d103439fc2940e347937487a70ea01e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AbilityStartSfx: {fileID: 0}
-  AbilityInProgressSfx: {fileID: 8300000, guid: 0e68e10d6bc130d438acd7a709a28f5b,
-    type: 3}
-  AbilityStopSfx: {fileID: 0}
-  AbilityStartFeedbacks: {fileID: 0}
-  AbilityStopFeedbacks: {fileID: 0}
-  AbilityPermitted: 1
-  BlockingMovementStates: 
-  BlockingConditionStates: 
-  BlockingWeaponStates: 
-  RunSpeed: 10
-  AutoRun: 0
-  AutoRunThreshold: 0.6
 --- !u!114 &114495819129293066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10080,9 +10071,9 @@ MonoBehaviour:
   BlockingConditionStates: 
   BlockingWeaponStates: 
   DashMode: 1
-  DashSpace: 1
+  DashSpace: 0
   DashDirection: {x: 1, y: 0, z: 0}
-  DashDistance: 6
+  DashDistance: 4
   DashDuration: 0.2
   DashCurve:
     serializedVersion: 2
@@ -10112,7 +10103,7 @@ MonoBehaviour:
     Unlimited: 0
     ConsumptionDuration: 0.2
     PauseOnEmptyDuration: 0.1
-    RefillDuration: 0.5
+    RefillDuration: 0.7
     CanInterruptRefill: 0
     CooldownState: 0
     CurrentDurationLeft: 0
@@ -10139,7 +10130,7 @@ MonoBehaviour:
   BlockingMovementStates: 
   BlockingConditionStates: 
   BlockingWeaponStates: 
-  InitialWeapon: {fileID: 114317679573123918, guid: 41c4b1b5cf3c187459806b6e03ca36ac,
+  InitialWeapon: {fileID: 2632127762807301207, guid: 477c72d1b04962f46a74a4232b79dd5b,
     type: 3}
   CanPickupWeapons: 1
   WeaponUseFeedback: {fileID: 0}

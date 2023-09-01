@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4410466268313682}
   - component: {fileID: 198873549241210212}
   - component: {fileID: 199470328753670532}
-  m_Layer: 18
+  m_Layer: 23
   m_Name: SmokeTrail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4840,7 +4840,7 @@ GameObject:
   - component: {fileID: 114742650107379586}
   - component: {fileID: 61214810784111820}
   - component: {fileID: 50008530485997898}
-  m_Layer: 18
+  m_Layer: 23
   m_Name: EnemyBullet1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5089,7 +5089,7 @@ GameObject:
   - component: {fileID: 4712129417977780}
   - component: {fileID: 198905767065117638}
   - component: {fileID: 199555082778218294}
-  m_Layer: 18
+  m_Layer: 23
   m_Name: SideParticlesBlack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10031,7 +10031,7 @@ GameObject:
   - component: {fileID: 23092085632322218}
   - component: {fileID: 198743043916867176}
   - component: {fileID: 199652262642005744}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: TracerRound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14915,7 +14915,7 @@ GameObject:
   - component: {fileID: 4946586782385494}
   - component: {fileID: 198306672779349726}
   - component: {fileID: 199803873226549742}
-  m_Layer: 18
+  m_Layer: 23
   m_Name: ForwardPArticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19747,7 +19747,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4994184553944434}
   - component: {fileID: 212919693959205198}
-  m_Layer: 18
+  m_Layer: 23
   m_Name: Koala_Weapons_RifleBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19832,7 +19832,7 @@ GameObject:
   - component: {fileID: 4755177917266352}
   - component: {fileID: 198859694235400266}
   - component: {fileID: 199708075927260218}
-  m_Layer: 18
+  m_Layer: 23
   m_Name: BulletImpact
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24724,7 +24724,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6501732552575051032}
   - component: {fileID: 8338939277010736459}
-  m_Layer: 18
+  m_Layer: 23
   m_Name: HitNonDamageableFeedback
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25051,7 +25051,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6838573348494149509}
   - component: {fileID: 5190141371420526726}
-  m_Layer: 18
+  m_Layer: 23
   m_Name: HitDamageableFeedback
   m_TagString: Untagged
   m_Icon: {fileID: 0}
