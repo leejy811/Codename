@@ -442,7 +442,7 @@ GameObject:
   - component: {fileID: 85595191}
   - component: {fileID: 2078531518225520599}
   m_Layer: 13
-  m_Name: RifleEnemy
+  m_Name: RevolverEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -679,7 +679,7 @@ MonoBehaviour:
   BlockingMovementStates: 
   BlockingConditionStates: 
   BlockingWeaponStates: 
-  InitialWeapon: {fileID: 114317679573123918, guid: cb3a03ca414a21b49854a6c83fc903ca,
+  InitialWeapon: {fileID: 114317679573123918, guid: b4fbec336a8b46a42a79009b103f0ea0,
     type: 3}
   CanPickupWeapons: 1
   WeaponUseFeedback: {fileID: 0}
