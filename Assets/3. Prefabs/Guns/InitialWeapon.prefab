@@ -78,7 +78,7 @@ MonoBehaviour:
   MovementMultiplier: 0
   PreventAllMovementWhileInUse: 0
   PreventAllAimWhileInUse: 0
-  RecoilForce: 50
+  RecoilForce: 0
   Animators: []
   PerformAnimatorSanityChecks: 0
   MirrorCharacterAnimatorParameters: 0
@@ -108,7 +108,7 @@ MonoBehaviour:
   Flipped: 0
   ProjectileSpawnOffset: {x: 1.6, y: 0.05, z: 0}
   DefaultProjectileDirection: {x: 0, y: 0, z: 1}
-  ProjectilesPerShot: 1
+  ProjectilesPerShot: 0
   SpawnTransforms: []
   SpawnTransformsMode: 1
   Spread: {x: 0, y: 0, z: 5}
