@@ -16,7 +16,7 @@ public class PlayerBlend : MonoBehaviour
 
     private void Update()
     {
-        character._animator.SetFloat("xDir", characterHandle.WeaponAimComponent.GetMousePosition().x);
-        character._animator.SetFloat("yDir", characterHandle.WeaponAimComponent.GetMousePosition().y);
+        character._animator.SetFloat("xDir", characterHandle.WeaponAimComponent.GetMousePosition().x - transform.position.x);
+        character._animator.SetFloat("yDir", characterHandle.WeaponAimComponent.GetMousePosition().y - transform.position.y);
     }
 }
