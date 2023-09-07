@@ -112,14 +112,10 @@ public class RoomController : Singleton<RoomController>
             {
                 loadedRooms[i].childRooms.minimapUpdate();
                 loadedRooms[i].childRooms.gameObject.SetActive(true);
-                //loadedRooms[i].camera.gameObject.SetActive(true);
-                //loadedRooms[i].confiner.gameObject.SetActive(true);
             }
             else
             {
                 loadedRooms[i].childRooms.gameObject.SetActive(false);
-                //loadedRooms[i].camera.gameObject.SetActive(false);
-                //loadedRooms[i].confiner.gameObject.SetActive(false);
             }
         }
     }

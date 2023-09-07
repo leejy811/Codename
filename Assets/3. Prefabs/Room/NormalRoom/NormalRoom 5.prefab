@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2712609159836833254}
   - component: {fileID: 3958822888281699601}
+  - component: {fileID: -3820118941635426019}
+  - component: {fileID: -722894362785383377}
   m_Layer: 0
   m_Name: NormalRoom 5
   m_TagString: Untagged
@@ -56,7 +58,6 @@ MonoBehaviour:
   mergeCenter_Position: {x: 0, y: 0, z: 0}
   distance: 0
   isUpdatedWalls: 0
-  isUpdatedCamera: 0
   isVisitedRoom: 0
   isClearRoom: 0
   prefabsDoor: {fileID: 963625897568002723, guid: daa160be8b599254e8789402a43b43d8,
@@ -65,11 +66,73 @@ MonoBehaviour:
     type: 3}
   enemyList: []
   childRooms: {fileID: 0}
-  prefabCamera: {fileID: 0}
-  prefabConfiner: {fileID: 0}
-  camera: {fileID: 0}
+  prefabCamera: {fileID: 7833619284783072217, guid: f3b347044c32f2c46b12dedad17ac881,
+    type: 3}
+  prefabConfiner: {fileID: 7213295521952950545, guid: a84330d4b4e5c9242be01ee3e20b8f06,
+    type: 3}
+  cvCamera: {fileID: 0}
   confiner: {fileID: 0}
   updateRoomStatus: 0
+--- !u!114 &-3820118941635426019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4606555536083810773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fae51a15a2f3b284e88ab7b9e26296e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mode: 0
+  VirtualCamera: {fileID: 8301063062796346027, guid: f3b347044c32f2c46b12dedad17ac881,
+    type: 3}
+  Confiner: {fileID: 8226137566432343773, guid: a84330d4b4e5c9242be01ee3e20b8f06,
+    type: 3}
+  CinemachineCameraConfiner: {fileID: 2424651982230026976, guid: f3b347044c32f2c46b12dedad17ac881,
+    type: 3}
+  ResizeConfinerAutomatically: 1
+  AutoDetectFirstRoomOnStart: 1
+  RoomDepth: 100
+  CurrentRoom: 0
+  RoomVisited: 0
+  OnPlayerEntersRoomForTheFirstTime:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPlayerEntersRoom:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPlayerExitsRoom:
+    m_PersistentCalls:
+      m_Calls: []
+  ActivationList: []
+--- !u!61 &-722894362785383377
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4606555536083810773}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 1}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 18, y: 18}
+  m_EdgeRadius: 0
 --- !u!1 &5080934760686147787
 GameObject:
   m_ObjectHideFlags: 0

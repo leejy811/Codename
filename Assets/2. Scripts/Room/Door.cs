@@ -25,7 +25,6 @@ public class Door : MonoBehaviour
     public void setSideDoor(Door _sideDoor)
     {
         SideDoor = _sideDoor;
-        Debug.Log(_sideDoor.GetComponentInChildren<Teleporter>());
         gameObject.GetComponentInChildren<Teleporter>().Destination = _sideDoor.GetComponentInChildren<Teleporter>();
 
         Vector2 exitOffset = Vector2.zero;
@@ -35,6 +34,8 @@ public class Door : MonoBehaviour
         else if (doorType == DoorType.bottom) exitOffset = new Vector2(0, 2);
 
         gameObject.GetComponentInChildren<Teleporter>().ExitOffset = exitOffset;
+        gameObject.GetComponentInChildren<Teleporter>().CurrentRoom = gameObject.GetComponentInParent<Room>();
+        gameObject.GetComponentInChildren<Teleporter>().TargetRoom = nextRoom.GetComponent<Room>();
     }
 
     public void ChangeCurrentRoom()

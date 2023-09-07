@@ -38,7 +38,7 @@ public class DungeonRoom : MonoBehaviour
     public SubRoom childRooms;
     public GameObject prefabCamera;
     public GameObject prefabConfiner;
-    public GameObject camera;
+    public GameObject cvCamera;
     public GameObject confiner;
 
     public bool updateRoomStatus = false;
@@ -89,6 +89,8 @@ public class DungeonRoom : MonoBehaviour
         {
             RemoveUnconnectedWalls();
 
+            InitRoomCamera();
+
             isUpdatedWalls = true;
         }
     }
@@ -99,14 +101,24 @@ public class DungeonRoom : MonoBehaviour
 
         if (child.Length != 1)
         {
-            camera = Instantiate(prefabCamera, transform);
-            confiner = Instantiate(prefabConfiner, transform);
+            if(roomType == "Double" || roomType == "Quad")
+            {
+                BoxCollider2D boxColider = gameObject.GetComponent<BoxCollider2D>();
+                Vector3 coliderCenter = mergeCenter_Position - center_Position;
+                boxColider.offset = new Vector2(coliderCenter.x * 16, coliderCenter.z * 16 + 1);
+                boxColider.size = new Vector2(Mathf.Abs(coliderCenter.x) * 32 + 18, Mathf.Abs(coliderCenter.z) * 32 + 18);
+            }
+            
+            cvCamera = Instantiate(prefabCamera, childRooms.transform);
+            confiner = Instantiate(prefabConfiner, childRooms.transform);
 
             Room room = gameObject.GetComponent<Room>();
-            room.VirtualCamera = camera.GetComponent<Cinemachine.CinemachineVirtualCamera>();
-            room.CinemachineCameraConfiner = camera.GetComponent<Cinemachine.CinemachineConfiner>();
+            room.VirtualCamera = cvCamera.GetComponent<Cinemachine.CinemachineVirtualCamera>();
+            room.CinemachineCameraConfiner = cvCamera.GetComponent<Cinemachine.CinemachineConfiner>();
             room.Confiner = confiner.GetComponent<BoxCollider>();
-            camera.GetComponent<Cinemachine.CinemachineConfiner>().m_BoundingVolume = room.Confiner;
+            cvCamera.GetComponent<Cinemachine.CinemachineConfiner>().m_BoundingVolume = room.Confiner;
+            cvCamera.GetComponent<CinemachineCameraController>().TargetCharacter = LevelManager.Instance.Players[0];
+            cvCamera.GetComponent<Cinemachine.CinemachineVirtualCamera>().Follow = LevelManager.Instance.Players[0].transform;
         }
     }
 
