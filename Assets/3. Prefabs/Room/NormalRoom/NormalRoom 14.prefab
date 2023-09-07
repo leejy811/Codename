@@ -56,6 +56,7 @@ MonoBehaviour:
   mergeCenter_Position: {x: 0, y: 0, z: 0}
   distance: 0
   isUpdatedWalls: 0
+  isUpdatedCamera: 0
   isVisitedRoom: 0
   isClearRoom: 0
   prefabsDoor: {fileID: 963625897568002723, guid: daa160be8b599254e8789402a43b43d8,
@@ -64,6 +65,10 @@ MonoBehaviour:
     type: 3}
   enemyList: []
   childRooms: {fileID: 0}
+  prefabCamera: {fileID: 0}
+  prefabConfiner: {fileID: 0}
+  camera: {fileID: 0}
+  confiner: {fileID: 0}
   updateRoomStatus: 0
 --- !u!1 &5080934760686147787
 GameObject:
@@ -227,7 +232,7 @@ PrefabInstance:
     - target: {fileID: 493241996794761973, guid: c9805371dced44147b5a950ab7d7cb41,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 493241996794761973, guid: c9805371dced44147b5a950ab7d7cb41,
         type: 3}

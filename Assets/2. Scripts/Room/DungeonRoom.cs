@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using MoreMountains.TopDownEngine;
 
 [System.Serializable]
 public class DungeonRoom : MonoBehaviour
@@ -35,6 +36,10 @@ public class DungeonRoom : MonoBehaviour
     }
 
     public SubRoom childRooms;
+    public GameObject prefabCamera;
+    public GameObject prefabConfiner;
+    public GameObject camera;
+    public GameObject confiner;
 
     public bool updateRoomStatus = false;
 
@@ -85,6 +90,23 @@ public class DungeonRoom : MonoBehaviour
             RemoveUnconnectedWalls();
 
             isUpdatedWalls = true;
+        }
+    }
+
+    private void InitRoomCamera()
+    {
+        Transform[] child = gameObject.GetComponentsInChildren<Transform>();
+
+        if (child.Length != 1)
+        {
+            camera = Instantiate(prefabCamera, transform);
+            confiner = Instantiate(prefabConfiner, transform);
+
+            Room room = gameObject.GetComponent<Room>();
+            room.VirtualCamera = camera.GetComponent<Cinemachine.CinemachineVirtualCamera>();
+            room.CinemachineCameraConfiner = camera.GetComponent<Cinemachine.CinemachineConfiner>();
+            room.Confiner = confiner.GetComponent<BoxCollider>();
+            camera.GetComponent<Cinemachine.CinemachineConfiner>().m_BoundingVolume = room.Confiner;
         }
     }
 
