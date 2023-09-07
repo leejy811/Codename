@@ -411,9 +411,6 @@ MonoBehaviour:
       - Decision: {fileID: 114225560325155718}
         TrueState: 
         FalseState: Detecting
-      - Decision: {fileID: 114044659299794826}
-        TrueState: 
-        FalseState: Detecting
       - Decision: {fileID: 114977332840471576}
         TrueState: Attacking
         FalseState: 
@@ -462,7 +459,7 @@ MonoBehaviour:
   ObstaclesDetectionMode: 1
   CanTargetSelf: 0
   TargetCheckFrequency: 1
-  OverlapMaximum: 10
+  OverlapMaximum: 15
 --- !u!114 &114044659299794826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -513,7 +510,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1170912388798894}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b1affdc8ddb97d40b6a8b805c494909, type: 3}
   m_Name: 
@@ -539,7 +536,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Label: 
   ComparisonMode: 1
-  Distance: 10
+  Distance: 1
 --- !u!114 &114544991609150994
 MonoBehaviour:
   m_ObjectHideFlags: 0

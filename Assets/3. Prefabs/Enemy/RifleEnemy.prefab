@@ -774,9 +774,6 @@ MonoBehaviour:
       - {fileID: 85595191}
     Transitions:
       array:
-      - Decision: {fileID: 7486145892150198639}
-        TrueState: 
-        FalseState: Detecting
       - Decision: {fileID: 3852436659506030986}
         TrueState: Attacking
         FalseState: 
