@@ -10820,6 +10820,7 @@ GameObject:
   - component: {fileID: 2632127762807301206}
   - component: {fileID: 2632127762807301209}
   - component: {fileID: 2632127762807301208}
+  - component: {fileID: 5204549644627818109}
   m_Layer: 10
   m_Name: Gun2AmmoBased
   m_TagString: Untagged
@@ -11003,6 +11004,19 @@ MonoBehaviour:
   ShouldLoadOnStart: 1
   ShouldEmptyOnSave: 1
   CurrentAmmoAvailable: 0
+--- !u!114 &5204549644627818109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2632127762807301211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ada223c48c6dd04ebb53d5a554f79a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponType: 1
 --- !u!1 &2632127762941217109
 GameObject:
   m_ObjectHideFlags: 0
