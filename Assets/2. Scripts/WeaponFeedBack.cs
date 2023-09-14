@@ -27,6 +27,7 @@ public class WeaponFeedBack : MonoBehaviour
         {
             case WeaponType.PistolS:
                 Debug.Log("플레이어 이속 증가");
+                LevelManager.Instance.Players[0].GetComponent<CharacterMovement>().MovementSpeed *= 2f;
                 break;
             case WeaponType.MachinGunS:
                 //this.GetComponent<MMSimpleObjectPooler>().GameObjectToPool.GetComponent<DamageOnTouch>().HitAnythingFeedback = ShotGunS_feedback.GetComponent<MMF_Player>();
@@ -42,6 +43,7 @@ public class WeaponFeedBack : MonoBehaviour
         {
             case WeaponType.PistolS:
                 Debug.Log("플레이어 이속 원상복귀");
+                LevelManager.Instance.Players[0].GetComponent<CharacterMovement>().MovementSpeed *= .5f;
                 break;
             case WeaponType.MachinGunS:
                 break;
