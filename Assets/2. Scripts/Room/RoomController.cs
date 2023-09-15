@@ -104,6 +104,8 @@ public class RoomController : Singleton<RoomController>
 
     // 해당 Room에서 Player가 있는 방을 반환
     public void OnPlayerEnterRoom(DungeonRoom room) {
+        if (!room.isUpdatedWalls) return;
+
         currRoom = room;
 
         for (int i = 0; i < loadedRooms.Count; i++)
