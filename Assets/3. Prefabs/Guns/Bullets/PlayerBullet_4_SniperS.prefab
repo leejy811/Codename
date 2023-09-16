@@ -10111,7 +10111,7 @@ MonoBehaviour:
         RemapRangeFalloff: {x: 0, y: 1}
         Owner: {fileID: 3646250233016582079}
         DebugActive: 0
-        TargetGameObject: {fileID: 8952079078724476447}
+        TargetGameObject: {fileID: 4722394796432338257}
         ExtraTargetGameObjects: []
         SetStateOnInit: 0
         StateOnInit: 1
@@ -20535,7 +20535,7 @@ GameObject:
   - component: {fileID: 9052735392520842233}
   - component: {fileID: 8999243822315306033}
   - component: {fileID: 8974091889356396237}
-  - component: {fileID: 300397727791257883}
+  - component: {fileID: 2022681902682830040}
   m_Layer: 18
   m_Name: PlayerBullet_4_SniperS
   m_TagString: Untagged
@@ -20610,8 +20610,8 @@ MonoBehaviour:
   Model: {fileID: 0}
   CurrentHealth: 0
   Invulnerable: 0
-  InitialHealth: 20
-  MaximumHealth: 20
+  InitialHealth: 999
+  MaximumHealth: 999
   ResetHealthOnEnable: 1
   ImmuneToDamage: 0
   DamageMMFeedbacks: {fileID: 0}
@@ -20672,7 +20672,7 @@ MonoBehaviour:
   RepeatedDamageType: {fileID: 0}
   DamageTakenEveryTime: 1
   DamageTakenDamageable: 1
-  DamageTakenNonDamageable: 1
+  DamageTakenNonDamageable: 9999
   DamageTakenKnockbackType: 0
   DamageTakenKnockbackForce: {x: 0, y: 0, z: 0}
   DamageTakenInvincibilityDuration: 0.5
@@ -20754,7 +20754,7 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &300397727791257883
+--- !u!114 &2022681902682830040
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20763,7 +20763,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8952079078724476447}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68bd7023db6ee1843a9f13e6f22757a8, type: 3}
+  m_Script: {fileID: 11500000, guid: 2e1a732e2aa364c569bbb79498af8c5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   BoundsBasedOn: 1
@@ -20785,10 +20785,3 @@ MonoBehaviour:
   ProjectileIsFacingRight: 1
   InitialInvulnerabilityDuration: 0
   DamageOwner: 0
-  BounceRaycastLength: 1
-  BounceLayers:
-    serializedVersion: 2
-    m_Bits: 256
-  BounceFeedback: {fileID: 0}
-  AmountOfBounces: {x: 5, y: 5}
-  SpeedModifier: {x: 0.9, y: 0.9}
