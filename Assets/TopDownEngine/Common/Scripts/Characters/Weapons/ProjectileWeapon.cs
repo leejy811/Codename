@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using MoreMountains.Feedbacks;
 using Random = UnityEngine.Random;
+using MoreMountains.TopDownEngine;
 
 namespace MoreMountains.TopDownEngine
 {
@@ -372,6 +373,5 @@ namespace MoreMountains.TopDownEngine
             }
             return maxDamage;
         }
-
     }
 }

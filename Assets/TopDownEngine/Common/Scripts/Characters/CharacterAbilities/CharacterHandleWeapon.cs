@@ -463,6 +463,8 @@ namespace MoreMountains.TopDownEngine
 			{
 				OnWeaponChange();
 			}
+			
+			if(this.transform.GetChild(this.transform.childCount-1).name == "ReloadAnimation") { this.transform.GetChild(this.transform.childCount - 1).gameObject.SetActive(false); }
 		}
 
 		/// <summary>

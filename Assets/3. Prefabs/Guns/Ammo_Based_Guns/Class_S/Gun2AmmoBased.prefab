@@ -10879,7 +10879,7 @@ MonoBehaviour:
   AmmoConsumedPerShot: 1
   AutoDestroyWhenEmpty: 0
   AutoDestroyWhenEmptyDelay: 1
-  PreventReloadIfAmmoEmpty: 0
+  PreventReloadIfAmmoEmpty: 1
   CurrentAmmoLoaded: 0
   WeaponAttachmentOffset: {x: 0, y: 0, z: 0}
   FlipWeaponOnCharacterFlip: 1
@@ -11016,6 +11016,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ada223c48c6dd04ebb53d5a554f79a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShotGunS_feedback: {fileID: 0}
   weaponType: 1
 --- !u!1 &2632127762941217109
 GameObject:

@@ -3,6 +3,7 @@ using System.Collections;
 using MoreMountains.Tools;
 using MoreMountains.InventoryEngine;
 using System.Collections.Generic;
+using DG.Tweening;
 
 namespace MoreMountains.TopDownEngine
 {
@@ -14,6 +15,9 @@ namespace MoreMountains.TopDownEngine
 	{
 		protected Animator _animator;
 		protected ItemPicker[] _itemPickerList;
+
+		protected bool isChestOpened = false;
+		[SerializeField] protected GameObject[] _popupItemList;
 
 		/// <summary>
 		/// On start we grab our animator and list of item pickers
@@ -29,8 +33,14 @@ namespace MoreMountains.TopDownEngine
 		/// </summary>
 		public virtual void OpenChest()
 		{
-			TriggerOpeningAnimation ();
-			PickChestContents ();
+			if (!isChestOpened)
+			{
+				TriggerOpeningAnimation();
+				PopupChestItems();
+				//PickChestContents();
+
+				isChestOpened = true;
+			}
 		}
 
 		/// <summary>
@@ -59,6 +69,26 @@ namespace MoreMountains.TopDownEngine
 				picker.Pick ();
 			}
 		}
-			
+
+		protected void PopupChestItems()
+        {
+			if (_popupItemList.Length == 0)
+				return;
+			StartCoroutine(PopupTweening());
+        }
+
+		IEnumerator PopupTweening()
+        {
+			for(int i = 0; i < _popupItemList.Length; i++)
+            {
+				var item = Instantiate(_popupItemList[i]);
+				item.transform.SetParent(transform);
+				item.transform.localPosition = Vector3.zero;
+
+				float posX = (i -(_popupItemList.Length /2))* 1.5f;
+				var tween = item.transform.DOMove(new Vector3(posX,2,0),1).SetRelative();
+				yield return tween.WaitForCompletion();
+            }
+        }
 	}
 }
