@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8293187906778765977}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -163,6 +163,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7451176978715026423}
   - component: {fileID: 8372871353457197824}
+  - component: {fileID: 4366016948096725151}
+  - component: {fileID: 1250269468926241682}
   m_Layer: 0
   m_Name: BossRoom
   m_TagString: Untagged
@@ -217,7 +219,70 @@ MonoBehaviour:
     type: 3}
   enemyList: []
   childRooms: {fileID: 0}
+  prefabCamera: {fileID: 7833619284783072217, guid: f3b347044c32f2c46b12dedad17ac881,
+    type: 3}
+  prefabConfiner: {fileID: 7213295521952950545, guid: a84330d4b4e5c9242be01ee3e20b8f06,
+    type: 3}
+  cvCamera: {fileID: 0}
+  confiner: {fileID: 0}
   updateRoomStatus: 0
+--- !u!114 &4366016948096725151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9020498437263151044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fae51a15a2f3b284e88ab7b9e26296e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mode: 0
+  VirtualCamera: {fileID: 0}
+  Confiner: {fileID: 0}
+  CinemachineCameraConfiner: {fileID: 0}
+  ResizeConfinerAutomatically: 1
+  AutoDetectFirstRoomOnStart: 1
+  RoomDepth: 100
+  CurrentRoom: 0
+  RoomVisited: 0
+  OnPlayerEntersRoomForTheFirstTime:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPlayerEntersRoom:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPlayerExitsRoom:
+    m_PersistentCalls:
+      m_Calls: []
+  ActivationList: []
+--- !u!61 &1250269468926241682
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9020498437263151044}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 1}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 18, y: 18}
+  m_EdgeRadius: 0
 --- !u!1001 &470483900903124685
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -233,12 +298,12 @@ PrefabInstance:
     - target: {fileID: 493241996794761973, guid: 5824da2ec3067a44a89eea263db104b8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 493241996794761973, guid: 5824da2ec3067a44a89eea263db104b8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 493241996794761973, guid: 5824da2ec3067a44a89eea263db104b8,
         type: 3}
