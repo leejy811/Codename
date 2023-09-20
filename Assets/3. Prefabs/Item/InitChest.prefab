@@ -12,8 +12,6 @@ GameObject:
   - component: {fileID: 329185179999026312}
   - component: {fileID: 518318325386921918}
   - component: {fileID: 485140257595295482}
-  - component: {fileID: 573307590504700998}
-  - component: {fileID: 573658036398786354}
   - component: {fileID: 573875323837851522}
   m_Layer: 8
   m_Name: DungeonChest
@@ -135,42 +133,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.75, y: 0.75}
   m_EdgeRadius: 0
---- !u!114 &573307590504700998
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 460936473301971194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86fd837a0abc28d4d91c55590bd2c090, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Item: {fileID: 11400000, guid: 2e4dffbd90697924d8a102356e316b84, type: 2}
-  Quantity: 50
-  RemainingQuantity: 1
-  PickableIfInventoryIsFull: 0
-  DisableObjectWhenDepleted: 0
-  RequirePlayerTag: 1
---- !u!114 &573658036398786354
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 460936473301971194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86fd837a0abc28d4d91c55590bd2c090, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Item: {fileID: 11400000, guid: 1592bd12b16c62a438df214272ff2b45, type: 2}
-  Quantity: 50
-  RemainingQuantity: 1
-  PickableIfInventoryIsFull: 0
-  DisableObjectWhenDepleted: 0
-  RequirePlayerTag: 1
 --- !u!114 &573875323837851522
 MonoBehaviour:
   m_ObjectHideFlags: 0
