@@ -44,14 +44,13 @@ public class PlayerStatus : MonoBehaviour, MMEventListener<MMInventoryEvent>, MM
 
     private void ApplyDamageUp(bool enable)
     {
-        foreach (DungeonRoom room in RoomController.Instance.loadedRooms)
-        {
-            if (room.roomType == "Single") continue;
+        DungeonRoom room = RoomController.Instance.currRoom;
 
-            foreach (GameObject enemy in room.enemyList)
-            {
-                enemy.GetComponent<DamageResistance>().DamageMultiplier = enable ? 2f : 1f;
-            }
+        if (room.roomType == "Single") return;
+
+        foreach (GameObject enemy in room.enemyList)
+        {
+            enemy.GetComponent<DamageResistance>().DamageMultiplier = enable ? 2f : 1f;
         }
     }
 
