@@ -113,5 +113,10 @@ namespace MoreMountains.Tools
 
 			return newGameObject;
 		}
+
+		public List<GameObject> GetAllPooledObject()
+        {
+			return _objectPool.PooledGameObjects;
+		}
 	}
 }

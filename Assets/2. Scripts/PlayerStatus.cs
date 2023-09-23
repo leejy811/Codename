@@ -9,9 +9,11 @@ public class PlayerStatus : MonoBehaviour, MMEventListener<MMInventoryEvent>, MM
 {
     CharacterMovement movement;
     CharacterInventory inventory;
+    CharacterHandleWeapon weapon;
     DamageResistance damageRatio;
 
     bool hasReaction;
+    bool hasCushion;
 
     Coroutine damageUpCoroutine;
 
@@ -20,6 +22,7 @@ public class PlayerStatus : MonoBehaviour, MMEventListener<MMInventoryEvent>, MM
         movement = gameObject.GetComponent<CharacterMovement>();
         inventory = gameObject.GetComponent<CharacterInventory>();
         damageRatio = gameObject.GetComponent<DamageResistance>();
+        weapon = gameObject.GetComponent<CharacterHandleWeapon>();
     }
 
     private void ApplyZigzagItem(bool enable)
@@ -31,6 +34,22 @@ public class PlayerStatus : MonoBehaviour, MMEventListener<MMInventoryEvent>, MM
     {
         damageRatio.DamageMultiplier = enable ? 2f : 1f;
         hasReaction = enable;
+    }
+    
+    private void ApplyCushionItem(bool enable)
+    {
+        if (weapon.CurrentWeapon == null) return;
+        if (weapon.CurrentWeapon.gameObject.GetComponent<ProjectileWeapon>() == null) return;
+        if (weapon.CurrentWeapon.gameObject.GetComponent<MMSimpleObjectPooler>() == null) return;
+
+        weapon.CurrentWeapon.MagazineSize = enable ? (int)(weapon.CurrentWeapon.MagazineSize * 0.8f) : (int)(weapon.CurrentWeapon.MagazineSize * 1.25f);
+
+        List<GameObject> projectiles =  weapon.CurrentWeapon.gameObject.GetComponent<MMSimpleObjectPooler>().GetAllPooledObject();
+
+        foreach(GameObject projectile in projectiles)
+        {
+            projectile.GetComponent<BouncyProjectile>().AmountOfBounces = enable ? new Vector2Int(2, 4) : new Vector2Int(0, 0);
+        }
     }
 
     IEnumerator DamageUp()
@@ -66,6 +85,10 @@ public class PlayerStatus : MonoBehaviour, MMEventListener<MMInventoryEvent>, MM
                 case "Reaction":
                     ApplyReactionItem(true);
                     break;
+                case "Cushion":
+                    hasCushion = true;
+                    ApplyCushionItem(true);
+                    break;
             }
 		}
         else if (inventoryEvent.InventoryEventType == MMInventoryEventType.Drop)
@@ -78,6 +101,24 @@ public class PlayerStatus : MonoBehaviour, MMEventListener<MMInventoryEvent>, MM
                 case "Reaction":
                     ApplyReactionItem(false);
                     break;
+                case "Cushion":
+                    hasCushion = false;
+                    ApplyCushionItem(false);
+                    break;
+            }
+        }
+        else if(inventoryEvent.InventoryEventType == MMInventoryEventType.ItemEquipped)
+        {
+            if (hasCushion)
+            {
+                ApplyCushionItem(true);
+            }
+        }
+        else if (inventoryEvent.InventoryEventType == MMInventoryEventType.EquipRequest || inventoryEvent.InventoryEventType == MMInventoryEventType.UnEquipRequest)
+        {
+            if (hasCushion)
+            {
+                ApplyCushionItem(false);
             }
         }
     }
