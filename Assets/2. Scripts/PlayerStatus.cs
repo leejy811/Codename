@@ -14,6 +14,7 @@ public class PlayerStatus : MonoBehaviour, MMEventListener<MMInventoryEvent>, MM
 
     bool hasReaction;
     bool hasCushion;
+    bool hasSniper;
 
     Coroutine damageUpCoroutine;
 
@@ -52,6 +53,24 @@ public class PlayerStatus : MonoBehaviour, MMEventListener<MMInventoryEvent>, MM
         }
     }
 
+    private void ApplySniperItem(bool enable)
+    {
+        hasSniper = enable;
+
+        ApplyDamageUp(true);
+        ApplyShootTime(enable);
+    }
+
+    private void ApplyShootTime(bool enable)
+    {
+        if (weapon.CurrentWeapon == null) return;
+        if (weapon.CurrentWeapon.gameObject.GetComponent<ProjectileWeapon>() == null) return;
+        if (weapon.CurrentWeapon.gameObject.GetComponent<MMSimpleObjectPooler>() == null) return;
+
+        weapon.CurrentWeapon.TimeBetweenUses *= enable ? 1.25f : 0.8f;
+    }
+
+
     IEnumerator DamageUp()
     {
         ApplyDamageUp(true);
@@ -63,13 +82,14 @@ public class PlayerStatus : MonoBehaviour, MMEventListener<MMInventoryEvent>, MM
 
     private void ApplyDamageUp(bool enable)
     {
-        DungeonRoom room = RoomController.Instance.currRoom;
-
-        if (room.roomType == "Single") return;
-
-        foreach (GameObject enemy in room.enemyList)
+        foreach(DungeonRoom room in RoomController.Instance.loadedRooms)
         {
-            enemy.GetComponent<DamageResistance>().DamageMultiplier = enable ? 2f : 1f;
+            if (room.roomType == "Single") return;
+
+            foreach (GameObject enemy in room.enemyList)
+            {
+                enemy.GetComponent<DamageResistance>().DamageMultiplier = enable ? 2f : 1f;
+            }
         }
     }
 
@@ -89,6 +109,9 @@ public class PlayerStatus : MonoBehaviour, MMEventListener<MMInventoryEvent>, MM
                     hasCushion = true;
                     ApplyCushionItem(true);
                     break;
+                case "Sniper":
+                    ApplySniperItem(true);
+                    break;
             }
 		}
         else if (inventoryEvent.InventoryEventType == MMInventoryEventType.Drop)
@@ -105,6 +128,9 @@ public class PlayerStatus : MonoBehaviour, MMEventListener<MMInventoryEvent>, MM
                     hasCushion = false;
                     ApplyCushionItem(false);
                     break;
+                case "Sniper":
+                    ApplySniperItem(false);
+                    break;
             }
         }
         else if(inventoryEvent.InventoryEventType == MMInventoryEventType.ItemEquipped)
@@ -113,12 +139,20 @@ public class PlayerStatus : MonoBehaviour, MMEventListener<MMInventoryEvent>, MM
             {
                 ApplyCushionItem(true);
             }
+            if(hasSniper)
+            {
+                ApplyShootTime(true);
+            }
         }
         else if (inventoryEvent.InventoryEventType == MMInventoryEventType.EquipRequest || inventoryEvent.InventoryEventType == MMInventoryEventType.UnEquipRequest)
         {
             if (hasCushion)
             {
                 ApplyCushionItem(false);
+            }
+            if (hasSniper)
+            {
+                ApplyShootTime(false);
             }
         }
     }
