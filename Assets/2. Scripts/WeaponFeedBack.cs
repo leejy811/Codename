@@ -31,7 +31,7 @@ public class WeaponFeedBack : MonoBehaviour
                 break;
             case WeaponType.MachinGunS:
                 //this.GetComponent<MMSimpleObjectPooler>().GameObjectToPool.GetComponent<DamageOnTouch>().HitAnythingFeedback = ShotGunS_feedback.GetComponent<MMF_Player>();
-                Debug.Log(this.GetComponent<MMSimpleObjectPooler>().GameObjectToPool.GetComponent<DamageOnTouch>().HitAnythingFeedback);
+                //Debug.Log(this.GetComponent<MMSimpleObjectPooler>().GameObjectToPool.GetComponent<DamageOnTouch>().HitAnythingFeedback);
                 //ShotGunS_feedback.transform.parent = this.GetComponent<MMSimpleObjectPooler>().GameObjectToPool.transform;
                 break;
         }   

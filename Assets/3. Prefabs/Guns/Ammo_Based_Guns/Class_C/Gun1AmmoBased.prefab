@@ -10813,6 +10813,7 @@ GameObject:
   - component: {fileID: 2632127762807301206}
   - component: {fileID: 2632127762807301209}
   - component: {fileID: 2632127762807301208}
+  - component: {fileID: -2328581579982385979}
   m_Layer: 10
   m_Name: Gun1AmmoBased
   m_TagString: Untagged
@@ -10995,6 +10996,20 @@ MonoBehaviour:
   ShouldLoadOnStart: 1
   ShouldEmptyOnSave: 1
   CurrentAmmoAvailable: 0
+--- !u!114 &-2328581579982385979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2632127762807301211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca0cf9f26fb08ca42b5e942b86c74b95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ammoDropItem: {fileID: 8886680892219387829, guid: d4772412f9ee6e5418fdb5e2fefe0693,
+    type: 3}
 --- !u!1 &2632127762941217109
 GameObject:
   m_ObjectHideFlags: 0
