@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1816296499753067633}
   m_Layer: 0
-  m_Name: Chest
+  m_Name: WeaponChest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23,8 +23,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1816296499753067634}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 45.87653, y: -33.495796, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -140,8 +140,8 @@ MonoBehaviour:
   UseVisualPrompt: 1
   ButtonPromptPrefab: {fileID: 114767332097364426, guid: bb1fc0f1f16f31248b9b4d80aa795609,
     type: 3}
-  ButtonPromptText: A
-  ButtonPromptColor: {r: 0.4862745, g: 0.9882353, b: 0, a: 1}
+  ButtonPromptText: E
+  ButtonPromptColor: {r: 0, g: 0.6603774, b: 0.08243554, a: 1}
   ButtonPromptTextColor: {r: 1, g: 1, b: 1, a: 1}
   AlwaysShowPrompt: 0
   ShowPromptWhenColliding: 1
@@ -323,7 +323,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24ff5d9462c103e4fb3c70f4590102c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _popupItemList:
-  - {fileID: 1780350073829462, guid: 4ed4ce54cd00dd44b95a69bbbc5e043b, type: 3}
-  - {fileID: 1780350073829462, guid: 4ed4ce54cd00dd44b95a69bbbc5e043b, type: 3}
-  - {fileID: 1780350073829462, guid: 4ed4ce54cd00dd44b95a69bbbc5e043b, type: 3}
+  bonusItemProb: 50
+  weaponRankProb_C: 40
+  weaponRankProb_B: 30
+  weaponRankProb_A: 20
+  weaponRankProb_S: 10
+  weaponS:
+  - {fileID: 6617568784995713354, guid: 4b91f0d1ca39e84419f4c12f4b355633, type: 3}
+  - {fileID: 6909662253438054174, guid: 116143bcdaf400e4fad38096fb87f24e, type: 3}
+  - {fileID: 6909662253438054174, guid: 78a77358dd1159945b5fc463f63442a4, type: 3}
+  - {fileID: 6909662253438054174, guid: 0d91c65ed7c32554380700692ec0cd1c, type: 3}
+  weaponA:
+  - {fileID: 6617568784995713354, guid: 7920bd5e62819d94a85ed09ef5e07f87, type: 3}
+  - {fileID: 6909662253438054174, guid: 9af0bc8e139e9f949ae99bb8606d47d1, type: 3}
+  - {fileID: 6909662253438054174, guid: fb36ba7fee64c9c4485ab9d73b7aff8e, type: 3}
+  - {fileID: 6909662253438054174, guid: feabe2ae7a7cbcc4c89cc02d84475084, type: 3}
+  weaponB:
+  - {fileID: 6617568784995713354, guid: 4abee248472470c429fdff6b3b589198, type: 3}
+  - {fileID: 6909662253438054174, guid: ae75b59ff67a7e4489003215d8a9c534, type: 3}
+  - {fileID: 6909662253438054174, guid: 6e7d1106115a24d40903782ac1c97820, type: 3}
+  - {fileID: 6909662253438054174, guid: 5a69da8304ea2724a9af9ea800c075f0, type: 3}
+  weaponC:
+  - {fileID: 6617568784995713354, guid: 227e1b87ef98dbb45ac7bbfc5fc9be5d, type: 3}
+  - {fileID: 6909662253438054174, guid: 728aaa37232731b4cac1e44c731d3132, type: 3}
+  - {fileID: 6909662253438054174, guid: 249e3b7532e9a2d4b970dac1ad5c53e7, type: 3}
+  - {fileID: 6909662253438054174, guid: 5bc1d03bca2b1bf4bb29cf272fe432bd, type: 3}
+  bullets:
+  - {fileID: 8886680892219387829, guid: d4772412f9ee6e5418fdb5e2fefe0693, type: 3}
+  - {fileID: 8886680892219387829, guid: 136e1fe15bcde3a4c9ec8d5f57fef225, type: 3}
+  - {fileID: 8886680892219387829, guid: 27d441f8904037440a44a9a0f6c4525c, type: 3}
+  - {fileID: 8886680892219387829, guid: d0a5edc61a5539b409324442d427f7c9, type: 3}
