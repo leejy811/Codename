@@ -293,11 +293,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ba0892400c0b3542bc3341a17a8ce73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeBackground: {fileID: 999628218}
-  fadeChange_value: 0
-  isShowInOut: 0
-  isFadeChanging: 0
-  fadeDurationUnit: 0.001
 --- !u!114 &226233303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -748,6 +743,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementList: {fileID: 11400000, guid: 18225175314a9854581d8d6262302958, type: 2}
   PrintCurrentStatusBtn: 0
+--- !u!114 &1059420036 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7486388510844280329, guid: 943988784eaa484428bae1eea9d18208,
+    type: 3}
+  m_PrefabInstance: {fileID: 1877830153}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47557c9dd44293a41bc6710b083332de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1059420040 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7840760802909693012, guid: 943988784eaa484428bae1eea9d18208,
+    type: 3}
+  m_PrefabInstance: {fileID: 1877830153}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3215a76575977e45aa6e890d9e7c13d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1059420055 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3852436659506030986, guid: 943988784eaa484428bae1eea9d18208,
+    type: 3}
+  m_PrefabInstance: {fileID: 1877830153}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 206825d6db9c84741810b9da915cfb9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1382506284
 GameObject:
   m_ObjectHideFlags: 0
@@ -5197,7 +5228,39 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7487096463486110407, guid: 943988784eaa484428bae1eea9d18208,
+        type: 3}
+      propertyPath: States.Array.data[9].Actions.array.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7487096463486110407, guid: 943988784eaa484428bae1eea9d18208,
+        type: 3}
+      propertyPath: States.Array.data[9].Actions.array.Array.data[0]
+      value: 
+      objectReference: {fileID: 1059420040}
+    - target: {fileID: 7487096463486110407, guid: 943988784eaa484428bae1eea9d18208,
+        type: 3}
+      propertyPath: States.Array.data[9].Actions.array.Array.data[1]
+      value: 
+      objectReference: {fileID: 1059420036}
+    - target: {fileID: 7487096463486110407, guid: 943988784eaa484428bae1eea9d18208,
+        type: 3}
+      propertyPath: States.Array.data[9].Transitions.array.Array.data[0].Decision
+      value: 
+      objectReference: {fileID: 1059420055}
+    - target: {fileID: 7487096463486110407, guid: 943988784eaa484428bae1eea9d18208,
+        type: 3}
+      propertyPath: States.Array.data[9].Transitions.array.Array.data[0].TrueState
+      value: Thinking
+      objectReference: {fileID: 0}
+    - target: {fileID: 7840760802909693012, guid: 943988784eaa484428bae1eea9d18208,
+        type: 3}
+      propertyPath: dashSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6324095785477675378, guid: 943988784eaa484428bae1eea9d18208, type: 3}
+    - {fileID: 349307283528977680, guid: 943988784eaa484428bae1eea9d18208, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 943988784eaa484428bae1eea9d18208, type: 3}
 --- !u!1001 &1992075156
 PrefabInstance:
@@ -5468,7 +5531,7 @@ PrefabInstance:
     - target: {fileID: 224229314115975904, guid: d73aa2d3898a69541852a65f3a8e14e0,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -27.999756
+      value: -27.999771
       objectReference: {fileID: 0}
     - target: {fileID: 224230415629305126, guid: d73aa2d3898a69541852a65f3a8e14e0,
         type: 3}

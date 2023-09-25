@@ -202,7 +202,12 @@ namespace MoreMountains.TopDownEngine
 			_horizontalMovement = value.x;
 			_verticalMovement = value.y;
 		}
+		public virtual void SetDashSpeed(float dashSpeed)
+        {
+			Debug.Log("Dash Speed In CharacterMovement : " + dashSpeed);
+			MovementSpeed = dashSpeed;
 
+		}
 		/// <summary>
 		/// Sets the horizontal part of the movement
 		/// </summary>
