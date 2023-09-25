@@ -12,14 +12,14 @@ namespace MoreMountains.TopDownEngine
 		public int NumberOfHits = 1;
 
 		protected int _hitCounter;
-		protected Health _health;
+		protected BoxCollider2D boxCollider;
 
 		/// <summary>
 		/// On init we grab our Health component
 		/// </summary>
 		public override void Initialization()
 		{
-			_health = _brain.gameObject.GetComponentInParent<Health>();
+			boxCollider = _brain.gameObject.GetComponentInParent<BoxCollider2D>();
 			_hitCounter = 0;
 		}
 
@@ -67,31 +67,11 @@ namespace MoreMountains.TopDownEngine
 			_hitCounter++;
 		}
 
-		/// <summary>
-		/// Grabs our health component and starts listening for OnHit events
-		/// </summary>
-		protected virtual void OnEnable()
-		{
-			if (_health == null)
-			{
-				_health = _brain.gameObject.GetComponentInParent<Health>();
-			}
-
-			if (_health != null)
-			{
-				_health.OnHit += OnHit;
-			}
-		}
-
-		/// <summary>
-		/// Stops listening for OnHit events
-		/// </summary>
-		protected virtual void OnDisable()
-		{
-			if (_health != null)
-			{
-				_health.OnHit -= OnHit;
-			}
-		}
-	}
+        private void OnTriggerEnter(Collider other)
+        {
+			Debug.Log("Hit : " + other.gameObject.name + " layer : " + other.gameObject.layer);
+			if (other.gameObject.layer == 8 || other.gameObject.layer == 10)
+				_hitCounter++;
+        }
+    }
 }

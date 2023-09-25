@@ -17,7 +17,25 @@ namespace MoreMountains.TopDownEngine
 		protected ItemPicker[] _itemPickerList;
 
 		protected bool isChestOpened = false;
-		[SerializeField] protected GameObject[] _popupItemList;
+		protected List<GameObject> _popupItemList;
+
+		[Header("Popup Item Probabilities")]
+		[Space()]
+		[SerializeField] protected int bonusItemProb;
+		[SerializeField] protected int weaponRankProb_C;
+		[SerializeField] protected int weaponRankProb_B;
+		[SerializeField] protected int weaponRankProb_A;
+		[SerializeField] protected int weaponRankProb_S;
+
+		[Header("Popup Items")]
+		[Space()]
+		[SerializeField] protected GameObject[] weaponS;
+		[SerializeField] protected GameObject[] weaponA;
+		[SerializeField] protected GameObject[] weaponB;
+		[SerializeField] protected GameObject[] weaponC;
+		[Space()]
+		[SerializeField ]protected GameObject[] bullets;
+
 
 		/// <summary>
 		/// On start we grab our animator and list of item pickers
@@ -26,6 +44,10 @@ namespace MoreMountains.TopDownEngine
 		{
 			_animator = GetComponent<Animator> ();
 			_itemPickerList = GetComponents<ItemPicker> ();
+			_popupItemList = new List<GameObject>();
+
+			if (weaponRankProb_A + weaponRankProb_B + weaponRankProb_C + weaponRankProb_S != 100)
+				Debug.LogError("Input Error! The sum of probs must be 100!");
 		}
 
 		/// <summary>
@@ -35,12 +57,49 @@ namespace MoreMountains.TopDownEngine
 		{
 			if (!isChestOpened)
 			{
+				DiceRoll();
 				TriggerOpeningAnimation();
 				PopupChestItems();
 				//PickChestContents();
 
 				isChestOpened = true;
 			}
+		}
+
+
+		private void DiceRoll()
+        {
+			bool bonusItemFlag = Random.Range(1, 101) <= bonusItemProb ? true : false;
+			int weaponRankProb = Random.Range(1, 101);
+
+			// item1 (weapon)
+            switch (weaponRankProb)
+            {
+				case int i when i <= weaponRankProb_C:
+					_popupItemList.Add(weaponC[Random.Range(0, weaponC.Length)]);
+					break;
+				case int i when i <= weaponRankProb_C+ weaponRankProb_B:
+					_popupItemList.Add(weaponB[Random.Range(0, weaponB.Length)]);
+					break;
+				case int i when i <= weaponRankProb_C + weaponRankProb_B+weaponRankProb_A:
+					_popupItemList.Add(weaponA[Random.Range(0, weaponA.Length)]);
+					break;
+				case int i when i <= weaponRankProb_C + weaponRankProb_B + weaponRankProb_A+weaponRankProb_S:
+					_popupItemList.Add(weaponS[Random.Range(0, weaponS.Length)]);
+					break;
+				default:
+					Debug.LogError("popup prob does not match with 100");
+					return;
+			}
+
+			// item2 (bullet)
+			//_popupItemList.Add(_popupItemList[0].GetComponent<InventoryWeapon>().GetBullet());
+			_popupItemList.Add(bullets[Random.Range(0, bullets.Length)]);
+
+			// item3 (bonus)
+			if(bonusItemFlag)
+				_popupItemList.Add(bullets[Random.Range(0, bullets.Length)]);
+
 		}
 
 		/// <summary>
@@ -70,23 +129,27 @@ namespace MoreMountains.TopDownEngine
 			}
 		}
 
+		/// <summary>
+		/// Popup items from the chest
+		/// </summary>
 		protected void PopupChestItems()
         {
-			if (_popupItemList.Length == 0)
+			if (_popupItemList.Count == 0)
 				return;
 			StartCoroutine(PopupTweening());
         }
 
 		IEnumerator PopupTweening()
         {
-			for(int i = 0; i < _popupItemList.Length; i++)
+			for(int i = 0; i < _popupItemList.Count; i++)
             {
 				var item = Instantiate(_popupItemList[i]);
 				item.transform.SetParent(transform);
 				item.transform.localPosition = Vector3.zero;
 
-				float posX = (i -(_popupItemList.Length /2))* 1.5f;
-				var tween = item.transform.DOMove(new Vector3(posX,2,0),1).SetRelative();
+				float posX = _popupItemList.Count % 2 == 1 ? (i - (_popupItemList.Count / 2)) * 1.5f : (i - (_popupItemList.Count / 2)+0.5f) * 1.5f;
+
+				var tween = item.transform.DOMove(new Vector3(posX,2,0),0.7f).SetRelative().SetEase(Ease.OutCubic);
 				yield return tween.WaitForCompletion();
             }
         }

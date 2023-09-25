@@ -18,7 +18,6 @@ public class MachinGunS_Bullet : MonoBehaviour
     private void OnEnable()
     {
         shootCnt++;
-        Debug.Log(shootCnt);
 
         if (shootCnt % 5 == 0)
         {
