@@ -3,7 +3,7 @@ guid: ede83d772e75a874da11659f74a8ea1e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -106,6 +107,18 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -378,18 +391,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      tree06_s_01_animation_6: 1764474953
+      tree06_s_01_animation_0: -1082664734
+      tree06_s_01_animation_1: -841059629
+      tree06_s_01_animation_10: -1137916583
+      tree06_s_01_animation_11: -591583679
       tree06_s_01_animation_2: 670351728
+      tree06_s_01_animation_3: -1469949778
       tree06_s_01_animation_4: -1785610513
       tree06_s_01_animation_5: -1893918429
-      tree06_s_01_animation_11: -591583679
+      tree06_s_01_animation_6: 1764474953
       tree06_s_01_animation_7: -1256203927
-      tree06_s_01_animation_1: -841059629
-      tree06_s_01_animation_0: -1082664734
-      tree06_s_01_animation_3: -1469949778
       tree06_s_01_animation_8: 489074944
       tree06_s_01_animation_9: 608503053
-      tree06_s_01_animation_10: -1137916583
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

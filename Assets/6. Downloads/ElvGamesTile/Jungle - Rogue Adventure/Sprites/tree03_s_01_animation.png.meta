@@ -3,7 +3,7 @@ guid: c06a3f73c3f4ca946a720ff31011b31d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -106,6 +107,18 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -378,18 +391,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      tree03_s_01_animation_1: -1504537532
-      tree03_s_01_animation_4: 163981016
       tree03_s_01_animation_0: -1750883677
-      tree03_s_01_animation_2: 1397936308
-      tree03_s_01_animation_5: 705051462
-      tree03_s_01_animation_7: -354992938
-      tree03_s_01_animation_6: 790962154
-      tree03_s_01_animation_3: 822743530
-      tree03_s_01_animation_11: 1272023764
+      tree03_s_01_animation_1: -1504537532
       tree03_s_01_animation_10: 376013606
-      tree03_s_01_animation_9: -2130357062
+      tree03_s_01_animation_11: 1272023764
+      tree03_s_01_animation_2: 1397936308
+      tree03_s_01_animation_3: 822743530
+      tree03_s_01_animation_4: 163981016
+      tree03_s_01_animation_5: 705051462
+      tree03_s_01_animation_6: 790962154
+      tree03_s_01_animation_7: -354992938
       tree03_s_01_animation_8: -582936467
+      tree03_s_01_animation_9: -2130357062
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
