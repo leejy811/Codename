@@ -3,7 +3,7 @@ guid: 01d76180531c72c4eaf3990516634536
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -106,6 +107,18 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -379,17 +392,17 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       tree03_s_03_animation_0: 1918203750
-      tree03_s_03_animation_2: 1507920043
-      tree03_s_03_animation_5: 1008068285
-      tree03_s_03_animation_7: 442219098
-      tree03_s_03_animation_10: -127871509
-      tree03_s_03_animation_9: -237915747
-      tree03_s_03_animation_6: -1077062406
-      tree03_s_03_animation_3: -1865323960
-      tree03_s_03_animation_11: -484408557
-      tree03_s_03_animation_4: 607968496
-      tree03_s_03_animation_8: 2103532679
       tree03_s_03_animation_1: -1551294616
+      tree03_s_03_animation_10: -127871509
+      tree03_s_03_animation_11: -484408557
+      tree03_s_03_animation_2: 1507920043
+      tree03_s_03_animation_3: -1865323960
+      tree03_s_03_animation_4: 607968496
+      tree03_s_03_animation_5: 1008068285
+      tree03_s_03_animation_6: -1077062406
+      tree03_s_03_animation_7: 442219098
+      tree03_s_03_animation_8: 2103532679
+      tree03_s_03_animation_9: -237915747
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

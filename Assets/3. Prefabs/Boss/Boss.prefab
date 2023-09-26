@@ -21162,9 +21162,6 @@ GameObject:
   - component: {fileID: 3773257371930799387}
   - component: {fileID: 7487202073116800817}
   - component: {fileID: 7840760802909693012}
-  - component: {fileID: 337914903889018504}
-  - component: {fileID: 2973256963738076626}
-  - component: {fileID: 8847448305241330395}
   m_Layer: 13
   m_Name: Boss
   m_TagString: Enemy
@@ -21485,7 +21482,7 @@ MonoBehaviour:
     Actions:
       array:
       - {fileID: 7487202073116800817}
-      - {fileID: 2973256963738076626}
+      - {fileID: 85595191}
     Transitions:
       array:
       - Decision: {fileID: 6383303598690138298}
@@ -21570,12 +21567,11 @@ MonoBehaviour:
   - StateName: Dashing
     Actions:
       array:
-      - {fileID: 337914903889018504}
-      - {fileID: 7486388510844280329}
+      - {fileID: 7840760802909693012}
     Transitions:
       array:
       - Decision: {fileID: 2624489384784624556}
-        TrueState: Detecting
+        TrueState: Thinking
         FalseState: 
   TimeInThisState: 0
   Target: {fileID: 0}
@@ -22154,60 +22150,8 @@ MonoBehaviour:
   Label: 
   UseMinimumXDistance: 1
   MinimumXDistance: 1
---- !u!114 &337914903889018504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7382844503125370699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36a9aa9d1d895f04095fc4aabe8db6ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InitializationMode: 0
-  Label: 
-  OnlyRunOnce: 1
---- !u!114 &2973256963738076626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7382844503125370699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77fdf6a4b0f14b24fbc9b23c6be59b0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InitializationMode: 0
-  Label: 
-  OnlyRunOnce: 1
---- !u!114 &8847448305241330395
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7382844503125370699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d103439fc2940e347937487a70ea01e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AbilityStartSfx: {fileID: 0}
-  AbilityInProgressSfx: {fileID: 0}
-  AbilityStopSfx: {fileID: 0}
-  AbilityStartFeedbacks: {fileID: 0}
-  AbilityStopFeedbacks: {fileID: 0}
-  AbilityPermitted: 1
-  BlockingMovementStates: 
-  BlockingConditionStates: 
-  BlockingWeaponStates: 
-  RunSpeed: 30
-  AutoRun: 0
-  AutoRunThreshold: 0.6
+  dashSpeed: 2
+  findTarget: 0
 --- !u!1 &7382893221151021371
 GameObject:
   m_ObjectHideFlags: 0

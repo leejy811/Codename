@@ -3,7 +3,7 @@ guid: 922c1f2e2bd87a14c8a266523e2d3ecc
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -106,6 +107,18 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -756,36 +769,36 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Enemy_007_D_25: -959945413
-      Enemy_007_D_6: 633293756
-      Enemy_007_D_14: 1750387607
-      Enemy_007_D_22: -825735849
-      Enemy_007_D_11: -1960933275
-      Enemy_007_D_10: -1726995318
       Enemy_007_D_0: 344795490
-      Enemy_007_D_29: -473797615
-      Enemy_007_D_12: -1948845356
-      Enemy_007_D_2: -56143003
-      Enemy_007_D_26: 143070936
-      Enemy_007_D_21: -1558218728
-      Enemy_007_D_18: -811282280
-      Enemy_007_D_9: -110847366
-      Enemy_007_D_16: 659988089
-      Enemy_007_D_27: -111992069
-      Enemy_007_D_5: -1759907804
-      Enemy_007_D_15: 422334482
-      Enemy_007_D_3: -1466754343
-      Enemy_007_D_24: -535023144
-      Enemy_007_D_17: 604900823
-      Enemy_007_D_4: -1464121943
-      Enemy_007_D_7: 274363627
-      Enemy_007_D_28: -2020100073
-      Enemy_007_D_8: -1154747414
-      Enemy_007_D_23: 1399598956
-      Enemy_007_D_19: 1571014927
-      Enemy_007_D_13: -1438619313
       Enemy_007_D_1: -290846602
+      Enemy_007_D_10: -1726995318
+      Enemy_007_D_11: -1960933275
+      Enemy_007_D_12: -1948845356
+      Enemy_007_D_13: -1438619313
+      Enemy_007_D_14: 1750387607
+      Enemy_007_D_15: 422334482
+      Enemy_007_D_16: 659988089
+      Enemy_007_D_17: 604900823
+      Enemy_007_D_18: -811282280
+      Enemy_007_D_19: 1571014927
+      Enemy_007_D_2: -56143003
       Enemy_007_D_20: 860951680
+      Enemy_007_D_21: -1558218728
+      Enemy_007_D_22: -825735849
+      Enemy_007_D_23: 1399598956
+      Enemy_007_D_24: -535023144
+      Enemy_007_D_25: -959945413
+      Enemy_007_D_26: 143070936
+      Enemy_007_D_27: -111992069
+      Enemy_007_D_28: -2020100073
+      Enemy_007_D_29: -473797615
+      Enemy_007_D_3: -1466754343
+      Enemy_007_D_4: -1464121943
+      Enemy_007_D_5: -1759907804
+      Enemy_007_D_6: 633293756
+      Enemy_007_D_7: 274363627
+      Enemy_007_D_8: -1154747414
+      Enemy_007_D_9: -110847366
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

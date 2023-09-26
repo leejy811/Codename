@@ -3,7 +3,7 @@ guid: c5e8e967473724049ba57cd7387f8482
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -106,6 +107,18 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -756,36 +769,36 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Enemy_004_D_13: -591374285
-      Enemy_004_D_18: 243697489
-      Enemy_004_D_20: 633790953
-      Enemy_004_D_4: 1150662614
-      Enemy_004_D_8: -1002210553
-      Enemy_004_D_12: -1643972077
-      Enemy_004_D_16: 1996742940
-      Enemy_004_D_25: -1365202550
-      Enemy_004_D_28: -1787252446
-      Enemy_004_D_21: 911524715
-      Enemy_004_D_22: -1524039850
-      Enemy_004_D_7: 105856879
-      Enemy_004_D_24: -812713077
-      Enemy_004_D_29: -1491301605
-      Enemy_004_D_3: 867615308
-      Enemy_004_D_26: 838392536
-      Enemy_004_D_17: 365926777
-      Enemy_004_D_23: -945999677
-      Enemy_004_D_15: -159622895
       Enemy_004_D_0: -2140986619
-      Enemy_004_D_9: -1990153915
-      Enemy_004_D_5: 1033328243
-      Enemy_004_D_6: 57378889
       Enemy_004_D_1: -1568909368
-      Enemy_004_D_27: 1910806985
-      Enemy_004_D_19: 535749859
-      Enemy_004_D_14: 1322227171
-      Enemy_004_D_2: 1580411500
       Enemy_004_D_10: -2054200172
       Enemy_004_D_11: 1811838686
+      Enemy_004_D_12: -1643972077
+      Enemy_004_D_13: -591374285
+      Enemy_004_D_14: 1322227171
+      Enemy_004_D_15: -159622895
+      Enemy_004_D_16: 1996742940
+      Enemy_004_D_17: 365926777
+      Enemy_004_D_18: 243697489
+      Enemy_004_D_19: 535749859
+      Enemy_004_D_2: 1580411500
+      Enemy_004_D_20: 633790953
+      Enemy_004_D_21: 911524715
+      Enemy_004_D_22: -1524039850
+      Enemy_004_D_23: -945999677
+      Enemy_004_D_24: -812713077
+      Enemy_004_D_25: -1365202550
+      Enemy_004_D_26: 838392536
+      Enemy_004_D_27: 1910806985
+      Enemy_004_D_28: -1787252446
+      Enemy_004_D_29: -1491301605
+      Enemy_004_D_3: 867615308
+      Enemy_004_D_4: 1150662614
+      Enemy_004_D_5: 1033328243
+      Enemy_004_D_6: 57378889
+      Enemy_004_D_7: 105856879
+      Enemy_004_D_8: -1002210553
+      Enemy_004_D_9: -1990153915
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

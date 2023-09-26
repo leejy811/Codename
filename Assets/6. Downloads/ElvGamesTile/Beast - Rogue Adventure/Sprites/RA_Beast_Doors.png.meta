@@ -3,7 +3,7 @@ guid: 179dee3af5dfef942b3c0271000431ce
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -106,6 +107,18 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -756,36 +769,36 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      RA_Beast_Doors_15: 1795513246
-      RA_Beast_Doors_28: 1201529245
-      RA_Beast_Doors_18: -674190570
-      RA_Beast_Doors_12: -1078680617
-      RA_Beast_Doors_17: 811469749
-      RA_Beast_Doors_7: -451008972
-      RA_Beast_Doors_21: -1071901769
-      RA_Beast_Doors_6: -1008367534
-      RA_Beast_Doors_11: -1563100439
-      RA_Beast_Doors_19: -853592993
       RA_Beast_Doors_0: -23802521
-      RA_Beast_Doors_22: 602838785
-      RA_Beast_Doors_27: 520654594
-      RA_Beast_Doors_5: 1917201164
-      RA_Beast_Doors_23: 1369188497
-      RA_Beast_Doors_29: -1573043664
-      RA_Beast_Doors_4: -786797424
-      RA_Beast_Doors_8: 122087105
-      RA_Beast_Doors_25: -944823892
-      RA_Beast_Doors_14: 1615655858
-      RA_Beast_Doors_24: 1450053064
-      RA_Beast_Doors_16: 844525708
-      RA_Beast_Doors_13: 642449542
-      RA_Beast_Doors_26: -1548776224
+      RA_Beast_Doors_1: 1593878963
       RA_Beast_Doors_10: 423670652
+      RA_Beast_Doors_11: -1563100439
+      RA_Beast_Doors_12: -1078680617
+      RA_Beast_Doors_13: 642449542
+      RA_Beast_Doors_14: 1615655858
+      RA_Beast_Doors_15: 1795513246
+      RA_Beast_Doors_16: 844525708
+      RA_Beast_Doors_17: 811469749
+      RA_Beast_Doors_18: -674190570
+      RA_Beast_Doors_19: -853592993
       RA_Beast_Doors_2: 606799422
       RA_Beast_Doors_20: 1872048106
-      RA_Beast_Doors_1: 1593878963
-      RA_Beast_Doors_9: 49197207
+      RA_Beast_Doors_21: -1071901769
+      RA_Beast_Doors_22: 602838785
+      RA_Beast_Doors_23: 1369188497
+      RA_Beast_Doors_24: 1450053064
+      RA_Beast_Doors_25: -944823892
+      RA_Beast_Doors_26: -1548776224
+      RA_Beast_Doors_27: 520654594
+      RA_Beast_Doors_28: 1201529245
+      RA_Beast_Doors_29: -1573043664
       RA_Beast_Doors_3: -468743787
+      RA_Beast_Doors_4: -786797424
+      RA_Beast_Doors_5: 1917201164
+      RA_Beast_Doors_6: -1008367534
+      RA_Beast_Doors_7: -451008972
+      RA_Beast_Doors_8: 122087105
+      RA_Beast_Doors_9: 49197207
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
