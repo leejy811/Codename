@@ -19853,7 +19853,7 @@ MonoBehaviour:
   Spread: {x: 0, y: 0, z: 10}
   RotateWeaponOnSpread: 1
   RandomSpread: 1
-  SpawnPosition: {x: 4.796, y: 0.33400002, z: 0}
+  SpawnPosition: {x: 4.9536023, y: 9.151727, z: 0}
   ObjectPooler: {fileID: 0}
   SpawnFeedbacks: []
   TestShootButton: 0
@@ -21151,7 +21151,7 @@ GameObject:
   - component: {fileID: 6462341746276089501}
   - component: {fileID: 220935144298218222}
   - component: {fileID: 6383303598690138298}
-  - component: {fileID: 6286789115004151962}
+  - component: {fileID: 1856395237849950318}
   - component: {fileID: 1376502046354372910}
   - component: {fileID: 3981790951922866221}
   - component: {fileID: 8330608281481034398}
@@ -21436,8 +21436,8 @@ MonoBehaviour:
   Model: {fileID: 0}
   CurrentHealth: 0
   Invulnerable: 0
-  InitialHealth: 30
-  MaximumHealth: 30
+  InitialHealth: 100
+  MaximumHealth: 100
   ResetHealthOnEnable: 1
   ImmuneToDamage: 0
   DamageMMFeedbacks: {fileID: 943751931908249335}
@@ -21563,8 +21563,8 @@ MonoBehaviour:
       - {fileID: 7458702005557569322}
     Transitions:
       array:
-      - Decision: {fileID: 6286789115004151962}
-        TrueState: Detecing
+      - Decision: {fileID: 1856395237849950318}
+        TrueState: Detecting
         FalseState: 
   - StateName: Dashing
     Actions:
@@ -21990,7 +21990,7 @@ MonoBehaviour:
   TrueIfHealthIs: 1
   HealthValue: 20
   OnlyOnce: 1
---- !u!114 &6286789115004151962
+--- !u!114 &1856395237849950318
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -21999,7 +21999,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7382844503125370699}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5a01f7a39a54b94881d5543847cf71c, type: 3}
+  m_Script: {fileID: 11500000, guid: 0488c020d5844c644a090247a7ee5134, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Label: 
@@ -32196,7 +32196,7 @@ MonoBehaviour:
   Spread: {x: 0, y: 0, z: 10}
   RotateWeaponOnSpread: 1
   RandomSpread: 1
-  SpawnPosition: {x: -0.003000006, y: -0.29599997, z: 0}
+  SpawnPosition: {x: 0.15460207, y: 8.521728, z: 0}
   ObjectPooler: {fileID: 0}
   SpawnFeedbacks: []
   TestShootButton: 0
