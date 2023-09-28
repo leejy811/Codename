@@ -362,11 +362,11 @@ MonoBehaviour:
   ImmuneToKnockbackIfZeroDamage: 0
   KnockbackForceMultiplier: 1
   DestroyOnDeath: 1
-  DelayBeforeDestruction: 0
+  DelayBeforeDestruction: 1
   PointsWhenDestroyed: 0
   RespawnAtInitialLocation: 0
   DisableControllerOnDeath: 1
-  DisableModelOnDeath: 1
+  DisableModelOnDeath: 0
   DisableCollisionsOnDeath: 1
   DisableChildCollisionsOnDeath: 0
   ChangeLayerOnDeath: 0
@@ -5920,9 +5920,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1729245664140740}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: d7409d88ace7ca245b60e0240311dba4, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3831213c9ed8ccf4f9d7e2a78504f3c8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
