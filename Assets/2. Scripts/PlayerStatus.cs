@@ -11,6 +11,7 @@ public class PlayerStatus : MonoBehaviour, MMEventListener<MMInventoryEvent>, MM
     CharacterInventory inventory;
     CharacterHandleWeapon weapon;
     DamageResistance damageRatio;
+    CharacterDash2D dash;
 
     bool hasReaction;
     bool hasCushion;
@@ -24,6 +25,7 @@ public class PlayerStatus : MonoBehaviour, MMEventListener<MMInventoryEvent>, MM
         inventory = gameObject.GetComponent<CharacterInventory>();
         damageRatio = gameObject.GetComponent<DamageResistance>();
         weapon = gameObject.GetComponent<CharacterHandleWeapon>();
+        dash = gameObject.GetComponent<CharacterDash2D>();
     }
 
     private void ApplyZigzagItem(bool enable)
@@ -59,6 +61,12 @@ public class PlayerStatus : MonoBehaviour, MMEventListener<MMInventoryEvent>, MM
 
         ApplyDamageUp(true);
         ApplyShootTime(enable);
+    }
+
+    private void ApplyLockItem(bool enable)
+    {
+        dash.enabled = !enable;
+        movement.MovementSpeed *= enable ? 2f : 0.5f;
     }
 
     private void ApplyShootTime(bool enable)
@@ -112,6 +120,9 @@ public class PlayerStatus : MonoBehaviour, MMEventListener<MMInventoryEvent>, MM
                 case "Sniper":
                     ApplySniperItem(true);
                     break;
+                case "Lock":
+                    ApplyLockItem(true);
+                    break;
             }
 		}
         else if (inventoryEvent.InventoryEventType == MMInventoryEventType.Drop)
@@ -130,6 +141,9 @@ public class PlayerStatus : MonoBehaviour, MMEventListener<MMInventoryEvent>, MM
                     break;
                 case "Sniper":
                     ApplySniperItem(false);
+                    break;
+                case "Lock":
+                    ApplyLockItem(false);
                     break;
             }
         }
