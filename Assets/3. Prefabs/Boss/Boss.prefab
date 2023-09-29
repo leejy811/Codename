@@ -21151,6 +21151,7 @@ GameObject:
   - component: {fileID: 6462341746276089501}
   - component: {fileID: 220935144298218222}
   - component: {fileID: 6383303598690138298}
+  - component: {fileID: 1856395237849950318}
   - component: {fileID: 1376502046354372910}
   - component: {fileID: 3981790951922866221}
   - component: {fileID: 8330608281481034398}
@@ -21162,6 +21163,7 @@ GameObject:
   - component: {fileID: 3773257371930799387}
   - component: {fileID: 7487202073116800817}
   - component: {fileID: 7840760802909693012}
+  - component: {fileID: 7458702005557569322}
   m_Layer: 13
   m_Name: Boss
   m_TagString: Enemy
@@ -21434,8 +21436,8 @@ MonoBehaviour:
   Model: {fileID: 0}
   CurrentHealth: 0
   Invulnerable: 0
-  InitialHealth: 30
-  MaximumHealth: 30
+  InitialHealth: 100
+  MaximumHealth: 100
   ResetHealthOnEnable: 1
   ImmuneToDamage: 0
   DamageMMFeedbacks: {fileID: 943751931908249335}
@@ -21558,16 +21560,17 @@ MonoBehaviour:
   - StateName: Healing
     Actions:
       array:
-      - {fileID: 7487202073116800817}
+      - {fileID: 7458702005557569322}
     Transitions:
       array:
-      - Decision: {fileID: 6462341746276089501}
-        TrueState: Detecing
+      - Decision: {fileID: 1856395237849950318}
+        TrueState: Detecting
         FalseState: 
   - StateName: Dashing
     Actions:
       array:
       - {fileID: 7840760802909693012}
+      - {fileID: 85595191}
     Transitions:
       array:
       - Decision: {fileID: 2624489384784624556}
@@ -21987,6 +21990,22 @@ MonoBehaviour:
   TrueIfHealthIs: 1
   HealthValue: 20
   OnlyOnce: 1
+--- !u!114 &1856395237849950318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7382844503125370699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0488c020d5844c644a090247a7ee5134, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Label: 
+  TrueIfHealthIs: 3
+  HealthValue: 70
+  OnlyOnce: 1
 --- !u!114 &1376502046354372910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22150,8 +22169,27 @@ MonoBehaviour:
   Label: 
   UseMinimumXDistance: 1
   MinimumXDistance: 1
-  dashSpeed: 2
+  dashSpeed: 25
   findTarget: 0
+--- !u!114 &7458702005557569322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7382844503125370699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58b97aa520f584f4e96e486e1c2fa8a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitializationMode: 0
+  Label: 
+  RefillMode: 0
+  RefillHealth: 1
+  HealthPerSecond: 10
+  HealthPerBurst: 5
+  DurationBetweenBursts: 2
 --- !u!1 &7382893221151021371
 GameObject:
   m_ObjectHideFlags: 0
