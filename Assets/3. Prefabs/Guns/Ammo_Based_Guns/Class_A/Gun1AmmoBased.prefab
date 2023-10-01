@@ -360,7 +360,7 @@ MonoBehaviour:
         RemapRangeFalloff: {x: 0, y: 1}
         Owner: {fileID: 2568128554517725722}
         DebugActive: 0
-        Sfx: {fileID: 8300000, guid: 53429a7c07d33d949b71bdb5c4d5b6d8, type: 3}
+        Sfx: {fileID: 8300000, guid: fe9fea860160d4f5ba3c28934d8785bd, type: 3}
         RandomSfx: []
         TestPlayButton:
           ButtonText: Debug Play Sound
