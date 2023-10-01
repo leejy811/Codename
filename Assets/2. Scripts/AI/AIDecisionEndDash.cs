@@ -70,15 +70,9 @@ namespace MoreMountains.TopDownEngine
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-			Debug.Log("Hit : " + other.gameObject.name + " layer : " + other.gameObject.layer);
 			if (other.gameObject.layer == 8 || other.gameObject.layer == 10)
 				_hitCounter++;
 		}
-        private void OnTriggerEnter(Collider other)
-        {
-			Debug.Log("Hit : " + other.gameObject.name + " layer : " + other.gameObject.layer);
-			if (other.gameObject.layer == 8 || other.gameObject.layer == 10)
-				_hitCounter++;
-        }
+
     }
 }

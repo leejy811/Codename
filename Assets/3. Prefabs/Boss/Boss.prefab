@@ -19853,7 +19853,7 @@ MonoBehaviour:
   Spread: {x: 0, y: 0, z: 10}
   RotateWeaponOnSpread: 1
   RandomSpread: 1
-  SpawnPosition: {x: 4.9536023, y: 9.151727, z: 0}
+  SpawnPosition: {x: 4.796, y: 0.33400002, z: 0}
   ObjectPooler: {fileID: 0}
   SpawnFeedbacks: []
   TestShootButton: 0
@@ -32196,7 +32196,7 @@ MonoBehaviour:
   Spread: {x: 0, y: 0, z: 10}
   RotateWeaponOnSpread: 1
   RandomSpread: 1
-  SpawnPosition: {x: 0.15460207, y: 8.521728, z: 0}
+  SpawnPosition: {x: -0.003000006, y: -0.29599997, z: 0}
   ObjectPooler: {fileID: 0}
   SpawnFeedbacks: []
   TestShootButton: 0

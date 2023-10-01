@@ -17,6 +17,7 @@ namespace MoreMountains.TopDownEngine
 
 		protected Vector2 _direction;
 		protected CharacterMovement _characterMovement;
+		protected Health _health;
 		protected int _numberOfJumps = 0;
 		public bool findTarget = false;
 		/// <summary>
@@ -27,12 +28,14 @@ namespace MoreMountains.TopDownEngine
 			if (!ShouldInitialize) return;
 			base.Initialization();
 			_characterMovement = this.gameObject.GetComponentInParent<Character>()?.FindAbility<CharacterMovement>();
-		}
+            _health = this.gameObject.GetComponent<Health>();
 
-		/// <summary>
-		/// On PerformAction we move
-		/// </summary>
-		public override void PerformAction()
+        }
+
+        /// <summary>
+        /// On PerformAction we move
+        /// </summary>
+        public override void PerformAction()
 		{
 			Dash();
 		}
@@ -89,19 +92,25 @@ namespace MoreMountains.TopDownEngine
 					_characterMovement.SetMovement(_direction);
 				}
 			}
-			Debug.Log("Dash Speed In Action Dash : " + dashSpeed);
 			findTarget = true;
 
 		}
 
-		/// <summary>
-		/// On exit state we stop our movement
-		/// </summary>
-		public override void OnExitState()
+        public override void OnEnterState()
+        {
+            base.OnEnterState(); 
+			_health.ImmuneToKnockback = true;
+        }
+        /// <summary>
+        /// On exit state we stop our movement
+        /// </summary>
+        public override void OnExitState()
 		{
 			base.OnExitState();
 			findTarget = false;
-			_characterMovement?.SetHorizontalMovement(0f);
+            _health.ImmuneToKnockback = false;
+
+            _characterMovement?.SetHorizontalMovement(0f);
 			_characterMovement?.SetVerticalMovement(0f);
 		}
 	}

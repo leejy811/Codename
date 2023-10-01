@@ -95,6 +95,10 @@ namespace MoreMountains.TopDownEngine
 
         public override void OnEnterState()
         {
+            Debug.Log("Start Corutine Before EnterState");
+            StartCoroutine(BeforeStartState());
+            Debug.Log("End Corutine After EnterState");
+
             base.OnEnterState();
 			_health.ImmuneToDamage = true;
 
@@ -102,10 +106,28 @@ namespace MoreMountains.TopDownEngine
 
         public override void OnExitState()
         {
-			RefillHealth = true;
+            Debug.Log("Start Corutine Before ExitState");
+            StartCoroutine(AfterExitState());
+            Debug.Log("End Corutine After ExitState");
+            RefillHealth = true;
 			_health.ImmuneToDamage = false;
 
 			base.OnExitState();
+        }
+
+		public IEnumerator BeforeStartState()
+		{
+
+			yield return null;
+			yield return new WaitForSeconds(15f);
+
+		}
+        public IEnumerator AfterExitState()
+        {
+
+            yield return null;
+            yield return new WaitForSeconds(15f);
+
         }
     }
 }
