@@ -20654,7 +20654,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetLayerMask:
     serializedVersion: 2
-    m_Bits: 8192
+    m_Bits: 8448
   Owner: {fileID: 0}
   TriggerFilter: 195
   MinDamageCaused: 10
@@ -20671,7 +20671,7 @@ MonoBehaviour:
   DamageOverTimeInterruptible: 1
   RepeatedDamageType: {fileID: 0}
   DamageTakenEveryTime: 1
-  DamageTakenDamageable: 1
+  DamageTakenDamageable: 9999
   DamageTakenNonDamageable: 9999
   DamageTakenKnockbackType: 0
   DamageTakenKnockbackForce: {x: 0, y: 0, z: 0}
@@ -20703,7 +20703,7 @@ MonoBehaviour:
   Mode: 0
   ObstaclesLayerMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 8448
   SkinWidth: 0.1
   RepositionRigidbodyIfHitTrigger: 1
   RepositionRigidbodyIfHitNonTrigger: 1

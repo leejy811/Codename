@@ -351,7 +351,7 @@ namespace MoreMountains.TopDownEngine
 				case weaponClass.S:
                 case weaponClass.A:
                 case weaponClass.B:
-                    minDamage*=.3f;
+                    minDamage*=1.3f;
 					break;
 				case weaponClass.C:
 					break;
@@ -366,7 +366,7 @@ namespace MoreMountains.TopDownEngine
                 case weaponClass.S:
                 case weaponClass.A:
                 case weaponClass.B:
-                    maxDamage *= .3f;
+                    maxDamage *= 1.3f;
                     break;
                 case weaponClass.C:
                     break;

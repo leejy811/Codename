@@ -9700,7 +9700,6 @@ GameObject:
   - component: {fileID: 4330552656303096}
   - component: {fileID: 212479530728563738}
   - component: {fileID: 95179347267985190}
-  - component: {fileID: 268531650360540410}
   m_Layer: 10
   m_Name: PlayerModel
   m_TagString: Untagged
@@ -9799,22 +9798,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!58 &268531650360540410
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1358283918792732}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.24}
-  serializedVersion: 2
-  m_Radius: 0.4
 --- !u!1 &1498750440386690
 GameObject:
   m_ObjectHideFlags: 0
@@ -9953,7 +9936,7 @@ MonoBehaviour:
     m_Bits: 32768
   ObstaclesLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
 --- !u!114 &114873785417298432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10108,7 +10091,7 @@ MonoBehaviour:
     CanInterruptRefill: 0
     CooldownState: 0
     CurrentDurationLeft: 0
-  InvincibleWhileDashing: 0
+  InvincibleWhileDashing: 1
   DashFeedback: {fileID: 5986297841957823375}
 --- !u!114 &114545434076996454
 MonoBehaviour:

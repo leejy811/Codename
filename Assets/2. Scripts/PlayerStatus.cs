@@ -11,10 +11,12 @@ public class PlayerStatus : MonoBehaviour, MMEventListener<MMInventoryEvent>, MM
     CharacterInventory inventory;
     CharacterHandleWeapon weapon;
     DamageResistance damageRatio;
+    CharacterDash2D dash;
 
     bool hasReaction;
     bool hasCushion;
     bool hasSniper;
+    bool hasMagazine;
 
     Coroutine damageUpCoroutine;
 
@@ -24,6 +26,7 @@ public class PlayerStatus : MonoBehaviour, MMEventListener<MMInventoryEvent>, MM
         inventory = gameObject.GetComponent<CharacterInventory>();
         damageRatio = gameObject.GetComponent<DamageResistance>();
         weapon = gameObject.GetComponent<CharacterHandleWeapon>();
+        dash = gameObject.GetComponent<CharacterDash2D>();
     }
 
     private void ApplyZigzagItem(bool enable)
@@ -82,7 +85,7 @@ public class PlayerStatus : MonoBehaviour, MMEventListener<MMInventoryEvent>, MM
 
     private void ApplyDamageUp(bool enable)
     {
-        foreach(DungeonRoom room in RoomController.Instance.loadedRooms)
+        foreach (DungeonRoom room in RoomController.Instance.loadedRooms)
         {
             if (room.roomType == "Single") return;
 
@@ -91,6 +94,29 @@ public class PlayerStatus : MonoBehaviour, MMEventListener<MMInventoryEvent>, MM
                 enemy.GetComponent<DamageResistance>().DamageMultiplier = enable ? 2f : 1f;
             }
         }
+    }
+
+    private void ApplyLockItem(bool enable)
+    {
+        dash.enabled = !enable;
+        movement.MovementSpeed *= enable ? 2f : 0.5f;
+    }
+
+    private void ApplyMagazineItem(bool enable)
+    {
+        hasMagazine = enable;
+
+        ApplyMagazineAmount(enable);
+    }
+
+    private void ApplyMagazineAmount(bool enable)
+    {
+        if (weapon.CurrentWeapon == null) return;
+        if (weapon.CurrentWeapon.gameObject.GetComponent<ProjectileWeapon>() == null) return;
+        if (weapon.CurrentWeapon.gameObject.GetComponent<MMSimpleObjectPooler>() == null) return;
+
+        weapon.CurrentWeapon.ReloadTime *= enable ? 2f : 0.5f;
+        weapon.CurrentWeapon.MagazineSize = enable ? weapon.CurrentWeapon.MagazineSize * 2 : (int)(weapon.CurrentWeapon.MagazineSize * 0.5f);
     }
 
     public void OnMMEvent(MMInventoryEvent inventoryEvent)
@@ -112,6 +138,12 @@ public class PlayerStatus : MonoBehaviour, MMEventListener<MMInventoryEvent>, MM
                 case "Sniper":
                     ApplySniperItem(true);
                     break;
+                case "Lock":
+                    ApplyLockItem(true);
+                    break;
+                case "Magazine":
+                    ApplyMagazineItem(true);
+                    break;
             }
 		}
         else if (inventoryEvent.InventoryEventType == MMInventoryEventType.Drop)
@@ -131,6 +163,12 @@ public class PlayerStatus : MonoBehaviour, MMEventListener<MMInventoryEvent>, MM
                 case "Sniper":
                     ApplySniperItem(false);
                     break;
+                case "Lock":
+                    ApplyLockItem(false);
+                    break;
+                case "Magazine":
+                    ApplyMagazineItem(false);
+                    break;
             }
         }
         else if(inventoryEvent.InventoryEventType == MMInventoryEventType.ItemEquipped)
@@ -143,6 +181,10 @@ public class PlayerStatus : MonoBehaviour, MMEventListener<MMInventoryEvent>, MM
             {
                 ApplyShootTime(true);
             }
+            if (hasMagazine)
+            {
+                ApplyMagazineAmount(true);
+            }
         }
         else if (inventoryEvent.InventoryEventType == MMInventoryEventType.EquipRequest || inventoryEvent.InventoryEventType == MMInventoryEventType.UnEquipRequest)
         {
@@ -153,6 +195,10 @@ public class PlayerStatus : MonoBehaviour, MMEventListener<MMInventoryEvent>, MM
             if (hasSniper)
             {
                 ApplyShootTime(false);
+            }
+            if (hasMagazine)
+            {
+                ApplyMagazineAmount(false);
             }
         }
     }
