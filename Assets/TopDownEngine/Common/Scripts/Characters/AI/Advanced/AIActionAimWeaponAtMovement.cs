@@ -19,6 +19,10 @@ namespace MoreMountains.TopDownEngine
 		protected AIActionShoot3D _aiActionShoot3D;
 		protected Vector3 _weaponAimDirection;
 
+		protected AIActionReload _aiActionReload;
+		protected AIActionDash _aiActionDash;
+		protected AIActionHealing _aiActionHealing;
+
 		/// <summary>
 		/// On init we grab our components
 		/// </summary>
@@ -30,6 +34,10 @@ namespace MoreMountains.TopDownEngine
 			_aiActionShoot2D = this.gameObject.GetComponent<AIActionShoot2D>();
 			_aiActionShoot3D = this.gameObject.GetComponent<AIActionShoot3D>();
 			_controller = this.gameObject.GetComponentInParent<TopDownController>();
+			_aiActionReload = this.gameObject.GetComponent<AIActionReload>();
+			_aiActionDash = this.gameObject.GetComponent <AIActionDash>(); 
+			_aiActionHealing = this.gameObject.GetComponent<AIActionHealing>();
+	
 		}
         
 		/// <summary>
@@ -77,6 +85,29 @@ namespace MoreMountains.TopDownEngine
 			return false;
 		}
 
+		protected bool IsReloading()
+		{
+			if(_aiActionReload != null)
+			{
+				return _aiActionReload.ActionInProgress;
+			}
+
+			return false;
+		}
+		protected bool IsDashing()
+		{
+			if(_aiActionDash != null)
+				return _aiActionDash.ActionInProgress;
+
+			return false;
+		}
+
+		protected bool IsHealing()
+		{
+			if(_aiActionHealing != null)
+				return _aiActionHealing.ActionInProgress;
+			return false;
+		}
 		protected virtual void GrabWeaponAim()
 		{
 			if ((_characterHandleWeapon != null) && (_characterHandleWeapon.CurrentWeapon != null))
@@ -92,16 +123,16 @@ namespace MoreMountains.TopDownEngine
 		{
 			base.OnEnterState();
 			GrabWeaponAim();
-			enabled = true;
+			//enabled = true;
 		}
 		public override void OnExitState()
 		{
 			base.OnExitState();
-			enabled = false;
+			//enabled = false;
 		}
 		private void Update()
 		{
-			if (!Shooting())
+			if (!Shooting() && !IsReloading() && !IsDashing() && !IsHealing())
 			{
 				UpdateAim();
 			}

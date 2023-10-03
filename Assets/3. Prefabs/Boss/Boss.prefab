@@ -19853,7 +19853,7 @@ MonoBehaviour:
   Spread: {x: 0, y: 0, z: 10}
   RotateWeaponOnSpread: 1
   RandomSpread: 1
-  SpawnPosition: {x: 4.796, y: 0.33400002, z: 0}
+  SpawnPosition: {x: 4.796, y: 20.334, z: 0}
   ObjectPooler: {fileID: 0}
   SpawnFeedbacks: []
   TestShootButton: 0
@@ -21142,7 +21142,6 @@ GameObject:
   - component: {fileID: 7486233895459678293}
   - component: {fileID: 7486871665188650367}
   - component: {fileID: 7487096463486110407}
-  - component: {fileID: 7487174045293272729}
   - component: {fileID: 7487228977433354487}
   - component: {fileID: 7381691184276837968}
   - component: {fileID: 3852436659506030986}
@@ -21156,6 +21155,7 @@ GameObject:
   - component: {fileID: 3981790951922866221}
   - component: {fileID: 8330608281481034398}
   - component: {fileID: 2624489384784624556}
+  - component: {fileID: 7487174045293272729}
   - component: {fileID: 85595191}
   - component: {fileID: 7486388510844280329}
   - component: {fileID: 6712060023305807951}
@@ -21587,25 +21587,6 @@ MonoBehaviour:
   RandomizeFrequencies: 0
   RandomActionFrequency: {x: 0.5, y: 1}
   RandomDecisionFrequency: {x: 0.5, y: 1}
---- !u!114 &7487174045293272729
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7382844503125370699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b1affdc8ddb97d40b6a8b805c494909, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InitializationMode: 0
-  Label: 
-  TargetHandleWeaponAbility: {fileID: 7486233895459678293}
-  AimOrigin: 0
-  FaceTarget: 1
-  AimAtTarget: 1
-  OnlyAimWhenInState: 1
 --- !u!114 &7487228977433354487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22064,6 +22045,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Label: 
   NumberOfHits: 1
+--- !u!114 &7487174045293272729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7382844503125370699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b1affdc8ddb97d40b6a8b805c494909, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitializationMode: 0
+  Label: 
+  TargetHandleWeaponAbility: {fileID: 7486233895459678293}
+  AimOrigin: 0
+  FaceTarget: 0
+  AimAtTarget: 1
+  OnlyAimWhenInState: 1
 --- !u!114 &85595191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22167,7 +22167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitializationMode: 0
   Label: 
-  UseMinimumXDistance: 1
+  UseMinimumXDistance: 0
   MinimumXDistance: 1
   dashSpeed: 25
   findTarget: 0
@@ -32196,7 +32196,7 @@ MonoBehaviour:
   Spread: {x: 0, y: 0, z: 10}
   RotateWeaponOnSpread: 1
   RandomSpread: 1
-  SpawnPosition: {x: -0.003000006, y: -0.29599997, z: 0}
+  SpawnPosition: {x: -0.003000006, y: 19.704, z: 0}
   ObjectPooler: {fileID: 0}
   SpawnFeedbacks: []
   TestShootButton: 0
