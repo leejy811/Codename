@@ -10,11 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 389410793345345524}
   - component: {fileID: 8162733594154312175}
-  - component: {fileID: 5995920323318709939}
+  - component: {fileID: 8063586981674168176}
+  - component: {fileID: 8607093305574400645}
   m_Layer: 0
   m_Name: Minimal2DBlueDoor (1)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -59,7 +60,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 16, y: 16}
   m_EdgeRadius: 0
---- !u!114 &5995920323318709939
+--- !u!114 &8063586981674168176
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -68,7 +69,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8293187906778765977}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0514923403e9914a8af28838e64a4f9, type: 3}
+  m_Script: {fileID: 11500000, guid: d67c8b1f0cc0f1c46901ec3b398875b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ButtonActivatedRequirement: 2
@@ -83,7 +84,7 @@ MonoBehaviour:
   OnlyOneActivationAtOnce: 1
   TargetLayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1024
   UnlimitedActivations: 1
   MaxNumberOfActivations: 0
   DelayBetweenUses: 0
@@ -93,15 +94,14 @@ MonoBehaviour:
   InputKey: 32
   AnimationTriggerParameterName: 
   UseVisualPrompt: 1
-  ButtonPromptPrefab: {fileID: 114767332097364426, guid: bb1fc0f1f16f31248b9b4d80aa795609,
-    type: 3}
+  ButtonPromptPrefab: {fileID: 0}
   ButtonPromptText: A
   ButtonPromptColor: {r: 0.4862745, g: 0.9882353, b: 0, a: 1}
   ButtonPromptTextColor: {r: 1, g: 1, b: 1, a: 1}
-  AlwaysShowPrompt: 0
+  AlwaysShowPrompt: 1
   ShowPromptWhenColliding: 1
   HidePromptAfterUse: 0
-  PromptRelativePosition: {x: 0, y: 2, z: 0}
+  PromptRelativePosition: {x: 0, y: 0, z: 0}
   PromptRotation: {x: 0, y: 0, z: 0}
   ActivationFeedback: {fileID: 0}
   DeniedFeedback: {fileID: 0}
@@ -109,17 +109,106 @@ MonoBehaviour:
   ExitFeedback: {fileID: 0}
   OnActivation:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1864409563502894014, guid: daa160be8b599254e8789402a43b43d8,
+          type: 3}
+        m_TargetAssemblyTypeName: DoorEvent, Assembly-CSharp
+        m_MethodName: DoorEnter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnExit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1864409563502894014, guid: daa160be8b599254e8789402a43b43d8,
+          type: 3}
+        m_TargetAssemblyTypeName: DoorExitEvent, Assembly-CSharp
+        m_MethodName: DoorExit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnStay:
     m_PersistentCalls:
       m_Calls: []
-  LevelName: BossScene
-  UseEntryPoints: 1
-  PointOfEntryIndex: 0
-  FacingDirection: 0
+  OnlyAffectsPlayer: 1
+  ExitOffset: {x: 0, y: 0, z: 0}
+  TeleportationMode: 0
+  TweenCurve: 4
+  MaintainXEntryPositionOnExit: 0
+  MaintainYEntryPositionOnExit: 0
+  MaintainZEntryPositionOnExit: 0
+  Destination: {fileID: 0}
+  AddToDestinationIgnoreList: 1
+  CameraMode: 2
+  CurrentRoom: {fileID: 4366016948096725151}
+  TargetRoom: {fileID: 0}
+  TriggerFade: 1
+  FaderID: 1
+  FadeTween:
+    MMTweenDefinitionType: 0
+    MMTweenCurve: 0
+    Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    Initialized: 0
+  FadeIgnoresTimescale: 0
+  MoveMask: 0
+  MoveMaskCurve: 4
+  MoveMaskMethod: 1
+  MoveMaskDuration: 0.2
+  FreezeTime: 0
+  FreezeCharacter: 0
+  TimeMode: 0
+  InitialDelay: 0
+  FadeOutDuration: 0.5
+  DelayBetweenFades: 0
+  FadeInDuration: 0.5
+  FinalDelay: 0
+--- !u!114 &8607093305574400645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8293187906778765977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a4a3f67695bb9447810a3391e592976, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8632212688963681363
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,7 +356,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 1}

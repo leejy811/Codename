@@ -36,6 +36,14 @@ public class Door : MonoBehaviour
         gameObject.GetComponentInChildren<Teleporter>().ExitOffset = exitOffset;
         gameObject.GetComponentInChildren<Teleporter>().CurrentRoom = gameObject.GetComponentInParent<Room>();
         gameObject.GetComponentInChildren<Teleporter>().TargetRoom = nextRoom.GetComponent<Room>();
+
+        if (nextRoom.GetComponent<DungeonRoom>().roomName == "Boss")
+        {
+            Teleporter bossDoor = gameObject.GetComponentInChildren<Teleporter>();
+            bossDoor.Destination = RoomPrefabsSet.Instance.realBossRoom.GetComponentInChildren<Teleporter>();
+            bossDoor.TargetRoom = RoomPrefabsSet.Instance.realBossRoom.GetComponent<Room>();
+            RoomPrefabsSet.Instance.realBossRoom.SetActive(false);
+        }
     }
 
     public void ChangeCurrentRoom()
