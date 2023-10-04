@@ -17,7 +17,6 @@ namespace MoreMountains.TopDownEngine
 
 		protected Vector2 _direction;
 		protected CharacterMovement _characterMovement;
-		protected CharacterOrientation2D _characterOrientation;
 		protected Health _health;
 		protected int _numberOfJumps = 0;
 		public bool findTarget = false;
@@ -30,7 +29,7 @@ namespace MoreMountains.TopDownEngine
 			base.Initialization();
 			_characterMovement = this.gameObject.GetComponentInParent<Character>()?.FindAbility<CharacterMovement>();
             _health = this.gameObject.GetComponent<Health>();
-			_characterOrientation = this.gameObject.GetComponent<CharacterOrientation2D>();
+
         }
 
         /// <summary>
@@ -102,7 +101,6 @@ namespace MoreMountains.TopDownEngine
         {
             base.OnEnterState(); 
 			_health.ImmuneToKnockback = true;
-			_characterOrientation.FacingMode = CharacterOrientation2D.FacingModes.MovementDirection;
         }
         /// <summary>
         /// On exit state we stop our movement
@@ -112,7 +110,7 @@ namespace MoreMountains.TopDownEngine
 			base.OnExitState();
 			findTarget = false;
             _health.ImmuneToKnockback = false;
-            _characterOrientation.FacingMode = CharacterOrientation2D.FacingModes.WeaponDirection;
+
             _characterMovement?.SetHorizontalMovement(0f);
 			_characterMovement?.SetVerticalMovement(0f);
 		}

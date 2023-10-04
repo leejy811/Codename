@@ -15696,7 +15696,7 @@ MonoBehaviour:
         RemapRangeFalloff: {x: 0, y: 1}
         Owner: {fileID: 1807934813307496280}
         DebugActive: 0
-        TargetCollider2D: {fileID: 0}
+        TargetCollider2D: {fileID: 8999243822315306033}
         Mode: 1
 --- !u!1 &6715579038787634037
 GameObject:
