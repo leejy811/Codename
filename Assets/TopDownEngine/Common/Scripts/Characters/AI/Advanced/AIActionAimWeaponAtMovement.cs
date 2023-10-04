@@ -89,7 +89,11 @@ namespace MoreMountains.TopDownEngine
 		{
 			if(_aiActionReload != null)
 			{
-				return _aiActionReload.ActionInProgress;
+				if (_aiActionReload.ActionInProgress)
+				{
+					GrabWeaponAim();
+					return _aiActionReload.ActionInProgress;
+				}
 			}
 
 			return false;
@@ -97,15 +101,26 @@ namespace MoreMountains.TopDownEngine
 		protected bool IsDashing()
 		{
 			if(_aiActionDash != null)
-				return _aiActionDash.ActionInProgress;
-
-			return false;
+			{
+                if (_aiActionDash.ActionInProgress)
+                {
+                    GrabWeaponAim();
+                    return _aiActionReload.ActionInProgress;
+                }
+            }
+            return false;
 		}
 
 		protected bool IsHealing()
 		{
-			if(_aiActionHealing != null)
-				return _aiActionHealing.ActionInProgress;
+            if (_aiActionHealing != null)
+            {
+                if (_aiActionHealing.ActionInProgress)
+                {
+                    GrabWeaponAim();
+                    return _aiActionReload.ActionInProgress;
+                }
+            }
 			return false;
 		}
 		protected virtual void GrabWeaponAim()

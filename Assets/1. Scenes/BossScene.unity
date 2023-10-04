@@ -1147,6 +1147,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fcd395c75ed305408350a560ca0b45d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1059420067 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 85595191, guid: 943988784eaa484428bae1eea9d18208,
+    type: 3}
+  m_PrefabInstance: {fileID: 1877830153}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5758bd960e1ca6d41828c58712425d60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1196059154
 GameObject:
   m_ObjectHideFlags: 0
@@ -14086,12 +14098,12 @@ PrefabInstance:
     - target: {fileID: 7385359851691344139, guid: 943988784eaa484428bae1eea9d18208,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.15760207
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7385359851691344139, guid: 943988784eaa484428bae1eea9d18208,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.817727
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7385359851691344139, guid: 943988784eaa484428bae1eea9d18208,
         type: 3}
@@ -14135,9 +14147,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7487096463486110407, guid: 943988784eaa484428bae1eea9d18208,
         type: 3}
+      propertyPath: States.Array.data[7].Actions.array.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7487096463486110407, guid: 943988784eaa484428bae1eea9d18208,
+        type: 3}
       propertyPath: States.Array.data[9].Actions.array.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7487096463486110407, guid: 943988784eaa484428bae1eea9d18208,
+        type: 3}
+      propertyPath: States.Array.data[7].Actions.array.Array.data[1]
+      value: 
+      objectReference: {fileID: 1059420067}
     - target: {fileID: 7487096463486110407, guid: 943988784eaa484428bae1eea9d18208,
         type: 3}
       propertyPath: States.Array.data[9].Actions.array.Array.data[0]
@@ -14161,7 +14183,7 @@ PrefabInstance:
     - target: {fileID: 7840760802909693012, guid: 943988784eaa484428bae1eea9d18208,
         type: 3}
       propertyPath: dashSpeed
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6324095785477675378, guid: 943988784eaa484428bae1eea9d18208, type: 3}
