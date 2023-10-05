@@ -28,10 +28,10 @@ public class Door : MonoBehaviour
         gameObject.GetComponentInChildren<Teleporter>().Destination = _sideDoor.GetComponentInChildren<Teleporter>();
 
         Vector2 exitOffset = Vector2.zero;
-        if (doorType == DoorType.right) exitOffset = new Vector2(-2, 0);
-        else if (doorType == DoorType.left) exitOffset = new Vector2(2, 0);
-        else if (doorType == DoorType.top) exitOffset = new Vector2(0, -2);
-        else if (doorType == DoorType.bottom) exitOffset = new Vector2(0, 2);
+        if (doorType == DoorType.right) exitOffset = new Vector2(-3, 0);
+        else if (doorType == DoorType.left) exitOffset = new Vector2(3, 0);
+        else if (doorType == DoorType.top) exitOffset = new Vector2(0, -3);
+        else if (doorType == DoorType.bottom) exitOffset = new Vector2(0, 3);
 
         gameObject.GetComponentInChildren<Teleporter>().ExitOffset = exitOffset;
         gameObject.GetComponentInChildren<Teleporter>().CurrentRoom = gameObject.GetComponentInParent<Room>();

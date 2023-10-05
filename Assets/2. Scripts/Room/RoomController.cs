@@ -90,15 +90,6 @@ public class RoomController : Singleton<RoomController>
         loadedRooms.Add(room.GetComponent<DungeonRoom>());
     }
 
-    private void InitBossRoom(GameObject bossRoom)
-    {
-        Debug.Log("BossRoom");
-        Teleporter bossDoor = bossRoom.GetComponentInChildren<Teleporter>();
-        bossDoor.Destination = RoomPrefabsSet.Instance.realBossRoom.GetComponentInChildren<Teleporter>();
-        bossDoor.TargetRoom = RoomPrefabsSet.Instance.realBossRoom.GetComponent<Room>();
-        RoomPrefabsSet.Instance.realBossRoom.SetActive(false);
-    }
-        
     // 빈 데이터 혹은 삭제된 방이 있을 경우를 위한 예외처리
     public bool DoesRoomExist(int x, int y, int z)
     {

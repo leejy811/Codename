@@ -1387,6 +1387,10 @@ MonoBehaviour:
   StartRoomPrefabsList:
   - {fileID: 4606555536083810773, guid: 97afa9f43ebda3246b908fbf5d561b56, type: 3}
   realBossRoom: {fileID: 1409698733}
+  topDoor: {fileID: 9068353890158540947, guid: 91ce48cff56158b47a25e6b1dde126bf, type: 3}
+  sideDoor: {fileID: 405812846323042525, guid: 351d1e93bc77fc54293290ce6e26c88c, type: 3}
+  bottomDoor: {fileID: 3492844957872100705, guid: e1d02d24289f82543bfae36a2a52efe3,
+    type: 3}
 --- !u!1 &1289573730
 GameObject:
   m_ObjectHideFlags: 0
@@ -14561,8 +14565,8 @@ MonoBehaviour:
   - {x: 1, y: 0, z: -1}
   - {x: -1, y: 0, z: 1}
   - {x: 1, y: 0, z: 1}
-  minRoomCnt: 2
-  maxRoomCnt: 2
+  minRoomCnt: 16
+  maxRoomCnt: 20
   currRoomCnt: 0
   maxDistance: 5
   validRoomCount: 0

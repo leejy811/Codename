@@ -17,6 +17,7 @@ public class DoorEvent : MonoBehaviour
         }
         else
             transform.parent.GetComponent<Door>().ChangeCurrentRoom();
+
         LevelManager.Instance.Players[0].gameObject.GetComponent<CharacterMovement>().MovementSpeedMultiplier = 1;
         LevelManager.Instance.Players[0].gameObject.GetComponent<Character>().ConditionState.ChangeState(CharacterStates.CharacterConditions.Normal);
     }

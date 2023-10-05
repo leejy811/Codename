@@ -13,6 +13,9 @@ public class RoomPrefabsSet : Singleton<RoomPrefabsSet>
     public List<GameObject> boxRoomPrefabsList;
     public List<GameObject> StartRoomPrefabsList;
     public GameObject realBossRoom;
+    public GameObject topDoor;
+    public GameObject sideDoor;
+    public GameObject bottomDoor;
 
     // Start is called before the first frame update
     void Awake()

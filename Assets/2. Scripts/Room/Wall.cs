@@ -12,5 +12,5 @@ public class Wall : MonoBehaviour
     public Transform wallPos;
     public bool isSetUp = true;
     public bool isUpdate = false;
-
+    public BoxCollider2D doorColider;
 }
