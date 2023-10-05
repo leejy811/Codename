@@ -152,9 +152,13 @@ namespace MoreMountains.TopDownEngine
 			Projectile projectile = nextGameObject.GetComponent<Projectile>();
 			if (projectile != null)
 			{
-				// 등급에 따른 대미지 재조정
-				projectile.GetComponent<DamageOnTouch>().MinDamageCaused = SetMinDamageByClass();
-                projectile.GetComponent<DamageOnTouch>().MaxDamageCaused = SetMaxDamageByClass();
+				// 총 대미지 조정
+				this.GetComponent<MMSimpleObjectPooler>().GameObjectToPool.GetComponent<DamageOnTouch>().MinDamageCaused = weapon_damage;
+                this.GetComponent<MMSimpleObjectPooler>().GameObjectToPool.GetComponent<DamageOnTouch>().MaxDamageCaused = weapon_damage;
+
+                //// 등급에 따른 대미지 재조정
+                //projectile.GetComponent<DamageOnTouch>().MinDamageCaused = SetMinDamageByClass();
+                //projectile.GetComponent<DamageOnTouch>().MaxDamageCaused = SetMaxDamageByClass();
 
                 projectile.SetWeapon(this);
 				if (Owner != null)
@@ -342,6 +346,7 @@ namespace MoreMountains.TopDownEngine
 		}
 
 		[SerializeField] public weaponClass weapon_class;
+		[SerializeField] public float weapon_damage;
 
 		public float SetMinDamageByClass()
 		{

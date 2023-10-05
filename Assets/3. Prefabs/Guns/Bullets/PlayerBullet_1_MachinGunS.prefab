@@ -24603,7 +24603,7 @@ MonoBehaviour:
     - rid: 1
       type: {class: MMF_Sound, ns: MoreMountains.Feedbacks, asm: MoreMountains.Feedbacks.MMTools}
       data:
-        Active: 1
+        Active: 0
         UniqueID: 201490268
         Label: Sound
         ChannelMode: 0
@@ -50401,3 +50401,4 @@ MonoBehaviour:
   impactEffect: {fileID: 3425593151323076186}
   enchantedEffect: {fileID: 4755171014107337723}
   originEffect: {fileID: 918666328335694274}
+  ExplosionSound: {fileID: 8300000, guid: 5a761236cc43ac048a5d84cc2ac59818, type: 3}

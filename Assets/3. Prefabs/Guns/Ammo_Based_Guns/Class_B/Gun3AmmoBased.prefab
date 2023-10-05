@@ -10665,6 +10665,7 @@ MonoBehaviour:
   SpawnFeedbacks: []
   TestShootButton: 0
   weapon_class: 1
+  weapon_damage: 13
 --- !u!114 &2632127762807301206
 MonoBehaviour:
   m_ObjectHideFlags: 0

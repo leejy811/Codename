@@ -4981,8 +4981,8 @@ MonoBehaviour:
     m_Bits: 1792
   Owner: {fileID: 0}
   TriggerFilter: 195
-  MinDamageCaused: 10
-  MaxDamageCaused: 10
+  MinDamageCaused: 0
+  MaxDamageCaused: 0
   TypedDamages: []
   DamageDirectionMode: 1
   DamageCausedKnockbackType: 1
@@ -24926,7 +24926,7 @@ MonoBehaviour:
     - rid: 1
       type: {class: MMF_Sound, ns: MoreMountains.Feedbacks, asm: MoreMountains.Feedbacks.MMTools}
       data:
-        Active: 1
+        Active: 0
         UniqueID: -390728461
         Label: Sound
         ChannelMode: 0
