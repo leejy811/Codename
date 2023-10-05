@@ -3927,7 +3927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eae4cb8f997d6c744a6172cbaa8cb264, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SoundClip: {fileID: 8300000, guid: 343b8a85db405d743a631b1b0785d03a, type: 3}
+  SoundClip: {fileID: 8300000, guid: 3526aa025f6891d4da3c018851db0330, type: 3}
   Loop: 1
   ID: 255
 --- !u!4 &1489405972
