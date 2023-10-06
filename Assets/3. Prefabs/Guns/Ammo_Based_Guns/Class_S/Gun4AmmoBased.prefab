@@ -15657,6 +15657,7 @@ GameObject:
   - component: {fileID: 2632127762807301208}
   - component: {fileID: 2090343592436272235}
   - component: {fileID: 6147159923267691167}
+  - component: {fileID: 8841749542242854811}
   m_Layer: 10
   m_Name: Gun4AmmoBased
   m_TagString: Untagged
@@ -15872,6 +15873,29 @@ MonoBehaviour:
   BelowThresholdSortingOrder: 1
   AboveThresholdSortingOrder: -1
   Sprite: {fileID: 3684890162076672911}
+--- !u!114 &8841749542242854811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2632127762807301211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03aaf62627f364a7d92d307729fe738d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mode: 0
+  PerformRaycast: 1
+  DrawLaser: 1
+  RaycastOriginOffset: {x: 0, y: 0, z: 0}
+  LaserOriginOffset: {x: 1.9, y: 0.1, z: 0}
+  LaserMaxDistance: 50
+  LaserCollisionMask:
+    serializedVersion: 2
+    m_Bits: 8448
+  LaserWidth: {x: 0.07, y: 0.07}
+  LaserMaterial: {fileID: 2100000, guid: 056d285b7c314404fababaf09df5ff4c, type: 2}
 --- !u!1 &2632127762941217109
 GameObject:
   m_ObjectHideFlags: 0
