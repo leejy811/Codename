@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 11301692745128094}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.3, y: 0.1, z: 0}
+  m_LocalPosition: {x: 2.05, y: 0.05, z: 0}
   m_LocalScale: {x: -1.2099999, y: 1.2099999, z: 1.2099999}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -15760,7 +15760,7 @@ MonoBehaviour:
   InitializeOnStart: 0
   Interruptable: 0
   Flipped: 0
-  ProjectileSpawnOffset: {x: 1.8, y: 0.1, z: 0}
+  ProjectileSpawnOffset: {x: 1.55, y: 0.07, z: 0}
   DefaultProjectileDirection: {x: 0, y: 0, z: 1}
   ProjectilesPerShot: 1
   SpawnTransforms: []
@@ -15768,7 +15768,7 @@ MonoBehaviour:
   Spread: {x: 0, y: 0, z: 0}
   RotateWeaponOnSpread: 0
   RandomSpread: 1
-  SpawnPosition: {x: 1.8, y: 0.1, z: 0}
+  SpawnPosition: {x: 1.55, y: 0.07, z: 0}
   ObjectPooler: {fileID: 0}
   SpawnFeedbacks: []
   TestShootButton: 0
@@ -15889,7 +15889,7 @@ MonoBehaviour:
   PerformRaycast: 1
   DrawLaser: 1
   RaycastOriginOffset: {x: 0, y: 0, z: 0}
-  LaserOriginOffset: {x: 1.9, y: 0.1, z: 0}
+  LaserOriginOffset: {x: 1.1, y: 0.1, z: 0}
   LaserMaxDistance: 50
   LaserCollisionMask:
     serializedVersion: 2
@@ -26284,14 +26284,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7417300822130938373}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.38268343, w: 0.92387956}
   m_LocalPosition: {x: 1, y: 0, z: 0}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2632127762807301204}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45}
 --- !u!212 &3684890162076672911
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -26333,7 +26333,7 @@ SpriteRenderer:
   m_SortingLayerID: 47421343
   m_SortingLayer: 4
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 116469c631602ad499489262c0a822c9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 056b6ce4c659b8649b721a8a5a655d30, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

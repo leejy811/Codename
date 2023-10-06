@@ -36,7 +36,7 @@ MonoBehaviour:
   ItemName: Gun4
   ShortDescription: Gun4
   Description: Gun4
-  Icon: {fileID: 21300000, guid: 826d4b59a3c1da34098d030ee4fa32b7, type: 3}
+  Icon: {fileID: 21300000, guid: a5c6022cb087f6d46b0da7a99da3ea63, type: 3}
   Prefab: {fileID: 2632127762807301211, guid: ccc2f7d7f8510ca4e973d39952cdeb85, type: 3}
   ForcePrefabDropQuantity: 0
   PrefabDropQuantity: 1
