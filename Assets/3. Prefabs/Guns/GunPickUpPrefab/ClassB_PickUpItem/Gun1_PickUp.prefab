@@ -254,7 +254,7 @@ GameObject:
   - component: {fileID: 6561306644271985090}
   - component: {fileID: 6504631004760560080}
   - component: {fileID: 6504635285129925726}
-  - component: {fileID: 5748147765993068759}
+  - component: {fileID: 890288485595779337}
   m_Layer: 0
   m_Name: Gun1_PickUp
   m_TagString: Untagged
@@ -347,7 +347,7 @@ MonoBehaviour:
   PickableIfInventoryIsFull: 0
   DisableObjectWhenDepleted: 0
   RequirePlayerTag: 1
---- !u!114 &5748147765993068759
+--- !u!114 &890288485595779337
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -356,7 +356,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6617568784995713354}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c5e4e0763c61f14eb63a3aeb309112d, type: 3}
+  m_Script: {fileID: 11500000, guid: eeadb0c00dbb9cb4aa23a1fc9c6d8b97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPickupItem: {fileID: 8886680892219387829, guid: d4772412f9ee6e5418fdb5e2fefe0693,

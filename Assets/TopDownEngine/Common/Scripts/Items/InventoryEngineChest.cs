@@ -4,6 +4,7 @@ using MoreMountains.Tools;
 using MoreMountains.InventoryEngine;
 using System.Collections.Generic;
 using DG.Tweening;
+using CustomWeapon;
 
 namespace MoreMountains.TopDownEngine
 {
@@ -33,8 +34,7 @@ namespace MoreMountains.TopDownEngine
 		[SerializeField] protected GameObject[] weaponA;
 		[SerializeField] protected GameObject[] weaponB;
 		[SerializeField] protected GameObject[] weaponC;
-		[Space()]
-		[SerializeField ]protected GameObject[] bullets;
+		
 
 
 		/// <summary>
@@ -93,12 +93,11 @@ namespace MoreMountains.TopDownEngine
 			}
 
 			// item2 (bullet)
-			//_popupItemList.Add(_popupItemList[0].GetComponent<InventoryWeapon>().GetBullet());
-			_popupItemList.Add(bullets[Random.Range(0, bullets.Length)]);
-
+			_popupItemList.Add(_popupItemList[0].GetComponent<BulletPickupInfo>().bulletPickupItem);
+			
 			// item3 (bonus)
 			if(bonusItemFlag)
-				_popupItemList.Add(bullets[Random.Range(0, bullets.Length)]);
+				_popupItemList.Add(_popupItemList[1]);
 
 		}
 
