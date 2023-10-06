@@ -135,8 +135,15 @@ namespace MoreMountains.TopDownEngine
 			/// we get the next object in the pool and make sure it's not null
 			GameObject nextGameObject = ObjectPooler.GetPooledGameObject();
 
-			// mandatory checks
-			if (nextGameObject == null) { return null; }
+			// 무기에 적힌 대미지만큼 총알 대미지 변경
+			if (weapon_damage != 0f)
+			{
+				nextGameObject.GetComponent<DamageOnTouch>().MinDamageCaused = weapon_damage;
+				nextGameObject.GetComponent<DamageOnTouch>().MaxDamageCaused = weapon_damage;
+			}
+
+            // mandatory checks
+            if (nextGameObject == null) { return null; }
 			if (nextGameObject.GetComponent<MMPoolableObject>() == null)
 			{
 				throw new Exception(gameObject.name + " is trying to spawn objects that don't have a PoolableObject component.");
@@ -153,8 +160,8 @@ namespace MoreMountains.TopDownEngine
 			if (projectile != null)
 			{
 				// 총 대미지 조정
-				this.GetComponent<MMSimpleObjectPooler>().GameObjectToPool.GetComponent<DamageOnTouch>().MinDamageCaused = weapon_damage;
-                this.GetComponent<MMSimpleObjectPooler>().GameObjectToPool.GetComponent<DamageOnTouch>().MaxDamageCaused = weapon_damage;
+				//this.GetComponent<MMSimpleObjectPooler>().weaponDamage = weapon_damage;
+                //this.GetComponent<MMSimpleObjectPooler>().GameObjectToPool.GetComponent<DamageOnTouch>().MaxDamageCaused = weapon_damage;
 
                 //// 등급에 따른 대미지 재조정
                 //projectile.GetComponent<DamageOnTouch>().MinDamageCaused = SetMinDamageByClass();

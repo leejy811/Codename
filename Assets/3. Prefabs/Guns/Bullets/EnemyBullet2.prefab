@@ -4981,8 +4981,8 @@ MonoBehaviour:
     m_Bits: 1792
   Owner: {fileID: 0}
   TriggerFilter: 195
-  MinDamageCaused: 0
-  MaxDamageCaused: 0
+  MinDamageCaused: 5
+  MaxDamageCaused: 5
   TypedDamages: []
   DamageDirectionMode: 1
   DamageCausedKnockbackType: 1
