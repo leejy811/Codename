@@ -36,7 +36,7 @@ MonoBehaviour:
   ItemName: Zigzag
   ShortDescription: Reaction
   Description: Reaction
-  Icon: {fileID: 21300000, guid: dff64f6358bb56047bb56379b7a82dc3, type: 3}
+  Icon: {fileID: 21300000, guid: 9c980011056a5ba4795e60afce501d76, type: 3}
   Prefab: {fileID: 8886680892219387829, guid: d4772412f9ee6e5418fdb5e2fefe0693, type: 3}
   ForcePrefabDropQuantity: 0
   PrefabDropQuantity: 1
