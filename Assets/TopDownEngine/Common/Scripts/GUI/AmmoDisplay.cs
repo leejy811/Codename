@@ -74,8 +74,7 @@ namespace MoreMountains.TopDownEngine
 					_stringBuilder.Append(ammoInMagazine.ToString());
 					_stringBuilder.Append("/");
 					_stringBuilder.Append(magazineSize.ToString());
-					_stringBuilder.Append(" - ");
-					_stringBuilder.Append((totalAmmo - ammoInMagazine).ToString());
+					
 					this.UpdateTextDisplay (_stringBuilder.ToString());					
 				}
 				else
