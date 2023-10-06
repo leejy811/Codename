@@ -5971,7 +5971,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2632127762716568861}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 2.49, y: 0.305, z: 0}
+  m_LocalPosition: {x: 2.792, y: 0.305, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10953,7 +10953,7 @@ MonoBehaviour:
   InitializeOnStart: 0
   Interruptable: 0
   Flipped: 0
-  ProjectileSpawnOffset: {x: 0.87, y: 0.07, z: 0}
+  ProjectileSpawnOffset: {x: 0.98, y: 0.12, z: 0}
   DefaultProjectileDirection: {x: 0, y: 0, z: 1}
   ProjectilesPerShot: 1
   SpawnTransforms: []
@@ -10961,7 +10961,7 @@ MonoBehaviour:
   Spread: {x: 0, y: 0, z: 0}
   RotateWeaponOnSpread: 0
   RandomSpread: 1
-  SpawnPosition: {x: 0.87, y: 0.07, z: 0}
+  SpawnPosition: {x: 0.98, y: 0.12, z: 0}
   ObjectPooler: {fileID: 0}
   SpawnFeedbacks: []
   TestShootButton: 0
@@ -11092,7 +11092,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2632127762941217109}
   m_LocalRotation: {x: 0, y: 0.86602545, z: 0, w: 0.49999994}
-  m_LocalPosition: {x: 2.51, y: 0.246, z: 0}
+  m_LocalPosition: {x: 2.787, y: 0.342, z: -0.16}
   m_LocalScale: {x: 1.0000002, y: 1, z: 1.0000002}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21865,7 +21865,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8113761738827365585}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.28, y: 0.12, z: 0}
+  m_LocalPosition: {x: 1.359, y: 0.12, z: 0}
   m_LocalScale: {x: -1.17, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
