@@ -19853,11 +19853,12 @@ MonoBehaviour:
   Spread: {x: 0, y: 0, z: 10}
   RotateWeaponOnSpread: 1
   RandomSpread: 1
-  SpawnPosition: {x: 4.796, y: 20.334, z: 0}
+  SpawnPosition: {x: 4.796, y: 0.33400002, z: 0}
   ObjectPooler: {fileID: 0}
   SpawnFeedbacks: []
   TestShootButton: 0
   weapon_class: 0
+  weapon_damage: 0
 --- !u!114 &3726395023951082831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32196,11 +32197,12 @@ MonoBehaviour:
   Spread: {x: 0, y: 0, z: 10}
   RotateWeaponOnSpread: 1
   RandomSpread: 1
-  SpawnPosition: {x: -0.003000006, y: 19.704, z: 0}
+  SpawnPosition: {x: -0.003000006, y: -0.29599997, z: 0}
   ObjectPooler: {fileID: 0}
   SpawnFeedbacks: []
   TestShootButton: 0
   weapon_class: 0
+  weapon_damage: 0
 --- !u!114 &7726354427631279250
 MonoBehaviour:
   m_ObjectHideFlags: 0
