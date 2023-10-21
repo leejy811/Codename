@@ -49,6 +49,7 @@ MonoBehaviour:
   wallPos: {fileID: 0}
   isSetUp: 1
   isUpdate: 0
+  doorColider: {fileID: 0}
 --- !u!1 &2034901259119987832
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,6 +99,7 @@ MonoBehaviour:
   wallPos: {fileID: 0}
   isSetUp: 1
   isUpdate: 0
+  doorColider: {fileID: 0}
 --- !u!1 &2259521910346198988
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,6 +184,7 @@ MonoBehaviour:
   wallPos: {fileID: 0}
   isSetUp: 1
   isUpdate: 0
+  doorColider: {fileID: 0}
 --- !u!1 &3953344319525124682
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,6 +388,7 @@ MonoBehaviour:
   wallPos: {fileID: 0}
   isSetUp: 1
   isUpdate: 0
+  doorColider: {fileID: 0}
 --- !u!1 &9017733000153157632
 GameObject:
   m_ObjectHideFlags: 0
