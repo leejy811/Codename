@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9529ae2b2ee0d1e4d802b51d271424c3, type: 3}
   m_Name: Gun4
   m_EditorClassIdentifier: 
-  ItemID: Gun4
+  ItemID: SnipeC1
   TargetInventoryName: KoalaMainInventory
   ForceSlotIndex: 0
   TargetIndex: 0
