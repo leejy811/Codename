@@ -13,29 +13,101 @@ MonoBehaviour:
   m_Name: DataBase
   m_EditorClassIdentifier: 
   WeaponDB:
-  - weaponID: 1
-    damage: 1
+  - weaponID: RifleS1
+    damage: 12
     reloadSpeed: 1
-    magazine: 10
+    magazine: 40
     useTime: 0.1
     bulletSpeed: 10
-  - weaponID: 2
-    damage: 2
+  - weaponID: RifleA1
+    damage: 8
     reloadSpeed: 2
-    magazine: 20
+    magazine: 40
     useTime: 0.2
     bulletSpeed: 20
-  - weaponID: 3
-    damage: 3
+  - weaponID: RifleB1
+    damage: 6
     reloadSpeed: 3
-    magazine: 30
+    magazine: 40
     useTime: 0.3
     bulletSpeed: 30
-  - weaponID: 4
+  - weaponID: RifleC1
     damage: 4
     reloadSpeed: 4
     magazine: 40
     useTime: 0.4
+    bulletSpeed: 40
+  - weaponID: PistolS1
+    damage: 30
+    reloadSpeed: 1
+    magazine: 12
+    useTime: 1
+    bulletSpeed: 10
+  - weaponID: PistolA1
+    damage: 25
+    reloadSpeed: 2
+    magazine: 12
+    useTime: 1
+    bulletSpeed: 20
+  - weaponID: PistolB1
+    damage: 20
+    reloadSpeed: 3
+    magazine: 12
+    useTime: 1
+    bulletSpeed: 30
+  - weaponID: PistolC1
+    damage: 15
+    reloadSpeed: 4
+    magazine: 12
+    useTime: 1
+    bulletSpeed: 40
+  - weaponID: SnipeS1
+    damage: 12
+    reloadSpeed: 1
+    magazine: 3
+    useTime: 1.5
+    bulletSpeed: 10
+  - weaponID: SnipeA1
+    damage: 8
+    reloadSpeed: 2
+    magazine: 3
+    useTime: 1.5
+    bulletSpeed: 20
+  - weaponID: SnipeB1
+    damage: 6
+    reloadSpeed: 3
+    magazine: 3
+    useTime: 1.5
+    bulletSpeed: 30
+  - weaponID: SnipeC1
+    damage: 4
+    reloadSpeed: 4
+    magazine: 3
+    useTime: 1.5
+    bulletSpeed: 40
+  - weaponID: ShotgunS1
+    damage: 12
+    reloadSpeed: 1
+    magazine: 4
+    useTime: 1
+    bulletSpeed: 10
+  - weaponID: ShotgunA1
+    damage: 8
+    reloadSpeed: 2
+    magazine: 2
+    useTime: 0.1
+    bulletSpeed: 20
+  - weaponID: ShotgunB1
+    damage: 6
+    reloadSpeed: 3
+    magazine: 4
+    useTime: 1
+    bulletSpeed: 30
+  - weaponID: ShotgunC1
+    damage: 4
+    reloadSpeed: 4
+    magazine: 4
+    useTime: 1
     bulletSpeed: 40
   EnemyDB:
   - enemyID: 1
