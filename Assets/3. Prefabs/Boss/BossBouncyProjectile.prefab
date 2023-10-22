@@ -4887,7 +4887,7 @@ MonoBehaviour:
   ExecuteOnDisable:
     m_PersistentCalls:
       m_Calls: []
-  LifeTime: 5
+  LifeTime: 9999
 --- !u!114 &3513555241831317480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4907,7 +4907,7 @@ MonoBehaviour:
   ExecuteOnDisable:
     m_PersistentCalls:
       m_Calls: []
-  LifeTime: 200
+  LifeTime: 9999
   FaceDirection: 1
   FaceMovement: 0
   MovementVector: 0
@@ -4941,8 +4941,8 @@ MonoBehaviour:
   Model: {fileID: 1880451140553914}
   CurrentHealth: 0
   Invulnerable: 0
-  InitialHealth: 9999
-  MaximumHealth: 9999
+  InitialHealth: 1
+  MaximumHealth: 1
   ResetHealthOnEnable: 1
   ImmuneToDamage: 0
   DamageMMFeedbacks: {fileID: 0}
@@ -4988,8 +4988,8 @@ MonoBehaviour:
     m_Bits: 1024
   Owner: {fileID: 0}
   TriggerFilter: 195
-  MinDamageCaused: 10
-  MaxDamageCaused: 10
+  MinDamageCaused: 0
+  MaxDamageCaused: 0
   TypedDamages: []
   DamageDirectionMode: 1
   DamageCausedKnockbackType: 1
