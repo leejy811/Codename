@@ -34746,6 +34746,7 @@ GameObject:
   - component: {fileID: 2078531518225520599}
   - component: {fileID: 6847464438386988825}
   - component: {fileID: 2407728809411328330}
+  - component: {fileID: 3616825083485616863}
   m_Layer: 13
   m_Name: RifleEnemy
   m_TagString: Enemy
@@ -35583,6 +35584,19 @@ MonoBehaviour:
   InterruptibleFeedback: 0
   AlwaysInterruptFeedbackBeforePlay: 0
   TriggerFeedbackIfDamageIsZero: 0
+--- !u!114 &3616825083485616863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7382844503125370699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f00c178bf6c58b0428eb9a6cf5c29429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 1
 --- !u!1 &7382893221151021371
 GameObject:
   m_ObjectHideFlags: 0

@@ -110,19 +110,19 @@ MonoBehaviour:
     useTime: 1
     bulletSpeed: 40
   EnemyDB:
-  - enemyID: 1
-    health: 1
+  - health: 1
     speed: 1
-    itemProp: 1
-  - enemyID: 2
-    health: 2
+    damage: 1
+    useTime: 1
+  - health: 2
     speed: 2
-    itemProp: 2
-  - enemyID: 3
-    health: 3
+    damage: 2
+    useTime: 2
+  - health: 3
     speed: 3
-    itemProp: 3
-  - enemyID: 4
-    health: 4
+    damage: 3
+    useTime: 3
+  - health: 4
     speed: 4
-    itemProp: 4
+    damage: 4
+    useTime: 4
