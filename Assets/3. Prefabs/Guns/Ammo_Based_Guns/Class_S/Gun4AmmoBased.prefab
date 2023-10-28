@@ -5702,7 +5702,7 @@ ParticleSystem:
     m_TextureColorAffectsParticles: 1
     m_TextureAlphaAffectsParticles: 1
     m_TextureBilinearFiltering: 0
-    randomDirectionAmount: 0
+    randomDirectionAmount: 1
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
@@ -9888,7 +9888,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7d1caebaae67e0f468df88077a39e8e5, type: 2}
+  - {fileID: 2100000, guid: 85eccd6825f9ae4499ee5eb641628dc2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15712,7 +15712,7 @@ MonoBehaviour:
   BurstTimeBetweenShots: 0.1
   MagazineBased: 1
   MagazineSize: 1
-  AutoReload: 1
+  AutoReload: 0
   NoInputReload: 0
   ReloadTime: 1
   AmmoConsumedPerShot: 1
