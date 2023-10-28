@@ -21803,8 +21803,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca00784fe9929cd449f43669b70d6d46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weapon: {fileID: 2632127762807301207}
   progressBar: {fileID: 2359916578553420218}
-  reloadDuration: 2
 --- !u!1 &5382917738898820002
 GameObject:
   m_ObjectHideFlags: 0

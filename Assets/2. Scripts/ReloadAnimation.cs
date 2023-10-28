@@ -6,14 +6,12 @@ using UnityEngine;
 
 public class ReloadAnimation : MonoBehaviour
 {
-    public float reloadDuration;
-
+    [SerializeField] ProjectileWeapon weapon;
     [SerializeField] GameObject progressBar;
     bool isProgressBarOnHead = false;
 
     private void OnEnable()
     {
-        reloadDuration = gameObject.GetComponentInParent<ProjectileWeapon>().ReloadTime;
         if (!isProgressBarOnHead)
         {
             this.transform.parent = LevelManager.Instance.Players[0].transform;
@@ -22,7 +20,7 @@ public class ReloadAnimation : MonoBehaviour
             this.transform.localScale = new Vector3(1f, 1.5f, 1.5f);
             isProgressBarOnHead = true;
         }
-        progressBar.transform.DOScaleX(1f, reloadDuration).SetEase(Ease.Linear).OnComplete(() =>
+        progressBar.transform.DOScaleX(1f, weapon.ReloadTime).SetEase(Ease.Linear).OnComplete(() =>
         {
             this.gameObject.SetActive(false);
             progressBar.transform.DOScaleX(0f, 0f);
