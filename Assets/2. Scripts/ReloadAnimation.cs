@@ -6,29 +6,14 @@ using UnityEngine;
 
 public class ReloadAnimation : MonoBehaviour
 {
-    private static ReloadAnimation instance = null;
+    public float reloadDuration;
 
     [SerializeField] GameObject progressBar;
-    [SerializeField] float reloadDuration;
     bool isProgressBarOnHead = false;
-
-    //void Awake()
-    //{
-    //    if (null == instance)
-    //    {
-    //        instance = this;
-    //        DontDestroyOnLoad(this.gameObject);
-    //    }
-    //    else
-    //    {
-    //        Destroy(this.gameObject);
-    //    }
-    //}
-
-
 
     private void OnEnable()
     {
+        reloadDuration = gameObject.GetComponentInParent<ProjectileWeapon>().ReloadTime;
         if (!isProgressBarOnHead)
         {
             this.transform.parent = LevelManager.Instance.Players[0].transform;

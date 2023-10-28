@@ -23,10 +23,10 @@ public class EnemyDB : MonoBehaviour
             isApplyData = true;
         }
 
-        if (!isApplyWeaponData && gameObject.GetComponent<CharacterHandleWeapon>().CurrentWeapon.GetComponent<ProjectileWeapon>() != null)
+        if (!isApplyWeaponData && gameObject.GetComponent<CharacterHandleWeapon>().CurrentWeapon.gameObject.GetComponent<ProjectileWeapon>() != null)
         {
-            gameObject.GetComponent<CharacterHandleWeapon>().CurrentWeapon.GetComponent<ProjectileWeapon>().weapon_damage = enemyDB.damage;
-            gameObject.GetComponent<CharacterHandleWeapon>().CurrentWeapon.GetComponent<ProjectileWeapon>().TimeBetweenUses = enemyDB.useTime;
+            gameObject.GetComponent<CharacterHandleWeapon>().CurrentWeapon.gameObject.GetComponent<ProjectileWeapon>().weapon_damage = enemyDB.damage;
+            gameObject.GetComponent<CharacterHandleWeapon>().CurrentWeapon.gameObject.GetComponent<ProjectileWeapon>().TimeBetweenUses = enemyDB.useTime;
             isApplyWeaponData = true;
         }
     }
