@@ -5894,7 +5894,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7d1caebaae67e0f468df88077a39e8e5, type: 2}
+  - {fileID: 2100000, guid: f38103fd69ba00f47a30db37704ba86b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10905,7 +10905,7 @@ MonoBehaviour:
   BurstTimeBetweenShots: 0.1
   MagazineBased: 1
   MagazineSize: 1
-  AutoReload: 1
+  AutoReload: 0
   NoInputReload: 0
   ReloadTime: 1
   AmmoConsumedPerShot: 1

@@ -141,6 +141,12 @@ namespace MoreMountains.TopDownEngine
 				nextGameObject.GetComponent<DamageOnTouch>().MinDamageCaused = weapon_damage;
 				nextGameObject.GetComponent<DamageOnTouch>().MaxDamageCaused = weapon_damage;
 			}
+			Debug.Log(weapon_speed);
+            if (weapon_speed != 0f)
+            {
+				if (nextGameObject.GetComponent<BouncyProjectile>() != null) nextGameObject.GetComponent<BouncyProjectile>().Speed = weapon_speed;
+                if (nextGameObject.GetComponent<Projectile>() != null) nextGameObject.GetComponent<Projectile>().Speed = weapon_speed;
+            }
 
             // mandatory checks
             if (nextGameObject == null) { return null; }
@@ -354,8 +360,9 @@ namespace MoreMountains.TopDownEngine
 
 		[SerializeField] public weaponClass weapon_class;
 		[SerializeField] public float weapon_damage;
+        [SerializeField] public float weapon_speed;
 
-		public float SetMinDamageByClass()
+        public float SetMinDamageByClass()
 		{
 			float minDamage = this.GetComponent<MMSimpleObjectPooler>().GameObjectToPool.GetComponent<DamageOnTouch>().MinDamageCaused;
             switch (weapon_class)
