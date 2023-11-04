@@ -113,6 +113,7 @@ namespace MoreMountains.TopDownEngine
 			findTarget = false;
             _health.ImmuneToKnockback = false;
             _characterOrientation.FacingMode = CharacterOrientation2D.FacingModes.WeaponDirection;
+			_characterMovement.SetDashSpeed(1);
             _characterMovement?.SetHorizontalMovement(0f);
 			_characterMovement?.SetVerticalMovement(0f);
 		}

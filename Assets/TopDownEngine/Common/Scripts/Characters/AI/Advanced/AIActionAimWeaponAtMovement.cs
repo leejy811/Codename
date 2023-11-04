@@ -23,6 +23,7 @@ namespace MoreMountains.TopDownEngine
 		protected AIActionDash _aiActionDash;
 		protected AIActionHealing _aiActionHealing;
 
+		protected Character character;
 		/// <summary>
 		/// On init we grab our components
 		/// </summary>
@@ -37,7 +38,7 @@ namespace MoreMountains.TopDownEngine
 			_aiActionReload = this.gameObject.GetComponent<AIActionReload>();
 			_aiActionDash = this.gameObject.GetComponent <AIActionDash>(); 
 			_aiActionHealing = this.gameObject.GetComponent<AIActionHealing>();
-	
+			character = this.gameObject.GetComponent<Character>();
 		}
         
 		/// <summary>
@@ -65,6 +66,8 @@ namespace MoreMountains.TopDownEngine
 			if (_weaponAim != null)
 			{
 				_weaponAim.SetCurrentAim(_weaponAimDirection);
+
+
 			}
 		}
 
