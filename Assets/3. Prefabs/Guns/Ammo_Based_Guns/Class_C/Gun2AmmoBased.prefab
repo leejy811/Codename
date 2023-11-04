@@ -5894,7 +5894,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7d1caebaae67e0f468df88077a39e8e5, type: 2}
+  - {fileID: 2100000, guid: f38103fd69ba00f47a30db37704ba86b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10904,10 +10904,10 @@ MonoBehaviour:
   BurstLength: 3
   BurstTimeBetweenShots: 0.1
   MagazineBased: 1
-  MagazineSize: 12
-  AutoReload: 1
+  MagazineSize: 1
+  AutoReload: 0
   NoInputReload: 0
-  ReloadTime: 3
+  ReloadTime: 1
   AmmoConsumedPerShot: 1
   AutoDestroyWhenEmpty: 0
   AutoDestroyWhenEmptyDelay: 1
@@ -10966,7 +10966,7 @@ MonoBehaviour:
   SpawnFeedbacks: []
   TestShootButton: 0
   weapon_class: 0
-  weapon_damage: 10
+  weapon_damage: 1
 --- !u!114 &2632127762807301206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21837,8 +21837,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca00784fe9929cd449f43669b70d6d46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weapon: {fileID: 2632127762807301207}
   progressBar: {fileID: 2021467862418671179}
-  reloadDuration: 3
 --- !u!1 &8113761738827365585
 GameObject:
   m_ObjectHideFlags: 0

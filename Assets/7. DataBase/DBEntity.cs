@@ -1,7 +1,7 @@
 [System.Serializable]
 public class WeaponDBEntity
 {
-    public int weaponID;
+    public string weaponID;
     public float damage;
     public float reloadSpeed;
     public int magazine;
@@ -12,9 +12,9 @@ public class WeaponDBEntity
 [System.Serializable]
 public class EnemyDBEntity
 {
-    public int enemyID;
     public float health;
     public float speed;
-    public float itemProp;
+    public float damage;
+    public float useTime;
 }
 

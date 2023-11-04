@@ -820,7 +820,7 @@ ParticleSystem:
     m_TextureColorAffectsParticles: 1
     m_TextureAlphaAffectsParticles: 1
     m_TextureBilinearFiltering: 0
-    randomDirectionAmount: 0
+    randomDirectionAmount: 1
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
@@ -5006,7 +5006,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7d1caebaae67e0f468df88077a39e8e5, type: 2}
+  - {fileID: 2100000, guid: 2fe4463cddfc19046b01d1970383f3ef, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10010,16 +10010,16 @@ MonoBehaviour:
   TriggerMode: 1
   DelayBeforeUse: 0
   DelayBeforeUseReleaseInterruption: 1
-  TimeBetweenUses: 0.1
+  TimeBetweenUses: 1
   TimeBetweenUsesReleaseInterruption: 1
   UseBurstMode: 0
   BurstLength: 3
   BurstTimeBetweenShots: 0.1
   MagazineBased: 1
-  MagazineSize: 30
-  AutoReload: 1
+  MagazineSize: 1
+  AutoReload: 0
   NoInputReload: 0
-  ReloadTime: 3
+  ReloadTime: 1
   AmmoConsumedPerShot: 1
   AutoDestroyWhenEmpty: 0
   AutoDestroyWhenEmptyDelay: 1
@@ -10078,7 +10078,7 @@ MonoBehaviour:
   SpawnFeedbacks: []
   TestShootButton: 0
   weapon_class: 0
-  weapon_damage: 5
+  weapon_damage: 1
 --- !u!114 &2632127762807301206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20220,8 +20220,8 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 0
-  looping: 1
-  prewarm: 1
+  looping: 0
+  prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -25956,8 +25956,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca00784fe9929cd449f43669b70d6d46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weapon: {fileID: 2632127762807301207}
   progressBar: {fileID: 5745980011195716754}
-  reloadDuration: 3
 --- !u!1 &7997450437587953087
 GameObject:
   m_ObjectHideFlags: 0

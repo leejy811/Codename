@@ -414,8 +414,9 @@ MonoBehaviour:
   KeyAction:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 868423772372522601}
+        m_TargetAssemblyTypeName: MoreMountains.TopDownEngine.InventoryItemChest,
+          MoreMountains.TopDownEngine
         m_MethodName: OpenChest
         m_Mode: 1
         m_Arguments:

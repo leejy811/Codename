@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9529ae2b2ee0d1e4d802b51d271424c3, type: 3}
   m_Name: Gun4
   m_EditorClassIdentifier: 
-  ItemID: Gun4
+  ItemID: SnipeS1
   TargetInventoryName: KoalaMainInventory
   ForceSlotIndex: 0
   TargetIndex: 0
@@ -33,8 +33,8 @@ MonoBehaviour:
     DisplayUseButton: 1
     DisplayUnequipButton: 1
   Quantity: 1
-  ItemName: Gun4
-  ShortDescription: Gun4
+  ItemName: A.W.M
+  ShortDescription: S
   Description: Gun4
   Icon: {fileID: 21300000, guid: 1523656977da564408910d2e325fbaf9, type: 3}
   Prefab: {fileID: 2632127762807301211, guid: 340cb5f1cdb698a48a48670c5ef6325b, type: 3}

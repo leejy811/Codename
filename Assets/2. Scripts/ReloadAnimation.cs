@@ -6,26 +6,9 @@ using UnityEngine;
 
 public class ReloadAnimation : MonoBehaviour
 {
-    private static ReloadAnimation instance = null;
-
+    [SerializeField] ProjectileWeapon weapon;
     [SerializeField] GameObject progressBar;
-    [SerializeField] float reloadDuration;
     bool isProgressBarOnHead = false;
-
-    //void Awake()
-    //{
-    //    if (null == instance)
-    //    {
-    //        instance = this;
-    //        DontDestroyOnLoad(this.gameObject);
-    //    }
-    //    else
-    //    {
-    //        Destroy(this.gameObject);
-    //    }
-    //}
-
-
 
     private void OnEnable()
     {
@@ -37,7 +20,7 @@ public class ReloadAnimation : MonoBehaviour
             this.transform.localScale = new Vector3(1f, 1.5f, 1.5f);
             isProgressBarOnHead = true;
         }
-        progressBar.transform.DOScaleX(1f, reloadDuration).SetEase(Ease.Linear).OnComplete(() =>
+        progressBar.transform.DOScaleX(1f, weapon.ReloadTime).SetEase(Ease.Linear).OnComplete(() =>
         {
             this.gameObject.SetActive(false);
             progressBar.transform.DOScaleX(0f, 0f);
