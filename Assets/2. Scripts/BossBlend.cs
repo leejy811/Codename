@@ -29,7 +29,7 @@ public class BossBlend : MonoBehaviour
             characterOrient2D = new Vector2(1, 1);
         else
         {
-            characterOrient2D = new Vector2(characterHandle.WeaponAimComponent.CurrentAim.x, characterHandle.WeaponAimComponent.CurrentAim.y);
+            characterOrient2D = new Vector2(characterHandle.WeaponAimComponent.CurrentAim.x, characterHandle.WeaponAimComponent.CurrentAim.y).normalized;
         }
         if (characterOrient2D.x < 0)
             characterModel.transform.localScale = new Vector3(-1, 1, 1);
