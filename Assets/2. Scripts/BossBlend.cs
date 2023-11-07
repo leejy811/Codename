@@ -11,7 +11,8 @@ public class BossBlend : MonoBehaviour
 
     [SerializeField]
     private GameObject characterModel;
-    Vector2 characterOrient2D;
+    
+    public Vector2 characterOrient2D;
 
     private void Start()
     {
