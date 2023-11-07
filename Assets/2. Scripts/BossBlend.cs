@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class BossBlend : MonoBehaviour
 {
     private CharacterHandleWeapon characterHandle;
     private Character character;
     private CharacterMovement characterMovement;
-
+    
     [SerializeField]
     private GameObject characterModel;
     
@@ -24,7 +25,7 @@ public class BossBlend : MonoBehaviour
 
     private void Update()
     {
-        if (characterHandle == null || character == null || characterMovement == null)
+        if (characterHandle == null || character == null || characterMovement == null || character._animator.GetBool("Dashing") == true)
             return;
         if (characterHandle.WeaponAimComponent == null)
             characterOrient2D = new Vector2(1, 1);

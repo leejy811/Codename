@@ -26,7 +26,6 @@ namespace MoreMountains.TopDownEngine
 
         protected Health _health;
         protected bool _once = false;
-
         /// <summary>
         /// On init we grab our Health component
         /// </summary>
@@ -52,7 +51,7 @@ namespace MoreMountains.TopDownEngine
         {
             bool returnValue = false;
 
-            if (OnlyOnce && _once)
+            if (OnlyOnce && _once )
             {
                 return false;
             }
@@ -71,11 +70,6 @@ namespace MoreMountains.TopDownEngine
             if (TrueIfHealthIs == ComparisonModes.StrictlyLowerThan)
             {
                 returnValue = (_health.CurrentHealth < HealthValue);
-            }
-
-            if (TrueIfHealthIs == ComparisonModes.LowerThan)
-            {
-                returnValue = (_health.CurrentHealth <= HealthValue);
             }
 
             if (TrueIfHealthIs == ComparisonModes.Equals)

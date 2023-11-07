@@ -33,7 +33,6 @@ public class BossWeaponBlend : MonoBehaviour
 
         weapon.localPosition = pos;
 
-        Debug.Log(angle);
     }
 
     private float GetAngle(Vector2 vec)

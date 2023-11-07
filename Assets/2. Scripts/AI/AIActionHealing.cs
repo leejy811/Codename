@@ -42,15 +42,16 @@ namespace MoreMountains.TopDownEngine
 		protected float _healthToGive = 0f;
 
 		protected float _lastBurstTimestamp;
+		protected Character character;
 
-
+		private bool isHealingReady = false;
         public override void Initialization()
         {
 			if (!ShouldInitialize)
 				return;
             base.Initialization();
 			_health = this.gameObject.GetComponent<Health>();
-
+			character = this.gameObject.GetComponent<Character>();
 		}
 
         public override void PerformAction()
@@ -63,7 +64,7 @@ namespace MoreMountains.TopDownEngine
 		/// </summary>
 		protected virtual void ProcessRefillHealth()
 		{
-			if (!RefillHealth)
+			if (!RefillHealth || !isHealingReady)
 			{
 				return;
 			}
@@ -95,10 +96,7 @@ namespace MoreMountains.TopDownEngine
 
         public override void OnEnterState()
         {
-            Debug.Log("Start Corutine Before EnterState");
-            StartCoroutine(BeforeStartState());
-            Debug.Log("End Corutine After EnterState");
-
+            StartCoroutine("BeforeHealingAnim");
             base.OnEnterState();
 			_health.ImmuneToDamage = true;
 
@@ -106,28 +104,27 @@ namespace MoreMountains.TopDownEngine
 
         public override void OnExitState()
         {
-            Debug.Log("Start Corutine Before ExitState");
-            StartCoroutine(AfterExitState());
-            Debug.Log("End Corutine After ExitState");
-            RefillHealth = true;
+            StartCoroutine(ExitState());
+            
+			RefillHealth = true;
 			_health.ImmuneToDamage = false;
 
 			base.OnExitState();
         }
 
-		public IEnumerator BeforeStartState()
+		public IEnumerator BeforeHealingAnim()
 		{
 
-			yield return null;
-			yield return new WaitForSeconds(15f);
+			character._animator.SetTrigger("doHeal");
+			yield return new WaitForSeconds(2f);
+			isHealingReady = true;
 
-		}
-        public IEnumerator AfterExitState()
+        }
+        public IEnumerator ExitState()
         {
-
-            yield return null;
-            yield return new WaitForSeconds(15f);
-
+            character._animator.SetBool("HealingEnd", true);
+            yield return new WaitForSeconds(2f);
+            character._animator.SetBool("HealingEnd", false);
         }
     }
 }

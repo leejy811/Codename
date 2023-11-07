@@ -21539,6 +21539,7 @@ GameObject:
   - component: {fileID: 7840760802909693012}
   - component: {fileID: 7458702005557569322}
   - component: {fileID: 8047021519982858181}
+  - component: {fileID: 868806578519374571}
   m_Layer: 13
   m_Name: Boss
   m_TagString: Enemy
@@ -21942,6 +21943,15 @@ MonoBehaviour:
     Transitions:
       array:
       - Decision: {fileID: 1856395237849950318}
+        TrueState: ExitHealing
+        FalseState: 
+  - StateName: ExitHealing
+    Actions:
+      array:
+      - {fileID: 7487202073116800817}
+    Transitions:
+      array:
+      - Decision: {fileID: 868806578519374571}
         TrueState: Detecting
         FalseState: 
   - StateName: Dashing
@@ -22549,6 +22559,7 @@ MonoBehaviour:
   MinimumXDistance: 1
   dashSpeed: 25
   findTarget: 0
+  isDashReady: 0
 --- !u!114 &7458702005557569322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22582,6 +22593,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterModel: {fileID: 7383420384572252961}
   characterOrient2D: {x: 0, y: 0}
+--- !u!114 &868806578519374571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7382844503125370699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a21818f4def5bf646bec3d25770336cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Label: 
+  AfterTimeMin: 2
+  AfterTimeMax: 2
 --- !u!1 &7382893221151021371
 GameObject:
   m_ObjectHideFlags: 0

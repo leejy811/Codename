@@ -21,6 +21,10 @@ namespace MoreMountains.TopDownEngine
 		protected Health _health;
 		protected int _numberOfJumps = 0;
 		public bool findTarget = false;
+		public bool isDashReady= false;
+		protected Character character;
+
+		
 		/// <summary>
 		/// On init we grab our CharacterMovement ability
 		/// </summary>
@@ -31,6 +35,8 @@ namespace MoreMountains.TopDownEngine
 			_characterMovement = this.gameObject.GetComponentInParent<Character>()?.FindAbility<CharacterMovement>();
             _health = this.gameObject.GetComponent<Health>();
 			_characterOrientation = this.gameObject.GetComponent<CharacterOrientation2D>();
+			character = this.gameObject.GetComponent<Character>();
+
         }
 
         /// <summary>
@@ -50,7 +56,7 @@ namespace MoreMountains.TopDownEngine
 			{
 				return;
 			}
-			if(findTarget)
+			if(findTarget || !isDashReady)
             {
 				return;
             }
@@ -87,22 +93,38 @@ namespace MoreMountains.TopDownEngine
 			}
 			else
 			{
-                _characterMovement.SetDashSpeed(dashSpeed);
                 if (!findTarget)
                 {
-					_direction = (_brain.Target.position - this.transform.position).normalized;
+                    _characterMovement.SetDashSpeed(dashSpeed);
+                    _direction = (_brain.Target.position - this.transform.position).normalized;
 					_characterMovement.SetMovement(_direction);
 				}
 			}
 			findTarget = true;
-
+			
 		}
 
+		IEnumerator DashAnim()
+		{
+            _direction = (_brain.Target.position - this.transform.position).normalized;
+
+			if (_direction.x < 0)
+			{
+				character.CharacterModel.gameObject.transform.localScale = new Vector3(-1, 1, 1);
+			}
+			else
+				character.CharacterModel.gameObject.transform.localScale = new Vector3(1, 1, 1);
+
+
+			character._animator.SetBool("Dashing", true);
+            yield return new WaitForSeconds(1f);
+            isDashReady = true;
+        }
         public override void OnEnterState()
         {
             base.OnEnterState(); 
 			_health.ImmuneToKnockback = true;
-			_characterOrientation.FacingMode = CharacterOrientation2D.FacingModes.MovementDirection;
+			StartCoroutine("DashAnim");
         }
         /// <summary>
         /// On exit state we stop our movement
@@ -112,13 +134,16 @@ namespace MoreMountains.TopDownEngine
 			base.OnExitState();
 			findTarget = false;
             _health.ImmuneToKnockback = false;
-            _characterOrientation.FacingMode = CharacterOrientation2D.FacingModes.WeaponDirection;
+			isDashReady = false;
+			character._animator.SetBool("Dashing", false);
 			_characterMovement.SetDashSpeed(1);
+
             _characterMovement?.SetHorizontalMovement(0f);
 			_characterMovement?.SetVerticalMovement(0f);
 		}
 	}
 
+	
 }
 
 
