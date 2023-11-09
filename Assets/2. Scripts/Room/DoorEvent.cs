@@ -5,6 +5,7 @@ using MoreMountains.TopDownEngine;
 
 public class DoorEvent : MonoBehaviour
 {
+    [SerializeField] GameObject doorLight;
 
     public void DoorExit()
     {
@@ -26,5 +27,10 @@ public class DoorEvent : MonoBehaviour
     {
         LevelManager.Instance.Players[0].gameObject.GetComponent<CharacterMovement>().MovementSpeedMultiplier = 0;
         LevelManager.Instance.Players[0].gameObject.GetComponent<Character>().ConditionState.ChangeState(CharacterStates.CharacterConditions.Frozen);
+    }
+
+    public void DoorLightControl(bool enable)
+    {
+        doorLight.SetActive(enable);
     }
 }

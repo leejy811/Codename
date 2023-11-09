@@ -141,12 +141,12 @@ public class DungeonRoom : MonoBehaviour
     public void DoorControl()
     {
         Door[] doors = gameObject.GetComponentsInChildren<Door>();
-        Debug.Log(doors.Length);
         
         foreach(Door door in doors)
         {
             BoxCollider2D doorColider = door.gameObject.GetComponentInChildren<BoxCollider2D>();
             doorColider.enabled = isClearRoom;
+            door.gameObject.GetComponentInChildren<DoorEvent>().DoorLightControl(isClearRoom);
         }
     }
     
