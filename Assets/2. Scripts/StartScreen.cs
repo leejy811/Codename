@@ -41,22 +41,4 @@ public class StartScreen : MonoBehaviour
         txt.transform.DOScale(1f, duration);
     }
 
-    public void ExitButton_onMouseClick()
-    {
-        Application.Quit();
-    }
-
-    public void SetResolution(GameObject g)
-    {
-        string res = g.GetComponent<TextMeshProUGUI>().text;
-        //Debug.Log(res);
-        if (res == "640x480")
-            Screen.SetResolution(640, 480, true);
-        else if (res == "1920x1080")
-            Screen.SetResolution(1920, 1080, true);
-        else if(res =="1366x766")
-            Screen.SetResolution(1366, 766, true);
-
-    }
-
 }

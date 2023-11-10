@@ -299,8 +299,12 @@ namespace MoreMountains.TopDownEngine
 		/// Pauses the game or unpauses it depending on the current state
 		/// </summary>
 		public virtual void Pause(PauseMethods pauseMethod = PauseMethods.PauseMenu, bool unpauseIfPaused = true)
-		{	
-			if ((pauseMethod == PauseMethods.PauseMenu) && _inventoryOpen)
+		{
+            // Pause 활성화  /  Option 비활성화
+            GUIManager.Instance.PauseScreen.transform.GetChild(1).gameObject.SetActive(true);
+            GUIManager.Instance.PauseScreen.transform.GetChild(2).gameObject.SetActive(false);
+
+            if ((pauseMethod == PauseMethods.PauseMenu) && _inventoryOpen)
 			{
 				return;
 			}
@@ -312,7 +316,7 @@ namespace MoreMountains.TopDownEngine
 				Instance.Paused=true;
 				if ((GUIManager.HasInstance) && (pauseMethod == PauseMethods.PauseMenu))
 				{
-					GUIManager.Instance.SetPauseScreen(true);	
+                    GUIManager.Instance.SetPauseScreen(true);	
 					_pauseMenuOpen = true;
 					SetActiveInventoryInputManager (false);
 				}
