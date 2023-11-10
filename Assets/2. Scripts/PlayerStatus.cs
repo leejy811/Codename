@@ -186,21 +186,6 @@ public class PlayerStatus : MonoBehaviour, MMEventListener<MMInventoryEvent>, MM
                 ApplyMagazineAmount(true);
             }
         }
-        else if (inventoryEvent.InventoryEventType == MMInventoryEventType.EquipRequest || inventoryEvent.InventoryEventType == MMInventoryEventType.UnEquipRequest)
-        {
-            if (hasCushion)
-            {
-                ApplyCushionItem(false);
-            }
-            if (hasSniper)
-            {
-                ApplyShootTime(false);
-            }
-            if (hasMagazine)
-            {
-                ApplyMagazineAmount(false);
-            }
-        }
     }
 
     public void OnMMEvent(MMDamageTakenEvent damageTakenEvent)

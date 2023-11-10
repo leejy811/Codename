@@ -33,10 +33,6 @@ public class PlayerWeaponDB : MonoBehaviour, MMEventListener<MMInventoryEvent>
         {
             EqipWeapon(true, inventoryEvent.EventItem.ItemID);
         }
-        else if (inventoryEvent.InventoryEventType == MMInventoryEventType.EquipRequest || inventoryEvent.InventoryEventType == MMInventoryEventType.UnEquipRequest)
-        {
-            EqipWeapon(false, inventoryEvent.EventItem.ItemID);
-        }
         else if (inventoryEvent.InventoryEventType == MMInventoryEventType.Pick)
         {
             if (inventoryEvent.EventItem.ItemClass == ItemClasses.Weapon)
@@ -52,11 +48,11 @@ public class PlayerWeaponDB : MonoBehaviour, MMEventListener<MMInventoryEvent>
 
     private void EqipWeapon(bool enable, string weaponID)
     {
-        weapon.CurrentWeapon.GetComponent<ProjectileWeapon>().weapon_damage *= enable ? weaponDB[weaponID].damage : 1 / weaponDB[weaponID].damage;
-        weapon.CurrentWeapon.GetComponent<ProjectileWeapon>().ReloadTime *= enable ? weaponDB[weaponID].reloadSpeed : 1 / weaponDB[weaponID].reloadSpeed;
-        weapon.CurrentWeapon.GetComponent<ProjectileWeapon>().MagazineSize *= enable ? weaponDB[weaponID].magazine : 1 / weaponDB[weaponID].magazine;
-        weapon.CurrentWeapon.GetComponent<ProjectileWeapon>().TimeBetweenUses *= enable ? weaponDB[weaponID].useTime : 1 / weaponDB[weaponID].useTime;
-        weapon.CurrentWeapon.GetComponent<ProjectileWeapon>().weapon_speed *= enable ? weaponDB[weaponID].bulletSpeed : 1 / weaponDB[weaponID].bulletSpeed;
+        weapon.CurrentWeapon.GetComponent<ProjectileWeapon>().weapon_damage = weaponDB[weaponID].damage;
+        weapon.CurrentWeapon.GetComponent<ProjectileWeapon>().ReloadTime = weaponDB[weaponID].reloadSpeed;
+        weapon.CurrentWeapon.GetComponent<ProjectileWeapon>().MagazineSize = weaponDB[weaponID].magazine;
+        weapon.CurrentWeapon.GetComponent<ProjectileWeapon>().TimeBetweenUses = weaponDB[weaponID].useTime;
+        weapon.CurrentWeapon.GetComponent<ProjectileWeapon>().weapon_speed = weaponDB[weaponID].bulletSpeed;
     }
 
     private void OnEnable()

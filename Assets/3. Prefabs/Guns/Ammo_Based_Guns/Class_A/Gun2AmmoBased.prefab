@@ -10859,7 +10859,7 @@ MonoBehaviour:
   WeaponName: Gun1
   WeaponCurrentlyActive: 1
   InputAuthorized: 1
-  TriggerMode: 1
+  TriggerMode: 0
   DelayBeforeUse: 0
   DelayBeforeUseReleaseInterruption: 1
   TimeBetweenUses: 1
@@ -10931,6 +10931,7 @@ MonoBehaviour:
   TestShootButton: 0
   weapon_class: 2
   weapon_damage: 1
+  weapon_speed: 0
 --- !u!114 &2632127762807301206
 MonoBehaviour:
   m_ObjectHideFlags: 0

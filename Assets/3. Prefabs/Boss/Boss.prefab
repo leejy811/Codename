@@ -20012,7 +20012,7 @@ MonoBehaviour:
   TriggerMode: 1
   DelayBeforeUse: 0
   DelayBeforeUseReleaseInterruption: 1
-  TimeBetweenUses: 1
+  TimeBetweenUses: 1.5
   TimeBetweenUsesReleaseInterruption: 1
   UseBurstMode: 0
   BurstLength: 3
@@ -20082,7 +20082,7 @@ MonoBehaviour:
   TestShootButton: 0
   weapon_class: 0
   weapon_damage: 0
-  weapon_speed: 0
+  weapon_speed: 100
 --- !u!114 &3726395023951082831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21748,7 +21748,7 @@ MonoBehaviour:
   InputAuthorized: 1
   AnalogInput: 0
   ScriptDrivenInput: 0
-  WalkSpeed: 1
+  WalkSpeed: 3
   ShouldSetMovement: 1
   IdleThreshold: 0.05
   Acceleration: 10
@@ -22473,7 +22473,7 @@ MonoBehaviour:
   Label: 
   UseMinimumXDistance: 0
   MinimumXDistance: 1
-  dashSpeed: 25
+  dashSpeed: 20
   findTarget: 0
   isDashReady: 0
 --- !u!114 &7458702005557569322
@@ -22771,13 +22771,13 @@ MonoBehaviour:
   TriggerMode: 1
   DelayBeforeUse: 0
   DelayBeforeUseReleaseInterruption: 1
-  TimeBetweenUses: 0.2
+  TimeBetweenUses: 0.15
   TimeBetweenUsesReleaseInterruption: 1
   UseBurstMode: 0
   BurstLength: 3
   BurstTimeBetweenShots: 0.1
   MagazineBased: 1
-  MagazineSize: 20
+  MagazineSize: 30
   AutoReload: 0
   NoInputReload: 0
   ReloadTime: 0.9
@@ -22841,7 +22841,7 @@ MonoBehaviour:
   TestShootButton: 0
   weapon_class: 0
   weapon_damage: 0
-  weapon_speed: 0
+  weapon_speed: 100
 --- !u!114 &7726354427631279250
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -38,6 +38,9 @@ public class BossBlend : MonoBehaviour
         else
             characterModel.transform.localScale = new Vector3(1, 1, 1);
 
+        if(characterOrient2D == Vector2.zero)
+            characterOrient2D = new Vector2(1, -1);
+
         character._animator.SetFloat("xDir", characterOrient2D.x);
         character._animator.SetFloat("yDir", characterOrient2D.y);
     }

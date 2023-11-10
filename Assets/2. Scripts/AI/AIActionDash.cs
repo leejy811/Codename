@@ -136,8 +136,8 @@ namespace MoreMountains.TopDownEngine
             _health.ImmuneToKnockback = false;
 			isDashReady = false;
 			character._animator.SetBool("Dashing", false);
-			_characterMovement.SetDashSpeed(1);
-
+			_characterMovement.SetDashSpeed(_characterMovement.WalkSpeed);
+            
             _characterMovement?.SetHorizontalMovement(0f);
 			_characterMovement?.SetVerticalMovement(0f);
 		}
