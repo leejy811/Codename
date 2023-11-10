@@ -37,6 +37,17 @@ public class PlayerWeaponDB : MonoBehaviour, MMEventListener<MMInventoryEvent>
         {
             EqipWeapon(false, inventoryEvent.EventItem.ItemID);
         }
+        else if (inventoryEvent.InventoryEventType == MMInventoryEventType.Pick)
+        {
+            if (inventoryEvent.EventItem.ItemClass == ItemClasses.Weapon)
+            {
+                inventoryEvent.EventItem.Description = "Attack Damage : " + weaponDB[inventoryEvent.EventItem.ItemID].damage +
+                                                                                "\nReload Time : " + weaponDB[inventoryEvent.EventItem.ItemID].reloadSpeed +
+                                                                                "\nMagazine Size : " + weaponDB[inventoryEvent.EventItem.ItemID].magazine +
+                                                                                "\nTime Between Use : " + weaponDB[inventoryEvent.EventItem.ItemID].useTime +
+                                                                                "\nBullet Speed : " + weaponDB[inventoryEvent.EventItem.ItemID].bulletSpeed;
+            }
+        }
     }
 
     private void EqipWeapon(bool enable, string weaponID)
@@ -45,7 +56,7 @@ public class PlayerWeaponDB : MonoBehaviour, MMEventListener<MMInventoryEvent>
         weapon.CurrentWeapon.GetComponent<ProjectileWeapon>().ReloadTime *= enable ? weaponDB[weaponID].reloadSpeed : 1 / weaponDB[weaponID].reloadSpeed;
         weapon.CurrentWeapon.GetComponent<ProjectileWeapon>().MagazineSize *= enable ? weaponDB[weaponID].magazine : 1 / weaponDB[weaponID].magazine;
         weapon.CurrentWeapon.GetComponent<ProjectileWeapon>().TimeBetweenUses *= enable ? weaponDB[weaponID].useTime : 1 / weaponDB[weaponID].useTime;
-        //weapon.CurrentWeapon.GetComponent<ProjectileWeapon>().bulletSpeed *= weaponDB[weaponID].bulletSpeed;
+        weapon.CurrentWeapon.GetComponent<ProjectileWeapon>().weapon_speed *= enable ? weaponDB[weaponID].bulletSpeed : 1 / weaponDB[weaponID].bulletSpeed;
     }
 
     private void OnEnable()

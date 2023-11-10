@@ -321,6 +321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorLight: {fileID: 405812846905436117}
+  bossBgm: {fileID: 8300000, guid: f05fdbab96f2bb942a53a321e98f1ab5, type: 3}
 --- !u!1 &405812846905436117
 GameObject:
   m_ObjectHideFlags: 0

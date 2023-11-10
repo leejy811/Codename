@@ -13,8 +13,8 @@ namespace MoreMountains.TopDownEngine
 		/// the background music
 		[Tooltip("the audio clip to use as background music")]
 		public AudioClip SoundClip;
-		/// whether or not the music should loop
-		[Tooltip("whether or not the music should loop")]
+        /// whether or not the music should loop
+        [Tooltip("whether or not the music should loop")]
 		public bool Loop = true;
 		/// the ID to create this background music with
 		[Tooltip("the ID to create this background music with")]

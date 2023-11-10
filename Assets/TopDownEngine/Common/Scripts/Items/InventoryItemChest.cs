@@ -116,7 +116,7 @@ namespace MoreMountains.TopDownEngine
 			for (int i = 0; i < _popupItemList.Count; i++)
 			{
 				var item = Instantiate(_popupItemList[i]);
-				item.transform.SetParent(transform);
+                item.transform.SetParent(transform);
 				item.transform.localPosition = Vector3.zero;
 
 				float posX = _popupItemList.Count % 2 == 1 ? (i - (_popupItemList.Count / 2)) * 1.5f : (i - (_popupItemList.Count / 2) + 0.5f) * 1.5f;

@@ -497,11 +497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorLight: {fileID: 9068353891578368410}
-  isTop: 1
-  doorBottomSprites:
-  - {fileID: 21300000, guid: d66291dc0a96a944dbd014f48db16c60, type: 3}
-  - {fileID: 21300000, guid: 0813379b2acdc934ba64f1ad9e03cb48, type: 2}
-  spriteRenderer: {fileID: 9068353891578368404}
+  bossBgm: {fileID: 8300000, guid: f05fdbab96f2bb942a53a321e98f1ab5, type: 3}
 --- !u!1 &9068353890437608882
 GameObject:
   m_ObjectHideFlags: 0
