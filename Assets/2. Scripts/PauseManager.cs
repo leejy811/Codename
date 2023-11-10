@@ -24,7 +24,7 @@ public class PauseManager : MonoBehaviour
 
     public void LobbyButton_onMouseClick()
     {
-        SceneManager.LoadScene("StartScreen");
+        SceneManager.LoadScene("1. Scenes/StartScreen");
     }
 
     public void ExitButton_onMouseClick()
