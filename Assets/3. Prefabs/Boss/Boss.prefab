@@ -21813,8 +21813,8 @@ MonoBehaviour:
   Model: {fileID: 0}
   CurrentHealth: 0
   Invulnerable: 0
-  InitialHealth: 100
-  MaximumHealth: 100
+  InitialHealth: 2000
+  MaximumHealth: 2000
   ResetHealthOnEnable: 1
   ImmuneToDamage: 0
   DamageMMFeedbacks: {fileID: 943751931908249335}
@@ -22522,8 +22522,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Label: 
-  AfterTimeMin: 2
-  AfterTimeMax: 2
+  AfterTimeMin: 3
+  AfterTimeMax: 3
 --- !u!1 &7382893221151021371
 GameObject:
   m_ObjectHideFlags: 0
