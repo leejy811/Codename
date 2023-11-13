@@ -146,11 +146,13 @@ namespace MoreMountains.TopDownEngine
 				item.transform.SetParent(transform);
 				item.transform.localPosition = Vector3.zero;
 
+				item.GetComponent<BoxCollider2D>().enabled = false;
 				float posX = _popupItemList.Count % 2 == 1 ? (i - (_popupItemList.Count / 2)) * 1.5f : (i - (_popupItemList.Count / 2)+0.5f) * 1.5f;
 
 				var tween = item.transform.DOMove(new Vector3(posX,2,0),0.7f).SetRelative().SetEase(Ease.OutCubic);
 				yield return tween.WaitForCompletion();
-            }
+				item.GetComponent<BoxCollider2D>().enabled = false;
+			}
         }
 	}
 }
