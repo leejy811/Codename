@@ -151,7 +151,7 @@ namespace MoreMountains.TopDownEngine
 
 				var tween = item.transform.DOMove(new Vector3(posX,2,0),0.7f).SetRelative().SetEase(Ease.OutCubic);
 				yield return tween.WaitForCompletion();
-				item.GetComponent<BoxCollider2D>().enabled = false;
+				item.GetComponent<BoxCollider2D>().enabled = true;
 			}
         }
 	}
