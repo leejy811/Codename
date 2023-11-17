@@ -1,3 +1,5 @@
+using MoreMountains.Tools;
+using MoreMountains.TopDownEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +11,8 @@ public class PauseManager : MonoBehaviour
     
     public void NewGameButton_onMouseClick()
     {
-        SceneManager.LoadScene("IngameScene");
+        TopDownEngineEvent.Trigger(TopDownEngineEventTypes.UnPause, null);
+        MMSceneLoadingManager.LoadScene("IngameScene", "IngameScene");
     }
 
     public void ContinueButton_onMouseClick()
@@ -24,7 +27,9 @@ public class PauseManager : MonoBehaviour
 
     public void LobbyButton_onMouseClick()
     {
-        SceneManager.LoadScene("1. Scenes/StartScreen");
+        TopDownEngineEvent.Trigger(TopDownEngineEventTypes.UnPause, null);
+        MMSceneLoadingManager.LoadScene("1. Scenes/StartScreen", "StartScreen");
+        //SceneManager.LoadScene("1. Scenes/StartScreen");
     }
 
     public void ExitButton_onMouseClick()
