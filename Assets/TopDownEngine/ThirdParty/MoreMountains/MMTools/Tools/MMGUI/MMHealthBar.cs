@@ -163,10 +163,12 @@ namespace MoreMountains.Tools
 		protected Image _delayedImage = null;
 		protected bool _finalHideStarted = false;
 
-		/// <summary>
-		/// On Start, creates or sets the health bar up
-		/// </summary>
-		protected virtual void Awake()
+        [SerializeField] public GameObject stoneGolemHealthBar;
+
+        /// <summary>
+        /// On Start, creates or sets the health bar up
+        /// </summary>
+        protected virtual void Awake()
 		{
 			Initialization();
 		}
@@ -463,8 +465,15 @@ namespace MoreMountains.Tools
 		/// <param name="show">Whether or not we should show the bar.</param>
 		public virtual void UpdateBar(float currentHealth, float minHealth, float maxHealth, bool show)
 		{
-			// if the healthbar isn't supposed to be always displayed, we turn it on for the specified duration
-			if (!AlwaysVisible && show)
+			// 스톤골렘 보스 ui
+			if (stoneGolemHealthBar)
+			{
+				stoneGolemHealthBar.SetActive(true);
+				return;
+			}
+
+            // if the healthbar isn't supposed to be always displayed, we turn it on for the specified duration
+            if (!AlwaysVisible && show)
 			{
 				_showBar = true;
 				_lastShowTimestamp = (TimeScale == TimeScales.UnscaledTime) ? Time.unscaledTime : Time.time;

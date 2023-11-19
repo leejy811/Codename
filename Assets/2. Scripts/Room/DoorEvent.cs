@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using MoreMountains.TopDownEngine;
 using MoreMountains.Tools;
+using MoreMountains.Feedbacks;
 
 public class DoorEvent : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class DoorEvent : MonoBehaviour
         if (transform.parent.GetComponent<Door>().nextRoom.GetComponent<DungeonRoom>().roomName == "Boss")
         {
             BossDoorExit();
+            StoneGolemHealthBar.instance.bossUI_enable();
         }
         else
             transform.parent.GetComponent<Door>().ChangeCurrentRoom();
