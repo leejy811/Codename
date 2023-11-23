@@ -15,7 +15,6 @@ public class DoorEvent : MonoBehaviour
         if (transform.parent.GetComponent<Door>().nextRoom.GetComponent<DungeonRoom>().roomName == "Boss")
         {
             BossDoorExit();
-            StoneGolemHealthBar.instance.bossUI_enable();
         }
         else
             transform.parent.GetComponent<Door>().ChangeCurrentRoom();
@@ -50,5 +49,9 @@ public class DoorEvent : MonoBehaviour
 
         MMSoundManager.Instance.StopSound(MMSoundManager.Instance.FindByID(255));
         MMSoundManagerSoundPlayEvent.Trigger(bossBgm, options);
+
+        // 보스 연출
+        BossScene bs = BossScene.instance;
+        bs.CameraMoveToBoss();
     }
 }
