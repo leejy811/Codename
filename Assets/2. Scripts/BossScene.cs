@@ -36,6 +36,8 @@ public class BossScene : MonoBehaviour
         vcam1.Follow = LevelManager.Instance.Players[0].transform; // 카메라 바라보는 객체 플레이어로
         vcam1.LookAt = LevelManager.Instance.Players[0].transform; // 카메라 바라보는 객체 플레이어로
 
+        gameObject.GetComponentInChildren<Character>()._animator.SetBool("Enter", true);
+
         // 3f초 뒤 보스 연출
         StartCoroutine(BossProduce(3f));
     }
@@ -57,7 +59,7 @@ public class BossScene : MonoBehaviour
     public IEnumerator BossProduce(float _time)
     {
         yield return new WaitForSeconds(_time);
-
+        gameObject.GetComponentInChildren<Character>()._animator.SetBool("Enter", false);
         // 플레이어vs보스 영상
         bossVideo.SetActive(true);
 
@@ -86,7 +88,6 @@ public class BossScene : MonoBehaviour
     private IEnumerator CameraMoveToPlayer(float _time)
     {
         yield return new WaitForSeconds(_time);
-
         // 플레이어 vs 보스 UI off
         bossVideo.SetActive(false);
 
@@ -115,6 +116,5 @@ public class BossScene : MonoBehaviour
         yield return new WaitForSeconds(_time);
         vcam1.gameObject.SetActive(false); 
         vcam2.gameObject.SetActive(false);
-
     }
 }
