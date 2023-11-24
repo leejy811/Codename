@@ -22324,7 +22324,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Label: 
   TrueIfHealthIs: 1
-  HealthValue: 20
+  HealthValue: 400
   OnlyOnce: 1
 --- !u!114 &1856395237849950318
 MonoBehaviour:
@@ -22340,7 +22340,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Label: 
   TrueIfHealthIs: 3
-  HealthValue: 70
+  HealthValue: 1400
   OnlyOnce: 1
 --- !u!114 &1376502046354372910
 MonoBehaviour:
@@ -22543,7 +22543,7 @@ MonoBehaviour:
   Label: 
   RefillMode: 0
   RefillHealth: 1
-  HealthPerSecond: 10
+  HealthPerSecond: 200
   HealthPerBurst: 5
   DurationBetweenBursts: 2
 --- !u!114 &8047021519982858181
