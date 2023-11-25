@@ -76,11 +76,11 @@ public class BossScene : MonoBehaviour
             bossVideo.transform.GetChild(0).DOScaleY(1f, 0f).SetDelay(.5f).OnComplete(() => {
                 bossVideo.transform.GetChild(0).GetComponent<VideoPlayer>().Play();
             }); 
-            bossVideo.transform.GetChild(0).DOScaleY(0f, .1f).From(1f).SetDelay(3.5f);
+            bossVideo.transform.GetChild(0).DOScaleY(0f, .1f).From(1f).SetDelay(5.5f);
         });
 
         // 보스 연출 끝나고 6f초 뒤에 플레이어로 화면 이동
-        StartCoroutine(CameraMoveToPlayer(6f));
+        StartCoroutine(CameraMoveToPlayer(8f));
     }
 
 
