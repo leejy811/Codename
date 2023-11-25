@@ -24,6 +24,7 @@ namespace MoreMountains.TopDownEngine
 		public bool isDashReady= false;
 		protected Character character;
 
+		[SerializeField] GameObject warningArea;
 		
 		/// <summary>
 		/// On init we grab our CharacterMovement ability
@@ -47,10 +48,10 @@ namespace MoreMountains.TopDownEngine
 			Dash();
 		}
 
-		/// <summary>
-		/// Moves the character towards the target if needed
-		/// </summary>
-		protected virtual void Dash()
+        /// <summary>
+        /// Moves the character towards the target if needed
+        /// </summary>
+        protected virtual void Dash()
 		{
 			if (_brain.Target == null)
 			{
@@ -58,7 +59,10 @@ namespace MoreMountains.TopDownEngine
 			}
 			if(findTarget || !isDashReady)
             {
-				return;
+                _direction = (_brain.Target.position - this.transform.position).normalized;
+				float angle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg;
+				warningArea.transform.rotation = Quaternion.Slerp(warningArea.transform.rotation, Quaternion.AngleAxis(angle + 90f, Vector3.forward), Time.deltaTime * 5);
+                return;
             }
 			if (UseMinimumXDistance)
 			{
@@ -98,7 +102,7 @@ namespace MoreMountains.TopDownEngine
                     _characterMovement.SetDashSpeed(dashSpeed);
                     _direction = (_brain.Target.position - this.transform.position).normalized;
 					_characterMovement.SetMovement(_direction);
-				}
+                }
 			}
 			findTarget = true;
 			
@@ -115,9 +119,11 @@ namespace MoreMountains.TopDownEngine
 			else
 				character.CharacterModel.gameObject.transform.localScale = new Vector3(1, 1, 1);
 
+            warningArea.SetActive(true);
 
-			character._animator.SetBool("Dashing", true);
+            character._animator.SetBool("Dashing", true);
             yield return new WaitForSeconds(1f);
+            warningArea.SetActive(false);
             isDashReady = true;
         }
         public override void OnEnterState()
