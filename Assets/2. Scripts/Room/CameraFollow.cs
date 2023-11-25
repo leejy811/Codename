@@ -14,11 +14,15 @@ public class CameraFollow : MonoBehaviour
 
     private void Update()
     {
+        if (Camera.current == null) return;
+
         if (target == null)
         {
             target = LevelManager.Instance.Players[0].transform;
             offset = transform.position - target.position;
         }
+
+        if(this.GetComponent<Camera>().enabled==false) this.GetComponent<Camera>().enabled = true;
 
         targetPos = target.position + offset;
         transform.position = Vector3.Lerp(transform.position, targetPos, lerpSpeed * Time.deltaTime);
