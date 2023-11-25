@@ -209,6 +209,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a4a3f67695bb9447810a3391e592976, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorLight: {fileID: 0}
+  bossBgm: {fileID: 0}
 --- !u!1 &8632212688963681363
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,6 +548,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2396896858024400672, guid: b895bf6a5acd6f944abcf000ac287d3f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2627427879227999556, guid: b895bf6a5acd6f944abcf000ac287d3f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2664499766966901005, guid: b895bf6a5acd6f944abcf000ac287d3f,
         type: 3}
       propertyPath: m_Size.x
@@ -611,6 +623,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3320471965134918103, guid: b895bf6a5acd6f944abcf000ac287d3f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6853684150704980269, guid: b895bf6a5acd6f944abcf000ac287d3f,
         type: 3}
       propertyPath: m_IsActive
@@ -651,6 +668,11 @@ PrefabInstance:
       propertyPath: minimapRoom
       value: 
       objectReference: {fileID: 2872753097986626889}
+    - target: {fileID: 8938509377010098849, guid: b895bf6a5acd6f944abcf000ac287d3f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b895bf6a5acd6f944abcf000ac287d3f, type: 3}
 --- !u!4 &8755402078050442795 stripped
