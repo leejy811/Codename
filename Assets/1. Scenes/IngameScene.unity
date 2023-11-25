@@ -1730,7 +1730,7 @@ Camera:
   field of view: 60
   orthographic: 1
   orthographic size: 50
-  m_Depth: 3
+  m_Depth: 20
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 16777440
@@ -1753,12 +1753,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 89053793}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -322292.8, y: -68513.97, z: -7272.4004}
-  m_LocalScale: {x: 66.11273, y: 66.11273, z: 66.11273}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: -100}
+  m_LocalScale: {x: 0.01585639, y: 0.01585639, z: 0.01585639}
+  m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1859318096}
-  m_RootOrder: 13
+  m_Father: {fileID: 502743757}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &89053798
 MonoBehaviour:
@@ -10772,6 +10772,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502662654}
   m_CullTransparentMesh: 1
+--- !u!4 &502743757 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4729885435761226, guid: d73aa2d3898a69541852a65f3a8e14e0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1992075156}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519930639
 GameObject:
   m_ObjectHideFlags: 0
@@ -37824,12 +37830,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1857196446}
   m_CullTransparentMesh: 1
---- !u!224 &1859318096 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 224810208653939812, guid: d73aa2d3898a69541852a65f3a8e14e0,
-    type: 3}
-  m_PrefabInstance: {fileID: 1992075156}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1859850379
 GameObject:
   m_ObjectHideFlags: 0
@@ -41685,7 +41685,7 @@ PrefabInstance:
     - target: {fileID: 224182775345520874, guid: d73aa2d3898a69541852a65f3a8e14e0,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -7.999939
+      value: -7.9999084
       objectReference: {fileID: 0}
     - target: {fileID: 224193942126106522, guid: d73aa2d3898a69541852a65f3a8e14e0,
         type: 3}
@@ -42716,6 +42716,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7329273242529727649, guid: d73aa2d3898a69541852a65f3a8e14e0,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.29803923
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114952463511421538, guid: d73aa2d3898a69541852a65f3a8e14e0, type: 3}
