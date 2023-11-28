@@ -413,9 +413,6 @@ MonoBehaviour:
       - {fileID: 114269677218472172}
     Transitions:
       array:
-      - Decision: {fileID: 114225560325155718}
-        TrueState: 
-        FalseState: Detecting
       - Decision: {fileID: 114977332840471576}
         TrueState: Attacking
         FalseState: 
@@ -541,7 +538,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Label: 
   ComparisonMode: 1
-  Distance: 1
+  Distance: 2
 --- !u!114 &114544991609150994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -745,6 +742,7 @@ MonoBehaviour:
   DisplayDurationOnHit: 1
   HideBarAtZero: 1
   HideBarAtZeroDelay: 0
+  stoneGolemHealthBar: {fileID: 0}
 --- !u!114 &5296060867346013264
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -34,15 +34,13 @@ namespace MoreMountains.TopDownEngine
 		[SerializeField] protected GameObject[] weaponA;
 		[SerializeField] protected GameObject[] weaponB;
 		[SerializeField] protected GameObject[] weaponC;
-		
 
-
-		/// <summary>
-		/// On start we grab our animator and list of item pickers
-		/// </summary>
-		protected virtual void Start()
+        /// <summary>
+        /// On start we grab our animator and list of item pickers
+        /// </summary>
+        protected virtual void Start()
 		{
-			_animator = GetComponent<Animator> ();
+            _animator = GetComponent<Animator> ();
 			_itemPickerList = GetComponents<ItemPicker> ();
 			_popupItemList = new List<GameObject>();
 
@@ -106,7 +104,7 @@ namespace MoreMountains.TopDownEngine
 		/// </summary>
 		protected virtual void TriggerOpeningAnimation()
 		{
-			if (_animator == null)
+            if (_animator == null)
 			{
 				return;
 			}
@@ -154,5 +152,13 @@ namespace MoreMountains.TopDownEngine
 				item.GetComponent<BoxCollider2D>().enabled = true;
 			}
         }
-	}
+
+        private void OnEnable()
+        {
+            if(isChestOpened)
+			{
+				TriggerOpeningAnimation();
+            }
+        }
+    }
 }

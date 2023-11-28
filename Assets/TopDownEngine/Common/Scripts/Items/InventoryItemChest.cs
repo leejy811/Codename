@@ -127,5 +127,13 @@ namespace MoreMountains.TopDownEngine
 
 			}
 		}
-	}
+
+        private void OnEnable()
+        {
+            if (isChestOpened)
+            {
+                TriggerOpeningAnimation();
+            }
+        }
+    }
 }
