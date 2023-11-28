@@ -10,11 +10,13 @@ public class FloatingDamageText : MonoBehaviour, MMEventListener<MMDamageTakenEv
     [SerializeField]
     private DamageNumber damageNumber;
     private Health health;
+    private bool isBoss;
+
 
     private void Start()
     {
         health = this.GetComponent<Health>();
-
+        isBoss = this.gameObject.name == "Boss" ? true : false;
     }
     public void FloatingText()
     {
@@ -26,7 +28,10 @@ public class FloatingDamageText : MonoBehaviour, MMEventListener<MMDamageTakenEv
         if(damageTakenEvent.AffectedHealth == health)
         {
             Debug.Log("Damage : " + damageTakenEvent.DamageCaused);
-            damageNumber.Spawn(new Vector3(transform.position.x, transform.position.y + 1.5f, 0), damageTakenEvent.DamageCaused);
+            if(isBoss)
+                damageNumber.Spawn(new Vector3(transform.position.x, transform.position.y + 3f, 0), damageTakenEvent.DamageCaused);
+            else
+                damageNumber.Spawn(new Vector3(transform.position.x, transform.position.y + 1.5f, 0), damageTakenEvent.DamageCaused);
         }
 
     }
