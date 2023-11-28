@@ -26,7 +26,7 @@ public class FloatingDamageText : MonoBehaviour, MMEventListener<MMDamageTakenEv
         if(damageTakenEvent.AffectedHealth == health)
         {
             Debug.Log("Damage : " + damageTakenEvent.DamageCaused);
-            damageNumber.Spawn(new Vector3(transform.position.x, transform.position.y + 1f, 0), damageTakenEvent.DamageCaused);
+            damageNumber.Spawn(new Vector3(transform.position.x, transform.position.y + 1.5f, 0), damageTakenEvent.DamageCaused);
         }
 
     }
