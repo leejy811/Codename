@@ -15,6 +15,7 @@ public class DoorEvent : MonoBehaviour
         if (transform.parent.GetComponent<Door>().nextRoom.GetComponent<DungeonRoom>().roomName == "Boss")
         {
             BossDoorExit();
+            return;
         }
         else
             transform.parent.GetComponent<Door>().ChangeCurrentRoom();

@@ -107,6 +107,8 @@ public class BossScene : MonoBehaviour
         // 2f초뒤 가상카메라 OFF, 
         // (카메라 간 전환 속도는 메인 카메라의 Custom Blends 로 설정)
         StartCoroutine(VcamOff(2f));
+        LevelManager.Instance.Players[0].gameObject.GetComponent<CharacterMovement>().MovementSpeedMultiplier = 1;
+        LevelManager.Instance.Players[0].gameObject.GetComponent<Character>().ConditionState.ChangeState(CharacterStates.CharacterConditions.Normal);
     }
 
 
