@@ -11521,7 +11521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d7ce0b8cf4b34859b9e359283b2e7f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponName: Gun1
+  WeaponName: RifleA1
   WeaponCurrentlyActive: 1
   InputAuthorized: 1
   TriggerMode: 1
@@ -11596,6 +11596,7 @@ MonoBehaviour:
   TestShootButton: 0
   weapon_class: 2
   weapon_damage: 1
+  weapon_speed: 0
 --- !u!114 &2632127762807301206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11663,8 +11664,9 @@ MonoBehaviour:
   AmmoInventoryName: KoalaMainInventory
   MaxAmmo: 100
   ShouldLoadOnStart: 1
-  ShouldEmptyOnSave: 1
+  ShouldEmptyOnSave: 0
   CurrentAmmoAvailable: 0
+  CurrentStoreAmmo: 0
 --- !u!114 &-3581582538274934297
 MonoBehaviour:
   m_ObjectHideFlags: 0

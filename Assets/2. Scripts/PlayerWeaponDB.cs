@@ -11,6 +11,7 @@ public class PlayerWeaponDB : MonoBehaviour, MMEventListener<MMInventoryEvent>
     DataBaseManager DBManager;
     CharacterHandleWeapon weapon;
     Dictionary<string, WeaponDBEntity> weaponDB = new Dictionary<string, WeaponDBEntity>();
+    Dictionary<string, int> currentWeaponAmmo = new Dictionary<string, int>();
 
     private void Start()
     {
@@ -24,6 +25,7 @@ public class PlayerWeaponDB : MonoBehaviour, MMEventListener<MMInventoryEvent>
         foreach(WeaponDBEntity weaponEntity in DBManager.data.WeaponDB)
         {
             weaponDB[weaponEntity.weaponID] = weaponEntity;
+            currentWeaponAmmo[weaponEntity.weaponID] = weaponEntity.magazine;
         }
     }
 
@@ -32,6 +34,10 @@ public class PlayerWeaponDB : MonoBehaviour, MMEventListener<MMInventoryEvent>
         if (inventoryEvent.InventoryEventType == MMInventoryEventType.ItemEquipped)
         {
             EqipWeapon(true, inventoryEvent.EventItem.ItemID);
+        }
+        if (inventoryEvent.InventoryEventType == MMInventoryEventType.EquipRequest)
+        {
+            StoreAmmo();
         }
         else if (inventoryEvent.InventoryEventType == MMInventoryEventType.Pick)
         {
@@ -53,6 +59,20 @@ public class PlayerWeaponDB : MonoBehaviour, MMEventListener<MMInventoryEvent>
         weapon.CurrentWeapon.GetComponent<ProjectileWeapon>().MagazineSize = weaponDB[weaponID].magazine;
         weapon.CurrentWeapon.GetComponent<ProjectileWeapon>().TimeBetweenUses = weaponDB[weaponID].useTime;
         weapon.CurrentWeapon.GetComponent<ProjectileWeapon>().weapon_speed = weaponDB[weaponID].bulletSpeed;
+
+        weapon.CurrentWeapon.GetComponent<WeaponAmmo>().CurrentStoreAmmo = currentWeaponAmmo[weapon.CurrentWeapon.GetComponent<ProjectileWeapon>().WeaponName];
+        Debug.Log(weapon.CurrentWeapon.GetComponent<WeaponAmmo>().CurrentStoreAmmo);
+    }
+
+    private void StoreAmmo()
+    {
+        if (weapon.CurrentWeapon.GetComponent<ProjectileWeapon>().WeaponName == "InitialWeapon") 
+            return;
+
+        currentWeaponAmmo[weapon.CurrentWeapon.GetComponent<ProjectileWeapon>().WeaponName] = weapon.CurrentWeapon.GetComponent<ProjectileWeapon>().CurrentAmmoLoaded;
+
+
+
     }
 
     private void OnEnable()

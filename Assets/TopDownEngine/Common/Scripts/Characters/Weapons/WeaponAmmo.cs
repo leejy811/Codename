@@ -41,10 +41,12 @@ namespace MoreMountains.TopDownEngine
 		protected InventoryItem _ammoItem;
 		protected bool _emptied = false;
 
-		/// <summary>
-		/// On start, we grab the ammo inventory if we can find it
-		/// </summary>
-		protected virtual void Start()
+        public int CurrentStoreAmmo;
+
+        /// <summary>
+        /// On start, we grab the ammo inventory if we can find it
+        /// </summary>
+        protected virtual void Start()
 		{
 			_weapon = GetComponent<Weapon> ();
 			Inventory[] inventories = FindObjectsOfType<Inventory>();
@@ -57,7 +59,7 @@ namespace MoreMountains.TopDownEngine
 				if ((AmmoInventory == null) && (inventory.name == AmmoInventoryName))
 				{
 					AmmoInventory = inventory;
-				}
+                }
 			}
 			if (ShouldLoadOnStart)
 			{
@@ -70,7 +72,8 @@ namespace MoreMountains.TopDownEngine
 		/// </summary>
 		protected virtual void LoadOnStart()
 		{
-			FillWeaponWithAmmo ();
+			Debug.Log(CurrentStoreAmmo);
+			FillWeaponWithAmmo (CurrentStoreAmmo);
 		}
 
 		/// <summary>
@@ -149,7 +152,7 @@ namespace MoreMountains.TopDownEngine
 		/// <summary>
 		/// Fills the weapon with ammo
 		/// </summary>
-		public virtual void FillWeaponWithAmmo()
+		public virtual void FillWeaponWithAmmo(int reloadAmmoAmount)
 		{
 			if (AmmoInventory != null)
 			{
@@ -170,7 +173,7 @@ namespace MoreMountains.TopDownEngine
 				int counter = 0;
 				int stock = CurrentAmmoAvailable;
                 
-				for (int i = _weapon.CurrentAmmoLoaded; i < _weapon.MagazineSize; i++)
+				for (int i = 0; i < reloadAmmoAmount; i++)
 				{
 					if (stock > 0) 
 					{
@@ -246,7 +249,7 @@ namespace MoreMountains.TopDownEngine
 					break;
 
 				case MoreMountains.TopDownEngine.Weapon.WeaponStates.WeaponReloadStop:
-					FillWeaponWithAmmo();
+					FillWeaponWithAmmo(_weapon.MagazineSize - _weapon.CurrentAmmoLoaded);
 					break;
 			}
 		}
