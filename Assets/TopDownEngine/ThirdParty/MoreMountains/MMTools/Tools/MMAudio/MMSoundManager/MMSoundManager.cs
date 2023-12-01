@@ -996,6 +996,7 @@ namespace MoreMountains.Tools
 		/// </summary>
 		protected virtual void OnSceneLoaded(Scene arg0, LoadSceneMode loadSceneMode)
 		{
+			gameObject.GetComponent<AudioListener>().enabled = true;
 			FreeAllSoundsButPersistent();
 		}
 
