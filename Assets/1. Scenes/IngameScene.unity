@@ -2491,6 +2491,7 @@ MonoBehaviour:
   DefaultBackground: {fileID: 2100000, guid: 88f95e0353809c34a8ca83799c1be5b1, type: 2}
   VisitedBack: {fileID: 2100000, guid: 5f6f65af267331f469d83a099c7a3d7e, type: 2}
   currMaterial: {fileID: 2100000, guid: b807956bb40c2e542880a19900d3614f, type: 2}
+  bossBackground: {fileID: 2100000, guid: 328080bf9287fff42a00a41b6b9969ff, type: 2}
   isLoadingRoom: 0
   isCreateRoom: 0
 --- !u!4 &116007150
