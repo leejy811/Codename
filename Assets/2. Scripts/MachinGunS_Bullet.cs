@@ -14,10 +14,13 @@ public class MachinGunS_Bullet : MonoBehaviour
     [SerializeField] GameObject originEffect;
 
     public static int shootCnt=0;
+    public int soundRef;
 
     private void OnEnable()
     {
+        
         shootCnt++;
+        soundRef = shootCnt;
 
         if (shootCnt % 5 == 0)
         {

@@ -18,6 +18,7 @@ public class StoneGolemHealthBar : MonoBehaviour
 
     public static StoneGolemHealthBar instance = null;
     private Health _health;
+    bool isAlreadyDied = false;
 
     private void Awake()
     {
@@ -26,6 +27,8 @@ public class StoneGolemHealthBar : MonoBehaviour
 
     public void bossUI_enable()
     {
+        if (isAlreadyDied) return;
+
         // 보스 체력 ui 활성화
         _health = this.transform.parent.GetComponent<Health>();
         bossUI_object = Instantiate(bossUI_prefab, GUIManager.Current.MainCanvas.transform);
@@ -56,7 +59,14 @@ public class StoneGolemHealthBar : MonoBehaviour
             });
         });
 
-        if (_health.CurrentHealth <= 0f) Destroy(bossUI_object);
+        // 보스 사망 연출
+        if (_health.CurrentHealth <= 0f)
+        {
+            if (isAlreadyDied) return;
+            isAlreadyDied = true;
+            Destroy(bossUI_object);
+            BossScene.instance.BossRoomAppear();
+        }
         this.gameObject.SetActive(false);
     }
 
