@@ -163,10 +163,7 @@ public class BossScene : MonoBehaviour
 
     IEnumerator RightDoorOpen(float _time)
     {
-        yield return new WaitForSeconds(2f);
-        //gameObject.GetComponentInChildren<Character>()._animator.SetTrigger("DieStart");
-        
-        yield return new WaitForSeconds(_time - 2f);
+        yield return new WaitForSeconds(_time);
 
         // 가상 카메라 우선순위 설정 및 활성화
         vcam1.Priority = 0;
@@ -181,10 +178,7 @@ public class BossScene : MonoBehaviour
 
     IEnumerator LeftDoorOpen(float _time)
     {
-        yield return new WaitForSeconds(2f);
-        //gameObject.GetComponentInChildren<Character>()._animator.SetTrigger("DieStart");
-
-        yield return new WaitForSeconds(_time - 2f);
+        yield return new WaitForSeconds(_time);
 
         // 가상 카메라 우선순위 설정 및 활성화
         vcam1.gameObject.SetActive(false);
