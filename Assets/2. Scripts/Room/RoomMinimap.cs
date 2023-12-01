@@ -16,13 +16,16 @@ public class RoomMinimap : MonoBehaviour
 
     public GameObject currRoom;
     public bool visited = false;
-    
+    public bool isBoss = false;
+
     // Start is called before the first frame update
     void Start()
     {
         transform.gameObject.SetActive(false);
-        floorMap.GetComponentInChildren<MeshRenderer>().material = RoomController.Instance.DefaultBackground;
-
+        if (isBoss)
+            floorMap.GetComponentInChildren<MeshRenderer>().material = RoomController.Instance.bossBackground;
+        else
+            floorMap.GetComponentInChildren<MeshRenderer>().material = RoomController.Instance.DefaultBackground;
 
         Wall[] ws = GetComponentsInChildren<Wall>();
 
@@ -75,7 +78,12 @@ public class RoomMinimap : MonoBehaviour
             if(visited)
                 floorMap.GetComponentInChildren<MeshRenderer>().material = RoomController.Instance.VisitedBack;
             else
-                floorMap.GetComponentInChildren<MeshRenderer>().material = RoomController.Instance.DefaultBackground;
+            {
+                if (isBoss)
+                    floorMap.GetComponentInChildren<MeshRenderer>().material = RoomController.Instance.bossBackground;
+                else
+                    floorMap.GetComponentInChildren<MeshRenderer>().material = RoomController.Instance.DefaultBackground;
+            }
         }
     }
 

@@ -17,7 +17,7 @@ public class RoomController : Singleton<RoomController>
     public Material DefaultBackground;
     public Material VisitedBack;
     public Material currMaterial;
-
+    public Material bossBackground;
 
     public bool isLoadingRoom = false;
     public bool isCreateRoom = false;
