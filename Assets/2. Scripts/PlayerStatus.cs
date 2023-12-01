@@ -18,8 +18,6 @@ public class PlayerStatus : MonoBehaviour, MMEventListener<MMInventoryEvent>, MM
     bool hasSniper;
     bool hasMagazine;
 
-    Coroutine damageUpCoroutine;
-
     private void Start()
     {
         movement = gameObject.GetComponent<CharacterMovement>();
@@ -60,7 +58,7 @@ public class PlayerStatus : MonoBehaviour, MMEventListener<MMInventoryEvent>, MM
     {
         hasSniper = enable;
 
-        ApplyDamageUp(true);
+        ApplyDamageUp(enable);
         ApplyShootTime(enable);
     }
 
@@ -85,15 +83,11 @@ public class PlayerStatus : MonoBehaviour, MMEventListener<MMInventoryEvent>, MM
 
     private void ApplyDamageUp(bool enable)
     {
-        foreach (DungeonRoom room in RoomController.Instance.loadedRooms)
-        {
-            if (room.roomType == "Single") return;
+        if (weapon.CurrentWeapon == null) return;
+        if (weapon.CurrentWeapon.gameObject.GetComponent<ProjectileWeapon>() == null) return;
+        if (weapon.CurrentWeapon.gameObject.GetComponent<MMSimpleObjectPooler>() == null) return;
 
-            foreach (GameObject enemy in room.enemyList)
-            {
-                enemy.GetComponent<DamageResistance>().DamageMultiplier = enable ? 2f : 1f;
-            }
-        }
+        weapon.CurrentWeapon.GetComponent<ProjectileWeapon>().weapon_damage *= enable ? 2f : 0.5f;
     }
 
     private void ApplyLockItem(bool enable)
@@ -179,7 +173,7 @@ public class PlayerStatus : MonoBehaviour, MMEventListener<MMInventoryEvent>, MM
             }
             if(hasSniper)
             {
-                ApplyShootTime(true);
+                ApplySniperItem(true);
             }
             if (hasMagazine)
             {
@@ -192,10 +186,7 @@ public class PlayerStatus : MonoBehaviour, MMEventListener<MMInventoryEvent>, MM
     {
         if (hasReaction && damageTakenEvent.AffectedHealth.tag ==  "Player")
         {
-            if(damageUpCoroutine != null)
-                StopCoroutine(damageUpCoroutine);
-
-            damageUpCoroutine = StartCoroutine(DamageUp());
+            StartCoroutine(DamageUp());
         }
     }
 

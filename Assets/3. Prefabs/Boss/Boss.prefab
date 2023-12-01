@@ -21868,6 +21868,8 @@ GameObject:
   - component: {fileID: 2006873636257928263}
   - component: {fileID: 8210964672928146984}
   - component: {fileID: 7493650710311424864}
+  - component: {fileID: 7072084033071782159}
+  - component: {fileID: 942994456933611727}
   m_Layer: 13
   m_Name: Boss
   m_TagString: Enemy
@@ -22171,7 +22173,7 @@ MonoBehaviour:
   ColorMaterialPropertyName: _Color
   UseMaterialPropertyBlocks: 0
   MasterHealth: {fileID: 0}
-  TargetDamageResistanceProcessor: {fileID: 0}
+  TargetDamageResistanceProcessor: {fileID: 7072084033071782159}
   TargetAnimator: {fileID: 0}
   DisableAnimatorLogs: 1
 --- !u!114 &7487096463486110407
@@ -22896,6 +22898,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64426136360353b429fc3e1380d8a87c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7072084033071782159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7382844503125370699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a6f32aaa00064e488ee9421aeb0d5f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AutoFillDamageResistanceList: 1
+  IgnoreDisabledResistances: 1
+  IgnoreUnknownDamageTypes: 0
+  DamageResistanceList:
+  - {fileID: 942994456933611727}
+--- !u!114 &942994456933611727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7382844503125370699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aba29e69abb9854eb38bd7085b3f72c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Priority: 0
+  Label: 
+  DamageTypeMode: 0
+  TypeResistance: {fileID: 0}
+  DamageModifierMode: 0
+  DamageMultiplier: 1
+  FlatDamageReduction: 10
+  ClampDamage: 0
+  DamageModifierClamps: {x: 0, y: 10}
+  PreventCharacterConditionChange: 0
+  PreventMovementModifier: 0
+  ImmuneToKnockback: 0
+  KnockbackModifierMode: 0
+  KnockbackMultiplier: 1
+  FlatKnockbackMagnitudeReduction: 10
+  ClampKnockback: 0
+  KnockbackMaxMagnitude: 10
+  OnDamageReceived: {fileID: 0}
+  InterruptibleFeedback: 0
+  AlwaysInterruptFeedbackBeforePlay: 0
+  TriggerFeedbackIfDamageIsZero: 0
 --- !u!1 &7382893221151021371
 GameObject:
   m_ObjectHideFlags: 0

@@ -28927,6 +28927,7 @@ MonoBehaviour:
   vcam1: {fileID: 2041589959}
   vcam2: {fileID: 1744022634}
   minimap: {fileID: 89053793}
+  minimapRawImage: {fileID: 1202836352}
   bossVideo: {fileID: 1401213633}
   bossRoomCenter: {fileID: 3492844957099511059}
   bossPos: {fileID: 1791764387}

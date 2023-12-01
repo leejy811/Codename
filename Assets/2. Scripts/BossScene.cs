@@ -14,6 +14,7 @@ public class BossScene : MonoBehaviour
     [SerializeField] public CinemachineVirtualCamera vcam1; // 플레이어 카메라
     [SerializeField] public CinemachineVirtualCamera vcam2; // 보스 카메라
     [SerializeField] public GameObject minimap; // 미니맵
+    [SerializeField] public GameObject minimapRawImage; // 미니맵
     [SerializeField] public GameObject bossVideo; // 플레이어 vs 보스 영상 캔버스
     [SerializeField] public GameObject bossRoomCenter; // 보스 방 중앙
     [SerializeField] public GameObject bossPos; // 보스 위치
@@ -37,6 +38,7 @@ public class BossScene : MonoBehaviour
         // UI OFF
         GUIManager.Instance.gameObject.SetActive(false);
         minimap.SetActive(false);
+        minimapRawImage.SetActive(false);
         // 0.5초 뒤, 가상 카메라 우선순위 설정 및 가상카메라 on
         StartCoroutine(VcamSetPriority(.5f));
 
