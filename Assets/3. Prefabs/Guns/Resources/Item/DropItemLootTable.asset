@@ -30,7 +30,11 @@ MonoBehaviour:
         type: 3}
       Weight: 1
       ChancePercentage: 12.5
+    - Loot: {fileID: 9140274731206863875, guid: 2b616894accf4144ba52219acdb46e9b,
+        type: 3}
+      Weight: 1
+      ChancePercentage: 12.5
     - Loot: {fileID: 0}
-      Weight: 4
-      ChancePercentage: 50
+      Weight: 3
+      ChancePercentage: 37.5
     WeightsTotal: 8

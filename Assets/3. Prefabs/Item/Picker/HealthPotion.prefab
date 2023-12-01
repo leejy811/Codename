@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9140258944477748057}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.77699995, z: -0.052117262}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -1, z: -0.052117262}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9138668070143737015}
@@ -132,7 +132,7 @@ Transform:
   m_GameObject: {fileID: 9140274731206863875}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9136934422069929239}
@@ -165,7 +165,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6, y: 0.8}
+  m_Size: {x: 1, y: 1.2}
   m_EdgeRadius: 0
 --- !u!114 &8460603927820138946
 MonoBehaviour:
@@ -190,7 +190,7 @@ MonoBehaviour:
   Model: {fileID: 0}
   RequireCharacterComponent: 1
   RequirePlayerType: 1
-  HealthToGive: 50
+  HealthToGive: 20
   OnlyForPlayerCharacter: 1
 --- !u!1 &9140326801610071107
 GameObject:
@@ -271,7 +271,7 @@ Transform:
   m_GameObject: {fileID: 9140394000327994819}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9136934422069929239}

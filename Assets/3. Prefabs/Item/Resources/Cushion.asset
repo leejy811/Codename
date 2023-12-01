@@ -34,8 +34,10 @@ MonoBehaviour:
     DisplayUnequipButton: 1
   Quantity: 1
   ItemName: Cushion
-  ShortDescription: Cushion
-  Description: Cushion
+  ShortDescription: 
+  Description: '+ Bouncy Projectile
+
+    - Magazine Size Down'
   Icon: {fileID: 21300000, guid: 9504e6a17e0aac944aa16c2821fe98cb, type: 3}
   Prefab: {fileID: 8886680892219387829, guid: d4772412f9ee6e5418fdb5e2fefe0693, type: 3}
   ForcePrefabDropQuantity: 0
