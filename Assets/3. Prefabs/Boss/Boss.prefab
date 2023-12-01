@@ -22155,7 +22155,7 @@ MonoBehaviour:
   PreventTakeSelfDamage: 0
   ImmuneToKnockback: 0
   ImmuneToKnockbackIfZeroDamage: 0
-  KnockbackForceMultiplier: 1
+  KnockbackForceMultiplier: 0
   DestroyOnDeath: 1
   DelayBeforeDestruction: 4
   PointsWhenDestroyed: 0
