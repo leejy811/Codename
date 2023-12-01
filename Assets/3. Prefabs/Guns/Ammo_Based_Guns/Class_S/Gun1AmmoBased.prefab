@@ -12010,8 +12010,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b7277539b95c0d45895792ecc99ce66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MutualizeWaitingPools: 0
-  NestWaitingPool: 1
+  MutualizeWaitingPools: 1
+  NestWaitingPool: 0
   NestUnderThis: 0
   GameObjectToPool: {fileID: 8952079078724476447, guid: 6e608e5493be22444984b79d44ffd23e,
     type: 3}

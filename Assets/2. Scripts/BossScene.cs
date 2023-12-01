@@ -152,18 +152,21 @@ public class BossScene : MonoBehaviour
 
         if (leftOrRight > 0) // 3초 뒤 왼쪽 방 오픈
         {
-            StartCoroutine(LeftDoorOpen(3f));
+            StartCoroutine(LeftDoorOpen(4f));
         }
         else // 3초 뒤 오른쪽 방 오픈
         {
-            StartCoroutine(RightDoorOpen(3f));
+            StartCoroutine(RightDoorOpen(4f));
         }
 
     }
 
     IEnumerator RightDoorOpen(float _time)
     {
-        yield return new WaitForSeconds(_time);
+        yield return new WaitForSeconds(2f);
+        //gameObject.GetComponentInChildren<Character>()._animator.SetTrigger("DieStart");
+        
+        yield return new WaitForSeconds(_time - 2f);
 
         // 가상 카메라 우선순위 설정 및 활성화
         vcam1.Priority = 0;
@@ -178,7 +181,10 @@ public class BossScene : MonoBehaviour
 
     IEnumerator LeftDoorOpen(float _time)
     {
-        yield return new WaitForSeconds(_time);
+        yield return new WaitForSeconds(2f);
+        //gameObject.GetComponentInChildren<Character>()._animator.SetTrigger("DieStart");
+
+        yield return new WaitForSeconds(_time - 2f);
 
         // 가상 카메라 우선순위 설정 및 활성화
         vcam1.gameObject.SetActive(false);
