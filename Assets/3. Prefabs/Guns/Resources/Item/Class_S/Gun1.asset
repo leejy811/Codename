@@ -35,9 +35,18 @@ MonoBehaviour:
   Quantity: 1
   ItemName: Stray
   ShortDescription: S
-  Description: Gun1
+  Description: 'Attack Damage : 25
+
+    Reload Time : 0.7
+
+    Magazine Size : 80
+
+    Time
+    Between Use : 0.07
+
+    Bullet Speed : 0'
   Icon: {fileID: 21300000, guid: 52802ce23391ca04c9c5093e4f7acb9a, type: 3}
-  Prefab: {fileID: 2632127762807301211, guid: a2d406b637f66544db7e90bc7ee21e2f, type: 3}
+  Prefab: {fileID: 0}
   ForcePrefabDropQuantity: 0
   PrefabDropQuantity: 1
   DropProperties:

@@ -20061,13 +20061,13 @@ MonoBehaviour:
   TriggerMode: 1
   DelayBeforeUse: 0
   DelayBeforeUseReleaseInterruption: 1
-  TimeBetweenUses: 1.5
+  TimeBetweenUses: 0.8
   TimeBetweenUsesReleaseInterruption: 1
   UseBurstMode: 0
   BurstLength: 3
   BurstTimeBetweenShots: 0.1
   MagazineBased: 1
-  MagazineSize: 5
+  MagazineSize: 8
   AutoReload: 0
   NoInputReload: 0
   ReloadTime: 0.9
@@ -20130,8 +20130,8 @@ MonoBehaviour:
   SpawnFeedbacks: []
   TestShootButton: 0
   weapon_class: 0
-  weapon_damage: 0
-  weapon_speed: 100
+  weapon_damage: 10
+  weapon_speed: 150
 --- !u!114 &3726395023951082831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22607,7 +22607,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Label: 
   TrueIfHealthIs: 1
-  HealthValue: 400
+  HealthValue: 500
   OnlyOnce: 1
 --- !u!114 &1856395237849950318
 MonoBehaviour:
@@ -22807,7 +22807,7 @@ MonoBehaviour:
   Label: 
   UseMinimumXDistance: 0
   MinimumXDistance: 1
-  dashSpeed: 20
+  dashSpeed: 27
   findTarget: 0
   isDashReady: 0
   warningArea: {fileID: 4830415064426254555}
@@ -22827,7 +22827,7 @@ MonoBehaviour:
   Label: 
   RefillMode: 0
   RefillHealth: 1
-  HealthPerSecond: 200
+  HealthPerSecond: 300
   HealthPerBurst: 5
   DurationBetweenBursts: 2
 --- !u!114 &8047021519982858181
@@ -22885,7 +22885,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4647f650df79dac45a135208b0677d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionDamage: 10
+  collisionDamage: 15
 --- !u!114 &7493650710311424864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23195,13 +23195,13 @@ MonoBehaviour:
   TriggerMode: 1
   DelayBeforeUse: 0
   DelayBeforeUseReleaseInterruption: 1
-  TimeBetweenUses: 0.15
+  TimeBetweenUses: 0.1
   TimeBetweenUsesReleaseInterruption: 1
   UseBurstMode: 0
   BurstLength: 3
   BurstTimeBetweenShots: 0.1
   MagazineBased: 1
-  MagazineSize: 30
+  MagazineSize: 50
   AutoReload: 0
   NoInputReload: 0
   ReloadTime: 0.9
@@ -23264,8 +23264,8 @@ MonoBehaviour:
   SpawnFeedbacks: []
   TestShootButton: 0
   weapon_class: 0
-  weapon_damage: 0
-  weapon_speed: 100
+  weapon_damage: 7
+  weapon_speed: 170
 --- !u!114 &7726354427631279250
 MonoBehaviour:
   m_ObjectHideFlags: 0

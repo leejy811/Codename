@@ -16,25 +16,25 @@ MonoBehaviour:
     ObjectsToLoot:
     - Loot: {fileID: 8886680892219387829, guid: d4772412f9ee6e5418fdb5e2fefe0693,
         type: 3}
-      Weight: 1
-      ChancePercentage: 12.5
+      Weight: 5
+      ChancePercentage: 10.416667
     - Loot: {fileID: 8886680892219387829, guid: 136e1fe15bcde3a4c9ec8d5f57fef225,
         type: 3}
-      Weight: 1
-      ChancePercentage: 12.5
+      Weight: 4
+      ChancePercentage: 8.333333
     - Loot: {fileID: 8886680892219387829, guid: 27d441f8904037440a44a9a0f6c4525c,
         type: 3}
-      Weight: 1
-      ChancePercentage: 12.5
+      Weight: 3
+      ChancePercentage: 6.25
     - Loot: {fileID: 8886680892219387829, guid: d0a5edc61a5539b409324442d427f7c9,
         type: 3}
-      Weight: 1
-      ChancePercentage: 12.5
+      Weight: 4
+      ChancePercentage: 8.333333
     - Loot: {fileID: 9140274731206863875, guid: 2b616894accf4144ba52219acdb46e9b,
         type: 3}
-      Weight: 1
-      ChancePercentage: 12.5
+      Weight: 2
+      ChancePercentage: 4.1666665
     - Loot: {fileID: 0}
-      Weight: 3
-      ChancePercentage: 37.5
-    WeightsTotal: 8
+      Weight: 30
+      ChancePercentage: 62.5
+    WeightsTotal: 48

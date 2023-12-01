@@ -37,7 +37,7 @@ MonoBehaviour:
   ShortDescription: Pistol
   Description: 
   Icon: {fileID: 21300000, guid: c4b5a492b6bc8c5469ed209acb5df9ab, type: 3}
-  Prefab: {fileID: 8886680892219387829, guid: 136e1fe15bcde3a4c9ec8d5f57fef225, type: 3}
+  Prefab: {fileID: 0}
   ForcePrefabDropQuantity: 0
   PrefabDropQuantity: 1
   DropProperties:

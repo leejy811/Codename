@@ -571,11 +571,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24ff5d9462c103e4fb3c70f4590102c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bonusItemProb: 50
-  weaponRankProb_C: 40
+  bonusItemProb: 80
+  weaponRankProb_C: 35
   weaponRankProb_B: 30
   weaponRankProb_A: 20
-  weaponRankProb_S: 10
+  weaponRankProb_S: 15
   weaponS:
   - {fileID: 6617568784995713354, guid: 4b91f0d1ca39e84419f4c12f4b355633, type: 3}
   - {fileID: 6909662253438054174, guid: 116143bcdaf400e4fad38096fb87f24e, type: 3}

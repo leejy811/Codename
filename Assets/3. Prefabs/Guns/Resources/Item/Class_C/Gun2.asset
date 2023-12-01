@@ -37,7 +37,7 @@ MonoBehaviour:
   ShortDescription: C
   Description: Gun2
   Icon: {fileID: 21300000, guid: b2f849842b64a364497685c0ea2600fa, type: 3}
-  Prefab: {fileID: 2632127762807301211, guid: 7945501b5d0165f4884df7285258c566, type: 3}
+  Prefab: {fileID: 0}
   ForcePrefabDropQuantity: 0
   PrefabDropQuantity: 1
   DropProperties:
