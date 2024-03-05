@@ -28,6 +28,7 @@ public class BossClearDoor : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.tag != "Player") return;
         Debug.Log(other.gameObject.name);
 
         // 문 재입장되는거 막기
