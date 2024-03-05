@@ -40090,8 +40090,8 @@ MonoBehaviour:
   - {x: 1, y: 0, z: -1}
   - {x: -1, y: 0, z: 1}
   - {x: 1, y: 0, z: 1}
-  minRoomCnt: 16
-  maxRoomCnt: 20
+  minRoomCnt: 2
+  maxRoomCnt: 2
   currRoomCnt: 0
   maxDistance: 5
   validRoomCount: 0
